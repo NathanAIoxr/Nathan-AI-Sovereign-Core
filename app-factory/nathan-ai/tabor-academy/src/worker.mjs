@@ -1,4 +1,4 @@
-const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.announcement { margin: clamp(2rem, 6vw, 5rem) 0 0; border-top: 1px solid #778360; padding-top: 1.4rem; }\n.status { margin: 0 0 .55rem; font-size: clamp(.85rem, 2vw, 1.15rem); font-weight: 700; letter-spacing: .15em; color: #e6cf87; }\n.timing { margin: 0; font-size: clamp(1rem, 3.1vw, 2.2rem); font-weight: 620; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<div class=\"announcement\">\n<p class=\"status\">COMING SOON</p>\n<p class=\"timing\">LIKE IN THE NEXT FIVE MINUTES</p>\n</div>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a></p>\n</main>\n</body>\n</html>";
+const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a></p>\n</main>\n</body>\n</html>";
 
 const teaser = {
   fetch(request) {
@@ -142,11 +142,13 @@ function workbenchPage(title, body) {
 
 async function workbenchCatalog(env, guide) {
   const { results } = await env.LIBRARY.prepare(`
-    SELECT number, guide, guide_title, title, media FROM academy_techniques
-    WHERE (?1 IS NULL OR guide = ?1) ORDER BY number
+    SELECT t.number, t.guide, t.guide_title, t.title, t.media, z.namespace_name, z.brief
+    FROM academy_techniques AS t LEFT JOIN academy_technique_zones AS z ON t.number = z.number
+    WHERE (?1 IS NULL OR t.guide = ?1) ORDER BY t.number
   `).bind(guide).all();
   return results.map(({ media, ...record }) => ({
     ...record, media: Array.from(media, (key) => mediumNames[key]),
+    zone: workbenchPath + "zones/" + record.number + "/",
     lesson: record.number === 47 ? workbenchPath + "47/" : null,
   }));
 }
@@ -163,8 +165,8 @@ function renderGuides(records, guide) {
   const index = Array.from(sections, ([number, entries]) => `<section id="guide-${number}">
     <h2>Field Guide ${number} · ${escape(entries[0].guide_title)}</h2>
     <ol class="catalog" start="${entries[0].number}">${entries.map((entry) => `<li>
-      ${entry.lesson ? `<a href="${entry.lesson}">${escape(entry.title)}</a>` : escape(entry.title)}
-      <span class="media">${escape(entry.media.join(" · "))}${entry.lesson ? " · Lesson and sandbox ready" : ""}</span>
+      <a href="${entry.zone}">${escape(entry.title)}</a>
+      <span class="media">${escape(entry.media.join(" · "))}${entry.lesson ? " · Lesson and sandbox ready" : fieldActivities[entry.number] ? " · Field activity ready" : ""}</span>
     </li>`).join("")}</ol></section>`).join("");
   return workbenchPage(guide ? "Field Guide " + guide : "Tabor Workbench", `
     <p>${guide ? "Technique index for this field guide." : "101 techniques across seven field guides. Each entry shows where it belongs in the Academy blueprint."}</p>
@@ -217,6 +219,63 @@ function cordLesson(params) {
     </ol><h2>Show and replicate</h2><p>Remove the pencils and rebuild the triangle from memory. Have the learner point to each side and explain how they checked the square corner.</p></section>`);
 }
 
+
+const fieldActivities = {
+  "4": [
+    "A paper bridge that holds three coins",
+    "Place the finished bridge on two books and put three coins on it. Turn it over to inspect the folds.",
+    "Fold a sheet into an accordion and span the same gap. Test one coin at a time and compare with a flat sheet."
+  ],
+  "21": [
+    "One proverb you can test",
+    "Read “Measure twice, cut once.” Decide what measuring twice is supposed to prevent.",
+    "Use two strips of paper. Mark a target length once on the first strip and check the second strip twice. Tear along each mark and compare both strips against the target."
+  ],
+  "46": [
+    "Two piles combined into one total",
+    "Put two pebbles in the left space and three in the right space. Move them into the middle one at a time as you count.",
+    "Draw three circles on paper for the two starting piles and the total. Build a second example with different counts and tell someone how you checked the result."
+  ],
+  "59": [
+    "A folded paper shape that stands on its own",
+    "Look at a folded accordion standing on its long edge. Count the peaks and valleys from one end.",
+    "Fold two identical sheets, one into an accordion and one just down the center. Stand both on a flat surface and compare what happens when you gently nudge them."
+  ],
+  "65": [
+    "A small woven square with alternating rows",
+    "Turn over a sample of paper weaving. Trace one strip across the page and say where it passes over and under.",
+    "Lay four paper strips on the table. Weave a fifth strip over and under. Start the next row the opposite way. Tug one loose edge, repair it, and explain why the alternating pattern matters."
+  ],
+  "92": [
+    "Two shares made by one person and chosen by another",
+    "Give two players eight paper tokens. One player makes two shares and the other chooses first.",
+    "Ask each player what made the result fair. Swap roles and repeat with an odd number of tokens. Compare the new shares and agree on a rule for the extra token."
+  ],
+  "101": [
+    "A finished object the learner can build and teach",
+    "Choose one Workbench field activity. Show the finished result and explain the check you used to see whether it worked.",
+    "Rebuild it from the starting materials, then teach another person the steps. Record what they could reproduce and one place where the explanation needed to be clearer."
+  ]
+};
+
+async function renderZone(number, env) {
+  const record = await env.LIBRARY.prepare(`
+    SELECT t.number, t.title, t.guide, t.media, z.namespace_name, z.brief
+    FROM academy_techniques AS t JOIN academy_technique_zones AS z ON t.number = z.number
+    WHERE t.number = ?
+  `).bind(number).first();
+  if (!record) return null;
+  const activity = fieldActivities[number];
+  const field = activity ? `<section><h2>Z · Finished outcome</h2><p>${escape(activity[0])}</p>
+    <h2>Show it</h2><p>${escape(activity[1])}</p>
+    <h2>A · Replicate and verify</h2><p>${escape(activity[2])}</p></section>`
+    : number === 47 ? `<section><h2>Field activity and Sandbox</h2><p><a href="${workbenchPath}47/">Open the printable cord lesson and triangle test</a></p></section>` : "";
+  return workbenchPage(number + ". " + record.title, `
+    <p><a href="${workbenchPath}?guide=${record.guide}">Field Guide ${record.guide}</a> ·
+    ${escape(Array.from(record.media, (key) => mediumNames[key]).join(" · "))}</p>
+    ${field}<section><h2>Development brief</h2><p>${escape(record.brief)}</p><p>${escape(record.namespace_name)}</p></section>`);
+}
+
 async function serveWorkbench(request, env) {
   const url = new URL(request.url);
   const head = request.method === "HEAD";
@@ -226,6 +285,16 @@ async function serveWorkbench(request, env) {
   const isLesson = ["/workbench/47", "/workbench/47/"].includes(url.pathname);
   const isCatalog = ["/workbench", "/workbench/"].includes(url.pathname);
   const isJson = url.pathname === "/workbench/techniques.json";
+  const zoneMatch = new RegExp("^/workbench/zones/([1-9][0-9]{0,2})/?$").exec(url.pathname);
+  if (zoneMatch) {
+    try {
+      const zone = await renderZone(Number(zoneMatch[1]), env);
+      return zone ? render(zone, "text/html") : render("Technique zone not found.", "text/plain", 404);
+    } catch (error) {
+      console.error("Academy technique zone query failed", error);
+      return render("Technique zone temporarily unavailable.", "text/plain", 503);
+    }
+  }
   if (!isLesson && !isCatalog && !isJson) return teaser.fetch(request);
   if (isLesson) return render(cordLesson(url.searchParams), "text/html");
   const rawGuide = url.searchParams.get("guide");
