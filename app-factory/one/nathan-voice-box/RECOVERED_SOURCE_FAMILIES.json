@@ -1,0 +1,28 @@
+{
+  "recovery": "NATHAN AI Voice Box source families",
+  "status": "located_not_merged",
+  "branches": [
+    {
+      "branch": "feature/nathan-voicebox-edge-micro-macro-20261106",
+      "project": "Universal Voice Box offline edge reference",
+      "root": "app-factory/one/nathan-voice-box"
+    },
+    {
+      "branch": "feat/device-first-voice-box-20261106",
+      "project": "Device-first Voice Box web/native adapter",
+      "root": "app-factory/nathan-ai/voice-box"
+    },
+    {
+      "branch": "feat/living-ears-full-spectrum-voice-20261106",
+      "project": "Living Ears full spectrum",
+      "root": "app-factory/nathan-ai/living-ears"
+    },
+    {
+      "branch": "feat/voice-box-native-offline-runtime-20261108",
+      "project": "Voice Box native offline runtime",
+      "root": "app-factory/nathan-ai/voice-box"
+    }
+  ],
+  "policy": "Preserve all branches independently; inspect overlapping paths before integration; no auto merge or private audio transfer.",
+  "cloudflare_deployed": false
+}
