@@ -219,15 +219,42 @@ ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} 
     const title = "Reality Math · Multiplication and Subtraction";
     return layout(title, `<h1>${title}</h1>
 <p class="byline">Tabor Academy</p>
-<p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a> · <a href="${foundation.path}three-apples/">The Three Apples Reality</a></p>
+<p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a> · <a href="${foundation.path}three-apples/">The Three Apples Reality</a> · <a href="${foundation.path}reality-math/million-dollar/">The Million-Dollar Multiplication Test</a></p>
 <div class="reality-math">${foundation.realityMath}</div>`);
+  }
+
+  function millionDollarPage(search) {
+    const title = "The Million-Dollar Multiplication Test";
+    const path = foundation.path + "reality-math/million-dollar/";
+    const gross = search.get("gross") ?? "1000000";
+    const rate = search.get("rate") ?? "80";
+    const wholeDollars = /^\d{1,13}$/.test(gross) && Number(gross) <= 1_000_000_000_000;
+    const percentage = /^\d{1,3}$/.test(rate) && Number(rate) <= 100;
+    const currency = new Intl.NumberFormat("en-US", {
+      style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 2,
+    });
+    let result = "Enter a nonnegative whole-dollar amount up to $1 trillion and a whole percentage from 0 to 100.";
+    if (wholeDollars && percentage) {
+      const amount = Number(gross);
+      const deductionCents = amount * Number(rate);
+      result = `<strong>${currency.format(deductionCents / 100)} taken out + ${currency.format((amount * 100 - deductionCents) / 100)} paid = ${currency.format(amount)} gross</strong>`;
+    }
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">Tabor Academy · Reality Math</p>
+<nav aria-label="Lesson links"><a href="${path}source.txt">Original Nathan Tabor directive</a><a href="#zero">The zero test</a><a href="#binary">Binary and decimal</a><a href="#before-payout">The 80% audit</a><a href="#public-records">Public filings</a><a href="#audit">Conductor capstone</a></nav>
+<section id="calculator"><h2>Reconcile a payout</h2>
+<form method="get" action="${path}#calculator" class="score">
+<label for="gross">Gross dollars</label><input id="gross" name="gross" type="number" min="0" max="1000000000000" step="1" required value="${wholeDollars ? Number(gross) : ""}">
+<label for="rate">Deduction (%)</label><input id="rate" name="rate" type="number" min="0" max="100" step="1" required value="${percentage ? Number(rate) : ""}">
+<button type="submit">Reconcile</button></form><output for="gross rate">${result}</output></section>
+${foundation.millionDollar.lesson}`);
   }
 
   function threeApplesPage() {
     const title = "The Three Apples Reality";
     return layout(title, `<h1>${title}</h1>
 <p class="byline">Tabor Academy · The Law of Conservation &amp; Full Accountability</p>
-<p><a href="${foundation.path}three-apples/source.txt">Read the original Three Apples text and Conductor handoff</a> · <a href="${foundation.path}reality-math/">Reality Math</a></p>
+<p><a href="${foundation.path}three-apples/source.txt">Read the original Three Apples text and Conductor handoff</a> · <a href="${foundation.path}reality-math/">Reality Math</a> · <a href="${foundation.path}reality-math/million-dollar/">The Million-Dollar Multiplication Test</a></p>
 <div class="reality-math">${foundation.threeApples.lesson}</div>`);
   }
 
@@ -369,6 +396,12 @@ ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} 
       }
       if (path === "/foundation/reality-math") {
         return respond(request, realityMathPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/reality-math/million-dollar") {
+        return respond(request, millionDollarPage(url.searchParams), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/reality-math/million-dollar/source.txt") {
+        return respond(request, foundation.millionDollar.source, 200, "text/plain; charset=utf-8");
       }
       if (path === "/foundation/three-apples") {
         return respond(request, threeApplesPage(), 200, "text/html; charset=utf-8");
