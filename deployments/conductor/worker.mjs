@@ -1,3 +1,4 @@
+import { nodeTemplate } from "./node-template/runtime.mjs";
 import { serveHolidayHandoff } from "./holiday-handoff.mjs";
 import { serveSovereignMindsHandoff } from "./sovereign-minds-handoff.mjs";
 import { serveMiningHandoff } from "./mining-handoff.mjs";
@@ -77,6 +78,8 @@ export default {
     const { pathname } = new URL(request.url);
     const path = (pathname === prefix || pathname.startsWith(prefix + "/") ? pathname.slice(prefix.length) : pathname) || "/";
     const method = request.method;
+    const template = await nodeTemplate.route(request, env, path, { operator: gateOperator, limitedBody });
+    if (template) return template;
     const gated = await releaseGate(request, env, path, { json, limitedBody, operator: gateOperator });
     if (gated) return gated;
     if (path==="/cheironomer/internal/dns-gate" && method==="GET") {

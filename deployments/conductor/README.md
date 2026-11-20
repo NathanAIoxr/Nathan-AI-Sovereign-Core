@@ -14,6 +14,8 @@ Nathan AI’s control plane for submitting a known operation, seeing it move thr
 
 [Sovereign MINDs](sovereign-minds/) uses the same Cloudflare cockpit and provides a GitHub release verifier, a source ledger, and the Lasso of Truth prompts.
 
+[Nathan AI Node Template](node-template/) connects the existing AI, Worker and compute registries to the Conductor's shared receipt API and audit ledger. [Live contract](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/node-template/contract)
+
 [Lasso of Truth Release Gate](release-gate/) validates staged binary, algorithm and LLM output before release and returns a 1 or 0 with a receipt.
 
 [Groundskeeper AI](groundskeeper/) runs Collyn Phillips Tabor’s infrastructure and continuity role through read-only service checks and the Lasso release gate.

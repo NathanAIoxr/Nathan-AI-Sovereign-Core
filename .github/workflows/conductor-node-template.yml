@@ -1,0 +1,76 @@
+name: Nathan AI Conductor Node Template
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'deployments/conductor/node-template/**'
+      - 'deployments/conductor/migrations/0005_node_template.sql'
+      - '.github/workflows/conductor-node-template.yml'
+  pull_request:
+    paths:
+      - 'deployments/conductor/node-template/**'
+      - 'deployments/conductor/migrations/0005_node_template.sql'
+      - '.github/workflows/conductor-node-template.yml'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Nathan AI Six Dogs CI', 'Zeros and Ones · D1 and Worker']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node --test deployments/conductor/node-template/runtime.test.mjs deployments/conductor/release-gate/release-gate.test.mjs
+      - name: Verify Cloudflare readiness
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          url=https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor
+          curl -fsS --retry 3 --max-time 15 "$url/api/node-template/health" | jq -e '.ready == true and (.registrySources | length == 8)'
+          curl -fsS --retry 3 --max-time 15 "$url/api/release-gate/health" | jq -e '.ready == true'
+
+  stage-ci-repair:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      github.event.workflow_run.event != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record the trusted run identity for CI triage
+        run: |
+          jq -e '{
+            template: "1.0.0",
+            operation: "ci-repair",
+            outcome: "review-required",
+            evidence: {
+              repository: .repository.full_name,
+              workflow: .workflow_run.name,
+              run_id: .workflow_run.id,
+              attempt: .workflow_run.run_attempt,
+              revision: .workflow_run.head_sha,
+              conclusion: .workflow_run.conclusion
+            }
+          }' "$GITHUB_EVENT_PATH" > ci-repair-candidate.json
+          sha256sum ci-repair-candidate.json > ci-repair-candidate.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: node-template-ci-repair-candidate
+          path: |
+            ci-repair-candidate.json
+            ci-repair-candidate.sha256
+          if-no-files-found: error
+          retention-days: 14

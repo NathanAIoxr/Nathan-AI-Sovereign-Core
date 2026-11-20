@@ -94,3 +94,19 @@ binding = "AI"
 
 # The standard Tabor Train Worker provides native Queue push and minute Cron.
 # Cheironomer runs its ten-second Durable Object alarm in this dispatch Worker.
+
+# Nathan AI node template. Access is limited to fixed registry queries in the Worker.
+[[d1_databases]]
+binding = "NODE_FLEET_READ"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
+
+[[d1_databases]]
+binding = "NODE_CORE_READ"
+database_name = "nathan-sovereign-vault"
+database_id = "d3043fdb-4c19-4387-b634-1257eb4b7168"
+
+[[d1_databases]]
+binding = "NODE_COMPUTE_READ"
+database_name = "tabor-database-registry"
+database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"
