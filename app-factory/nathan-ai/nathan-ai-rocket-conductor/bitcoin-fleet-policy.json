@@ -1,0 +1,53 @@
+{
+  "project": "nathan-ai-rocket-conductor",
+  "lead": "Nathan AI Rocket 🚀",
+  "mode": "REAL_BITCOIN_MINING_ORCHESTRATION",
+  "execution": "AUTHORIZED_HARDWARE_ONLY",
+  "projects": [
+    {
+      "id": "octopus-mirror-engine",
+      "role": "block-header-and-share-verification"
+    },
+    {
+      "id": "modern-day-real-life-golden-goose",
+      "role": "accounting-and-confirmed-reward-distribution"
+    },
+    {
+      "id": "nathan-ai-rocket-conductor",
+      "role": "fleet-authorization-and-monitoring"
+    }
+  ],
+  "compute": {
+    "super2x": {
+      "slots": 1000,
+      "active": 0
+    },
+    "hyper": {
+      "slots": 1000,
+      "active": 0
+    },
+    "requireExplicitOwnership": true,
+    "requirePoolEndpoint": true,
+    "requireHardwareCredentials": true
+  },
+  "refineries": [
+    "oyster-mushroom-dedup",
+    "pestalotiopsis-polymer-filter",
+    "sunflower-contaminant-quarantine",
+    "geobacter-energy-meter",
+    "alcanivorax-throughput-cleanup",
+    "oyster-filter-intake",
+    "ideonella-pet-decomposition",
+    "waxworm-compaction"
+  ],
+  "rules": {
+    "neverUseUnownedCompute": true,
+    "neverScanForHosts": true,
+    "neverMineOnCloudflareEdge": true,
+    "neverFabricateRewards": true,
+    "requireValidProofOfWork": true,
+    "requireConfirmedPoolPayouts": true,
+    "disableUnboundedAutoscaling": true
+  },
+  "status": "CONFIGURED_NOT_ACTIVE"
+}
