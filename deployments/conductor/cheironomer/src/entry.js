@@ -7,7 +7,7 @@ import {parseVoice,parseText} from "./voice_telemetry.js";
 const hdr={"cache-control":"no-store","x-content-type-options":"nosniff","content-security-policy":"default-src 'none'; script-src 'self'; connect-src 'self'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"};
 const decode = text => Uint8Array.from(atob(text.replaceAll("-","+").replaceAll("_","/")),v=>v.charCodeAt(0));
 
-async function operator(request,env) {
+export async function operator(request,env) {
   const token=request.headers.get("Cf-Access-Jwt-Assertion");
   if (!token || !env.CHEIR_ACCESS_AUD || token.length>16000) return null;
   try {
