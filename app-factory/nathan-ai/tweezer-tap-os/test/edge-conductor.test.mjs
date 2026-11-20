@@ -114,4 +114,12 @@ await call('/brake',{});
 assert.equal((await call('/tap',tap)).status,423);
 await call('/resume',{});
 assert.equal((await call('/tap',tap)).status,202);
+env.RELAY_KEY = 'test-relay';
+const internal = key => worker.fetch(new Request('https://tweezer-tap-os.internal/internal/queue', {
+  method:'POST', headers:{ 'X-Conductor-Relay':key }, body:JSON.stringify({
+    queue:'zone-tweezer-events-q', messages:[{ body:{ zone:'zone/tweezer-tap-os', kind:'TIME_BOOTSTRAP' } }]
+  })
+}),env);
+assert.equal((await internal('invalid')).status,404);
+assert.deepEqual(await (await internal('test-relay')).json(),{ack:[0]});
 console.log('Conductor, queue, staged audit, and authorization tests passed.');

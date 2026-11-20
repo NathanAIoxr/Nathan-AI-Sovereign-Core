@@ -389,9 +389,17 @@ export default {
         const batch = messages.map((message, index) => ({
           ...message, ack: () => ack.push(index), retry: () => {}
         }));
+        const boot = queue === 'zone-tweezer-events-q' ?
+          batch.filter(message => message.body?.zone === zone && message.body?.kind === 'TIME_BOOTSTRAP') : [];
+        if (boot.length) {
+          const reply = await master(env).fetch('https://tweezer-tap-os.internal/internal/cron', {
+            method: 'POST', body: JSON.stringify({ epoch: Date.now() })
+          });
+          if (reply.ok) for (const message of boot) message.ack();
+        }
         const legacy = queue === 'zone-tweezer-events-q' &&
           env.REHEARSAL ? batch.filter(message => message.body?.zone === 'tweezer-tap-os') : [];
-        await consume({ queue, messages: batch.filter(message => !legacy.includes(message)) }, env, zone);
+        await consume({ queue, messages: batch.filter(message => !boot.includes(message) && !legacy.includes(message)) }, env, zone);
         if (legacy.length) await env.REHEARSAL.queue({ queue, messages: legacy }, env);
         return json({ ack });
       }
