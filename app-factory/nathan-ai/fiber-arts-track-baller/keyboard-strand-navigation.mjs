@@ -23,8 +23,7 @@ export function attachKeyboardStrandNavigation(element, strands, onSelection, { 
       return;
     } else return;
     event.preventDefault?.();
-    index = next;
-    onSelection(Object.freeze({id:ids[index],index,source:'keyboard',activated:false}), event);
+    if (onSelection(Object.freeze({id:ids[next],index:next,source:'keyboard',activated:false}), event) !== false) index = next;
   }
   element.addEventListener('keydown', keydown);
   return Object.freeze({
