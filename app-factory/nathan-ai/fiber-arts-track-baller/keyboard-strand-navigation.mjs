@@ -19,6 +19,8 @@ export function attachKeyboardStrandNavigation(element, strands, onSelection, { 
     else if (event.key === 'Enter' || event.key === ' ') {
       if (index < 0) return;
       event.preventDefault?.();
+      // Ignore auto-repeat activation while still suppressing Space scrolling.
+      if (event.repeat) return;
       onSelection(Object.freeze({id: ids[index], index, source:'keyboard', activated:true}), event);
       return;
     } else return;
