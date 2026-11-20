@@ -1,4 +1,5 @@
-import { writeFile } from 'node:fs/promises';
+import { link, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { dirname, join, resolve } from 'node:path';
 import { candidateBytes, discard } from './policy.mjs';
 
 const endpoint = 'https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/release-gate/evaluate';
@@ -28,7 +29,15 @@ async function main() {
       receipt.kind !== kind || receipt.producer !== producer || receipt.action !== action || receipt.destination !== intendedId) {
     return discard('gate_unavailable');
   }
-  await writeFile(destination, bytes, { flag: 'wx', mode: 0o600 });
+  const output = resolve(destination);
+  const staging = await mkdtemp(join(dirname(output), '.lasso-release-'));
+  const temporary = join(staging, 'payload');
+  try {
+    await writeFile(temporary, bytes, { flag: 'wx', mode: 0o600 });
+    await link(temporary, output);
+  } finally {
+    await rm(staging, { recursive: true, force: true }).catch(() => {});
+  }
   return receipt;
 }
 
