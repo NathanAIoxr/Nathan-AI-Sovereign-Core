@@ -4,8 +4,9 @@ import { createStrandAriaLiveRegion } from './strand-aria-live-region.mjs';
 /** Opt-in keyboard strand navigation with an existing ARIA live region.
  * No DOM insertion, persistence, network calls, or physical yarn calibration.
  */
-export function attachKeyboardAriaSelection(element, strands, region, { enabled = false, labels = {}, onSelection = () => {} } = {}) {
+export function attachKeyboardAriaSelection(element, strands, region, { enabled = false, allowEscapeClear = false, labels = {}, onSelection = () => {} } = {}) {
   if (typeof enabled !== 'boolean') throw new TypeError('enabled must be boolean');
+  if (typeof allowEscapeClear !== 'boolean') throw new TypeError('allowEscapeClear must be boolean');
   if (typeof onSelection !== 'function') throw new TypeError('onSelection callback required');
   const live = createStrandAriaLiveRegion({ region, labels, enabled });
   let disposed = false;
@@ -17,7 +18,7 @@ export function attachKeyboardAriaSelection(element, strands, region, { enabled 
       if (onSelection(selection, event) === false) return false;
       live.onSelection(selection);
       return true;
-    }, { isEnabled: () => !disposed && navigationEnabled });
+    }, { isEnabled: () => !disposed && navigationEnabled, allowEscapeClear });
   } catch (error) {
     live.dispose();
     throw error;
