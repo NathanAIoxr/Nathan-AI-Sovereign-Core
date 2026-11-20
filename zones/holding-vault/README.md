@@ -68,3 +68,9 @@ Open a project in the owner preview to inspect its staged components or download
 Every workspace has a stand-in website at `/holding-vault/preview/<workspace-id>/site`. Its reserved `.zones.test` name is displayed in the preview. The working URL is served by Tabor Bridge behind Cloudflare Access. The placeholder name is never written to production domain or DNS fields.
 
 Each staged component has a private page scoped to its workspace and stable source identity. The preview views update with the underlying registry and component snapshots, so new entries receive pages automatically. Open the workspace first to reach its stand-in website and snapshot. Supply the real hostname and release details when the project is ready for launch.
+
+## Launch brakes and source traces
+
+The global KV launch switch is `gate:*`. Each workspace uses `gate:<workspace-id>`. Both keys must explicitly contain `LIVE` before a public redirect is possible. `BRAKE`, `HOLDING`, missing keys, and KV failures close the gate. The Worker also requires `LAUNCH_STATUS=LIVE` and reads the individual launch state and domain verification from the D1 primary. For an immediate project brake, set the D1 launch state to `HOLDING` and set its KV switch to `BRAKE`. For a global rollout brake, set `gate:*` to `BRAKE`. Allow for Cloudflare KV propagation before treating the KV update as effective at every location.
+
+Private source traces follow provenance edges for each workspace and its companion projects. A trace marks unresolved references, external references, and nodes with no outgoing edge in the tracked graph. It also reports when its 2,000-node limit is reached. Follow a trace from the owner preview for the project.

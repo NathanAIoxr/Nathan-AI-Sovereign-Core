@@ -23,14 +23,28 @@ test('preview list and private objects require authorization', async () => {
 
 test('only explicitly live records on the assigned domain can leave holding', async () => {
   let row = {domain:'project.example',domain_status:'active',launch_status:'LIVE',public_url:'https://project.example/book'};
-  const DB = {prepare:()=>({bind:()=>({first:async()=>row})})};
+  const DB = {withSession(policy) {
+    assert.equal(policy,'first-primary');
+    return {prepare:()=>({bind:()=>({first:async()=>row})})};
+  }};
+  const switches = new Map([['gate:*','LIVE'],['gate:project','LIVE']]);
+  const CACHE = {get:async key=>switches.get(key)};
+  const live = {...env,DB,CACHE,LAUNCH_STATUS:'LIVE'};
   const path = request('/holding/project');
   assert.equal((await gate.fetch(path,{...env,DB})).status,200);
-  assert.equal((await gate.fetch(path,{...env,DB,LAUNCH_STATUS:'LIVE'})).headers.get('location'),row.public_url);
+  assert.equal((await gate.fetch(path,live)).headers.get('location'),row.public_url);
+  for (const key of switches.keys()) {
+    for (const setting of ['BRAKE','HOLDING',null]) {
+      switches.set(key,setting);
+      assert.equal((await gate.fetch(path,live)).headers.get('location'),null);
+    }
+    switches.set(key,'LIVE');
+  }
+  assert.equal((await gate.fetch(path,{...live,CACHE:{get:async()=>{throw Error('Unavailable');}}})).headers.get('location'),null);
   row = {...row,public_url:'https://unrelated.example/book'};
-  assert.equal((await gate.fetch(path,{...env,DB,LAUNCH_STATUS:'LIVE'})).status,200);
+  assert.equal((await gate.fetch(path,live)).status,200);
   row = {...row,public_url:'https://project.example/book',domain_status:'pending'};
-  assert.equal((await gate.fetch(path,{...env,DB,LAUNCH_STATUS:'LIVE'})).status,200);
+  assert.equal((await gate.fetch(path,live)).status,200);
 });
 
 test('HTTP handling preserves the holding boundary', async () => {
@@ -84,7 +98,7 @@ test('snapshot downloads require owner authorization', async () => {
 
 
 test('private stand-in pages deny guest access', async () => {
-  for (const path of ['/preview/project-a/site','/preview/project-a/site/part/example']) {
+  for (const path of ['/preview/project-a/site','/preview/project-a/site/part/example','/preview/provenance/project-a']) {
     const response = await gate.fetch(request(path),env);
     assert.equal(response.status,401);
     assert.equal(response.headers.get('cache-control'),'no-store');

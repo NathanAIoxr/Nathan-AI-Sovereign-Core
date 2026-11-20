@@ -142,6 +142,44 @@ async function showReaders(env,base,search,asJson) {
   return page("Integration candidates",`<p><a href="${base}/preview">Project registry</a> · <a href="${path}.json${query(offset)}">JSON evidence</a></p>${files?`<ol>${files}</ol>`:"<p>No integration candidates for this view.</p>"}${next}`);
 }
 
+export async function canLaunch(env, id) {
+  if (env.LAUNCH_STATUS !== "LIVE") return false;
+  try {
+    const switches = await Promise.all([
+      env.CACHE.get("gate:*"),
+      env.CACHE.get("gate:" + id)
+    ]);
+    return switches.every((state) => state === "LIVE");
+  } catch {
+    return false;
+  }
+}
+
+export async function traceSources(db, workspaceId) {
+  if (!validId(workspaceId)) throw Error("Invalid workspace");
+  const {results} = await db.prepare(`WITH RECURSIVE
+    reachable(key) AS (
+      SELECT node_key FROM zone_reader_provenance_nodes WHERE node_key=?1
+      UNION
+      SELECT e.target_key FROM reachable r
+      JOIN zone_reader_provenance_edges e ON e.source_key=r.key
+      WHERE e.relation IN ('companion','references','source reference','embedded reference',
+        'snapshot of','stored in','pinned-source','verified GitHub reference','verified at')
+      OR (e.relation='contains' AND r.key LIKE 'zone:%')
+      LIMIT 2001
+    )
+    SELECT n.kind,n.locator,n.resolution,
+      NOT EXISTS (
+        SELECT 1 FROM zone_reader_provenance_edges e
+        WHERE e.source_key=n.node_key AND (e.relation IN ('companion','references','source reference',
+          'embedded reference','snapshot of','stored in','pinned-source','verified GitHub reference','verified at')
+          OR (e.relation='contains' AND n.node_key LIKE 'zone:%'))
+      ) AS terminal
+    FROM reachable r JOIN zone_reader_provenance_nodes n ON n.node_key=r.key
+    ORDER BY n.resolution,n.locator,n.node_key`).bind("zone:" + workspaceId).all();
+  return {workspace:workspaceId,truncated:results.length > 2000,sources:results.slice(0,2000)};
+}
+
 async function handle(request, env) {
   const base = env.MOUNT_PATH === "/holding-vault" ? "/holding-vault" : "";
   const {pathname, searchParams} = new URL(request.url);
@@ -153,8 +191,9 @@ async function handle(request, env) {
 
   const publicMatch = /^\/holding\/([^/]+)\/?$/.exec(pathname);
   if (publicMatch && validId(publicMatch[1])) {
-    if (env.LAUNCH_STATUS === "LIVE") {
-      const record = await projectRow(env, publicMatch[1]);
+    if (await canLaunch(env, publicMatch[1])) {
+      const db = env.DB.withSession("first-primary");
+      const record = await projectRow({DB:db}, publicMatch[1]);
       if (record?.launch_status === "LIVE" && record.domain_status === "active") {
         const target = new URL(record.public_url);
         if (target.protocol === "https:" && target.hostname === record.domain && !target.username && !target.password && !target.port) {
@@ -171,6 +210,13 @@ async function handle(request, env) {
     return await showReaders(env,base,searchParams,pathname.endsWith(".json"));
   }
 
+
+  const provenanceMatch = /^\/preview\/provenance\/([^/]+)\/?$/.exec(pathname);
+  if (provenanceMatch) {
+    const id = provenanceMatch[1];
+    if (!validId(id) || !await projectRow(env,id)) return text("Project not found",404);
+    return json(await traceSources(env.DB,id));
+  }
 
   if (pathname === "/preview" || pathname === "/preview/") {
     const after = searchParams.get("after") ?? "";
@@ -208,8 +254,9 @@ async function handle(request, env) {
     const {rows,nextOffset} = await readZoneComponents(env.DB,record.workspace_id,30);
     const list = rows.map((row) => `<li>${escape(row.component_type)} · ${escape(row.source_ref ?? row.source_id)}</li>`).join("");
     const snapshot = `${base}/preview/${record.workspace_id}/snapshot.json`;
+    const provenance = `${base}/preview/provenance/${record.workspace_id}`;
     const count = nextOffset === null ? rows.length : "30+";
-    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><p><a href="${base}/preview/${record.workspace_id}/site">Website preview</a></p><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a></p><ul>${list}</ul>`);
+    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><p><a href="${base}/preview/${record.workspace_id}/site">Website preview</a></p><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a> · <a href="${provenance}">Source trace</a></p><ul>${list}</ul>`);
   }
 
   const segments = match[3].split("/");
