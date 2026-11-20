@@ -1,9 +1,13 @@
-[
-  "sovereign-website-core",
-  "sovereign-book-series",
-  "sovereign-apps",
-  "sovereign-games",
-  "tap-that-command-center",
-  "tap-that-arcade",
-  "collyn-tabor-pumpkin-patch"
-]
+{
+  "existing": [
+    "sovereign-website-core",
+    "sovereign-book-series",
+    "sovereign-apps",
+    "sovereign-games"
+  ],
+  "managed": [
+    "tap-that-command-center",
+    "tap-that-arcade",
+    "collyn-tabor-pumpkin-patch"
+  ]
+}
