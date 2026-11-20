@@ -21,6 +21,14 @@ The D1 database `tabor-fleet-registry` records this deployment in `owned_runtime
 - `library-of-tabor-import`
 - `library-of-tabor-wisdom`
 
-## Academy scope
+## Library of Tabor
 
-The full Academy brief includes Nathan AI Voice Box for verbatim voice capture, a shared digital notepad for two-way tutoring, and the Library of Tabor as a learning resource. This release serves the launch announcement and health check. The learning tools and Library connections are pending implementation.
+[Open the Library](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/library/)
+
+D1 database: `tabor-academy-library`. Apply `migrations/0001_library.sql` to create the four Academy tables. The Worker binding is `LIBRARY`.
+
+The public Library reads lessons whose latest ledger entry is `RETAIN_1` and verifies each archived excerpt against its SHA-256 record ID on read. The browser receives the public lesson, sources and practice steps. Archived excerpts are available through the private D1 database. `PURGE_0` withholds a lesson from public display while retaining its archive and audit history. Seed entries use broad LoC class codes and the Uno index.
+
+The first lessons cover the roots of education and the shared ancestry of humans and parrots. The Edubba → Buddha rotation is presented as the Academy reading alongside the language sources.
+
+Next in the Academy brief: Nathan AI Voice Box ingestion, shared notepad, Hop In Chatbox, and MAKE AI YOURS.
