@@ -7,6 +7,8 @@ import { foundation as foundationStatement, foundationQuote } from "./foundation
 import { learningMethods } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
 import { academyLearningSite } from "./learning-methods/sites.mjs";
+import { curriculum as masteryCurriculum } from "./mastery/data.mjs";
+import { createMastery } from "./mastery/runtime.mjs";
 
 const here = new URL("./", import.meta.url);
 export const blueprintSource = await readFile(new URL("blueprint.json", here), "utf8");
@@ -52,10 +54,12 @@ export const civics = {
   html: await readFile(new URL("civics/lesson.html", here), "utf8"),
   source: await readFile(new URL("civics/source.txt", here), "utf8"),
 };
+const masteryClient = await readFile(new URL("mastery/practice.js", here), "utf8");
+const masteryHandoff = JSON.parse(await readFile(new URL("../../../deployments/conductor/academy/human-mastery.json", here), "utf8"));
 const catalog = JSON.parse(await readFile(new URL("../map/topics.json", here), "utf8"));
 const civicsPath = "/institution/civics/";
 export const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
-export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify([civics, foundation])).update(foundationQuote.toString()).update(renderArchitectureCourse.toString()).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).digest("hex").slice(0, 16);
+export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify([civics, foundation])).update(foundationQuote.toString()).update(renderArchitectureCourse.toString()).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).update(createMastery.toString()).update(JSON.stringify([masteryCurriculum, masteryHandoff, masteryClient])).digest("hex").slice(0, 16);
 const start = "/* BEGIN TABOR ACADEMY INSTITUTION */";
 const end = "/* END TABOR ACADEMY INSTITUTION */";
 
@@ -66,6 +70,7 @@ function updateAcademyMap(source) {
     for (const [path, group] of [
       [civicsPath, "History and the record"],
       ["/institution/learning-methods/", "Learning paths and the Academy"],
+      ["/institution/mastery/", "Learning paths and the Academy"],
       ["/institution/foundation/", "Learning paths and the Academy"],
       ["/institution/foundation/architecture/", "Learning paths and the Academy"],
       ["/institution/foundation/architecture/course/", "Learning paths and the Academy"],
@@ -104,6 +109,7 @@ function updateAcademyHome(source, includeInstitutionLink) {
 ${foundationQuote(foundation)}
 <p><a href="${foundation.path}" style="color:#e6cf87">Tabor Academy Foundation</a></p>
 <p><a href="${foundation.path}architecture/" style="color:#e6cf87">The Architecture of Everything and Nothing</a></p>
+<p><a href="/tabor-academy/institution/mastery/" style="color:#e6cf87">Human Learning, Survival &amp; Mastery</a></p>
 </div>` + foundationEnd;
   const first = page.indexOf(foundationStart);
   const last = page.indexOf(foundationEnd);
@@ -131,7 +137,9 @@ export function buildWorker(source) {
       JSON.stringify(blueprint) + ", " + JSON.stringify(release) + ", " + JSON.stringify(civics) + ", " + JSON.stringify(foundation) + ", renderAcademyFoundationQuote, renderAcademyArchitectureCourse);",
     "const serveAcademyLearningMethods = (" + createLearningMethods.toString() + ")(" +
       JSON.stringify(learningMethods) + ", " + JSON.stringify(academyLearningSite) + ");",
-    "const serveAcademyInstitution = (request, env, ctx) => serveAcademyLearningMethods(request) ?? serveAcademyInstitutionBase(request, env, ctx);",
+    "const serveAcademyMastery = (" + createMastery.toString() + ")(" +
+      [masteryCurriculum, masteryHandoff, masteryClient].map(value => JSON.stringify(value)).join(", ") + ");",
+    "const serveAcademyInstitution = (request, env, ctx) => serveAcademyMastery(request) ?? serveAcademyLearningMethods(request) ?? serveAcademyInstitutionBase(request, env, ctx);",
     end, "",
   ].join("\n");
   if (source.includes(start) || source.includes(end)) {

@@ -152,7 +152,7 @@ fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0
 <div id="mastery"><div id="practice">${masteryForm(search, rubric, base)}</div></div></section>` : "";
     return layout("Nine Pillars", `<h1>Nine Pillars</h1><p class="byline">Tabor Academy · ${esc(blueprint.meta.author)}</p>
 <p>Trace the path from a curriculum to a lesson, a mastery check, and an official record.</p>
-<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a> · <a href="${foundation.path}">${esc(foundation.title)}</a></p>
+<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a> · <a href="${base}/mastery/">Human Learning, Survival &amp; Mastery</a> · <a href="${foundation.path}">${esc(foundation.title)}</a></p>
 <section><h2>Institutional architecture</h2><ol class="pillars">${pillars}</ol></section>${practice}`);
   }
 

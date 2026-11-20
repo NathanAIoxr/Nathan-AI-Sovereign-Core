@@ -289,3 +289,80 @@ test("both programs have all 101 activities, five checkpoints and verbatim downl
     assert.equal((await (await call("/api/methods")).json()).methods.length, 101);
   }
 });
+
+test("mounts all mastery lessons, capstones and downloads through the assembled Worker", async () => {
+  const baseWorker = `const page = "<main><h1>Academy</h1></main>";
+export default {
+  async fetch(request, env) {
+    const { pathname } = new URL(request.url);
+    return new Response(pathname === "/" ? page : pathname);
+  }
+};`;
+  const packaged = buildWorker(baseWorker);
+  assert.equal(buildWorker(packaged), packaged);
+  const { default: worker } = await import("data:text/javascript;base64," + Buffer.from(packaged).toString("base64"));
+  const root = "https://academy.invalid/institution/mastery/";
+  const get = (path, init) => worker.fetch(new Request(root + path, init), {});
+  const home = await (await get("")).text();
+  assert.ok(home.includes("If you don’t know truth, you don’t know True love because love without truth is tough love …"));
+  assert.ok(home.includes("while love with truth is unconditional love"));
+  const history = await (await get("timeline/")).text();
+  assert.equal((history.match(/<summary>Method \d+ ·/g) ?? []).length, 30);
+  assert.equal((history.match(/<summary>Extension \d+ ·/g) ?? []).length, 18);
+  assert.match(history, /\/institution\/learning-methods\//);
+  assert.match(history, /tabor-world\.nathantaboract\.workers\.dev/);
+  const catalog = await (await get("curriculum.json")).json();
+  assert.equal(catalog.historical.methods, 131);
+  assert.equal(catalog.methods.length, 5);
+  assert.equal(catalog.tracks[0].courses.flatMap(course => course.stations).length, 27);
+  assert.deepEqual(catalog.tracks.map(track => track.courses.length), [6, 6, 6]);
+  const handoff = await (await get("conductor.json")).json();
+  assert.equal(handoff.catalog.capstones, 3);
+  for (const track of catalog.tracks) {
+    assert.equal((await get(track.id + "/")).status, 200);
+    for (const course of track.courses) {
+      const path = track.id + "/" + course.id + "/";
+      const page = await get(path);
+      assert.equal(page.status, 200);
+      assert.match(page.headers.get("content-security-policy"), /script-src 'self'/);
+      assert.match(await page.text(), /Hold on.*Mark practiced/s);
+      const sheet = await get(path + "worksheet.txt");
+      assert.match(sheet.headers.get("content-disposition"), /attachment/);
+      assert.ok((await sheet.text()).includes(course.lab));
+    }
+    const capstone = "capstone/" + track.capstone + "/";
+    const page = await (await get(capstone)).text();
+    assert.match(page, /Open after recording your first decision/);
+    assert.match(page, /90 points/);
+    assert.equal((await get(capstone + "worksheet.txt")).status, 200);
+  }
+  assert.match(await (await get("capstone/three-signals-one-night/")).text(), /02:10:12/);
+  assert.match(await (await get("practice.js")).text(), /localStorage/);
+  assert.equal((await get("", { method: "HEAD" })).body, null);
+  assert.equal((await get("", { method: "POST" })).status, 405);
+  assert.equal((await get("capstone/constructor/")).status, 404);
+  assert.equal((await get("unknown-unseen/wrong/")).status, 404);
+  assert.equal((await get("magi/sky/worksheet.txt/unexpected")).status, 404);
+});
+
+test("mastery curriculum is repeatable in the existing D1 schema with valid prerequisite chains", async () => {
+  const { masterySql } = await import("./mastery/data.mjs");
+  const { db } = fixtures();
+  try {
+    const sql = migration("0005_human_mastery");
+    assert.equal(sql, masterySql());
+    db.exec(sql);
+    db.exec(sql);
+    const getCount = (table, filter) => db.prepare(`SELECT COUNT(*) AS count FROM ${table} WHERE ${filter}`).get().count;
+    assert.equal(getCount("curricula", "id = 'ta-human-mastery'"), 1);
+    assert.equal(getCount("syllabi", "curriculum_id = 'ta-human-mastery'"), 3);
+    assert.equal(getCount("lesson_plans", "id LIKE 'ta-%'"), 21);
+    assert.equal(getCount("assessments", "id LIKE 'ta-%' AND assessment_type = 'summative'"), 3);
+    assert.equal(getCount("library_catalog", "public_url LIKE '%/institution/mastery/%'"), 25);
+    assert.equal(getCount("scope_sequence", "id LIKE 'ta-%' AND prerequisite_id IS NULL"), 3);
+    assert.deepEqual(db.prepare("PRAGMA foreign_key_check").all(), []);
+    assert.equal(getCount("transcript_ledger", "1 = 1"), 0);
+  } finally {
+    db.close();
+  }
+});

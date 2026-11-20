@@ -24,3 +24,15 @@ The institution's `/api/students`, `/api/attendance`, and `/api/transcripts` rou
 - GET `/api/transcripts?student_id=…` retrieves that student's official ledger.
 
 Staff API requests use JSON under `/tabor-academy/institution`.
+
+## Human Learning, Survival & Mastery
+
+The Institution serves three tracks under `/institution/mastery/` with six lessons and a capstone each. The historical navigator draws from the preserved 101-method registry and the separate World timeline data to show 30 original additions and 18 extensions. The six survival lessons include links to the 27 existing practice stations. See `mastery/courses.mjs` for the source-backed lessons and `deployments/conductor/academy/human-mastery.json` for the release handoff.
+
+Regenerate the D1 migration from the repository root after editing the catalog and before publishing:
+
+```sh
+node app-factory/tabor-academy/institution/mastery/data.mjs > app-factory/tabor-academy/institution/migrations/0005_human_mastery.sql
+```
+
+Public course practice stores pause and completion markers on the current device. The Institution’s existing staff-authorized SIS handles formal results.

@@ -1,0 +1,26 @@
+{
+  "project": "Tabor Academy",
+  "title": "Human Learning, Survival & Mastery",
+  "publicPath": "/tabor-academy/institution/mastery/",
+  "owner": "Tabor Academy Institution",
+  "relationships": {
+    "academy": "/tabor-academy/institution/",
+    "truthLab": "/tabor-academy/truth-lab/",
+    "library": "/tabor-academy/library/",
+    "taborWay": "/tabor-academy/way/",
+    "worldTimeline": "https://tabor-world.nathantaboract.workers.dev/human-learning-arc/",
+    "worldDomains": "https://tabor-world.nathantaboract.workers.dev/survival-mastery-domains/"
+  },
+  "catalog": {
+    "historicalMethods": { "original": 101, "additions": 30, "extensions": 18 },
+    "survivalDomains": 6,
+    "survivalPracticeStations": 27,
+    "magiCourses": 6,
+    "unknownUnseenCourses": 6,
+    "unknownUnseenTrainingMethods": 5,
+    "capstones": 3
+  },
+  "verification": "Run the Institution test suite. Check the Academy Map, each track, the 131-method navigator, all three capstones, worksheet download, curriculum and handoff JSON. Verify the existing Academy and separate World collections.",
+  "provenance": "The original 101 are preserved in their published source. The 30 additions and 18 extensions use the existing arc station identifiers. The Magi apprenticeship is a modern course informed by historical sources. The off-world instructor is a fictional premise.",
+  "data": "The Institution migration seeds curriculum, syllabus, sequence, lesson, assessment and Library records. Browser practice markers stay on the learner’s device. Official records use the existing staff-authorized SIS."
+}

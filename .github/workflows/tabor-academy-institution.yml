@@ -5,12 +5,20 @@ on:
     paths:
       - 'app-factory/tabor-academy/institution/**'
       - 'deployments/conductor/academy/architecture.json'
+      - 'deployments/conductor/academy/human-mastery.json'
+      - 'app-factory/tabor-academy/map/topics.json'
+      - 'tabor-world/human-learning-arc/human-learning-arc-data.mjs'
+      - 'tabor-world/survival-mastery-domains/survival-mastery-domains-data.mjs'
       - '.github/workflows/tabor-academy-institution.yml'
   push:
     branches: [main]
     paths:
       - 'app-factory/tabor-academy/institution/**'
       - 'deployments/conductor/academy/architecture.json'
+      - 'deployments/conductor/academy/human-mastery.json'
+      - 'app-factory/tabor-academy/map/topics.json'
+      - 'tabor-world/human-learning-arc/human-learning-arc-data.mjs'
+      - 'tabor-world/survival-mastery-domains/survival-mastery-domains-data.mjs'
       - '.github/workflows/tabor-academy-institution.yml'
   workflow_dispatch:
 
