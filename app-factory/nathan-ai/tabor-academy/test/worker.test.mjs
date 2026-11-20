@@ -179,3 +179,27 @@ test("Time of Peace begins with the Age of Innocence and links the family lesson
   assert.match(await (await call("/order/1626/")).text(), /order\/time-of-peace\//);
   assert.match(await (await call("/order/porch/")).text(), /order\/time-of-peace\//);
 });
+
+test("verbatim Time of Peace route returns exact bytes and excludes private notes", async () => {
+  const text = "\nFirst line\n\n• Words as supplied.";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  const hash = Buffer.from(digest).toString("hex");
+  let verbatim_body = text;
+  const env = { LIBRARY: { prepare: (sql) => ({ bind: (slug) => ({
+    first: async () => {
+      assert.equal(slug, "time-of-peace");
+      assert.match(sql, /visibility = 'public'/);
+      return { record_id: hash, verbatim_body };
+    },
+  }) }) } };
+  const open = (path) => worker.fetch(new Request("https://academy.example"+path), env);
+  const path = "/order/time-of-peace/source.txt";
+  const found = await open(path);
+  assert.equal(found.status, 200);
+  assert.equal(await found.text(), text);
+  assert.equal(found.headers.get("etag"), '"'+hash+'"');
+  assert.equal((await open("/order/time-of-peace/history-as-supplied.txt")).status, 404);
+  assert.match(await (await call("/order/time-of-peace/")).text(), /Read the original source text/);
+  verbatim_body += "\nchanged";
+  assert.equal((await open(path)).status, 503);
+});
