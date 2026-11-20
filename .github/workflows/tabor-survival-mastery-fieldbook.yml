@@ -1,0 +1,36 @@
+name: Tabor Academy Six Domains Fieldbook
+
+on:
+  pull_request:
+    paths:
+      - 'tabor-world/survival-mastery-domains/**'
+      - 'tabor-world/human-learning-arc/**'
+      - '.github/workflows/tabor-survival-mastery-fieldbook.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tabor-world/survival-mastery-domains/**'
+      - 'tabor-world/human-learning-arc/**'
+      - '.github/workflows/tabor-survival-mastery-fieldbook.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fieldbook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node --test tabor-world/survival-mastery-domains/test.mjs tabor-world/human-learning-arc/test.mjs tabor-world/survival-mastery-domains/fieldbook/fieldbook.test.mjs
+      - run: |
+          node tabor-world/survival-mastery-domains/fieldbook/build.mjs > "$RUNNER_TEMP/survival-fieldbook.mjs"
+          node --check "$RUNNER_TEMP/survival-fieldbook.mjs"
+      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: node tabor-world/survival-mastery-domains/fieldbook/verify-live.mjs

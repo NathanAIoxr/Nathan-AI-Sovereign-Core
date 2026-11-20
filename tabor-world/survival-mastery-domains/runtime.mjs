@@ -7,7 +7,11 @@ export const domainExplorer = createLearningExplorer(survivalDomains, {
   renderDecision,
   title: "Six Universal Human Survival & Mastery Domains",
   lead: "Choose a situation, make a decision, and compare it with a worked response. Explore 27 stations across protection, money, relationships, homestead skills, learning, and civic life.",
-  headerLinks: [["/human-learning-arc/", "The Complete Human Learning Arc"], ["/learning-methods/", "101 Hands-On Learning Methods"]],
+  headerLinks: [
+    ["/human-learning-arc/", "The Complete Human Learning Arc"],
+    ["/learning-methods/", "101 Hands-On Learning Methods"],
+    [survivalDomains.academy + "fieldbook/", "Six Domains Fieldbook"],
+  ],
   promoteOn: ["/", "/human-learning-arc/", "/learning-methods/"],
   destination: {
     id: "six-universal-survival-mastery-domains", kind: "Practical decisions",
