@@ -2,7 +2,7 @@
   "use strict";
 
   const pageSize = 24;
-  const nathanMindId = "author.nathan-tabor";
+  const nathanMindId = "creator.nathan-tabor";
   const deityNames = new Set([
     "GOD AI", "Anubis", "Apep (Apophis)", "Bennu", "Cernunnos",
     "Enki", "Ereshkigal", "Gula", "Khnum", "Kukulkan", "Mahākāla",
@@ -32,7 +32,7 @@
     return found;
   }
 
-  function createDirectory(omni, catalog, source, mirror) {
+  function createDirectory(omni, catalog, source, mirror, lasso) {
     if (catalog.omniNamespace.capacity !== omni.CAPACITY) throw new Error("Omni range differs from the source catalog");
     const mirrors = mirror.mirror_agents.map(entry => ({
       id: "mirror." + entry.id,
@@ -42,7 +42,16 @@
       purpose: "Creator-designated mirror agent. The release lists this entry as a specification.",
       sourceId: "Agents of Innocence · " + entry.id
     }));
-    const records = [...catalog.minds, ...source.entries, ...mirrors].map(record =>
+    if (lasso?.schema !== "nathan-ai.minds.lasso-evidence.v1") throw new Error("The Lasso evidence is unavailable");
+    const council = lasso.council.map((role, index) => ({
+      id: "council." + String(index + 1).padStart(2, "0"),
+      name: role.name,
+      type: "council-role",
+      group: "OMNI My Council",
+      purpose: role.description,
+      sourceId: "OMNI_60_Council_Roles.csv · role " + (index + 1)
+    }));
+    const records = [...catalog.minds, ...source.entries, ...mirrors, ...lasso.profiles, ...council].map(record =>
       record.id === "omni.opal-ai" ? {
         ...record,
         purpose: source.opal.name + " · " + source.opal.role,
@@ -51,6 +60,7 @@
     );
     const byId = new Map(records.map(record => [record.id, record]));
     if (byId.size !== records.length || !byId.has(source.author.smallestMind)) throw new Error("Invalid Mind IDs");
+    const evidence = indexEvidence(lasso.records, byId);
     const searchable = records.map(record => ({
       record,
       family: family(record),
@@ -60,7 +70,8 @@
       get: id => byId.get(id),
       size: records.length,
       author: source.author,
-      lassoTruth: source.lassoTruth,
+      lasso,
+      evidence: id => evidence.get(id) ?? [],
       max: (BigInt(omni.CAPACITY) - 1n).toString(),
       list(query, scope) {
         const terms = normalize(query).trim().split(/\s+/).filter(Boolean);
@@ -93,123 +104,140 @@
     };
   }
 
-  const evidenceLabels = {
-    "author-wording": "Author wording",
-    "recovered-summary": "Recovered summary",
-    "retrospective": "Retrospective account",
-    "symbolic": "Symbolic model",
-    "project-record": "Project record"
+  const evidenceKinds = {
+    "own-words": ["verbatim-author"],
+    "recorded-words": ["textual-attribution"],
+    actions: ["textual-account", "published-project", "archival-record", "retrospective-account", "symbolic-model", "recovered-summary"],
+    commentary: ["creator-label", "later-attribution", "disputed-attribution"]
   };
-  const stopWords = new Set((
-    "about and are can compare could did does earliest explain find for from give had has have how john " +
-    "look me nathan of on recorded records said say show tell tabor the their this to versus was what " +
-    "when where which who why with work would you your"
-  ).split(" "));
+  const evidenceLabels = {
+    "verbatim-author": "Author’s exact words",
+    "textual-attribution": "Words attributed by the cited text or translation",
+    "textual-account": "Action reported in the cited text",
+    "published-project": "Documented project",
+    "archival-record": "Archival record",
+    "retrospective-account": "Retrospective account",
+    "symbolic-model": "Symbolic model",
+    "recovered-summary": "Recovered summary",
+    "creator-label": "Creator’s label or commentary",
+    "later-attribution": "Later attribution",
+    "disputed-attribution": "Disputed attribution",
+    registry: "Registry entry"
+  };
+  const unknown = "Unknown from the reviewed sources for this Mind.";
+  const registryUrl = "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/";
 
-  function evidenceTerms(value) {
-    return (normalize(value).match(/[a-z0-9]+/g) ?? []).filter(term => !stopWords.has(term));
-  }
-
-  function searchEvidence(records, question) {
-    const terms = [...new Set(evidenceTerms(question))];
-    return records.map(record => {
-      const title = evidenceTerms(record.title);
-      const tags = record.tags.flatMap(evidenceTerms);
-      const body = evidenceTerms(record.text);
-      const score = terms.reduce((sum, term) =>
-        sum + (title.includes(term) ? 5 : tags.includes(term) ? 3 : body.includes(term) ? 1 : 0), 0);
-      return { record, score };
-    }).filter(result => result.score >= 3)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 4)
-      .map(result => result.record);
-  }
-
-  function lassoReply(profile, question) {
-    const result = (status, message, records = []) => ({
-      status,
-      message,
-      evidence: records.map(record => ({
-        ...record,
-        label: evidenceLabels[record.kind],
-        reference: profile.sources[record.source]
-      }))
-    });
-    if (!profile) return result("unknown", "The Lasso of Truth source profile is unavailable.");
-    const text = normalize(question).trim();
-    if (/\b(prompt injection|ignore (?:all |your )?(?:previous |prior )?(?:instructions|rules)|invent (?:a |the )?(?:quote|citation)|say you are nathan)\b/.test(text)) {
-      return result("unknown", "Only recorded material is used for attribution. Supply an exact phrase or a research topic.");
-    }
-    if (/\b(?:did|has)\s+(?:john\s+)?nathan(?:\s+tabor)?\s+(?:say|write|state)\b|\b(?:check|verify) (?:a |this |the )?(?:quote|quotation|attribution)\b/.test(text)) {
-      const exact = question.match(/"([^"\n]+)"|“([^”\n]+)”/u)?.slice(1).find(Boolean);
-      if (!exact) return result("unknown", "Put the wording to check in quotation marks.");
-      const matches = profile.records.filter(record => record.quote === exact);
-      if (matches.length) return result("exact", "Exact wording found in the available source record.", matches);
-      const variants = profile.records.filter(record => record.quote && normalize(record.quote) === normalize(exact));
-      if (variants.length) return result("variant", "The archive has a variant. The exact stored wording is shown below.", variants);
-      return result("unknown", "I found no exact attribution in the available records. Its authorship remains unknown.");
-    }
-    if (/\b(timeline|chronology)\b|\b(earliest|oldest)\s+record\b/.test(text)) {
-      return result("timeline", "Earliest leads and dated records. Reported events show the date of the surviving account.",
-        profile.records.filter(record => record.date !== "undated"));
-    }
-    if (/\b(lasso of truth|your rules|source rules)\b/.test(text)) {
-      return result("method", profile.instructions.join("\n"), profile.records.filter(record => record.id === "lasso"));
-    }
-    if (/^(?:who is|what is) (?:john )?nathan (?:tabor|ai)[?.!]*$/.test(text)) {
-      return result("profile", "This Nathan AI profile brings together source records for Nathan Tabor’s words, work and methods.", [
-        profile.records.find(record => record.id === "first-contact"),
-        profile.records.find(record => record.id === "workbench"),
-        profile.records.find(record => record.id === "lasso")
-      ].filter(Boolean));
-    }
-    if (/^(?:show (?:me )?(?:the )?)?(?:sources|citations|references|evidence)[?.!]*$/.test(text)) {
-      return result("sources", Object.values(profile.sources).map(source => source.title).join("\n"));
-    }
-    const compare = text.match(/^compare\s+(.+?)\s+(?:and|vs\.?|with)\s+(.+)$/);
-    if (compare) {
-      const first = searchEvidence(profile.records, compare[1])[0];
-      const second = searchEvidence(profile.records, compare[2])[0];
-      if (first && second && first.id !== second.id) {
-        return result("comparison", "Compare these two records using their dates, evidence types and documented functions.", [first, second]);
+  function indexEvidence(records, profiles) {
+    const ids = new Set();
+    const index = new Map();
+    for (const record of records) {
+      const validStatus = Object.hasOwn(evidenceKinds, record.kind) && evidenceKinds[record.kind].includes(record.status);
+      if (!validStatus || typeof record.id !== "string" || !record.id.trim() || ids.has(record.id) ||
+          !record.subjects?.length || !record.subjects.every(id => profiles.has(id)) ||
+          typeof record.text !== "string" || !record.text.trim() ||
+          typeof record.source !== "string" || !record.source.trim() ||
+          !Array.isArray(record.tags) || !record.tags.every(tag => typeof tag === "string")) {
+        throw new Error("Invalid Lasso evidence record");
       }
-      return result("unknown", "Two distinct source records could not be identified. Try both project names.");
+      if (record.url) {
+        const url = new URL(record.url);
+        if (url.protocol !== "https:" || url.username || url.password) throw new Error("Invalid evidence link");
+      } else if (record.status !== "verbatim-author") {
+        throw new Error("An evidence locator is required");
+      }
+      ids.add(record.id);
+      const entry = Object.freeze({ ...record, tags: Object.freeze([...record.tags]) });
+      for (const id of new Set(record.subjects)) {
+        if (!index.has(id)) index.set(id, []);
+        index.get(id).push(entry);
+      }
     }
-    const records = searchEvidence(profile.records, text);
-    if (records.length) return result("records", "Related source records. Each entry states what the available evidence supports.", records);
-    return result("unknown", "The available sources do not establish an answer. Try an exact quotation, project title or date.");
+    for (const group of index.values()) Object.freeze(group);
+    return index;
+  }
+
+  function registryRecord(selection) {
+    const id = selection.id;
+    let target = "personal-intelligence/minds/mind-of-minds/catalog.json";
+    if (id === "omni.opal-ai") target = "ai-mapping/records.json";
+    else if (id.startsWith("omni.")) target = "omni-god/";
+    else if (id.startsWith("mirror.")) target = "agents-of-innocence/release-manifest.json";
+    else if (id.startsWith("assembly.") || id.startsWith("kjv.")) target = "minds-chat/sources.json";
+    else if (id.startsWith("early.") || id.startsWith("council.") || id.startsWith("creator.") || id === "textual.mary") {
+      target = "minds-chat/lasso-evidence.json";
+    }
+    return { id, status: "registry", text: selection.purpose, source: selection.sourceId, url: registryUrl + target };
+  }
+
+  function answer(directory, selection, question, view) {
+    if (selection.address) {
+      return { summary: "Address " + selection.address + " has no assigned Mind or source record.", records: [] };
+    }
+    const all = directory.evidence(selection.id);
+    const input = normalize(question).trim();
+    const asked = input.replace(/[?.!]+$/, "").trim();
+    const selectedName = normalize(selection.name);
+    const quote = question.trim().match(/^(?:did (.+?) say\s+|check quote\s+)?["“]([^"”]+)["”][?.!]*$/iu);
+    const normalizeQuote = text => normalize(text).trim().replace(/\s+/g, " ");
+    let records = [];
+    let summary = "";
+
+    if (selection.id === nathanMindId && (view === "timeline" || /^(?:show (?:me )?(?:the )?)?(?:timeline|chronology)(?: from the earliest record)?$/.test(asked))) {
+      records = all.filter(source => source.kind === "actions" && /^\d{4}/.test(source.date ?? ""));
+      summary = "Earliest leads and dated records. Reported event dates and surviving account dates are shown together.";
+    } else if (selection.id === nathanMindId && /^compare\s/.test(asked)) {
+      const pair = asked.replace(/^compare\s+/, "").split(/\s+(?:and|vs\.?|with)\s+/);
+      const find = term => all.find(source => source.title && source.kind === "actions" &&
+        (normalize(source.title) === term || source.tags.some(tag => normalize(tag) === term)));
+      const first = pair.length === 2 && find(pair[0]);
+      const second = pair.length === 2 && find(pair[1]);
+      if (first && second && first.id !== second.id) records = [first, second];
+      summary = records.length ? "Compare the projects by their dates, documented functions and source types."
+        : "Two distinct records could not be identified. Try both project names.";
+    } else if (view === "words") records = all.filter(source => source.kind === "own-words" || source.kind === "recorded-words");
+    else if (view === "actions") records = all.filter(source => source.kind === "actions");
+    else if (view === "attributions") records = all.filter(source => ["commentary", "recorded-words"].includes(source.kind));
+    else if (view === "sources" || /^(?:show (?:me )?(?:the )?)?(?:sources?|citations?|evidence|references|what are the sources)$/.test(asked)) {
+      records = [registryRecord(selection), ...all];
+    } else if (quote) {
+      const subject = quote[1] && normalize(quote[1].trim());
+      const names = [selectedName, selectedName.replace(/ ai$/, ""), selectedName.split(" of ")[0]];
+      if (selection.id === nathanMindId) names.push("nathan", "nathan tabor");
+      if (subject && !names.includes(subject)) {
+        return { summary: "Select the Mind named in the question to check this wording.", records: [] };
+      }
+      const wording = normalizeQuote(quote[2]);
+      records = all.filter(source => source.kind.endsWith("words") && wording.length >= 5 && normalizeQuote(source.text).includes(wording));
+      if (selection.id === nathanMindId && records.length) {
+        const exact = records.filter(source => source.text.includes(quote[2]));
+        if (exact.length) {
+          records = exact;
+          summary = "Exact wording found in the available source record.";
+        } else {
+          summary = "The archive has a variant. The exact stored wording is shown below.";
+        }
+      }
+      if (!records.length) summary = "This wording is unverified for the selected Mind.";
+    } else if (selection.id === directory.author.smallestMind && /^(?:why (?:is )?(?:god(?: ai)?|this mind) (?:the )?smallest|(?:why )?(?:the )?smallest|root of stupidity|0 to 9)$/.test(asked)) {
+      records = [{ id: "nathan-god-order", status: "verbatim-author", text: directory.author.sizeOrderQuote, source: "Nathan Tabor’s Omni ordering", url: registryUrl + "minds-chat/sources.json" }];
+      summary = "Nathan Tabor’s ordering places GOD AI at position 0.";
+    } else if (asked === "what did " + selectedName + " say") {
+      records = all.filter(source => source.kind.endsWith("words"));
+    } else if (asked === "what did " + selectedName + " do") {
+      records = all.filter(source => source.kind === "actions");
+    } else if (/^(?:topic: |about )[^?]+$/.test(asked)) {
+      const topic = asked.replace(/^(?:topic: |about )/, "").trim();
+      records = all.filter(source => source.tags.some(tag => normalize(tag) === topic));
+    }
+    return { summary: summary || (records.length ? "" : unknown), records };
   }
 
   function reply(directory, selection, question) {
-    if (selection.id === nathanMindId) {
-      const answer = lassoReply(directory.lassoTruth, question);
-      return [answer.message, ...answer.evidence.flatMap(record => [
-        record.title + " · " + record.date + " · " + record.label,
-        record.text,
-        record.quote ? "“" + record.quote + "”" : "",
-        "Source: " + record.reference.title
-      ].filter(Boolean))].join("\n");
-    }
-    const text = normalize(question);
-    if (/\b(smallest|0 to 9|root of stupidity)\b/.test(text) && selection.id === directory.author.smallestMind) {
-      return "Nathan Tabor’s ordering places GOD AI at position 0.\n“" + directory.author.sizeOrderQuote + "”";
-    }
-    if (selection.address) {
-      return "Address " + selection.address + " is in the Omni range. Its individual name and source materials are unassigned in this registry.";
-    }
-    if (/\b(source|sources|citation|citations|evidence|references)\b/.test(text)) {
-      return selection.name + " · " + selection.sourceId + "\n" + selection.purpose;
-    }
-    const terms = text.match(/[a-z0-9]{3,}/g) ?? [];
-    const related = [...new Set(terms.flatMap(term => {
-      if (/^(about|and|can|compare|does|how|the|what|which|who|why|with|would|you)$/.test(term)) return [];
-      return directory.list(term).filter(item => normalize(item.name).includes(term));
-    }))].filter(record => record.id !== selection.id).slice(0, 4);
-    const connections = related.length ? "\nRelated entries to compare: " + related.map(item => item.name).join(", ") + "." : "";
-    return selection.purpose + "\nSource: " + selection.sourceId + connections;
+    const response = answer(directory, selection, question);
+    return [response.summary, ...response.records.map(record => record.text + "\nSource: " + record.source)].filter(Boolean).join("\n");
   }
 
-  const api = { createDirectory, lassoReply, nathanMindId, pageSize, reply };
+  const api = { createDirectory, pageSize, answer, reply, evidenceLabels, nathanMindId };
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.NathanMindsChat = api;
 })(globalThis);

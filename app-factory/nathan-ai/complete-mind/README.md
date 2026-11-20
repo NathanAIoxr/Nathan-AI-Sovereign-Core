@@ -26,8 +26,8 @@ Original user-authored material: philosophical framework, transformation canon, 
 
 ## Lasso of Truth
 
-The [Nathan Tabor profile in Tabor Academy](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/?mind=author.nathan-tabor) and [HOP IN](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/hop-in/chatbox/?mind=author.nathan-tabor#minds) use the same local chat engine. Ask for the timeline, compare two project titles, or check a quotation by putting the exact wording in quotation marks.
+The [Nathan Tabor profile in Tabor Academy](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/?mind=creator.nathan-tabor) and [HOP IN](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/hop-in/chatbox/?mind=creator.nathan-tabor#minds) use the same local chat engine. Ask for the timeline, compare two project titles, or check a quotation by putting the exact wording in quotation marks.
 
-The [source and prompt registry](../minds-chat/sources.json) carries the author profile, recorded words, documented projects, recovered summaries, reported dates and symbolic models. The engine presents supporting records or an explicit unknown. Source dates and private archive references belong to the records. Owner-only archives remain with their existing custodians.
+The [source and prompt registry](../minds-chat/lasso-evidence.json) carries the author profile, recorded words, documented projects, recovered summaries, reported dates and symbolic models. The engine presents supporting records or an explicit unknown. Source dates and private archive references belong to the records. Owner-only archives remain with their existing custodians.
 
-The [Conductor handoff](../../../deployments/conductor/academy/nathan-tabor-mind.json) identifies the verification command and deployment evidence.
+The [Conductor handoff](../../../deployments/conductor/academy/minds.json) identifies the verification command and deployment evidence.

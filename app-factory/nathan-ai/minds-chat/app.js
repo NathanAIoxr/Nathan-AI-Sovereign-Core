@@ -7,14 +7,21 @@
   const open = document.querySelector("#open-minds");
   const assets = new URL(root.dataset.assets, location.href);
   const pages = new URL("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/");
-  const { createDirectory, lassoReply, nathanMindId, pageSize, reply } = window.NathanMindsChat;
-  const requestedMind = new URLSearchParams(location.search).get("mind") || root.dataset.defaultMind;
+  const { createDirectory, pageSize, answer, evidenceLabels, nathanMindId } = window.NathanMindsChat;
+  const requestedMind = new URLSearchParams(location.search).get("mind");
 
   root.innerHTML = `
     <header class="minds-header">
       <h1 id="minds-heading">Minds</h1>
       <p data-summary role="status">Loading the Mind registry…</p>
       <p data-author hidden></p>
+      <details data-lasso hidden>
+        <summary>Lasso of Truth</summary>
+        <p>Each answer uses reviewed records for the selected Mind. Open a citation to inspect the wording and context.</p>
+        <blockquote data-method></blockquote>
+        <ul data-collections></ul>
+        <a data-lasso-prompts>Conductor prompts</a>
+      </details>
     </header>
     <button type="button" data-retry hidden>Retry loading Minds</button>
     <div class="minds-columns" data-controls hidden>
@@ -30,7 +37,6 @@
           <label>Mind family
             <select data-family>
               <option value="">All Mind families</option>
-              <option value="author-source-mind">Nathan Tabor</option>
               <option value="humans">Historical people</option>
               <option value="deities">Gods and goddesses</option>
               <option value="goddesses">Goddesses</option>
@@ -41,6 +47,9 @@
               <option value="literary-form">Creator forms</option>
               <option value="folklore-lens">Mythology and folklore</option>
               <option value="mirror-specification">Agents of Innocence</option>
+              <option value="council-role">My Council</option>
+              <option value="creator-role">Early Minds</option>
+              <option value="author-profile">Nathan Tabor source records</option>
             </select>
           </label>
         </div>
@@ -64,13 +73,19 @@
         <h2 id="minds-active">Choose a Mind</h2>
         <p data-purpose></p>
         <p data-source></p>
-        <div class="minds-buttons" data-prompts aria-label="Nathan Mind prompts" hidden></div>
+        <div class="minds-buttons" data-evidence>
+          <button type="button" data-view-kind="words" disabled>Words</button>
+          <button type="button" data-view-kind="actions" disabled>Actions</button>
+          <button type="button" data-view-kind="attributions" disabled>Attributions</button>
+          <button type="button" data-view-kind="sources" disabled>Sources</button>
+          <button type="button" data-view-kind="timeline" hidden>Earliest to latest</button>
+          </div>
         <div class="minds-log" role="log" aria-label="Mind conversation" data-log></div>
         <form data-ask>
           <label>Your question<textarea name="question" rows="3" maxlength="1500" required></textarea></label>
           <div class="minds-buttons"><button type="submit" data-send disabled>Ask Mind</button><button type="button" data-clear>Clear conversation</button></div>
         </form>
-        <p class="minds-note">This source-based chat runs in this tab.</p>
+        <p class="minds-note">The Lasso of Truth runs in this tab. Unsupported questions return unknown.</p>
       </section>
     </div>
     <footer class="minds-links" data-links aria-label="Original Mind sources"></footer>`;
@@ -102,19 +117,11 @@
     get("purpose").textContent = record.purpose;
     get("source").textContent = record.sourceId ? "Source: " + record.sourceId : "";
     if (record.id === "omni.opal-ai") addLink(get("source"), "Open Opal AI’s source record", "ai-mapping/");
-    const prompts = get("prompts");
-    prompts.replaceChildren();
-    prompts.hidden = record.id !== nathanMindId || !directory.lassoTruth;
-    if (!prompts.hidden) {
-      for (const { label, question } of directory.lassoTruth.prompts) {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.textContent = label;
-        button.addEventListener("click", () => ask(question));
-        prompts.append(button);
-      }
-    }
     get("send").disabled = false;
+    for (const button of get("evidence").querySelectorAll("button")) {
+      button.disabled = false;
+      if (button.dataset.viewKind === "timeline") button.hidden = record.id !== nathanMindId;
+    }
     get("log").replaceChildren();
     for (const button of get("list").querySelectorAll("button")) {
       button.setAttribute("aria-pressed", String(button.dataset.mind === record.id));
@@ -214,51 +221,52 @@
     select(virtualRecord(address));
   });
   addressInput.addEventListener("input", () => addressInput.setCustomValidity(""));
-  function ask(question) {
-    if (!question || !selectState.selected) return;
+  function showAnswer(question, view) {
+    if (!selectState.selected) return;
     const log = get("log");
     const turn = document.createElement("article");
     const prompt = document.createElement("p");
-    const answer = document.createElement("p");
     prompt.textContent = question;
-    turn.append(prompt, answer);
-    if (selectState.selected.id === nathanMindId) {
-      const result = lassoReply(directory.lassoTruth, question);
-      answer.textContent = result.message;
-      for (const record of result.evidence) {
+    turn.append(prompt);
+    const response = answer(directory, selectState.selected, view ? "" : question, view);
+    if (response.summary) {
+      const status = document.createElement("p");
+      status.textContent = response.summary;
+      turn.append(status);
+    }
+    for (const record of response.records) {
+      const kind = document.createElement("strong");
+      const content = document.createElement("p");
+      const citation = document.createElement("p");
+      kind.textContent = evidenceLabels[record.status];
+      content.textContent = record.text;
+      if (record.url) addLink(citation, record.source, record.url);
+      else citation.textContent = record.source;
+      if (record.title) {
         const entry = document.createElement("details");
         const title = document.createElement("summary");
-        const description = document.createElement("p");
-        const source = document.createElement("p");
-        title.textContent = record.title + " · " + (record.eventDate || record.date);
-        description.textContent = record.text;
-        source.textContent = record.label + " · " + record.reference.title +
-          (record.eventDate ? " · Account recorded " + record.date : "");
-        if (record.reference.url) {
-          source.append(" · ");
-          addLink(source, "Open source", record.reference.url);
-        }
-        entry.append(title, description);
-        if (record.quote) {
-          const quote = document.createElement("blockquote");
-          quote.textContent = record.quote;
-          entry.append(quote);
-        }
-        entry.append(source);
-        entry.open = result.status !== "timeline" || turn.querySelector("details") === null;
+        title.textContent = record.title + (record.eventDate ? " · " + record.eventDate : record.date && record.date !== "undated" ? " · " + record.date : "");
+        if (record.eventDate) citation.append(" · Account recorded " + record.date);
+        entry.append(title, kind, content, citation);
+        entry.open = view !== "timeline" || turn.querySelector("details") === null;
         turn.append(entry);
+      } else {
+        turn.append(kind, content, citation);
       }
-    } else {
-      answer.textContent = reply(directory, selectState.selected, question);
     }
     log.append(turn);
     if (log.childElementCount > 24) log.firstElementChild.remove();
     turn.scrollIntoView({ block: "nearest" });
   }
 
+  for (const button of get("evidence").querySelectorAll("button")) {
+    button.addEventListener("click", () => showAnswer(button.textContent, button.dataset.viewKind));
+  }
   get("ask").addEventListener("submit", event => {
     event.preventDefault();
-    ask(questionInput.value.trim());
+    const question = questionInput.value.trim();
+    if (!question) return;
+    showAnswer(question);
     questionInput.value = "";
   });
   get("clear").addEventListener("click", () => get("log").replaceChildren());
@@ -275,20 +283,32 @@
     get("retry").hidden = true;
     get("summary").textContent = "Loading the Mind registry…";
     try {
-      const [catalog, source, mirror] = await Promise.all([
+      const [catalog, source, mirror, lasso] = await Promise.all([
         getJSON(root.dataset.catalog ?? "../personal-intelligence/minds/mind-of-minds/catalog.json"),
         getJSON("sources.json"),
-        getJSON(root.dataset.mirrors ?? "../agents-of-innocence/release-manifest.json")
+        getJSON(root.dataset.mirrors ?? "../agents-of-innocence/release-manifest.json"),
+        getJSON("lasso-evidence.json")
       ]);
-      directory = createDirectory(window.NathanOmniCore, catalog, source, mirror);
+      directory = createDirectory(window.NathanOmniCore, catalog, source, mirror, lasso);
       selectState.start = directory.max;
       get("summary").textContent = directory.size.toLocaleString("en-US") +
         " named records · 126,000,000,000 addressable Omni positions";
       get("author").textContent = directory.author.name + " · Author’s ordering: “" + directory.author.sizeOrderQuote + "”";
       get("author").hidden = false;
+      get("method").textContent = lasso.authorMethod;
+      get("lasso-prompts").href = new URL("lasso-prompts.json", assets);
+      get("collections").replaceChildren();
+      for (const collection of lasso.collections) {
+        const item = document.createElement("li");
+        addLink(item, collection.title, collection.url);
+        item.append(" — " + collection.detail);
+        get("collections").append(item);
+      }
+      get("lasso").hidden = false;
       get("controls").hidden = false;
       render();
-      const selected = directory.get(requestedMind || (dialog ? "" : nathanMindId));
+      const id = requestedMind === "author.nathan-tabor" ? nathanMindId : requestedMind;
+      const selected = directory.get(id || (dialog ? "" : nathanMindId));
       if (selected) select(selected);
     } catch {
       get("summary").textContent = "The Mind registry could not load.";

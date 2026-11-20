@@ -18,6 +18,8 @@ const assets = {
   "/minds/style.css": ["text/css; charset=utf-8", await from(shared + "style.css")],
   "/minds/engine.js": [jsType, await from(shared + "engine.js")],
   "/minds/app.js": [jsType, await from(shared + "app.js")],
+  "/minds/lasso-evidence.json": [jsonType, await from(shared + "lasso-evidence.json")],
+  "/minds/lasso-prompts.json": [jsonType, await from(shared + "lasso-prompts.json")],
   "/minds/sources.json": [jsonType, await from(shared + "sources.json")],
   "/minds/omni-engine.js": [jsType, await from(nathan + "omni-god/engine.js")],
   "/minds/catalog.json": [jsonType, await from(nathan + "personal-intelligence/minds/mind-of-minds/catalog.json")],
@@ -88,7 +90,8 @@ export const release = createHash("sha256").update(createMindsRoutes.toString())
 const encoded = Object.fromEntries(Object.entries(assets).map(([url, [type, text]]) =>
   [url, [type, gzipSync(text).toString("base64")]]
 ));
-const records = JSON.parse(assets["/minds/sources.json"][1]).lassoTruth.records.length;
+const records = JSON.parse(assets["/minds/lasso-evidence.json"][1]).records
+  .filter(record => record.id.startsWith("nt-") && record.kind === "actions").length;
 const block = revision => [
   "/* BEGIN TABOR ACADEMY MINDS */",
   "const serveAcademyMinds = (" + createMindsRoutes.toString() + ")(" + JSON.stringify(encoded) + ", " + JSON.stringify(release) + ", " + JSON.stringify(revision) + ", " + records + ");",
