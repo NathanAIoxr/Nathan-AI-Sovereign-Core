@@ -26,6 +26,8 @@ The candidate file holds the original text, job ID and lease. Keep it private. U
 
 Run the checks in the staged packet against the resulting artifact and use the existing Lasso release gate before release. Use `rejected` for a rejected candidate. The `finish` command records the submitting operator’s verdict and the digest of its evidence. A digest identifies exact bytes. The CI job files the repair packet for review and leaves publishing to the existing release path. The native apps can feed the queue through text exports. Direct in-app intake and automatic model coding are future integrations.
 
+[Sovereign Scroll & Artifact Provenance Engine](SCROLL-LEDGER.md) uses the same anchor for the manuscript and artifact catalog.
+
 ## Cloudflare receipt service
 
 Send `POST /api/sovereign-engine/receipts` with `Authorization: Bearer ENGINE_TOKEN` and `Content-Type: application/octet-stream`. The body starts with these exact 18 raw bytes at offset zero and continues immediately with a UTF-8 JSON array of 1–20 receipts.

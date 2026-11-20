@@ -8,6 +8,7 @@ const handoff = {
     { name: "The Sensory & Swarm Edge", entry: "Hop In and Voice Box file intake with SHA-256 receipts" },
   ],
   health: "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/health",
+  artifactScrollLedger: { health: "/tabor-sites/conductor/api/artifact-scroll/health", ingest: "/tabor-sites/conductor/api/artifact-scroll/ingest", query: "/tabor-sites/conductor/api/artifact-scroll/ledger", anchor: "AA55FF01312B313D327E312D313D300400F0" },
   nodeContract: "/tabor-sites/conductor/api/node-template/contract",
   source: "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/deployments/conductor/sovereign-engine",
 };

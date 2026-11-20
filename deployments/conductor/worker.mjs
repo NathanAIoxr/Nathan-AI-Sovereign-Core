@@ -1,3 +1,4 @@
+import { serveScrollLedger } from "./sovereign-engine/scroll-ledger.mjs";
 import { serveSovereignEngine } from "./sovereign-engine/worker.mjs";
 import { serveSovereignEngineHandoff } from "./sovereign-engine/handoff.mjs";
 import { nodeTemplate } from "./node-template/runtime.mjs";
@@ -5,6 +6,7 @@ import { serveHolidayHandoff } from "./holiday-handoff.mjs";
 import { serveSovereignMindsHandoff } from "./sovereign-minds-handoff.mjs";
 import { serveMiningHandoff } from "./mining-handoff.mjs";
 import { serveArchitectureCourseHandoff } from "./architecture-course-handoff.mjs";
+import { serveFixedAnchor } from "./fixed-anchor/http.mjs";
 import {verifyLiveDecision} from "./cheironomer/src/integrity.js";
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
@@ -121,6 +123,8 @@ export default {
         return json({error:"temporarily_unavailable"},503);
       }
     }
+    const scrollResponse = await serveScrollLedger(request, env, path, limitedBody);
+    if (scrollResponse) return scrollResponse;
     const engineResponse = await serveSovereignEngine(request, env, path);
     if (engineResponse) return engineResponse;
     const engineHandoff = serveSovereignEngineHandoff(request, path);
@@ -133,6 +137,8 @@ export default {
     if (miningHandoff) return miningHandoff;
     const architectureCourseHandoff = serveArchitectureCourseHandoff(request, path, env.LEDGER);
     if (architectureCourseHandoff) return architectureCourseHandoff;
+    const fixedAnchor = await serveFixedAnchor(request, path, env.LEDGER);
+    if (fixedAnchor) return fixedAnchor;
     const isRead = method === "GET" || method === "HEAD";
     if (isRead && path === "/") {
       return new Response(method === "HEAD" ? null : dashboard, { headers: {

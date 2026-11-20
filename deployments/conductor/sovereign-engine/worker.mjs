@@ -6,13 +6,8 @@ const kinds = {
 };
 const hex = /^[a-f0-9]{64}$/;
 const encoder = new TextEncoder();
-const anchorFrame = Uint8Array.of(
-  0xaa, 0x55, 0xff, 0x01,
-  0x31, 0x2b, 0x31, 0x3d, 0x32,
-  0x7e,
-  0x31, 0x2d, 0x31, 0x3d, 0x30,
-  0x04, 0x00, 0xf0,
-);
+export const anchorHex = "AA55FF01312B313D327E312D313D300400F0";
+const anchorFrame = Uint8Array.from(anchorHex.match(/../g), byte => parseInt(byte, 16));
 class InvalidAnchor extends Error {}
 
 const json = (data, status = 200) => Response.json(data, {
@@ -24,7 +19,7 @@ export async function digest(text) {
   return Array.from(new Uint8Array(bytes), byte => byte.toString(16).padStart(2, "0")).join("");
 }
 
-async function authorized(request, secret) {
+export async function authorized(request, secret) {
   const token = request.headers.get("authorization")?.match(/^Bearer ([^\s]{32,256})$/i)?.[1];
   if (!token || !secret || secret.length < 32) return false;
   const key = await crypto.subtle.importKey("raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign", "verify"]);

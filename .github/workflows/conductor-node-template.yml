@@ -36,7 +36,7 @@ jobs:
           node-version: '24'
           package-manager-cache: false
       - run: node --test deployments/conductor/node-template/runtime.test.mjs deployments/conductor/release-gate/release-gate.test.mjs
-      - run: node --test deployments/conductor/sovereign-engine/worker.test.mjs
+      - run: node --test deployments/conductor/sovereign-engine/*.test.mjs
       - run: python3 -m unittest discover -s deployments/conductor/sovereign-engine -p 'test_*.py'
       - name: Verify Cloudflare readiness
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
