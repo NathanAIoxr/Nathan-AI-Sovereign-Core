@@ -6,6 +6,8 @@
   "handoff": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/jeffrey-epstein-bible/conductor.json",
   "coverage": "Nine chapter summaries at launch, official source collection links",
   "mount": "Tabor Academy dispatch Worker, using app-factory/jeffrey-epstein-bible/mount.mjs",
+  "defaultMode": "reading",
+  "investigationMode": "?mode=investigate",
   "state": "ready-for-editorial-review",
-  "task": "Expand one sourced chapter at a time. Preserve author wording, identify provenance and evidentiary status, keep victim and private details out of the public index, and verify the release."
+  "task": "Expand one sourced chapter at a time. Include the completed KJV and documentary reading by default. Put prompts and evidence tracing in the optional Investigation Mode. Preserve author wording, identify provenance and evidentiary status, keep victim and private details out of the public index, and verify the release."
 }
