@@ -175,6 +175,20 @@ test("teaches both operations with six worked modules and a capstone", async () 
   assert.equal((await call(new Request(path, { method: "HEAD" }), {})).body, null);
 });
 
+test("reconciles actual deductions in the Million-Dollar Multiplication lesson", async () => {
+  const path = url + "/foundation/reality-math/million-dollar/";
+  const get = async suffix => (await call(new Request(path + suffix), {})).text();
+  const page = await get("");
+  assert.match(page, /\$800,000 taken out \+ \$200,000 paid = \$1,000,000 gross/);
+  assert.match(page, /1 \+ 1 = 10₂/);
+  assert.match(page, /Reddit’s 2024 IPO/);
+  assert.match(page, /Berkshire share gifts/);
+  assert.match(await get("?rate=0"), /\$0 taken out \+ \$1,000,000 paid/);
+  assert.match(await get("?gross=1&rate=1"), /\$0\.01 taken out \+ \$0\.99 paid/);
+  assert.match(await get("?rate=101"), /whole percentage from 0 to 100/);
+  assert.equal(await get("source.txt"), readFileSync(new URL("million-dollar.txt", import.meta.url), "utf8"));
+});
+
 test("serves all nine Three Apples stages and preserves the Conductor source", async () => {
   const path = url + "/foundation/three-apples/";
   const get = suffix => call(new Request(path + suffix), {});

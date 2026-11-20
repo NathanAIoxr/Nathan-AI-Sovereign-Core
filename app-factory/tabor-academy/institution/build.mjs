@@ -27,6 +27,10 @@ const course = JSON.parse(await readFile(new URL("architecture-course.json", her
 const authorMotto = architectureSource.split("\n")[2].slice(1, -1);
 export const foundation = {
   ...foundationStatement,
+  millionDollar: {
+    lesson: await readFile(new URL("million-dollar.html", here), "utf8"),
+    source: await readFile(new URL("million-dollar.txt", here), "utf8"),
+  },
   threeApples: {
     lesson: await readFile(new URL("three-apples.html", here), "utf8"),
     source: await readFile(new URL("three-apples.txt", here), "utf8"),
@@ -77,6 +81,7 @@ function updateAcademyMap(source) {
       ["/institution/foundation/library-handoff/", "Learning paths and the Academy"],
       ["/institution/foundation/reality-math/", "Learning paths and the Academy"],
       ["/institution/foundation/three-apples/", "Learning paths and the Academy"],
+      ["/institution/foundation/reality-math/million-dollar/", "Learning paths and the Academy"],
     ]) {
       const entries = current.catalog[group] ?? (current.catalog[group] = []);
       const entry = catalog.catalog[group].find(([href]) => href === path);

@@ -1,4 +1,4 @@
-# Sorting Hats & Hatettes · UNBOUND
+# the Sorting Hat and Hatette
 
 A standalone realm-gate game and installable web app. The local catalog contains 2,498 realm-specific hats and hatettes. It includes Santa’s crimson cap and its equal, the Solstice Crown. Explore six realms, spin words, choose A to Z or Z to A and work the π/φ dial. Progress stays on the device.
 

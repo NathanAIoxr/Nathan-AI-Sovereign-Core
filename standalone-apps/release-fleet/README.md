@@ -16,7 +16,7 @@ Track websites, books, OS work and compute evidence in the owner D1 database `ta
 | Runner | Schedule | Work |
 | --- | --- | --- |
 | [Nathan release fleet](../../.github/workflows/nathan-release-fleet.yml) | Daily at 10:23 UTC, scoped pushes and manual runs | Build the website catalog, EPUBs and BIOS image. At Cloudflare's public origin, verify the full live station release and the exact published EPUB and OS downloads. Save the download receipt in GitHub Actions. |
-| [Sorting Hats & Hatettes native builds](../../.github/workflows/sorting-hats-native.yml) | Daily at 11:17 UTC, scoped changes and manual runs | Build UNBOUND on GitHub's macOS and Linux runners and retain the independent platform artifacts. |
+| [the Sorting Hat and Hatette native builds](../../.github/workflows/sorting-hats-native.yml) | Daily at 11:17 UTC, scoped changes and manual runs | Build UNBOUND on GitHub's macOS and Linux runners and retain the independent platform artifacts. |
 | [Cloudflare Build Loop](https://tabor-build-loop.nathantaboract.workers.dev/console/) | Every five minutes | Claim and generate queued draft modules in `tabor-autonomous-builds`. Review and test drafts through the project's normal release path. |
 | [Nathan Tabor Supercomputer](https://nathan-tabor-supercomputer.nathantaboract.workers.dev/healthz) | Every two minutes | Claim supported jobs such as bounded SHA-256 digests in `supercomputer_jobs`. |
 
