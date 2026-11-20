@@ -1,0 +1,41 @@
+name = "tap-that-arcade-holding"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[vars]
+PROJECT_ID = "tap-that-arcade"
+STAGING_ALIAS = "tap-that-arcade.test"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "zone-tap-that-arcade-db"
+database_id = "4d34a050-53ad-464c-b075-1295ca6a1b65"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "ZONE_ASSETS"
+bucket_name = "zone-tap-that-arcade-r2"
+
+[[kv_namespaces]]
+binding = "ZONE_CONFIG"
+id = "acb6d26125de4b28ae85d0a0bd773a42"
+
+[[queues.producers]]
+binding = "ZONE_JOBS"
+queue = "zone-tap-that-arcade-q"
+
+[[durable_objects.bindings]]
+name = "ZONE_STATE"
+class_name = "ZoneState"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ZoneState"]

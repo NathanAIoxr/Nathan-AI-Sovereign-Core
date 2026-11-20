@@ -1,0 +1,23 @@
+name: Zone · TAP THAT · ARCADE
+on:
+  push:
+    branches:
+      - 'zone/tap-that-arcade'
+    paths:
+      - 'zones/isolated/tap-that-arcade/**'
+      - '.github/workflows/zone-tap-that-arcade.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test zone.test.mjs
+        working-directory: zones/isolated/tap-that-arcade
