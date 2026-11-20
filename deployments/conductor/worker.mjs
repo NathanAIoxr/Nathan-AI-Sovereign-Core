@@ -2,7 +2,8 @@ import {verifyLiveDecision} from "./cheironomer/src/integrity.js";
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
 import { dashboardScript } from "./dashboard-client.mjs";
-import {cheironomer} from "./cheironomer/src/entry.js";
+import {cheironomer, operator as gateOperator} from "./cheironomer/src/entry.js";
+import { releaseGate } from "./release-gate/http.mjs";
 import {consume} from "./cheironomer/src/conductor.js";
 export { ZoneClock } from "./time-clock.mjs";
 
@@ -72,6 +73,8 @@ export default {
     const { pathname } = new URL(request.url);
     const path = (pathname === prefix || pathname.startsWith(prefix + "/") ? pathname.slice(prefix.length) : pathname) || "/";
     const method = request.method;
+    const gated = await releaseGate(request, env, path, { json, limitedBody, operator: gateOperator });
+    if (gated) return gated;
     if (path==="/cheironomer/internal/dns-gate" && method==="GET") {
       const token=(request.headers.get("Authorization")??"").match(/^Bearer ([^\s]+)$/i)?.[1]??"";
       if(!await sameSecret(token,env.CHEIR_RELAY_KEY))return json({error:"unauthorized"},401);
