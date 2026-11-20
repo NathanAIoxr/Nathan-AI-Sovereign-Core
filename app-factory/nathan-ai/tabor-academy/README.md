@@ -42,3 +42,16 @@ Apply `migrations/0002_techniques.sql` and then `migrations/0003_technique_zones
 Cloudflare development namespaces are named `tabor-academy-001-dev` through `tabor-academy-101-dev`. They are Workers for Platforms dispatch namespaces. Each has a `technique` Worker from `src/technique-zone.mjs`, with its technique brief in a `TECHNIQUE` binding. The Academy Worker serves the public Workbench from D1.
 
 The first field activities are #4, #21, #46, #47, #59, #65, #92, and #101. Technique #47 includes the printable template and the live triangle sandbox.
+
+## Survival-to-Modernity Mastery Drills
+
+[Open the track](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/survival/)
+
+Apply `migrations/0004_survival_mastery.sql` for the public card records. The `survival_source_archive` table holds the private verbatim curriculum. Public routes use only `survival_mastery_cards`.
+
+- `/survival/<number>/` opens a card.
+- `/survival/?category=<1–7>&print=1` renders a printable category deck.
+- `/survival/?print=1` renders the full deck.
+- `/survival/cards.json` serves the public card feed.
+
+The separate development namespaces are `tabor-academy-survival-001-dev` through `tabor-academy-survival-101-dev`. Each contains a `technique` Worker from `src/technique-zone.mjs` with its corresponding public card record in the `TECHNIQUE` binding.
