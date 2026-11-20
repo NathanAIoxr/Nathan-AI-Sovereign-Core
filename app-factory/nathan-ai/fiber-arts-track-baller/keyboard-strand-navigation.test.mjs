@@ -32,3 +32,17 @@ test('rejects invalid and duplicate strand ids',()=>{
 test('empty catalog safely ignores navigation',()=>{
  const f=fixture([]);assert.equal(f.send('ArrowRight'),false);assert.equal(f.calls.length,0);
 });
+
+test('rejected selection preserves prior keyboard index',()=>{
+ const listeners=new Map();
+ const element={addEventListener:(k,fn)=>listeners.set(k,fn),removeEventListener:(k)=>listeners.delete(k)};
+ const seen=[];
+ const nav=attachKeyboardStrandNavigation(element,[{id:'a'},{id:'b'}],selection=>{seen.push(selection.id);return selection.id!=='b';});
+ const event=key=>({key,target:{tagName:'DIV'},preventDefault(){}});
+ listeners.get('keydown')(event('ArrowRight'));
+ assert.equal(nav.getSelectedId(),'a');
+ listeners.get('keydown')(event('ArrowRight'));
+ assert.equal(nav.getSelectedId(),'a');
+ assert.deepEqual(seen,['a','b']);
+ nav.dispose();
+});
