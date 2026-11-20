@@ -1,4 +1,4 @@
-const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.announcement { margin: clamp(2rem, 6vw, 5rem) 0 0; border-top: 1px solid #778360; padding-top: 1.4rem; }\n.status { margin: 0 0 .55rem; font-size: clamp(.85rem, 2vw, 1.15rem); font-weight: 700; letter-spacing: .15em; color: #e6cf87; }\n.timing { margin: 0; font-size: clamp(1rem, 3.1vw, 2.2rem); font-weight: 620; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<div class=\"announcement\">\n<p class=\"status\">COMING SOON</p>\n<p class=\"timing\">LIKE IN THE NEXT FIVE MINUTES</p>\n</div>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a></p>\n</main>\n</body>\n</html>";
+const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.announcement { margin: clamp(2rem, 6vw, 5rem) 0 0; border-top: 1px solid #778360; padding-top: 1.4rem; }\n.status { margin: 0 0 .55rem; font-size: clamp(.85rem, 2vw, 1.15rem); font-weight: 700; letter-spacing: .15em; color: #e6cf87; }\n.timing { margin: 0; font-size: clamp(1rem, 3.1vw, 2.2rem); font-weight: 620; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<div class=\"announcement\">\n<p class=\"status\">COMING SOON</p>\n<p class=\"timing\">LIKE IN THE NEXT FIVE MINUTES</p>\n</div>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a></p>\n</main>\n</body>\n</html>";
 
 const teaser = {
   fetch(request) {
@@ -108,9 +108,144 @@ async function libraryPage(env) {
   </main></html>`;
 }
 
+
+const workbenchPath = mount + "/workbench/";
+const guideNames = ["", "Direct Observation & Self-Directed Autonomy", "Storytelling, Oral Memory & Questioning",
+  "Nature, Tracking & Survival Mechanics", "Hands-On Math, Geometry & Physical Logic",
+  "Craftsmanship, Guilds & Apprenticeship", "Physical Mastery, Senses & Spatial Awareness",
+  "Social Wisdom, Character & Community Integration"];
+const mediumNames = { A: "Field Companion", G: "Sandbox", W: "Workbench", B: "Field Book" };
+const workbenchHeaders = {
+  "cache-control": "no-store",
+  "x-content-type-options": "nosniff",
+  "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+};
+
+function workbenchPage(title, body) {
+  return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escape(title)} · Tabor Academy</title><style>
+  :root{color-scheme:dark;background:#10140f;color:#f9f3e4;font:1rem/1.55 system-ui,sans-serif}
+  main{max-width:66rem;margin:auto;padding:clamp(.85rem,5vw,4rem)} a{color:#e6cf87}
+  h1,h2{font-family:Georgia,serif;line-height:1.12} h1{font-size:clamp(2.25rem,6vw,5rem);margin:.45em 0}
+  h2{font-size:clamp(1.5rem,3vw,2.2rem)} nav{margin-bottom:1rem} .guide-links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem}
+  .catalog{padding-inline-start:3rem} .catalog li,.guide-links li{padding:.45rem .2rem}
+  .media{display:block;color:#c5cbb8;font-size:.9rem} .catalog li::marker{color:#e6cf87;font-weight:700}
+  section{border-top:1px solid #778360;margin-top:2rem;padding-top:1rem}
+  form{display:flex;flex-wrap:wrap;gap:.7rem;align-items:end} label{display:grid;gap:.25rem}
+  input,button{font:inherit;padding:.4rem} input{max-width:5rem} button{cursor:pointer}
+  svg{max-width:100%;height:auto;display:block} .outcome{background:#f8f4e9;color:#1a2015;padding:1rem;max-width:27rem;border-radius:.2rem}
+  @media print{ :root{color-scheme:light;background:white;color:black} main{padding:0} nav,.sandbox,.screen-only{display:none}
+    h1{font-size:24pt}.outcome{padding:0;background:white}#triangle-template{width:4.5in;height:3.6in;max-width:none} section{break-inside:avoid} }
+  </style><main><nav><a href="${mount}/">Tabor Academy</a> · <a href="${mount}/library/">Library of Tabor</a> · <a href="${workbenchPath}">Workbench</a></nav>
+  <h1>${escape(title)}</h1>${body}</main></html>`;
+}
+
+async function workbenchCatalog(env, guide) {
+  const { results } = await env.LIBRARY.prepare(`
+    SELECT number, guide, guide_title, title, media FROM academy_techniques
+    WHERE (?1 IS NULL OR guide = ?1) ORDER BY number
+  `).bind(guide).all();
+  return results.map(({ media, ...record }) => ({
+    ...record, media: Array.from(media, (key) => mediumNames[key]),
+    lesson: record.number === 47 ? workbenchPath + "47/" : null,
+  }));
+}
+
+function renderGuides(records, guide) {
+  const links = guideNames.slice(1).map((name, index) =>
+    `<li><a href="${workbenchPath}?guide=${index + 1}">${index + 1}. ${escape(name)}</a></li>`).join("");
+  const sections = new Map();
+  for (const record of records) {
+    const section = sections.get(record.guide) ?? [];
+    section.push(record);
+    sections.set(record.guide, section);
+  }
+  const index = Array.from(sections, ([number, entries]) => `<section id="guide-${number}">
+    <h2>Field Guide ${number} · ${escape(entries[0].guide_title)}</h2>
+    <ol class="catalog" start="${entries[0].number}">${entries.map((entry) => `<li>
+      ${entry.lesson ? `<a href="${entry.lesson}">${escape(entry.title)}</a>` : escape(entry.title)}
+      <span class="media">${escape(entry.media.join(" · "))}${entry.lesson ? " · Lesson and sandbox ready" : ""}</span>
+    </li>`).join("")}</ol></section>`).join("");
+  return workbenchPage(guide ? "Field Guide " + guide : "Tabor Workbench", `
+    <p>${guide ? "Technique index for this field guide." : "101 techniques across seven field guides. Each entry shows where it belongs in the Academy blueprint."}</p>
+    <ul class="guide-links">${links}</ul>${index}`);
+}
+
+function cordLesson(params) {
+  const defaults = [3, 4, 5];
+  const sides = ["a", "b", "c"].map((key, index) => {
+    const raw = params.get(key);
+    const n = Number(raw);
+    return raw && Number.isInteger(n) && n >= 1 && n <= 12 ? n : defaults[index];
+  });
+  const [a, b, c] = sides;
+  const valid = a + b > c && a + c > b && b + c > a;
+  const right = valid && a * a + b * b === c * c;
+  const second = b * b;
+  const total = a * a + second;
+  const result = !valid ? "These lengths cannot close into a triangle." : right
+    ? "The corner between the first two sides is square." : "The triangle closes, but the corner between the first two sides is not square.";
+  let diagram = "";
+  if (valid) {
+    const x = (a * a + b * b - c * c) / (2 * a);
+    const y = Math.sqrt(Math.max(0,b * b - x * x));
+    const scale = Math.min(250 / (Math.max(x,a) - Math.min(x,0)), 102 / y);
+    const start = 15 - Math.min(x,0) * scale;
+    diagram = `<svg width="280" height="132" viewBox="0 0 280 132" role="img" aria-label="Triangle built from the chosen lengths">
+      <polygon points="${start},118 ${start+a*scale},118 ${start+x*scale},${118-y*scale}" fill="#273521" stroke="#e6cf87" stroke-width="2" /></svg>`;
+  }
+  return workbenchPage("47. Knotted Cord Geometry", `
+    <h2>Z · A square corner made with cord</h2>
+    <figure class="outcome"><svg id="triangle-template" width="4.5in" height="3.6in" viewBox="0 0 450 360"
+       role="img" aria-label="A 3-inch by 4-inch right triangle with a 5-inch diagonal and a one-inch calibration line">
+      <path d="M 20,320 L 420,320 L 20,20 Z M 20,294 H 46 V 320 M 320,30 H 420" fill="none" stroke="currentColor" stroke-width="2"/>
+      <g fill="currentColor" font-size="16"><text x="25" y="186">3 in</text><text x="195" y="344">4 in</text>
+      <text x="213" y="156">5 in</text><text x="326" y="54">1 in check</text></g></svg></figure>
+    <p class="screen-only">Print at actual size (100%) and check the 1-inch line with a ruler before using the template.</p>
+    <section class="sandbox"><h2>Sandbox · Change a side</h2>
+      <form action="${workbenchPath}47/" method="get">${["First side","Second side","Opposite side"].map((label,index)=>
+        `<label>${label}<input name="${["a","b","c"][index]}" value="${sides[index]}" type="number" required min="1" max="12" step="1"></label>`).join("")}
+        <button type="submit">Test the corner</button>
+      </form><p>${result}</p>${diagram}
+      <p>${a}² + ${b}² = ${total}. The opposite side squared is ${c*c}.</p>
+    </section>
+    <section><h2>A · Start with twelve equal intervals</h2><ol>
+      <li>Mark thirteen equally spaced points on a cord with tape or ink. Count the gaps between them. There should be twelve.</li>
+      <li>Bring the two end marks together to close the loop. Put three pencils on a tabletop as corner markers.</li>
+      <li>Stretch three gaps along the first side, four along the second, and five along the opposite side. Keep the cord taut.</li>
+      <li>Check the corner where the three-gap and four-gap sides meet against the corner of a sheet of paper.</li>
+    </ol><h2>Show and replicate</h2><p>Remove the pencils and rebuild the triangle from memory. Have the learner point to each side and explain how they checked the square corner.</p></section>`);
+}
+
+async function serveWorkbench(request, env) {
+  const url = new URL(request.url);
+  const head = request.method === "HEAD";
+  const render = (body, contentType, status = 200) => new Response(head ? null : body, {
+    status, headers: { ...workbenchHeaders, "content-type": contentType + "; charset=utf-8" },
+  });
+  const isLesson = ["/workbench/47", "/workbench/47/"].includes(url.pathname);
+  const isCatalog = ["/workbench", "/workbench/"].includes(url.pathname);
+  const isJson = url.pathname === "/workbench/techniques.json";
+  if (!isLesson && !isCatalog && !isJson) return teaser.fetch(request);
+  if (isLesson) return render(cordLesson(url.searchParams), "text/html");
+  const rawGuide = url.searchParams.get("guide");
+  if (rawGuide !== null && !/^[1-7]$/.test(rawGuide)) return render("Guide not found.", "text/plain", 404);
+  const guide = rawGuide === null ? null : Number(rawGuide);
+  try {
+    const records = await workbenchCatalog(env, guide);
+    return isJson ? render(JSON.stringify({ techniques: records }), "application/json")
+      : render(renderGuides(records, guide), "text/html");
+  } catch (error) {
+    console.error("Academy technique query failed", error);
+    return render("Workbench temporarily unavailable.", "text/plain", 503);
+  }
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((request.method === "GET" || request.method === "HEAD") &&
+        (pathname === "/workbench" || pathname.startsWith("/workbench/"))) return serveWorkbench(request, env);
     if (pathname !== "/library" && pathname !== "/library/") return teaser.fetch(request);
     if (request.method !== "GET" && request.method !== "HEAD") return teaser.fetch(request);
     try {
