@@ -18,7 +18,9 @@ export function addAncientServitudeLesson(worker, lessonHtml) {
   const subtitle = "the academy for TALKING MAMMALS";
   const byline = '<p class="byline">BY NATHAN TABOR</p>';
   let home = JSON.parse(page[1]);
-  home = addOnce(home, byline, '<p>' + subtitle + '</p>\n' + byline);
+  if (!home.includes(subtitle)) {
+    home = addOnce(home, byline, '<p>' + subtitle + '</p>\n' + byline);
+  }
   home = addOnce(home, "Tabor Academy by Nathan Tabor. Coming soon.", "Tabor Academy by Nathan Tabor, " + subtitle + ".");
   const homeLink = '<a href="/tabor-academy/order/">The Law of Order</a>';
   home = addOnce(home, homeLink, homeLink + ' · ' + link);
