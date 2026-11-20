@@ -1,10 +1,11 @@
 import { isInteractiveKeyboardTarget } from './keyboard-focus-path.mjs';
 /** Opt-in keyboard navigation for symbolic strands. Does not modify craft data. */
-export function attachKeyboardStrandNavigation(element, strands, onSelection, { isEnabled = () => true } = {}) {
+export function attachKeyboardStrandNavigation(element, strands, onSelection, { isEnabled = () => true, allowEscapeClear = false } = {}) {
   if (!element || typeof element.addEventListener !== 'function' || typeof element.removeEventListener !== 'function') throw new TypeError('event target required');
   if (!Array.isArray(strands) || strands.some(s => !s || typeof s.id !== 'string' || !s.id) || new Set(strands.map(s => s.id)).size !== strands.length) throw new TypeError('unique strand ids required');
   if (typeof onSelection !== 'function') throw new TypeError('onSelection callback required');
   if (typeof isEnabled !== 'function') throw new TypeError('isEnabled callback required');
+  if (typeof allowEscapeClear !== 'boolean') throw new TypeError('allowEscapeClear must be boolean');
   const ids = strands.map(s => s.id);
   let index = -1, active = true;
   function keydown(event) {
@@ -16,6 +17,13 @@ export function attachKeyboardStrandNavigation(element, strands, onSelection, { 
     else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index < 0 ? ids.length - 1 : (index - 1 + ids.length) % ids.length);
     else if (event.key === 'Home') next = 0;
     else if (event.key === 'End') next = ids.length - 1;
+    else if (event.key === 'Escape' && allowEscapeClear) {
+      if (index < 0) return;
+      event.preventDefault?.();
+      const clear = Object.freeze({ id: null, index: -1, source: 'keyboard', activated: false, cleared: true });
+      if (onSelection(clear, event) !== false) index = -1;
+      return;
+    }
     else if (event.key === 'Enter' || event.key === ' ') {
       if (index < 0) return;
       event.preventDefault?.();
