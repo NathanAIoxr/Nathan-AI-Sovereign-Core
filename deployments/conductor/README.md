@@ -14,6 +14,8 @@ Nathan AI’s control plane for submitting a known operation, seeing it move thr
 
 [Sovereign MINDs](sovereign-minds/) uses the same Cloudflare cockpit and provides a GitHub release verifier, a source ledger, and the Lasso of Truth prompts.
 
+[Fixed-Anchor Binary Encoding](fixed-anchor/) preserves the submitted packet and implements the 144-bit acceptance gate. [Live handoff and downloads](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/fixed-anchor-binary) · [D1 handoff receipt](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/handoffs/fixed-anchor-binary)
+
 [Nathan AI Node Template](node-template/) connects the existing AI, Worker and compute registries to the Conductor's shared receipt API and audit ledger. [Live contract](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/node-template/contract)
 
 [Lasso of Truth Release Gate](release-gate/) validates staged binary, algorithm and LLM output before release and returns a 1 or 0 with a receipt.
