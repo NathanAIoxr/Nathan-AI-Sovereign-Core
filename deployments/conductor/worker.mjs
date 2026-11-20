@@ -1,3 +1,4 @@
+import {verifyLiveDecision} from "./cheironomer/src/integrity.js";
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
 import { dashboardScript } from "./dashboard-client.mjs";
@@ -77,10 +78,12 @@ export default {
       const host=new URL(request.url).searchParams.get("domain");
       if(!host||! /^(?=.{1,253}$)[a-z0-9]+(?:[a-z0-9.-]*[a-z0-9])?$/.test(host))return json({error:"invalid_domain"},400);
       const [record,status]=await Promise.all([
-        env.LEDGER.prepare("SELECT state FROM dns_zone_fleet WHERE domain=?").bind(host).first(),
+        env.LEDGER.prepare("SELECT state,dns_zone_id,updated_at FROM dns_zone_fleet WHERE domain=?").bind(host).first(),
         env.TIME.getByName("cheironomer").cheirStatus()
       ]);
-      return json({live:record?.state==="LIVE"&&!status.paused});
+      try {
+        return json({live:!status.paused&&await verifyLiveDecision(env,host,record)});
+      } catch{return json({live:false,error:"integrity_unavailable"},503);}
     }
     if (path==="/cheironomer/internal/emit" && method==="POST") {
       const token=(request.headers.get("Authorization")??"").match(/^Bearer ([^\s]+)$/i)?.[1]??"";

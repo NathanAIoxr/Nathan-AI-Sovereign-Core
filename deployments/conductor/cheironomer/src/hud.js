@@ -14,7 +14,16 @@ export const hud = `<!doctype html><html lang="en"><meta charset="utf-8"><meta n
 <label>Domain <input id="domain" autocomplete="off"></label><button data-action="holding">Propose HOLDING</button><button data-action="promote">Propose LIVE</button></section>
 <section><h2>ALIEN ⇄ NEILA</h2><label>Proposal ID <input id="id" autocomplete="off"></label><label>SHA-256 proof <input id="proof" autocomplete="off"></label><button id="inspect">Inspect proposed command</button> <button id="approve">Submit independent proof</button></section>
 <section><h2>Voice-to-Vault and TWEEZER-OS</h2><label>Audio <input id="audio" type="file" accept="audio/*"></label><button id="voice">Prepare voice transcript</button>
+<label>Private transcript <textarea id="voiceText" rows="3"></textarea></label><button id="voiceTextSubmit">Prepare text proposal</button>
 <button data-action="extract" data-tile="tap-that">TAP THAT</button> <button data-action="extract" data-tile="tweezer-os">TWEEZER-OS</button></section>
+<section><h2>Risk simulation</h2>
+<label>Stake units <input id="riskStake" inputmode="decimal" value="1"></label>
+<label>Implied probability <input id="riskImplied" inputmode="decimal" value="0.5"></label>
+<label>Estimated probability <input id="riskEstimated" inputmode="decimal" value="0.55"></label>
+<label>Fee and slippage allowance <input id="riskFee" inputmode="decimal" value="0.02"></label>
+<button id="riskCheck">Evaluate simulation</button><label>Simulation ID <input id="riskId" autocomplete="off"></label>
+<button id="riskWin">Record simulated success</button> <button id="riskLoss">Record simulated loss</button>
+</section>
 <section><h2>Receipt</h2><pre id="receipt" aria-live="polite"></pre></section></main>
 <script type="module" src="./hud.mjs"></script></html>`;
 
@@ -27,7 +36,7 @@ const base=operator?"../":"./";
 async function clock(){try{const status=await (await fetch(base+"health")).json();el("clock").textContent=(status.paused?"HOLDING":"ARMED")+" · "+status.holdCapacity+" virtual identities · "+(status.audit??"waiting")+" · "+(status.lastTick?new Date(status.lastTick).toLocaleTimeString():"waking");}catch{el("clock").textContent="TIME unavailable";}}
 await clock();
 setInterval(clock,10000);
-function show(info){el("receipt").textContent=JSON.stringify(info,null,2);if(info.id&&info.proof){el("id").value=info.id;el("proof").value=info.proof;}}
+function show(info){el("receipt").textContent=JSON.stringify(info,null,2);if(info.mode==="SIMULATION"&&info.id)el("riskId").value=info.id;if(info.id&&info.proof){el("id").value=info.id;el("proof").value=info.proof;}}
 async function post(path,body){try{const data=new Blob([JSON.stringify(body)],{type:"application/json"});show(await(await fetch("./"+path,{method:"POST",body:data})).json());await clock();}catch(e){show({error:e.message});}}
 if (operator) {
   const socket=new WebSocket(new URL("./events",location.href).href.replace(/^http/,"ws"));
@@ -44,6 +53,10 @@ if (operator) {
       return post("propose",{action,...fields});
     } catch(e) {show({error:e.message});}
   });
+  el("riskCheck").onclick=()=>post("risk/gate",{unitStake:Number(el("riskStake").value),impliedProb:Number(el("riskImplied").value),
+    trueProb:Number(el("riskEstimated").value),feeDrag:Number(el("riskFee").value)});
+  el("riskWin").onclick=()=>post("risk/settle",{id:el("riskId").value,outcomeSuccess:true});
+  el("riskLoss").onclick=()=>post("risk/settle",{id:el("riskId").value,outcomeSuccess:false});
   el("kill").onclick=()=>post("kill",{});
   el("inspect").onclick=async()=>{
     try {
@@ -57,5 +70,6 @@ if (operator) {
   };
   el("approve").onclick=()=>post("approve",{id:el("id").value,proof:el("proof").value});
   el("roots").onclick=async()=>{try{show(await (await fetch("./roots?source="+el("source").value)).json());}catch(e){show({error:e.message});}};
+  el("voiceTextSubmit").onclick=()=>post("voice/text",{transcript:el("voiceText").value});
   el("voice").onclick=async()=>{try{const file=el("audio").files[0];if(!file)throw Error("Select an audio file");show(await(await fetch("./voice",{method:"POST",body:file})).json());}catch(e){show({error:e.message});}};
 }`;
