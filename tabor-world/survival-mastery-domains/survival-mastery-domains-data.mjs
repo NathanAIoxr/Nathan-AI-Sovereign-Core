@@ -111,11 +111,11 @@ export const survivalDomains = {
       "stations": [
         {
           "id": 4,
-          "title": "Barter, Direct Exchange & Value Creation",
-          "station": "A written agreement for an exchange",
-          "question": "Can either person explain what counts as finished?",
-          "check": "Both sides can identify what is owed. Keep records and check reporting rules for barter in the relevant jurisdiction.",
-          "academy": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-domain-04/"
+          "title": "Three Apples · Subtraction",
+          "station": "One apple moves off the table",
+          "question": "How many apples are on the table, and where is the other one?",
+          "check": "Count two apples on the table and locate the third. Account for all three apples.",
+          "academy": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/three-apples/"
         },
         {
           "id": 5,

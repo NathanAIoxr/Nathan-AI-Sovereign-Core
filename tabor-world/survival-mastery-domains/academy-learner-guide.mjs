@@ -1,4 +1,4 @@
-import { academyCourse, domains, escape, guideLanding, guideQuery, guideStyles, link, learningTopics, topicList, worldBase } from "./survival-guide.mjs";
+import { academyBase, academyCourse, barterLesson, domains, escape, guideLanding, guideQuery, guideStyles, link, learningTopics, topicList, worldBase } from "./survival-guide.mjs";
 import { survivalDomains } from "./survival-mastery-domains-data.mjs";
 
 const mount = "/tabor-academy";
@@ -43,7 +43,7 @@ function page(request, title, body) {
 function domainPage(request, domain) {
   return page(request, domain.name, `<div class="guide"><p class="lede">${escape(domain.summary)}</p>
     <h2>Choose a topic</h2>${topicList(topics.filter((topic) => topic.domain === domain.id))}
-    <div class="actions">${link(fieldbook, "Open the Fieldbook", "action")}</div></div>`);
+    <div class="actions">${domain.id === "money" ? barterLesson() : ""}${link(fieldbook, "Open the Fieldbook", "action")}</div></div>`);
 }
 
 function drillPage(request, topic, mission) {
@@ -52,7 +52,7 @@ function drillPage(request, topic, mission) {
   const options = choices?.split(" / ").map((choice) => choice.replace(/^\d+\.\s*/, ""));
   const authored = mission.flip.startsWith("Nathan Tabor’s words:");
   const authorName = "Nathan Tabor’s words:";
-  const related = mission.link && /^\/?[a-z0-9][a-z0-9/-]*$/i.test(mission.link)
+  const related = mission.link && topic.lesson !== academyBase + "/" + mission.link && /^\/?[a-z0-9][a-z0-9/-]*$/i.test(mission.link)
     ? link(mount + "/" + mission.link.replace(/^\/+/, ""), "Related Academy work", "action") : "";
   return page(request, topic.title, `<article class="guide exercise">
     <p class="lede">${escape(mission.outcome)}</p>
@@ -102,7 +102,7 @@ export default function withLearnerGuide(base) {
             },
           }).transform(response);
         }
-        const lesson = topics.find((item) => new URL(item.lesson).pathname === mount + route + "/");
+        const lesson = route.startsWith("/way/") && topics.find((item) => new URL(item.lesson).pathname === mount + route + "/");
         if (lesson) {
           const response = await fallback();
           if (!response.ok || !response.headers.get("content-type")?.includes("text/html")) return response;

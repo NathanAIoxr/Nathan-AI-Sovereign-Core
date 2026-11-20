@@ -57,21 +57,21 @@ export const fieldDrills = {
     "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-protection/survival-field-drill-03/"
   },
   "4": {
-    "case": "Three apples are on the table. You hand one over today in exchange for a bicycle patch due Friday. Where is each apple, and when does the service go in the ledger?",
+    "case": "Three apples are on the table. One apple is moved into a person’s hand. After subtracting one from the table count, where are all three apples?",
     "options": [
-      "Two stayed on the table, one was transferred, and the patch is owed until Friday’s work is complete.",
-      "Subtract one from the total record and leave the apple’s location blank.",
-      "Record the service as completed the moment the apple moves."
+      "Two apples are on the table and one is in the person’s hand. All three apples are accounted for.",
+      "Two apples are on the table, so only two apples exist.",
+      "All three apples are still on the table."
     ],
     "correct": 1,
-    "why": "The table count fell from three to two. One apple moved to the recipient, so the full inventory still accounts for three. List the service separately as owed until you have evidence that it was performed.",
+    "why": "Three minus one equals two apples on the table. The apple in the person’s hand is still there. Two on the table plus one in the hand accounts for all three.",
     "source": [
-      "IRS · Bartering income",
-      "https://www.irs.gov/taxtopics/tc420"
+      "Nathan Tabor · Three Apples",
+      "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/three-apples/"
     ],
     "related": [
-      "Three Apples · Full Accountability",
-      "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/three-apples/"
+      "Tabor Reality Math",
+      "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/reality-math/"
     ],
     "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-field-drill-04/",
     "authorQuotes": [

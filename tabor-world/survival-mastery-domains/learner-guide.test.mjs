@@ -72,3 +72,14 @@ test("Academy drills keep authored wording and offer a separate self-check and p
   assert.equal(await (await academy.fetch(request(academyCourse + "/fieldbook/"))).text(), "delegated");
   assert.equal(await (await academy.fetch(request(academyCourse + "/", "POST"))).text(), "delegated");
 });
+
+test("Three Apples presents subtraction and points to the original lesson", async () => {
+  const result = await domainExplorer.serve(request(worldCourse + "/money/4/?choice=1"));
+  const page = await result.text();
+  assert.match(page, /Three Apples · Subtraction/);
+  assert.match(page, /Three minus one equals two apples on the table/);
+  assert.match(page, /institution\/foundation\/three-apples\//);
+  assert.doesNotMatch(page, /bicycle patch|what you traded|Bartering income/);
+  const search = await academy.fetch(request(academyCourse + "/?q=subtraction"));
+  assert.match(await search.text(), /Three Apples · Subtraction/);
+});

@@ -14,7 +14,7 @@ const plainTopics = {
   1: ["Recognize grooming and pressure", "safety gaslighting deception secret"],
   2: ["Calm a tense situation", "de-escalation conflict anger argument"],
   3: ["Get help in a first-aid emergency", "triage bleeding injuries burns trauma"],
-  4: ["Three Apples · Track what you traded", "apple barter swap exchange subtraction multiplication zero"],
+  4: ["Three Apples · Subtraction", "apple subtraction subtract count counting moved"],
   5: ["Read a contract before signing", "small print lease agreement fine print loophole"],
   6: ["Compare loans, fees, and debt", "interest credit currency tax rates subtraction multiplication zero"],
   7: ["Recognize repeating family patterns", "attachment trauma childhood cycles"],
@@ -52,6 +52,10 @@ export function learningTopics(catalog, mode) {
       lesson:station.academy,
     };
   }));
+}
+
+export function barterLesson() {
+  return link(academyBase + "/way/mastery-money/survival-domain-04/", "Barter, Direct Exchange & Value Creation", "action");
 }
 
 export const escape = (value) => String(value).replace(/[&<>"']/g, (character) =>
