@@ -411,7 +411,7 @@ async function serveWay(request, env) {
     return respond(workbenchPage("The Nathan Tabor Way", `
       <p>Choose something you want to make, understand, or prove. Start with the finished outcome (Z), work back to what makes it possible (A), then show that the result holds.</p>
       <p class="way-clock">12 · Build <span>→</span> 3 · Flip and clear <span>→</span> 6 · Integrate <span>→</span> 9 · Verify</p>
-      <p><a href="${mount}/order/">The Law of Order · Good Samaritan and the village syllabus</a></p><h2>Choose a path</h2><ul class="way-grid">${grid}</ul>
+      <p><a href="${mount}/order/">The Law of Order · Good Samaritan and the village syllabus</a> · <a href="${mount}/order/time-of-peace/">The Time of Peace</a></p><h2>Choose a path</h2><ul class="way-grid">${grid}</ul>
       <p><a href="${wayPath}readiness/bridge-check/">Find the prerequisite you need next</a> · <a href="${mount}/survival/">Survival-to-Modernity Mastery Drills</a></p>`), "text/html");
   } catch (error) {
     console.error("Academy curriculum query failed", error);
@@ -520,7 +520,7 @@ function serveOrder(request) {
       <p>Start with parents, grandparents, aunts, uncles, godparents, and neighbors. Then ask what a workshop, congregation, or state required. Use Nathan’s Madison County recollection as a question about community accountability: who taught, who intervened, and how did the parents hear about it?</p>
       <p class="screen-only"><a href="${orderPath}"${reverse ? "" : ' aria-current="page"'}>Home → community → institutions</a> ·
         <a href="${orderPath}?view=state"${reverse ? ' aria-current="page"' : ""}>Institutions → community → home</a></p>
-      <p><a href="${mount}/order/porch/">Miss Wilson’s Porch · Hospitality, accountability, and surveillance</a></p><p><a href="${mount}/order/1626/">Go back another 200 years · 1626</a></p><p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
+      <p><a href="${mount}/order/porch/">Miss Wilson’s Porch · Hospitality, accountability, and surveillance</a></p><p><a href="${mount}/order/1626/">Go back another 200 years · 1626</a></p><p><a href="${mount}/order/time-of-peace/">The Time of Peace · The Age of Innocence and the rotation</a></p><p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
     </section>${regionMarkup}
     <section><h2>Timeline audit · Who set the date?</h2>
       <p>In the first places that adopted Pope Gregory XIII’s 1582 calendar reform, October 4 was followed by October 15. Other places adopted the calendar later. Record the place, the calendar used in the original, and who recorded the event before converting its date.</p>
@@ -550,7 +550,7 @@ function servePorch(request) {
   const list = (items) => items.map((line) => `<li>${escape(line)}</li>`).join("");
   const places = porchVignettes.map(([place, scene, question]) => `<article class="mastery-card"><h3>${escape(place)}</h3>
     <blockquote><p>${escape(scene)}</p></blockquote><p><strong>Source question.</strong> ${escape(question)}</p></article>`).join("");
-  const body = `<p class="screen-only"><a href="${orderPath}">The Law of Order</a> · <a href="${mount}/way/">The Nathan Tabor Way</a></p>
+  const body = `<p class="screen-only"><a href="${orderPath}">The Law of Order</a> · <a href="${mount}/order/time-of-peace/">The Time of Peace</a> · <a href="${mount}/way/">The Nathan Tabor Way</a></p>
     <h2>Z · What a learner should be able to show</h2>
     <p>Given a situation, identify who offers help, who receives a report, what power comes with it, and whether the person can leave, disagree, or correct the record.</p>
     <section><h2>The Madison County porch story</h2><p>Academy source text</p>
@@ -686,7 +686,7 @@ function serveYear1626(request) {
     <h3>A · Field test</h3><p>${escape(region.test)}</p>
     <ul>${region.refs.map(([label,url]) => `<li><a href="${escape(url)}">${escape(label)}</a></li>`).join("")}</ul></section>`).join("");
   const body = `<nav><a href="${orderPath}">1826 · The village syllabus</a> ·
-    <a href="${porchPath}">Miss Wilson’s Porch</a></nav>
+    <a href="${porchPath}">Miss Wilson’s Porch</a> · <a href="${mount}/order/time-of-peace/">The Time of Peace</a></nav>
     <p>Z · Show how people learned a real skill and prove what the source can tell you about it.</p>
     <p class="screen-only"><a href="${year1626Path}"${stateFirst ? "" : ' aria-current="page"'}>Home → community → institutions</a> ·
       <a href="${year1626Path}?view=state"${stateFirst ? ' aria-current="page"' : ""}>Institutions → community → home</a></p>
@@ -698,9 +698,297 @@ function serveYear1626(request) {
   });
 }
 
+
+const peacePath = mount + "/order/time-of-peace/";
+const peaceContent = {
+  "groups": [
+    [
+      "Pre-State Egalitarian Band Societies",
+      "Learning through observation, shared work, play, and relationships. Compare communities in the periods actually documented.",
+      [
+        [
+          "Ju/’hoansi and other San communities",
+          "Start with sharing, tracking, learning by watching, and the ways adults and peers help children practice. Record which community and period the account describes.",
+          0
+        ],
+        [
+          "Mbuti and BaYaka",
+          "Compare forest knowledge, music, and cooperative work. Keep the Ituri Mbuti and the many BaYaka communities distinct when comparing evidence.",
+          0
+        ],
+        [
+          "Hadza",
+          "Use the study of children’s learning to examine participation, play, and teaching. Ask which skills children practise with adults and which circulate among peers.",
+          1
+        ],
+        [
+          "Aboriginal Australian nations",
+          "Start with Country and community-led accounts of Songlines. Ask who holds the right to teach a particular story, song, or route.",
+          2
+        ],
+        [
+          "Inuit",
+          "Follow land and water knowledge, elder mentorship, and family teaching across Inuit regions. Begin with Inuit-authored or Inuit-led sources.",
+          3
+        ]
+      ]
+    ],
+    [
+      "Stateless Agricultural & Village Democracies",
+      "Look for the rule in practice: who proposes it, who can challenge it, and who is included in the decision.",
+      [
+        [
+          "Igbo communities",
+          "Compare village assemblies, age grades, and elders with Igbo communities that have kingship traditions, including Onitsha. Identify the place before making a claim about its authority.",
+          4
+        ],
+        [
+          "Tiv and Nuer",
+          "Compare how lineage ties organized responsibilities and alliances. Check where historical accounts show authority operating beyond one household.",
+          5
+        ],
+        [
+          "Haudenosaunee and Wendat",
+          "Read the Haudenosaunee Confederacy’s own account of its Great Law and government, then study Wendat clan and council organization through their separate records.",
+          6,
+          7
+        ],
+        [
+          "Hopi and Ancestral Puebloans",
+          "Put living Hopi accounts first when discussing Hopi life. Use archaeology to investigate farming and settlement and ask what buildings alone can establish about authority.",
+          8
+        ],
+        [
+          "Ifugao",
+          "Trace who maintains terrace walls and manages water. Compare the heritage account with archaeological research on when particular terraces took their current form.",
+          9,
+          10
+        ]
+      ]
+    ],
+    [
+      "Frontier & Mountain Refuges",
+      "Follow the people who moved, the conditions they faced, and how they kept their communities working.",
+      [
+        [
+          "Zomia",
+          "Use James C. Scott’s interpretation to ask when upland settlement served as a way to evade lowland state control. Compare that explanation with the history of a specific Hmong, Karen, Akha, Lahu, or Wa community.",
+          11
+        ],
+        [
+          "Maroon communities of the Americas",
+          "Start with flight from enslavement and the work of building and defending communities. Compare Jamaica, Suriname, Palmares in Brazil, and the Great Dismal Swamp on their own timelines, including treaties and conflict where recorded.",
+          12,
+          13
+        ],
+        [
+          "Rarámuri",
+          "Follow community governance, farming, migration, and mutual sharing in the Sierra Tarahumara. Return to the Chihuahua lesson to see what a state or mining record leaves out.",
+          14
+        ]
+      ]
+    ],
+    [
+      "European Free Territories & Rural Backcountry Pockets",
+      "Compare local decision-making alongside the claims, laws, and markets that operated around it.",
+      [
+        [
+          "Frisian Freedom",
+          "Compare local authority and the tradition of Frisian freedom with legal claims made in and around the Holy Roman Empire.",
+          15
+        ],
+        [
+          "Icelandic Commonwealth",
+          "Start with the Alþingi, founded in 930. Trace who could bring a dispute, who decided it, and what made a judgment enforceable. Place submission to the Norwegian crown in the 1260s.",
+          16
+        ],
+        [
+          "Cospaia",
+          "Use the Italian archival entry to follow the boundary arrangement and Cospaia’s separate status before 1826. Read claims about taxes, officeholders, or policing against the records that document each practice.",
+          17
+        ],
+        [
+          "Cossack Hosts",
+          "Follow the Zaporozhian Sich’s councils and offices. Ask who could participate and how election, military organization, and relations with surrounding states fit together.",
+          18
+        ],
+        [
+          "American Backcountry and Appalachia",
+          "Use family accounts and regional records to follow food sharing, trade teaching, and neighbors’ responsibilities. Connect the inquiry to Madison County and Miss Wilson’s Porch, then ask who was able to rely on an open door.",
+          19
+        ]
+      ]
+    ]
+  ],
+  "refs": [
+    [
+      "Hunter-gatherer learning and social norms",
+      "https://journals.sagepub.com/doi/10.1177/1069397117723552"
+    ],
+    [
+      "Comparative study of Hadza and BaYaka learning",
+      "https://fileserver-az.core.ac.uk/download/210584312.pdf"
+    ],
+    [
+      "National Museum of Australia · Songlines",
+      "https://www.nma.gov.au/about/publications/songlines"
+    ],
+    [
+      "Inuit Tapiriit Kanatami · Inuit Education Summit",
+      "https://itk.ca/wp-content/uploads/2016/07/2008FinalEducationSummitReport.pdf"
+    ],
+    [
+      "Oxford Bibliographies · Igbo political histories",
+      "https://academic.oup.com/reference/62328/reference-article/553799190"
+    ],
+    [
+      "Tiv and Nuer lineage organization · University of Chicago research",
+      "https://bfi.uchicago.edu/wp-content/uploads/2025/12/BFI_WP_2025-149.pdf"
+    ],
+    [
+      "Haudenosaunee Confederacy · Government",
+      "https://www.haudenosauneeconfederacy.com/government/"
+    ],
+    [
+      "Yale eHRAF · Huron/Wendat",
+      "https://ehrafworldcultures.yale.edu/cultures/ng05/summary"
+    ],
+    [
+      "National Park Service · Ancestral Puebloan research",
+      "https://home.nps.gov/subjects/swscience/ancestral-puebloan.htm"
+    ],
+    [
+      "UNESCO · Rice Terraces of the Philippine Cordilleras",
+      "https://whc.unesco.org/en/list/722/"
+    ],
+    [
+      "Ifugao terrace archaeology · Journal of Anthropological Archaeology",
+      "https://par.nsf.gov/servlets/purl/10080581"
+    ],
+    [
+      "Yale · James C. Scott on hills, valleys, and states",
+      "https://seasia.yale.edu/hills-valleys-and-states-art-not-being-governed-anarchist-history-upland-southeast-asia-james-scott"
+    ],
+    [
+      "UNESCO · Maroon heritage of Moore Town",
+      "https://ich.unesco.org/en/lists?RL=00053"
+    ],
+    [
+      "National Park Service · African American Experience Before Emancipation",
+      "https://irma.nps.gov/DataStore/FileSource/Get/2293486?filename=AfAm+NCA+HSR_Final_June2022_ED_508.pdf"
+    ],
+    [
+      "Mexico’s INPI · Rarámuri ethnography",
+      "https://www.gob.mx/inpi/articulos/etnografia-del-pueblo-tarahumara-raramuri"
+    ],
+    [
+      "Fryske Akademy · Frisian Freedom and imperial claims",
+      "https://www.fryske-akademy.nl/en/news-and-events/news/news-article/proefskrift-het-heilige-roomse-rijk-en-de-friese-vrijheid-fan-histoarikus-oebele-vries-nei-40-jier-op-e-nij-utbrocht/"
+    ],
+    [
+      "Alþingi · Parliamentary history",
+      "https://www.althingi.is/media/sogulegt/Althingi2010_islenska_jan2024.pdf"
+    ],
+    [
+      "Italian State Archives · Comunità di Cospaia",
+      "https://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?Chiave=46518&TipoPag=prodente"
+    ],
+    [
+      "Internet Encyclopedia of Ukraine · General Military Council",
+      "https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CG%5CE%5CGeneralMilitaryCouncil.htm"
+    ],
+    [
+      "National Park Service · Appalachian winter stories",
+      "https://www.nps.gov/grsm/learn/historyculture/winter-stories.htm"
+    ]
+  ],
+  "pillars": [
+    [
+      "Kinship & Elder Authority",
+      "Grandparents, aunts, uncles, and neighbors shared direct responsibility for protecting, guiding, and correcting children.",
+      "Draw a circle of trusted adults. Give each person a concrete role: teach a skill, offer help, or contact a caregiver. Role-play what the learner can do when an adult’s decision feels wrong.",
+      "The learner can name two people they can go to, what each person can do, and how to ask for another adult’s help.",
+      "order/"
+    ],
+    [
+      "Mastery by Doing",
+      "Children learned by riding, tracking, farming, building, and trading alongside adults—never treated as test scores or economic units.",
+      "Show a finished paper weaving. Demonstrate one row. The learner makes the next rows, fixes a loose strip, and teaches the next person how to repeat it.",
+      "The next person can reproduce the weave from the learner’s explanation.",
+      "workbench/zones/65/"
+    ],
+    [
+      "Voluntary Hospitality",
+      "Open-door generosity—a cup of water and a slice of pie on a neighbor's porch—backed by mutual respect.",
+      "Act out a visitor asking for water. Let the host offer help without asking for anything in return. Switch roles and run it again with the visitor choosing whether to stay.",
+      "Both people can explain what the visitor could accept, decline, or ask for.",
+      "order/porch/"
+    ],
+    [
+      "Consensus Over Coercion",
+      "Rules were enforced face-to-face by people who knew your name and bloodline, never handed down from distant institutions.",
+      "Give each person a turn to name one need. Draft a rule for sharing a common tool, hear a dissenting view, then rewrite it and try it for one round.",
+      "Every person can describe what the rule does, how to raise a concern, and what changed after the test.",
+      "way/life/fair-decision/"
+    ]
+  ]
+};
+
+function servePeace(request) {
+  const view = new URL(request.url).searchParams.get("view");
+  const family = view === "lessons";
+  const reverse = view === "reverse";
+  const rotation = [
+    ["The Age of Innocence","Start with home, kinship, elders, play, and shared work. In the communities where these practices are documented, children learned by seeing a skill used, trying it, and receiving help close to home. The first question is who was responsible for the child."],
+    ["State and church authority enters","Follow who gained authority over movement, work, belief, schooling, or records. Use a dated law, contract, court record, or institutional archive to locate the change. In each case, ask what authority the household or community could still exercise."],
+    ["Innocence becomes a commodity","Look for concrete evidence that someone could profit from a child’s labor, own or transfer people, or exploit a child and conceal the abuse. Identify who benefited, who could refuse, who controlled the record, and who could intervene."],
+  ];
+  const direction = reverse ? rotation.slice().reverse() : rotation;
+  const pillars = peaceContent.pillars.map(([title, wording, activity, check, href]) =>
+    `<article class="mastery-card"><h3>${escape(title)}</h3><blockquote><p>${escape(wording)}</p></blockquote>
+      <p><strong>Family activity.</strong> ${escape(activity)}</p><p><strong>Show it worked.</strong> ${escape(check)}</p>
+      <p class="screen-only"><a href="${mount}/${escape(href)}">Open the companion Academy lesson</a></p></article>`).join("");
+  const histories = peaceContent.groups.map(([title, lead, cases]) =>
+    `<section><h2>${escape(title)}</h2><p>${escape(lead)}</p>${cases.map(([name, note, ...ids]) =>
+      `<details><summary>${escape(name)}</summary><p>${escape(note)}</p><ul>${ids.map((id) => {
+        const [label,url] = peaceContent.refs[id];
+        return `<li><a href="${escape(url)}">${escape(label)}</a></li>`;
+      }).join("")}</ul></details>`).join("")}</section>`).join("");
+  const body = `<p class="screen-only"><a href="${orderPath}">The Law of Order</a> · <a href="${year1626Path}">1626</a> ·
+    <a href="${orderPath}">1826</a> · <a href="${porchPath}">Miss Wilson’s Porch</a></p>
+    <nav class="screen-only"><a href="${peacePath}"${family || reverse ? "" : ' aria-current="page"'}>Follow the rotation</a> ·
+      <a href="${peacePath}?view=reverse"${reverse ? ' aria-current="page"' : ""}>Trace the rotation backward</a> ·
+      <a href="${peacePath}?view=lessons"${family ? ' aria-current="page"' : ""}>Print family lessons</a></nav>
+    ${family ? "" : `<section><h2>${reverse ? "Trace the authority back to the home" : "The Age of Innocence"}</h2>
+      <p>Begin with the child in the home and community, before state or church authority in the cases where those institutions had yet to take hold. Follow the rotation in that place and period.</p>
+      <ol>${direction.map(([label,text]) => `<li><h3>${label}</h3><p>${text}</p></li>`).join("")}</ol>
+      <h3>Where the evidence shows the turn</h3>
+      <ul><li><strong>Jamaica.</strong> Enslavement claimed control over people and their labor. Maroon communities formed through escape and built their own systems of care and authority. Compare their record with the 1826 provision-ground lesson.
+        <a href="https://ich.unesco.org/en/lists?RL=00053">UNESCO · Moore Town Maroon heritage</a></li>
+      <li><strong>Industrial Britain.</strong> Factory and apprenticeship records show how employers benefited from children’s labor. Parliament’s 1833 Factory Act introduced inspectors and set limits on child employment in covered factories. Read the rules alongside evidence about the work children actually did.
+        <a href="https://www.parliament.uk/about/living-heritage/transformingsociety/livinglearning/19thcentury/keydates/">UK Parliament · Key dates</a></li>
+      <li><strong>Institutional child sexual abuse.</strong> Australia’s Royal Commission documented child sexual abuse in institutions, including religious institutions, and examined how authorities responded. Follow who had access, who received complaints, what happened to the reports, and whether children were protected.
+        <a href="https://www.royalcommission.gov.au/child-abuse/final-report">Royal Commission · Final report</a> · <a href="https://www.royalcommission.gov.au/child-abuse/un-redacted-reports">Religious institutions · Unredacted findings</a></li></ul>
+      <p>These are different historical mechanisms. Compare who controlled each child’s choices, who could benefit, and what happened when someone spoke up.</p>
+    </section>`}
+    <section><h2>The Four Pillars</h2>${pillars}</section>
+    ${family ? "" : `<h2>Connect the historical cases</h2>${histories}
+      <section class="proof-sheet"><h2>Prove the rotation in one place</h2>
+      <ol><li>Choose one community in this lesson. Use the 1626 or 1826 lesson to find a comparison.</li>
+      <li>Place a community source and an institutional source in order. Record who made each record and which people it represents.</li>
+      <li>Identify one practical skill, one shift in authority, and any documented benefit from controlling another person’s choices.</li>
+      <li>Connect the result to one pillar. Demonstrate what protecting a learner’s ability to ask for help, question a decision, or walk away would look like today.</li></ol>
+      <p>Who held responsibility:</p><div></div><p>What changed and how I know:</p><div></div><p>What protection I can demonstrate:</p><div></div></section>`}`;
+  return new Response(request.method === "HEAD" ? null : workbenchPage("The Time of Peace: Where Innocence Was Not a Commodity", body), {
+    headers: { ...workbenchHeaders, "content-type": "text/html; charset=utf-8" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((pathname === "/order/time-of-peace" || pathname === "/order/time-of-peace/") &&
+        (request.method === "GET" || request.method === "HEAD")) return servePeace(request);
     if ((pathname === "/order/1626" || pathname === "/order/1626/") &&
         (request.method === "GET" || request.method === "HEAD")) return serveYear1626(request);
     if ((pathname === "/order/porch" || pathname === "/order/porch/") &&
