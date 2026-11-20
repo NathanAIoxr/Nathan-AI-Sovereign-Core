@@ -36,9 +36,10 @@ async function indexEntry(env, workspaceId, entry) {
     WHERE excluded.revision >= indexing.revision`,
   workspaceId,entry.id,entry.revision,indexCatalog(entry),indexPhonetics(entry),indexEvidence(entry)).run();
 }
-async function refreshIndexes(env) {
+async function refreshIndexes(env, workspaceId=null) {
   const pending = await rows(env,`SELECT entries.* FROM entries LEFT JOIN indexing USING(workspace,id)
-    WHERE indexing.revision IS NULL OR indexing.revision<entries.revision ORDER BY updated_at LIMIT 40`);
+    WHERE (indexing.revision IS NULL OR indexing.revision<entries.revision)
+      AND (? IS NULL OR entries.workspace=?) ORDER BY updated_at LIMIT 40`,workspaceId,workspaceId);
   for (const row of pending) {
     try { await indexEntry(env,row.workspace,deserialize(row)); }
     catch(e) { console.error('Index retry:',e.message); }
@@ -59,6 +60,7 @@ async function handle(request,env,ctx) {
   const session=workspace(request);
   if (request.method!=='GET' && request.headers.get('Origin')!==url.origin) return error('Open the app to make changes.',403);
   if (request.method==='GET' && path==='/api/bootstrap') {
+    ctx.waitUntil(refreshIndexes(env,session.id).catch(e=>console.error('Index retry:',e.message)));
     const items=await rows(env,'SELECT * FROM entries WHERE workspace=? ORDER BY updated_at DESC LIMIT 200',session.id);
     return json({seed,entries:items.map(deserialize),environment:env.ENVIRONMENT||'local',
       audio:Boolean(env.AUDIO),transcription:Boolean(env.AI),semantic:Boolean(env.AI&&env.VECTORS)},200,session.cookie?{'Set-Cookie':session.cookie}:{});
@@ -73,7 +75,10 @@ async function handle(request,env,ctx) {
         matches=query.matches.map(item=>item.id);
       } catch { /* Exact catalog lookup remains available. */ }
     }
-    const found=await rows(env,'SELECT * FROM entries WHERE published=1 ORDER BY updated_at DESC LIMIT 300');
+    const conditions=matches.map(()=>'?').join(',');
+    const found=await rows(env,`SELECT entries.* FROM entries LEFT JOIN indexing USING(workspace,id)
+      WHERE published=1 AND (?='' OR instr(lower(COALESCE(indexing.catalog,'')||entries.content),lower(?))>0
+        ${conditions?' OR entries.id IN ('+conditions+')':''}) ORDER BY updated_at DESC LIMIT 150`,search,search,...matches);
     const entries=found.map(deserialize).filter(e=>verification(e).retained).map(publicEntry);
     const needle=search.toLocaleLowerCase();
     return json({entries:entries.filter(e=>!needle||matches.includes(e.id)||

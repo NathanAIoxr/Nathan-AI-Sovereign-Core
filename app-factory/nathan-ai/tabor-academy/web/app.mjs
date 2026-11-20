@@ -1,4 +1,4 @@
-import {seed,modes,normalize,verification,indexCatalog,wordIndex} from '/model.mjs';
+import {seed,modes,normalize,verification,indexCatalog,wordIndex} from './model.mjs';
 const $=(selector)=>document.querySelector(selector);
 const all=(selector)=>[...document.querySelectorAll(selector)];
 let entry={...seed};
@@ -14,7 +14,7 @@ let busy=false;
 let readOnly=false;
 
 async function api(path,options) {
-  const response=await fetch('/api/'+path,options);
+  const response=await fetch('./api/'+path,options);
   const result=await response.json();
   if (!response.ok) throw new Error(result.error||'The request failed.');
   return result;
@@ -71,7 +71,7 @@ function renderRole() {
 }
 function renderAudio() {
   const audio=$('#audio');
-  const source=entry.audioId?'/api/audio/'+entry.audioId:'';
+  const source=entry.audioId?'./api/audio/'+entry.audioId:'';
   if(source && audio.getAttribute('src')!==source) audio.src=source;
   if(!source && audio.hasAttribute('src')) audio.removeAttribute('src');
   audio.hidden=!source;
@@ -275,7 +275,7 @@ $('#search-form').onsubmit=(e)=>{e.preventDefault();searchArchive().catch(err=>n
 for(const id of ['collection','classification','semantic']) $('#'+id).onchange=()=>searchArchive().catch(err=>notify(err.message,true));
 $('#spec-open').onclick=async()=>{
   try {
-    const response=await fetch('/specification');
+    const response=await fetch('./specification');
     if(!response.ok) throw new Error('Specification unavailable.');
     $('#spec-text').textContent=await response.text();
     $('#spec').showModal();
