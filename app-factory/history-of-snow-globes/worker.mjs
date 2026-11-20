@@ -1,5 +1,5 @@
 const assets=/*__ASSETS__*/ {};
-const types={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',json:'application/json; charset=utf-8',webmanifest:'application/manifest+json',svg:'image/svg+xml',png:'image/png'};
+const types={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',json:'application/json; charset=utf-8',webmanifest:'application/manifest+json',svg:'image/svg+xml',png:'image/png',webp:'image/webp'};
 export default {
   fetch(request){
     const url=new URL(request.url);

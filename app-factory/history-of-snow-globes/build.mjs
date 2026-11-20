@@ -32,7 +32,7 @@ function icon(size){
 await cp(here('./public'),here('./dist'),{recursive:true});
 for(const size of [192,512])await writeFile(here('./dist/icon-'+size+'.png'),icon(size));
 const records=Object.fromEntries(await Promise.all((await readdir(here('./dist'))).map(async name=>{
-  const data=await readFile(here('./dist/'+name));return [name,name.endsWith('.png')?{base64:data.toString('base64')}:data.toString('utf8')];
+  const data=await readFile(here('./dist/'+name));return [name,/\.(png|webp)$/.test(name)?{base64:data.toString('base64')}:data.toString('utf8')];
 })));
 const runtime=await readFile(here('./worker.mjs'),'utf8');
 await mkdir(here('./.release'),{recursive:true});
