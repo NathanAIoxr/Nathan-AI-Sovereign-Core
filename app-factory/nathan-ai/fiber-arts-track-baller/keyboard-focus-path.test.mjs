@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { isInteractiveKeyboardTarget } from './keyboard-focus-path.mjs';
+const node = (tagName, parentElement = null, role = null) => ({tagName,parentElement,getAttribute: k => k === 'role' ? role : null});
+test('plain viewport remains available',()=>assert.equal(isInteractiveKeyboardTarget({target:node('DIV')}),false));
+test('nested input is protected',()=>assert.equal(isInteractiveKeyboardTarget({target:node('SPAN',node('INPUT'))}),true));
+test('buttons and links are protected',()=>{for(const tag of ['BUTTON','A','SUMMARY']) assert.equal(isInteractiveKeyboardTarget({target:node(tag)}),true);});
+test('ARIA controls are protected through composed path',()=>assert.equal(isInteractiveKeyboardTarget({target:node('SPAN'),composedPath:()=>[node('SPAN'),node('DIV',null,'slider')]}),true));
+test('editable ancestors are protected',()=>assert.equal(isInteractiveKeyboardTarget({target:node('SPAN',{tagName:'DIV',isContentEditable:true})}),true));
+test('invalid event rejected',()=>assert.throws(()=>isInteractiveKeyboardTarget(null),TypeError));
