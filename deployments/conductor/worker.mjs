@@ -1,6 +1,7 @@
 import { serveHolidayHandoff } from "./holiday-handoff.mjs";
 import { serveSovereignMindsHandoff } from "./sovereign-minds-handoff.mjs";
 import { serveMiningHandoff } from "./mining-handoff.mjs";
+import { serveArchitectureCourseHandoff } from "./architecture-course-handoff.mjs";
 import {verifyLiveDecision} from "./cheironomer/src/integrity.js";
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
@@ -121,6 +122,8 @@ export default {
     if (mindsHandoff) return mindsHandoff;
     const miningHandoff = serveMiningHandoff(request, path, env.LEDGER);
     if (miningHandoff) return miningHandoff;
+    const architectureCourseHandoff = serveArchitectureCourseHandoff(request, path, env.LEDGER);
+    if (architectureCourseHandoff) return architectureCourseHandoff;
     const isRead = method === "GET" || method === "HEAD";
     if (isRead && path === "/") {
       return new Response(method === "HEAD" ? null : dashboard, { headers: {

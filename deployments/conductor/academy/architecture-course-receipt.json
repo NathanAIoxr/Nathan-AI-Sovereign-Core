@@ -1,0 +1,79 @@
+{
+  "schema": "nathan-ai.conductor.project-handoff.v1",
+  "id": "handoff:tabor-academy-architecture-course:fa6857dcf6d7ca3270b2d3c9177a2241d7c70b06",
+  "project": "tabor-academy-architecture-course",
+  "title": "Tabor Academy · How to Operate in This World",
+  "owner": "Nathan Tabor",
+  "recipient": "Nathan AI Master Conductor",
+  "state": "received",
+  "verifiedAt": "2026-11-20T19:05:51.782Z",
+  "sourceRevision": "fa6857dcf6d7ca3270b2d3c9177a2241d7c70b06",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/fa6857dcf6d7ca3270b2d3c9177a2241d7c70b06/app-factory/tabor-academy/institution",
+  "academyRelease": "6e9efa1595f83ac0",
+  "academyDeployment": "04d73026ff26450cbe79713b513eb69e",
+  "course": {
+    "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/",
+    "worksheet": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/worksheet.txt",
+    "original": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/source.txt",
+    "prompts": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/conductor.json",
+    "health": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/healthz",
+    "tracks": [
+      "How to operate in this world",
+      "How to operate without this world stupidity"
+    ],
+    "modules": [
+      {
+        "id": "nine-cars",
+        "title": "Reality Math · The Nine Cars Axiom",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/nine-cars/"
+      },
+      {
+        "id": "labels",
+        "title": "Labels · Attributes, Characteristics and Functionality",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/labels/"
+      },
+      {
+        "id": "library-lineage",
+        "title": "Library Lineage · Follow the Record",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/library-lineage/"
+      },
+      {
+        "id": "primary-truth",
+        "title": "Primary Truth · Keep the Original Whole",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/primary-truth/"
+      },
+      {
+        "id": "contradictions",
+        "title": "Contradictions and Confusion · Yes Is Yes, No Is No",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/contradictions/"
+      },
+      {
+        "id": "protect-the-one",
+        "title": "Protecting The One · Truth and Unconditional Love",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/protect-the-one/"
+      },
+      {
+        "id": "master-conductor",
+        "title": "Personal Memory and Personal Intelligence · The Master Conductor",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/master-conductor/"
+      },
+      {
+        "id": "capstone",
+        "title": "Capstone · Operate Both Ways",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/architecture/course/capstone/"
+      }
+    ]
+  },
+  "checks": [
+    "Eight module routes, both teaching tracks, and correct-answer feedback",
+    "Source ledger worksheet",
+    "Original authored packet",
+    "Four ordered author prompts",
+    "Matching Cloudflare Academy release in health and handoff responses"
+  ],
+  "next": [
+    "Keep the two teaching tracks together in every module.",
+    "Preserve the original wording, including the motto and the four prompts.",
+    "Before marking a course update live, verify each lesson, the worksheet, and the deployed release."
+  ]
+}

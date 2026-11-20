@@ -10,6 +10,8 @@ Nathan AI’s control plane for submitting a known operation, seeing it move thr
 
 [Cryptocurrency Mining handoff](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/cryptocurrency-mining) records Rocket’s fleet snapshot, the Bitcoin proof, independent mining projects, and the twelve Academy modules. [Versioned receipt](cryptocurrency-mining/receipt.json)
 
+[Tabor Academy course handoff](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/tabor-academy-architecture-course) records the eight How to Operate in This World modules, their two teaching tracks, the learner worksheet, and the verified Academy release. [Versioned receipt](academy/architecture-course-receipt.json)
+
 [Sovereign MINDs](sovereign-minds/) uses the same Cloudflare cockpit and provides a GitHub release verifier, a source ledger, and the Lasso of Truth prompts.
 
 [Lasso of Truth Release Gate](release-gate/) validates staged binary, algorithm and LLM output before release and returns a 1 or 0 with a receipt.
