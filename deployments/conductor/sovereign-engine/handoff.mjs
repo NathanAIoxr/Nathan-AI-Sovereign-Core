@@ -1,0 +1,18 @@
+const handoff = {
+  project: "nathan-ai-sovereign-engine",
+  title: "Nathan AI Full-Spectrum Autonomous Sovereign Engine",
+  doors: [
+    { name: "The Immune System & CI Reflex", entry: "GitHub Actions CI triage artifacts" },
+    { name: "The Storage & Ledger Governor", entry: "Two D1 shards and private R2 overflow" },
+    { name: "The Logic & Forging Gate", entry: "Local leased intake and the Conductor Lasso release gate" },
+    { name: "The Sensory & Swarm Edge", entry: "Hop In and Voice Box file intake with SHA-256 receipts" },
+  ],
+  health: "https://nathan-ai-sovereign-engine.nathantaboract.workers.dev/api/health",
+  nodeContract: "/tabor-sites/conductor/api/node-template/contract",
+  source: "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/deployments/conductor/sovereign-engine",
+};
+
+export function serveSovereignEngineHandoff(request, path) {
+  if (request.method !== "GET" || path !== "/api/handoffs/sovereign-engine") return undefined;
+  return Response.json(handoff, { headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" } });
+}
