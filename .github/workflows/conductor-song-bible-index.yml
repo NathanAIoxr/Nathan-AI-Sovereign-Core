@@ -1,0 +1,37 @@
+name: Conductor Song and KJV Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'deployments/conductor/song-bible-index/**'
+      - '.github/workflows/conductor-song-bible-index.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: conductor-song-bible-index
+  cancel-in-progress: false
+
+jobs:
+  sync-catalog:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate recordings and evidence links
+        run: node --test deployments/conductor/song-bible-index/catalog.test.mjs
+      - name: Sync approved catalog to Cloudflare D1
+        run: node deployments/conductor/song-bible-index/publish.mjs
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -1,0 +1,27 @@
+{
+  "project": "song-bible-index",
+  "title": "Tabor Song & KJV Index",
+  "owner": "Nathan Tabor",
+  "recipient": "Nathan AI Conductor",
+  "catalog": "https://tabor-song-bible-index.nathantaboract.workers.dev/",
+  "repoPath": "deployments/conductor/song-bible-index",
+  "work": [
+    {
+      "id": "identify-shave-em-dry-versions",
+      "status": "open",
+      "instruction": "Verify the remaining Lucille Bogan alternate against Document Records track identifiers and the liner notes. Verify the earliest available pressings and recording dates for the other Shave 'Em Dry performances."
+    },
+    {
+      "id": "expand-hokum-and-dirty-blues",
+      "status": "open",
+      "instruction": "Research additional prewar dirty blues and hokum, then postwar jump blues. Start with the public Smithsonian catalog, Discography of American Historical Recordings, label liner notes and the Florida Atlantic University Recorded Sound Archives."
+    },
+    {
+      "id": "expand-kjv-song-links",
+      "status": "open",
+      "instruction": "Locate songs that set, retell, allude to, or share a specific theme with KJV passages. Follow Song of Solomon, Proverbs 5, the David and Bathsheba and Samson and Delilah accounts, and source-backed work on abuses of trust. Keep adult desire, sexual humor, sexual violence, coercion and abuse of power distinct."
+    }
+  ],
+  "recordPolicy": "Use one stable ID per verified performance or recording. Save artist, title, year and what the year measures, take or issue, source URL and a short evidence note. A thematic comparison never establishes the songwriter relied on the Bible. Keep uncertain version claims open. Store titles and paraphrased notes with public source links. Never reproduce full song lyrics or private case materials.",
+  "publication": "Validate seed changes against catalog.test.mjs and publish only source-backed metadata. Synchronize the approved GitHub seed to the dedicated Cloudflare D1 database and verify results via the public health and search routes."
+}

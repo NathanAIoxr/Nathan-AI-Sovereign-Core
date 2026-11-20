@@ -1,0 +1,14 @@
+name = "tabor-song-bible-index"
+main = "worker.mjs"
+compatibility_date = "2026-11-20"
+workers_dev = true
+
+[[d1_databases]]
+binding = "CATALOG"
+database_name = "tabor-song-bible-index"
+database_id = "a7849eec-c580-4c0c-a5af-1a353ed85880"
+
+[[d1_databases]]
+binding = "LEDGER"
+database_name = "nathan-ai-conductor-ledger"
+database_id = "3279cbc0-0e73-4b07-9bc2-47ab0c3b95c2"
