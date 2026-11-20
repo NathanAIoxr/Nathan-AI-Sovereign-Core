@@ -71,6 +71,20 @@ export default {
     const { pathname } = new URL(request.url);
     const path = (pathname === prefix || pathname.startsWith(prefix + "/") ? pathname.slice(prefix.length) : pathname) || "/";
     const method = request.method;
+    if (path==="/cheironomer/internal/emit" && method==="POST") {
+      const token=(request.headers.get("Authorization")??"").match(/^Bearer ([^\s]+)$/i)?.[1]??"";
+      if(!await sameSecret(token,env.CHEIR_RELAY_KEY))return json({error:"unauthorized"},401);
+      try {
+        const body=JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(await limitedBody(request,16384)));
+        if(!Array.isArray(body.messages)||body.messages.length>10)return json({error:"invalid_batch"},400);
+        const accepted=[];
+        const messages=body.messages.map((message,index)=>({
+          body:message,ack:()=>accepted.push(index),retry:()=>undefined
+        }));
+        await consume({messages},env);
+        return json({ack:accepted});
+      } catch {return json({error:"invalid_batch"},400);}
+    }
     if (path==="/cheironomer") return Response.redirect(new URL(pathname+"/",request.url),308);
     if (path.startsWith("/cheironomer/")) {
       try { return await cheironomer(request,env,path.slice("/cheironomer".length)); }

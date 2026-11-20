@@ -92,5 +92,5 @@ queue = "nathan-ai-cheironomer-events"
 [ai]
 binding = "AI"
 
-# Native push/Cron requires a standard Worker address. Dispatch uses HTTP pull
-# and the same 10-second Durable Object alarm with a minute audit cadence.
+# The standard Tabor Train Worker provides native Queue push and minute Cron.
+# Cheironomer runs its ten-second Durable Object alarm in this dispatch Worker.

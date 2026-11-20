@@ -11,8 +11,6 @@ on:
         type: choice
         options: [verify, release, drain, export-voice-proof]
         default: verify
-  schedule:
-    - cron: '*/5 * * * *'
 permissions:
   contents: read
 concurrency:
@@ -39,7 +37,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: bash deployments/conductor/cheironomer/deploy.sh --activate
   emit:
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.action == 'drain')
+    if: github.ref == 'refs/heads/main' && inputs.action == 'drain'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
