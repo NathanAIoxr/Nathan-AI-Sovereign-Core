@@ -520,7 +520,7 @@ function serveOrder(request) {
       <p>Start with parents, grandparents, aunts, uncles, godparents, and neighbors. Then ask what a workshop, congregation, or state required. Use Nathan’s Madison County recollection as a question about community accountability: who taught, who intervened, and how did the parents hear about it?</p>
       <p class="screen-only"><a href="${orderPath}"${reverse ? "" : ' aria-current="page"'}>Home → community → institutions</a> ·
         <a href="${orderPath}?view=state"${reverse ? ' aria-current="page"' : ""}>Institutions → community → home</a></p>
-      <p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
+      <p><a href="${mount}/order/porch/">Miss Wilson’s Porch · Hospitality, accountability, and surveillance</a></p><p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
     </section>${regionMarkup}
     <section><h2>Timeline audit · Who set the date?</h2>
       <p>In the first places that adopted Pope Gregory XIII’s 1582 calendar reform, October 4 was followed by October 15. Other places adopted the calendar later. Record the place, the calendar used in the original, and who recorded the event before converting its date.</p>
@@ -532,9 +532,66 @@ function serveOrder(request) {
   });
 }
 
+
+const porchPath = mount + "/order/porch/";
+const porchVignettes = [["Chihuahua (1826)","A young rider crossing twenty miles of open desert could pull up to any rancho gate, call out \"¡Ave María Purísima!\", and be welcomed inside for fresh tortillas, beans, and water from the olla—because the family inside knew his grandfather and knew he was raised right.","Which ranch account, travel diary, or oral history could document a particular encounter? Who could travel that far, and under what conditions?"],["Tequila (1826)","Walking the dusty lanes between agave fields, any child who greeted Doña Elena with proper manners could stop at her patio for a gourd of cool agua fresca and fresh fruit off the tree, under the same watchful eyes that kept him out of trouble.","Look for a household account or parish record. What could a godparent’s role establish? What would it leave uncertain about daily practice?"],["Geneva (1826)","A young apprentice running errands across the quartiers could step into a family baker's or neighbor's kitchen for bread and cheese, known by face and family name across every cobblestone street.","Look for an apprenticeship contract or letter. Did it describe who could offer help, who could discipline, or what the apprentice could refuse?"],["Jamaica (1826)","Moving through the hills and village yards, any child who showed proper respect to the elders was fed from the communal pot of yams, saltfish, and coconut water at whatever yard they stopped in.","Read testimony about provision grounds and ask who was free to move. Enslavement in 1826 restricted movement and legal autonomy. A practice of mutual aid within a community could coexist with those restrictions."]];
+const porchOpening = ["That contrast draws the exact dividing line between high-trust organic community and state-enforced surveillance.","Behind the Berlin Wall in East Germany, neighbors watched neighbors out of fear for the Stasi—an artificial, top-down system built to trap people and control their minds. In the world of 1826 Chihuahua, Tequila, Geneva, Jamaica, and rural Madison County, that shared village authority came from freedom, kinship, and mutual trust.","When everyone knows your family and has the standing to correct you, you aren't locked behind a wall—you own the whole map. You can get on your horse (or your bike, or walk the creek bed), ride five miles down the road with total independence, and knock on Miss Wilson’s screen door knowing two absolute truths:"];
+const porchRules = ["If you act out or disrespect her, she will tan your hide and call your mama before you even untie your horse.","If you are respectful, hungry, and thirsty, she will hand you a cold cup of water and cut you a warm slice of apple pie without asking for a dime or a permission slip."];
+const porchClose = ["High Trust = Wide Boundaries: Because Miss Wilson knew your parents taught you right—and knew she had the backing to enforce it—you didn't need fences, walls, or locked doors.","Self-Reliance + Village Safety Net: You had the liberty to roam on your own at eight or ten years old, backed by a whole county of porches where you were safe, known, and fed."];
+
+function servePorch(request) {
+  const choice = new URL(request.url).searchParams.get("case");
+  const cases = {
+    water: "Help meets a need: the neighbor offers water openly. The visitor can accept or decline. No report is created.",
+    repair: "Open accountability: the neighbor explains what happened to the learner and the family, hears their account, and offers a specific way to repair the harm.",
+    report: "Institutional surveillance: the agency secretly collects lawful private activity, keeps records, and can impose consequences. The person may have no meaningful way to refuse or correct the report.",
+  };
+  const feedback = Object.hasOwn(cases, choice) ? cases[choice] : "";
+  const list = (items) => items.map((line) => `<li>${escape(line)}</li>`).join("");
+  const places = porchVignettes.map(([place, scene, question]) => `<article class="mastery-card"><h3>${escape(place)}</h3>
+    <blockquote><p>${escape(scene)}</p></blockquote><p><strong>Source question.</strong> ${escape(question)}</p></article>`).join("");
+  const body = `<p class="screen-only"><a href="${orderPath}">The Law of Order</a> · <a href="${mount}/way/">The Nathan Tabor Way</a></p>
+    <h2>Z · What a learner should be able to show</h2>
+    <p>Given a situation, identify who offers help, who receives a report, what power comes with it, and whether the person can leave, disagree, or correct the record.</p>
+    <section><h2>The Madison County porch story</h2><p>Academy source text</p>
+      <blockquote>${porchOpening.map((line) => `<p>${escape(line)}</p>`).join("")}<ol>${list(porchRules)}</ol></blockquote>
+      <p>The memory describes a practice of its time. In Academy exercises, correction means explaining the expectation, hearing the learner’s account, agreeing on a repair when harm was done, and contacting a caregiver when needed.</p>
+    </section>
+    <section><h2>How That “Open-Range Freedom” Worked in 1826</h2>
+      <p>The supplied scenes illustrate how hospitality might work. Their individual encounters and universal claims need evidence of their own.</p>
+      <blockquote><p>In all four places 200 years ago, that exact same hospitality-and-accountability loop was the real social safety net:</p></blockquote>
+      ${places}<p><a href="${orderPath}">Open the four regional source lists</a> ·
+        <a href="https://www.bl.uk/stories/blogs/posts/food-and-freedom-in-19th-century-jamaica">British Library · Food and Freedom in 19th-Century Jamaica</a></p>
+    </section>
+    <section><h2>The Two Sides of the Same Coin</h2><blockquote>
+      <p>That system only works when freedom and responsibility are welded together:</p><ul>${list(porchClose)}</ul>
+    </blockquote></section>
+    <section><h2>East Germany · Who held the report?</h2>
+      <p>The German Federal Archives document the Stasi’s network of unofficial collaborators in the GDR. Reasons for collaborating varied. The border regime restricted movement, and the security service could collect reports about a person’s private activities without their knowledge.</p>
+      <ul><li><a href="https://www.bundesarchiv.de/en/stasi-records-archive/education/what-was-the-state-security/the-unofficial-collaborators-of-the-mfs/">German Federal Archives · Unofficial collaborators</a></li>
+      <li><a href="https://www.archives.gov/files/research/foreign-policy/cold-war/berlin-wall-1962-1987/dvd/pdfs/essays/PP-12.pdf">U.S. National Archives · Contemporary report on the Berlin Wall</a></li></ul>
+    </section>
+    <section><h2>A · Put the Law of Order to work</h2>
+      <ol><li><strong>Notice the need.</strong> A visitor arrives thirsty.</li><li><strong>Help.</strong> Offer water and a place to sit.</li>
+      <li><strong>Hear what happened.</strong> If something broke, listen to the people involved.</li>
+      <li><strong>Make a repair.</strong> Agree on a way to put it right. Tell a caregiver when the situation calls for it.</li></ol>
+      <p>Run the scene twice, once with help first and once with questions first. Ask the visitor what each version made it easier or harder to say.</p>
+      <form method="get" action="${porchPath}#porch-check" class="screen-only"><label>Compare a case<select name="case" required>
+        <option value="">Choose a case</option><option value="water">A neighbor offers water</option>
+        <option value="repair">A broken gate is discussed with the family</option><option value="report">An agency secretly records a lawful visit</option>
+      </select></label><button type="submit">Check the case</button></form><p id="porch-check" role="status">${escape(feedback)}</p>
+      <p><strong>Proof.</strong> Draw two arrows: one from the person who acts to the person affected, and one from any report to its recipient. On each arrow, mark whether the person knows about it and can challenge it. Explain what would have to change for help to become coercion.</p>
+    </section>`;
+  return new Response(request.method === "HEAD" ? null : workbenchPage("Miss Wilson’s Porch", body), {
+    headers: { ...workbenchHeaders, "content-type": "text/html; charset=utf-8" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((pathname === "/order/porch" || pathname === "/order/porch/") &&
+        (request.method === "GET" || request.method === "HEAD")) return servePorch(request);
     if ((pathname === "/order" || pathname === "/order/") && (request.method === "GET" || request.method === "HEAD")) return serveOrder(request);
     if ((request.method === "GET" || request.method === "HEAD") &&
         (pathname === "/way" || pathname.startsWith("/way/"))) return serveWay(request, env);
