@@ -1,5 +1,7 @@
 import {VAULT,BUILD_LEDGER,REPOSITORY,validManifest,manifestRows,githubCandidates,cloudflareCandidates,persist} from './readers.mjs';
 
+import {graphJob} from './provenance.mjs';
+
 const ISSUER='https://token.actions.githubusercontent.com';
 const AUDIENCE='https://tabor-bridge.nathantaboract.workers.dev/vault-reader-jobs/';
 const WORKFLOW=(REPOSITORY+'/.github/workflows/holding-vault-reader-bots.yml@refs/heads/main').toLowerCase();
@@ -51,9 +53,9 @@ function validCoverage(value) {
 export default {
   async fetch(request,env) {
     const url=new URL(request.url);
-    if(!['/github','/cloudflare'].includes(url.pathname)||url.search)return reply({error:'Not found'},404);
+    if(!['/github','/cloudflare','/github-tree'].includes(url.pathname)||url.search)return reply({error:'Not found'},404);
     const reader=url.pathname.slice(1);
-    if(!(request.method==='POST'||(request.method==='GET'&&reader==='github')))return reply({error:'Method not allowed'},405);
+    if(!(request.method==='POST'||(request.method==='GET'&&reader!=='cloudflare')))return reply({error:'Method not allowed'},405);
     const claims=await authenticate(request);
     if(!claims)return reply({error:'Reader workflow identity required'},401);
     const query=(db,sql,params=[])=>{
@@ -62,6 +64,9 @@ export default {
       throw Error('Unknown reader database');
     };
     try {
+      const switches=await Promise.all([env.CACHE.get('reader:*'),env.CACHE.get('reader:'+reader)]);
+      if(switches.some(value=>value!=='RUN'))return reply({reader,paused:true},423);
+      if(reader==='github-tree')return await graphJob(request,env.VAULT,claims.sha,reply);
       const runId='github-actions-'+claims.run_id+'-'+claims.run_attempt;
       if(reader==='cloudflare'){
         const {rowsRead,candidates}=await cloudflareCandidates(query);

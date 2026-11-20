@@ -6,6 +6,7 @@ const bufferLimit = 32 * 1024 * 1024;
 const objectLimit = 4 * 1024 * 1024;
 const decoder = new TextDecoder('utf-8',{fatal:true});
 const objectPattern = /^[a-f0-9]{40}$/;
+const sensitiveName = /(^|\/)(\.env(?:\.|$)|id_(?:rsa|ed25519)(?:\.|$))|\.(?:pem|p12|pfx|key)$/i;
 
 function git(args, options={}) {
   return execFileSync('git',args,{maxBuffer:bufferLimit,...options});
@@ -49,17 +50,25 @@ function localTarget(raw, source, files, repository, commit) {
   return candidates.find(path=>files.has(path))??null;
 }
 
-export function scanGitContent(commit, repository) {
+export function scanGitContent(commit, repository, {includeGraph=false}={}) {
   if (!objectPattern.test(commit)) throw Error('Expected a Git commit ID');
-  const tree=git(['ls-tree','-rz','-l',commit],{encoding:'utf8'});
-  const files=new Map(), objects=new Map();
+  const tree=git(['ls-tree','-rzt','-l',commit],{encoding:'utf8'});
+  const files=new Map(), objects=new Map(), graphNodes=new Map();
   let submodules=0;
   for(const entry of tree.split('\0').filter(Boolean)) {
-    const match=/^(\d{6}) (blob|commit) ([a-f0-9]{40}) +(-|\d+)\t([\s\S]+)$/.exec(entry);
+    const match=/^(\d{6}) (blob|commit|tree) ([a-f0-9]{40}) +(-|\d+)\t([\s\S]+)$/.exec(entry);
     if(!match) throw Error('Unexpected Git tree entry');
     const [,mode,kind,oid,bytes,path]=match;
+    const parent=path.split('/').slice(0,-1).join('/');
+    if(includeGraph && !sensitiveName.test(path)) graphNodes.set(path,[path,kind==='tree'?'directory':'gitlink',oid,null,null,parent]);
+    if(kind==='tree')continue;
     if(kind==='commit'){submodules++;continue;}
     const size=Number(bytes);
+    if(graphNodes.has(path)) {
+      const node=graphNodes.get(path);
+      node[1]=mode==='120000'?'symlink':'large-blob';
+      node[4]=size;
+    }
     files.set(path,{mode,oid,size});
     if(!objects.has(oid))objects.set(oid,{oid,size,paths:[]});
     objects.get(oid).paths.push(path);
@@ -72,12 +81,15 @@ export function scanGitContent(commit, repository) {
     const row=objects.get(oid);
     digest.update(oid);
     digest.update(bytes);
+    const fileDigest=includeGraph?createHash('sha256').update(bytes).digest('hex'):null;
+    for(const path of row.paths)if(graphNodes.has(path))graphNodes.get(path)[3]=fileDigest;
     let value;
     if(!bytes.includes(0)) {
       try { value=decoder.decode(bytes); } catch {}
     }
     if(value===undefined){
       counts.otherFiles+=row.paths.length;
+      for(const path of row.paths)if(graphNodes.get(path)?.[1]==='large-blob')graphNodes.get(path)[1]='binary';
       return;
     }
     counts.textFiles+=row.paths.length;
@@ -97,6 +109,7 @@ export function scanGitContent(commit, repository) {
         }
       }
       if(targets.size)bySource.set(path,targets);
+      if(graphNodes.get(path)?.[1]==='large-blob')graphNodes.get(path)[1]=targets.size?'references-found':'no-static-reference';
     }
   }
   let batch=[], bytes=0;
@@ -119,6 +132,13 @@ export function scanGitContent(commit, repository) {
     if(!targets&&parsedPaths.has(path))resolvedBranches.add(path);
     if(targets)for(const target of targets)pending.push(target);
   }
-  return {...counts,internalReferences,linkedFiles:reached.size,terminalFiles:resolvedBranches.size,
+  const summary={...counts,internalReferences,linkedFiles:reached.size,terminalFiles:resolvedBranches.size,
     linkedOrigins:linkedOrigins.size,contentDigest:digest.digest('hex')};
+  if(!includeGraph)return summary;
+  const edges=[];
+  for(const [from,targets] of bySource){
+    if(!graphNodes.has(from)||graphNodes.get(from)[1]==='symlink')continue;
+    for(const target of targets)if(graphNodes.has(target))edges.push([from,target]);
+  }
+  return {summary,nodes:[...graphNodes.values()],edges};
 }
