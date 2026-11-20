@@ -85,6 +85,22 @@ const checks = [
     assert.match(await fetchRoute(base + "/101/"), /Self-Mastery/);
     assert.match(await fetchRoute("/map/"), /101 Hands-On Learning Methods/);
   },
+  async () => {
+    const base = "/institution/mastery/";
+    const catalog = JSON.parse(await fetchRoute(base + "curriculum.json"));
+    assert.equal(catalog.historical.methods, 131);
+    assert.match(await fetchRoute(base + "timeline/"), /18 later stations/);
+    assert.match(await fetchRoute(base + "conductor.json"), /Human Learning, Survival & Mastery/);
+    assert.match(await fetchRoute("/map/"), /Human Learning, Survival &amp; Mastery|Human Learning, Survival & Mastery/);
+    assert.match(await fetchRoute(base + "practice.js"), /localStorage/);
+    await Promise.all(catalog.tracks.map(async track => {
+      assert.ok((await fetchRoute(base + track.id + "/")).includes("Capstone"));
+      const first = base + track.id + "/" + track.courses[0].id + "/";
+      assert.match(await fetchRoute(first), /Check your reasoning/);
+      assert.match(await fetchRoute(first + "worksheet.txt"), /Independent review/);
+      assert.match(await fetchRoute(base + "capstone/" + track.capstone + "/"), /First decision/);
+    }));
+  },
   async () => assert.equal(await fetchRoute("/institution/blueprint.json"), blueprintSource),
   async () => {
     const health = JSON.parse(await fetchRoute("/institution/healthz"));

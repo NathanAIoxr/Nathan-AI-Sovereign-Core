@@ -1,0 +1,138 @@
+export const sources = {
+  stone: ["Smithsonian Human Origins · Stone tools", "https://humanorigins.si.edu/evidence/behavior/stone-tools"],
+  lomekwi: ["Harmand et al. · Lomekwi 3 stone tools", "https://www.nature.com/articles/nature14464"],
+  dine: ["Diné College · Educational philosophy", "https://www.dinecollege.edu/about-us/educational-philosophy/"],
+  scripture: ["Daniel 2 and Matthew 2 · King James Version", "https://www.biblegateway.com/passage/?search=Daniel%202%3A12-48%3B%20Matthew%202%3A1-12&version=KJV"],
+  magi: ["Encyclopaedia Iranica · Magi", "https://www.iranicaonline.org/articles/magi/"],
+  persianEducation: ["Encyclopaedia Iranica · Education in the Achaemenid period", "https://www.iranicaonline.org/articles/education-i/"],
+  recitation: ["Encyclopaedia Iranica · Hērbedestān", "https://www.iranicaonline.org/articles/herbedestan/"],
+  babylon: ["Oxford Classical Dictionary · Babylonian Astronomical Diaries", "https://doi.org/10.1093/acrefore/9780199381135.013.8852"],
+  qanat: ["UNESCO · The Persian Qanat", "https://whc.unesco.org/en/list/1506/"],
+  deescalation: ["CISA · De-escalation Action Guide", "https://www.cisa.gov/sites/default/files/2025-01/De-escalation-Action-Guide_v508_20250127.pdf"],
+  firstaid: ["American Heart Association and American Red Cross · First aid guidelines", "https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines"],
+  enticement: ["NCMEC · Online enticement", "https://www.ncmec.org/theissues/onlineenticement"],
+  money: ["CFPB · Your Money, Your Goals", "https://www.consumerfinance.gov/consumer-tools/educator-tools/your-money-your-goals/toolkit/"],
+  trauma: ["SAMHSA · Trauma-informed approaches", "https://www.samhsa.gov/mental-health/trauma-violence/trauma-informed-approaches-programs"],
+  water: ["CDC · Make water safe in an emergency", "https://www.cdc.gov/water-emergency/about/"],
+  canning: ["National Center for Home Food Preservation · Tested recipes", "https://nchfp.uga.edu/newsflash/safe-home-canning-the-importance-of-using-tested-recipes"],
+  study: ["Institute of Education Sciences · Organizing instruction and study", "https://ies.ed.gov/ncee/WWC/PracticeGuide/1/Published"],
+  foia: ["FOIA.gov · Frequently asked questions", "https://www.foia.gov/faq.html"],
+  zoning: ["North Carolina General Assembly · Chapter 160D", "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_160d.html"],
+  light: ["NASA · Visible light", "https://science.nasa.gov/ems/09_visiblelight/"],
+  hearing: ["OpenStax · Human hearing", "https://openstax.org/books/college-physics/pages/17-6-hearing"],
+  darkMatter: ["NASA · Dark matter", "https://science.nasa.gov/dark-matter/"],
+  darkEnergy: ["NASA · Dark energy", "https://science.nasa.gov/dark-energy/"],
+  transit: ["NASA Technical Reports · Kepler false positives", "https://ntrs.nasa.gov/api/citations/20170008795/downloads/20170008795.pdf"],
+  resonance: ["OpenStax · Forced oscillations and resonance", "https://openstax.org/books/college-physics-2e/pages/16-8-forced-oscillations-and-resonance"],
+  time: ["Einstein Online · Spacetime", "https://www.einstein-online.info/en/spacetime/"],
+  webb: ["NASA · How Webb sees back in time", "https://science.nasa.gov/mission/webb/science-overview/science-explainers/how-does-webb-see-back-in-time/"],
+  seismic: ["USGS · Locating earthquakes with seismographs", "https://www.usgs.gov/programs/earthquake-hazards/seismographs-keeping-track-earthquakes"],
+  eeg: ["MedlinePlus · Electroencephalogram", "https://medlineplus.gov/ency/article/003931.htm"],
+  testedClaims: ["National Research Council · Review of human performance claims", "https://www.nationalacademies.org/read/1580/chapter/3"],
+  dimensions: ["CERN · Extra dimensions", "https://home.cern/science/physics/extra-dimensions-gravitons-and-tiny-black-holes/"],
+  stress: ["Hase et al. · Challenge, threat and performance", "https://pmc.ncbi.nlm.nih.gov/articles/PMC11869992/"],
+};
+
+export const survivalCourses = {
+  protection: {
+    lesson: "Recognize observable coercion, secrecy, isolation and escalating boundary violations. Practice creating distance, offering choices, leaving safely and getting help. First-aid instruction covers bleeding, burns, shock and support for a suspected fracture. Rehearse on training equipment with an instructor and hand off to responders.",
+    lab: "Role-play a blocked exit with a neutral facilitator. Identify a safe exit, ask for help, then give an emergency handoff with location, observable injuries and immediate hazards. Repeat with the preferred exit unavailable.",
+    evidence: "Submit a factual incident note and an instructor-observed handoff. Identify the moment that changes the choice from conversation to leaving.",
+    question: "What can justify a protective decision before you establish someone’s motive?",
+    answer: "Observable conduct and immediate conditions, such as an obstructed exit or a direct threat, can justify creating distance and getting help. Record observed words and actions separately from interpretations.",
+    sources: ["deescalation", "firstaid", "enticement"],
+  },
+  money: {
+    lesson: "Trace value through barter, wages, commerce, credit and ownership. Compare total cost, recurring charges, rate changes, termination, guarantees, assets, liabilities and upkeep. Locate where a rule comes from and when a written term needs qualified review.",
+    lab: "Compare a fictional $1,200 cash deal with twelve $110 payments and a $75 setup fee. Write explicit delivery, repair, renewal and cancellation terms. Leave tax and enforceability questions marked for verification in the applicable jurisdiction.",
+    evidence: "Submit a one-page agreement and ledger showing $1,395 total installment cost and the $195 difference, with the assumptions used.",
+    question: "What distinguishes an appealing monthly price from a cheaper deal?",
+    answer: "Compare full cost over the same term, including setup, fees, exit costs and risks. The cheaper monthly-looking option may cost more in total.",
+    sources: ["money"],
+  },
+  kinship: {
+    lesson: "Practice voluntary consent, recognizing a boundary, responding to pressure, repairing harm, and evaluating trust through repeated conduct. Study attachment, caregiving, grief and recurring family patterns through fictional examples and trauma-informed choices.",
+    lab: "Role-play a person requesting a private detail, an answer of no, and a second request that adds guilt. Practice a clear boundary and a safe follow-up. Rewrite a controlling request as one that allows a genuine choice.",
+    evidence: "Submit both scripts and a short explanation of what behavior would change the level of trust. Use fictional participants and protect actual identities.",
+    question: "What evidence matters most when deciding whether a boundary will be respected?",
+    answer: "Observe how the person responds to the boundary and what they do over time. An apology gains meaning through behavior and repair.",
+    sources: ["trauma", "enticement"],
+  },
+  homestead: {
+    lesson: "Map sources of water, contamination pathways, storage, food rotation, sanitation, shelter, tools and repair limits. Compare preservation methods. Learn plumbing, framing and household electrical concepts on non-live practice rigs.",
+    lab: "Design a three-day supply inventory, compare it with a fictional advisory, select a tested canning reference for one food, and label water and food containers with source, date and use.",
+    evidence: "Submit a continuity plan and one tabletop repair demonstration. Indicate what treatment addresses, when another water source is needed and when the repair needs a qualified trade.",
+    question: "Can a tabletop filter demo establish that water is safe to drink?",
+    answer: "It can show a measured change in a property such as visible sediment. Potability requires suitable evidence and the relevant water guidance, including whether chemical contamination is suspected.",
+    sources: ["water", "canning"],
+  },
+  learning: {
+    lesson: "Use oral recall, sketches, physical models, worked examples, backward reasoning and delayed retrieval. Offer accessible ways to practice and test transfer. Use 1 − 1 = 0 to withdraw an unsupported rule while keeping a record of the correction.",
+    lab: "Teach a four-step procedure using one demonstration. Ask a partner to recall it later and perform a changed version. Compare their result with the original, fix one missed condition and retest.",
+    evidence: "Submit the original procedure, delayed recall record, correction and transfer result. Describe the access options you offered.",
+    question: "How do you tell whether someone remembers a rule well enough to use it?",
+    answer: "Ask for delayed recall and a transfer task with a changed condition. Use both outcomes to decide what needs more practice.",
+    sources: ["study"],
+  },
+  civic: {
+    lesson: "Identify who can decide, which rule applied on the relevant date, who keeps the records and where review happens. Practice reading minutes, ordinances, maps, public budgets and dockets. Distinguish federal FOIA, state and local records procedures, and court access rules.",
+    lab: "Trace a fictional land-use request from parcel map to ordinance to meeting packet and final decision. Draft a narrow records request and show where a deadline would be verified.",
+    evidence: "Submit a dated case map with jurisdiction, custodian, authority, source page and open questions. Pair a broad request with a narrowed version.",
+    question: "Which records procedure would you check for minutes held by a town board?",
+    answer: "Start with the state and local public-records rules and the town’s custodian. Federal FOIA applies to federal executive agencies.",
+    sources: ["foia", "zoning"],
+  },
+};
+
+export const magiCourses = [
+  { id: "sky", title: "Astronomy, Timekeeping & Celestial Mechanics", lesson: "Distinguish an observation from a forecast and an interpretation. Babylonian diaries recorded celestial and terrestrial events. Track horizon, shadow length and lunar position against a shared clock, and explain how a dated series supports timekeeping and navigation.", lab: "Mark the same stick’s shadow at a fixed local time on three days. Record date, weather, length, direction and setup. Predict day four before observing. Use a published or instructor-provided dataset when outdoor observation is inaccessible.", evidence: "Submit raw observations, one forecast, a discrepancy and a partner’s replication.", question: "Why record a missed observation rather than interpolate silently?", answer: "The gap belongs in the record. A marked estimate can be useful, but another observer needs to know which points were directly measured.", sources: ["babylon", "magi", "webb"] },
+  { id: "materials", title: "Four Elements, Natural Science & Historical Medicine", lesson: "Use earth, air, fire and water as a historical model. Test soil, heat transfer, airflow, minerals and sediment with quantities and controls. Compare a historical remedy’s source with the evidence needed to justify a modern health claim.", lab: "Use two clear containers and a safe tabletop water model to test how much visible sediment settles under matched conditions. List a property that the observation cannot establish.", evidence: "Submit a variable table, timed observations, an explanation of limits, and the source you would consult for a real water decision.", question: "If water looks clearer after the demonstration, what claim is justified?", answer: "The measured change supports a claim about clarity in this setup. Testing and public-health guidance are needed for a claim about drinking safety.", sources: ["water", "firstaid", "qanat"] },
+  { id: "truth", title: "Truth-Telling & Moral Sovereignty", lesson: "Trace a statement through original wording, paraphrase, audience, incentives and correction. Herodotus describes truth-telling in the education of Persian boys. Accounts of Magi ritual and later Zoroastrian priestly recitation have their own provenance.", lab: "Compare a short primary passage to two paraphrases. In pairs recite and check the passage, then publish a correction to an ally’s consequential misquote while keeping the original record.", evidence: "Submit the passage locator, exact wording, intended claim, corrected paraphrase and reason for the correction.", question: "What does a mismatch establish immediately?", answer: "It establishes a discrepancy to investigate. Determine whether context, transcription, changed information or evidence of deliberate deception explains it.", sources: ["magi", "persianEducation", "recitation"] },
+  { id: "statecraft", title: "Statecraft, Strategy & Advising Power", lesson: "Map who decides, who keeps records, who benefits, who bears a cost and who can challenge the decision. Compare historic court roles with civic boards and resource-sharing arrangements.", lab: "Brief a mock council about a water shortage. Propose two plans with costs, access impacts and decision authority. Answer a demand to remove an inconvenient observation from the public record.", evidence: "Submit a one-page brief and show the information that would change your recommendation.", question: "What should a council know before accepting a recommendation based on sparse records?", answer: "It needs the source, limits, competing explanations, parties affected and the condition that would make the decision change.", sources: ["magi", "qanat", "foia"] },
+  { id: "symbols", title: "Dream Interpretation, Riddles & Symbolic Decoding", lesson: "Read symbolic material in its textual and cultural setting. Daniel 2 describes Daniel over Babylon’s wise men. Matthew 2 describes visitors from the east, a star and a dream warning. Compare the narrative roles while preserving open questions about origins and transmission.", lab: "Read the KJV passages and a sourced account of a Magus advising at court. Make three columns for source wording, plausible reading and additional evidence needed.", evidence: "Submit two interpretations, each with its source and one claim beyond the available evidence.", question: "What would establish a historical line from Daniel’s court to Matthew’s visitors?", answer: "It would require independent evidence linking identifiable people, communities or texts across the intervening period. The shared theme provides a comparison.", sources: ["scripture", "magi", "babylon"] },
+  { id: "geometry", title: "Sacred Geometry, Numbers & Architecture", lesson: "Study ratio, scale, slope, alignment, symmetry, rhythm and measurement error. Use the Persian qanat as an example of engineering linked to communal maintenance and water allocation.", lab: "Sketch and build a shallow tabletop gravity-fed channel. Measure rise and run, change one feature and compare flow. Draft a maintenance schedule and a fair rule for periods of low supply.", evidence: "Submit a scaled drawing, paired measurements, repair responsibility and an allocation rule.", question: "Why keep hydraulic and governance records for the same channel?", answer: "Measurements show how the system moves water. The agreement tells people how access, maintenance and shortages will be handled.", sources: ["qanat", "resonance"] },
+];
+
+export const unseenCourses = [
+  { id: "blindspot", title: "The 99% Blindspot — Senses, Instruments & Dark-Sector Evidence", lesson: "Visible light spans roughly 380–700 nm and normal hearing is often taught as roughly 20 Hz–20 kHz. A percentage of the electromagnetic spectrum needs defined bounds and scale. Compare visible, infrared and magnetic detection. Dark matter is inferred through gravitational effects. Dark energy names the unexplained acceleration of expansion.", lab: "At a supervised tabletop station, compare a visible image, thermal image and magnetometer sample. For each register the measured quantity, units, sensitivity, direction and conditions. Include one unmeasured property.", evidence: "Submit a sensor matrix and the narrowest supported statement about a blank reading.", question: "What does a blank reading from a calibrated detector establish?", answer: "It sets an observation bound within the detector’s sensitivity, coverage and conditions. It leaves signals outside that bound unresolved.", sources: ["light", "hearing", "darkMatter", "darkEnergy", "transit"] },
+  { id: "resonance", title: "Resonance, Frequency & Vibration", lesson: "Explore natural frequencies, standing waves and damping. Geometry, material and boundary conditions shape how a structure responds. A measured resonance describes a mode of the system under the test conditions.", lab: "Clamp a ruler with two exposed lengths, predict the frequency change and compare periodic vibration. Add a soft damper and compare decay with the same starting setup.", evidence: "Submit a sketch of the setup, two matched observations and an explanation of the frequency and damping changes.", question: "Why can two objects made of the same material sound different?", answer: "Their dimensions, shapes, support and vibration modes may differ. The material is one input to the response.", sources: ["resonance", "seismic"] },
+  { id: "causality", title: "Non-Local Time & Causality", lesson: "Model light-travel time, clock synchronization, reference frames and relative simultaneity. Spacetime diagrams are models of events. Looking far away shows earlier emitted light, while forecasting tests a conditional claim about an upcoming observation.", lab: "Give three observers timestamps from clocks with different offsets. Correct each clock against a reference, distinguish emission from arrival, and then compare seismic travel times to infer a source location.", evidence: "Submit original readings, corrections, uncertainty margins and one forecast with a recorded result.", question: "A station logged a signal after a second station. What must you check before ordering the underlying events?", answer: "Check clock offsets, sample times, propagation delays and whether the readings measure the same signal.", sources: ["time", "webb", "seismic"] },
+  { id: "signals", title: "Field Consciousness & Signal Filtering", lesson: "Observe how expectation, ordinary cues and shared history affect reported impressions. Teach gesture, diagrams and read-back as nonverbal channels. EEG measures brain electrical activity. Direct mind-to-mind transmission remains unestablished.", lab: "Run twelve four-option trials with an agreed nonverbal cue and twelve with blinding. Generate targets before each run, record all attempts, compare with the chance expectation of three in twelve, and ask a second pair to reproduce the conditions.", evidence: "Submit the trial sheet, cue controls, counts, limits of the sample and a replication plan.", question: "Does a short run above the chance expectation establish a new communication channel?", answer: "It prompts checks for chance variation, leakage and testing choices. Independent repeatable results under good controls would be required.", sources: ["eeg", "testedClaims"] },
+  { id: "nesting", title: "Dimensional Nesting — Layers Inside Layers", lesson: "Connect projection, cross-section, occlusion and hidden variables. A sphere can yield different circular cross-sections. Compare a novel dimensional hypothesis with ordinary geometry and incomplete sampling. Treat extra dimensions as hypotheses with predicted signatures.", lab: "Give two learners ordered slices without the original object. Have each propose two shapes compatible with the slices and request the next slice or viewpoint that best distinguishes them.", evidence: "Submit two compatible models, your next measurement, and a prediction from each model.", question: "What does one changing circular section establish about a source’s dimensionality?", answer: "It supplies a constraint for candidate models. Additional views and predictions are needed to discriminate among them.", sources: ["dimensions"] },
+  { id: "zero-fear", title: "Zero-Fear Observation — Curiosity Without Panic", lesson: "Practice checking exits, naming observable cues, asking for help and choosing when to proceed. Fear can signal a need to check conditions. In training, adjust the pressure and observe judgment, communications and decisions.", lab: "Use a tabletop alarm scenario first. Where conditions allow, repeat at a bounded site with a buddy, facilitator, ordinary gear and a return plan. Introduce a simulated lost landmark or dead instrument.", evidence: "Submit a factual incident report, stop-or-proceed criteria, an independent check and a revised plan.", question: "What action earns credit when uncertainty and potential harm are high?", answer: "Pause at a safe point, communicate what is known, request help or another observation, and select a decision appropriate to the risk.", sources: ["stress", "deescalation"] },
+];
+
+export const methods = [
+  ["Restricted-sense observation", "Compare sight and touch at a seated, optional station with familiar objects. Record the cues used and check a magnetic claim with an instrument."],
+  ["Silent coordination", "Use agreed gestures to relay a block diagram. Compare the completed build with the original. Record transmission errors and the confirmation that catches each error."],
+  ["Fractals & geometric pattern drills", "Compare a branching tree, drainage network and mathematical fractal at three scales. Identify what measurements support a resemblance and where it ends."],
+  ["Controlled paradox", "Give partners partial views of one event. Each proposes a model. Reveal another view and require both partners to revise and predict an observation."],
+  ["Unfamiliar field exercise", "Start with a tabletop field drop. In field practice use a bounded route, buddy, communication, ordinary equipment and return plan. Explain how you adapt to a missing landmark."],
+];
+
+export const capstones = {
+  "who-gets-the-water": {
+    title: "Who Gets the Water?",
+    setup: "A storm interrupts the water supply for 24 households. The community has 72 sealed one-gallon containers. A supplier offers delivery on terms that auto-renew. A rumor names a household, and two notices appear to disagree. The provisional quote says $420 to deliver and $65 to cancel. Provisional notice A permits normal use of tap water.",
+    prompt: "Prioritize safety, identify consent and access needs, put contract terms in a ledger, find the governing notice and decision authority, model distribution, and write a checklist a second team can run.",
+    reveal: "The second lab report identifies a fuel contaminant. The authorized custodian confirms notice B is current and directing residents to use bottled water for drinking and cooking. The supplier’s written draft shows a $180 cancellation charge. A neighboring town offers 48 sealed gallons tomorrow through a mutual-aid agreement.",
+    evaluate: "Use the confirmed notice for drinking and cooking decisions. Inventory the 72 sealed gallons, account for households’ access and needs, and check the timing of the 48-gallon mutual-aid delivery. Update the cancellation cost by $115 and compare the delivery options. Protect household details and issue a dated checklist a second team can use.",
+    sources: ["water", "money", "foia", "qanat"],
+  },
+  "advise-the-council": {
+    title: "Advise the Council",
+    setup: "Two districts share a gravity-fed channel. Two measured flow records appear to conflict. A council member cites a favorable omen in support of granting one district priority. The logs show 8 and 12 liters per minute.",
+    prompt: "Use the original records, model the channel, identify who bears risk under two allocation plans, and defend an initial recommendation while naming ambiguities.",
+    reveal: "A dated log identifies the 8-liter sample as taken while a sluice was half-closed. The clerk adds a missing water-sharing agreement identifying the emergency decision-maker.",
+    evaluate: "Correct the interpretation of the readings and ground the emergency recommendation in the actual agreement. Give an independent team the drawings, measurements and sources needed to audit your advice.",
+    sources: ["qanat", "magi", "recitation"],
+  },
+  "three-signals-one-night": {
+    title: "Three Signals, One Night",
+    setup: "At a simulated remote station the equipment log says 02:10:00, vibration logger 02:10:11 and infrared sensor 02:09:57. Radio is blank from 02:09:55 to 02:10:22. A witness says vibration came first.",
+    prompt: "Preserve the four streams. Compare a shared equipment event, independent causes and a recording artifact. Say what measurement or repeat trial would distinguish them.",
+    reveal: "A reference check shows the infrared clock is 15 seconds slow. The radio system’s blank interval could be either missing data or a quiet channel. The underlying receiver status was recorded separately.",
+    evaluate: "The corrected infrared time is 02:10:12. Equipment precedes both measured changes. This sequence permits a shared cause but requires independent evidence to attribute it. Request receiver status and a supervised equipment repeat with an independent sensor.",
+    sources: ["time", "seismic", "resonance", "transit"],
+  },
+};
