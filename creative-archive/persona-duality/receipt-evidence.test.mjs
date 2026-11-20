@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {classifyReceipt} from "./receipt-evidence.mjs";
 const now=Date.parse("2026-11-20T00:30:00Z");
-const good={service:"tabor-persona-duality",operation:"review_queue_rotation",result:"queued_for_review_not_executed",external_dispatch:false,mutations_to_other_services:0,scheduled_at:"2026-11-20T00:15:00Z",task_ids:["PD-003","PD-004"]};
+const good={service:"tabor-persona-duality",operation:"review_queue_rotation",result:"queued_for_review_not_executed",external_dispatch:false,mutations_to_other_services:0,scheduled_at:"2026-11-20T00:15:00.000Z",task_ids:["PD-003","PD-004"]};
 test("valid receipt is only a review queue, never completed work",()=>assert.deepEqual(classifyReceipt(good,{now}),{status:"review_queued",development_completed:false,scheduled_at:good.scheduled_at,task_ids:good.task_ids}));
 test("missing, malformed, or claimed execution receipts fail closed",()=>{
  assert.equal(classifyReceipt(null,{now}).status,"missing");
@@ -12,7 +12,7 @@ test("missing, malformed, or claimed execution receipts fail closed",()=>{
 });
 test("stale and future timestamps cannot be reported as current",()=>{
  assert.equal(classifyReceipt(good,{now:now+7200000}).status,"stale");
- assert.equal(classifyReceipt({...good,scheduled_at:"2026-11-21T00:15:00Z"},{now}).status,"future_timestamp");
+ assert.equal(classifyReceipt({...good,scheduled_at:"2026-11-21T00:15:00.000Z"},{now}).status,"future_timestamp");
 });
 test("empty, repeated, or oversized review batches fail closed",()=>{
  for(const task_ids of [[],["PD-003","PD-003"],["PD-001","PD-002","PD-003","PD-004"]])
@@ -22,4 +22,9 @@ test("invalid timestamps and age bounds fail closed",()=>{
  assert.equal(classifyReceipt({...good,scheduled_at:null},{now}).status,"invalid");
  assert.equal(classifyReceipt(good,{now:NaN}).status,"invalid");
  assert.equal(classifyReceipt(good,{now,maxAgeMs:-1}).status,"invalid");
+});
+
+test("only canonical UTC timestamps from the scheduler are accepted",()=>{
+ for (const scheduled_at of ["2026-11-20T00:15:00Z","2026-11-20 00:15:00","2026-11-20T00:15:00.000+00:00","2026-02-30T00:15:00.000Z"])
+  assert.equal(classifyReceipt({...good,scheduled_at},{now}).status,"invalid");
 });
