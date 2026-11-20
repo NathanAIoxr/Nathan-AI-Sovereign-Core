@@ -81,7 +81,9 @@ export default {
   assert.ok((await lesson.text()).includes(expectedFoundationHTML));
   const architecture = await get("/institution/foundation/architecture/");
   assert.equal(architecture.status, 200);
-  assert.match(await architecture.text(), /Conductor blueprint/);
+  const architectureHTML = await architecture.text();
+  assert.match(architectureHTML, /Conductor blueprint/);
+  assert.match(architectureHTML, /href="[^"]+library-handoff\/"/);
   assert.equal(await (await get("/institution/foundation/architecture/source.txt")).text(), foundation.architecture.source);
   assert.equal(await (await get("/library/")).text(), "/library/");
 });
@@ -115,6 +117,22 @@ test("serves Nathan’s entire foundation statement verbatim without a database"
   assert.match(html, /href="\/tabor-academy\/truth-lab\/"/);
   assert.equal((await get("/foundation/", { method: "HEAD" })).body, null);
   assert.equal((await get("/foundation/", { method: "POST" })).status, 405);
+});
+
+test("serves the authored Library of Tabor packet and its exact copy-and-paste block", async () => {
+  const path = "/foundation/library-handoff";
+  const get = suffix => call(new Request(url + path + suffix), {});
+  const original = readFileSync(new URL("library-handoff.txt", import.meta.url), "utf8");
+  assert.equal(await (await get("/source.txt")).text(), original);
+  const [, fromHeader] = original.split("\ntext\n");
+  const [expectedBlock] = fromHeader.split("\nUse code with caution.");
+  const block = await (await get("/conductor.txt")).text();
+  assert.equal(block, expectedBlock);
+  assert.match(block, /^=== CONDUCTOR HANDOFF: THE LIBRARY OF TABOR/);
+  assert.match(block, /5\. CONDUCTOR EXECUTION RULES:/);
+  const html = await (await get("/")).text();
+  assert.match(html, /The Nine Cars Axiom: Nine real cars/);
+  assert.match(html, /href="[^"]+conductor\.txt"/);
 });
 
 test("practice validates scores without creating any student record", async () => {
@@ -176,6 +194,7 @@ test("registers the civics lesson once in the deployed Academy map", () => {
   assert.match(assembled, /"\/institution\/civics\/","Comparative Civics/);
   assert.match(assembled, /"\/existing\/","Existing"/);
   assert.match(assembled, /"\/institution\/foundation\/","Tabor Academy Foundation"/);
+  assert.match(assembled, /"\/institution\/foundation\/library-handoff\/","Library of Tabor Conductor Handoff"/);
   assert.equal(buildWorker(assembled), assembled);
 });
 

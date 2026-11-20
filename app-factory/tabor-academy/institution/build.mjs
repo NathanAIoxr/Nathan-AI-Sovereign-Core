@@ -10,8 +10,13 @@ import { academyLearningSite } from "./learning-methods/sites.mjs";
 const here = new URL("./", import.meta.url);
 export const blueprintSource = await readFile(new URL("blueprint.json", here), "utf8");
 export const blueprint = JSON.parse(blueprintSource);
+const handoffSource = await readFile(new URL("library-handoff.txt", here), "utf8");
+const blockStart = handoffSource.indexOf("=== CONDUCTOR HANDOFF: THE LIBRARY OF TABOR (NATHAN TABOR) ===");
+const blockEnd = handoffSource.lastIndexOf("\nUse code with caution.");
+if (blockStart < 0 || blockEnd <= blockStart) throw new Error("Library of Tabor handoff block is missing");
 export const foundation = {
   ...foundationStatement,
+  libraryHandoff: { source: handoffSource, block: handoffSource.slice(blockStart, blockEnd) },
   architecture: {
     source: await readFile(new URL("architecture.txt", here), "utf8"),
     blueprint: await readFile(new URL("architecture.html", here), "utf8"),
@@ -36,6 +41,7 @@ function updateAcademyMap(source) {
       [civicsPath, "History and the record"],
       ["/institution/learning-methods/", "Learning paths and the Academy"],
       ["/institution/foundation/", "Learning paths and the Academy"],
+      ["/institution/foundation/library-handoff/", "Learning paths and the Academy"],
     ]) {
       const entries = current.catalog[group] ?? (current.catalog[group] = []);
       const entry = catalog.catalog[group].find(([href]) => href === path);

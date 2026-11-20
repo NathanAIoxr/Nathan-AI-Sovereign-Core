@@ -154,16 +154,24 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
   function foundationPage() {
     return layout(foundation.title, `<h1>${esc(foundation.title)}</h1>
 <div class="foundation-statement">${foundationQuote(foundation)}</div>
-<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
+<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
   }
 
   function architecturePage() {
     const title = "The Architecture of Everything and Nothing";
     return layout(title, `<h1>${title}</h1>
-<nav aria-label="Architecture links"><a href="${foundation.path}">Academy Foundation</a><a href="#original">Original text and prompts</a><a href="#execution">Conductor blueprint</a><a href="${foundation.path}architecture/source.txt">Open plain text</a></nav>
+<nav aria-label="Architecture links"><a href="${foundation.path}">Academy Foundation</a><a href="#original">Original text and prompts</a><a href="#execution">Conductor blueprint</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}architecture/source.txt">Open plain text</a></nav>
 <section id="original"><h2>Nathan Tabor’s original text and prompts</h2>
 <pre class="architecture-source">${esc(foundation.architecture.source)}</pre></section>
 ${foundation.architecture.blueprint}`);
+  }
+
+  function libraryHandoffPage() {
+    const title = "The Library of Tabor · Reality Math, Primary Truth & Conductor Handoff";
+    const handoffPath = foundation.path + "library-handoff/";
+    return layout(title, `<h1>${esc(title)}</h1>
+<nav aria-label="Library handoff links"><a href="${handoffPath}source.txt">Full original text</a><a href="${handoffPath}conductor.txt">Copy-and-paste Conductor block</a><a href="${foundation.path}architecture/">Academy Architecture</a><a href="/tabor-academy/library/">Library of Tabor</a></nav>
+<pre class="architecture-source">${esc(foundation.libraryHandoff.source)}</pre>`);
   }
 
   async function serveBlueprint(request, env, ctx) {
@@ -273,6 +281,15 @@ ${foundation.architecture.blueprint}`);
       }
       if (path === "/foundation/architecture/source.txt") {
         return respond(request, foundation.architecture.source, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/library-handoff") {
+        return respond(request, libraryHandoffPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/library-handoff/source.txt") {
+        return respond(request, foundation.libraryHandoff.source, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/library-handoff/conductor.txt") {
+        return respond(request, foundation.libraryHandoff.block, 200, "text/plain; charset=utf-8");
       }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {

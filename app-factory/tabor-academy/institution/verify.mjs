@@ -28,6 +28,11 @@ const checks = [
     const architecture = await fetchRoute("/institution/foundation/architecture/");
     assert.match(architecture, /Conductor blueprint/);
     assert.equal(await fetchRoute("/institution/foundation/architecture/source.txt"), foundation.architecture.source);
+    const handoff = "/institution/foundation/library-handoff/";
+    assert.match(await fetchRoute(handoff), /The Nine Cars Axiom/);
+    assert.equal(await fetchRoute(handoff + "source.txt"), foundation.libraryHandoff.source);
+    assert.equal(await fetchRoute(handoff + "conductor.txt"), foundation.libraryHandoff.block);
+    assert.match(await fetchRoute("/map/"), /Library of Tabor Conductor Handoff/);
     assert.ok((await fetchRoute("/map/")).includes(foundation.title));
   },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),
