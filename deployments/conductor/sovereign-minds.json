@@ -1,0 +1,15 @@
+{
+  "project": "sovereign-minds",
+  "name": "Nathan AI Sovereign Minds",
+  "operator": "John Nathan Tabor",
+  "workers": {
+    "registry": "tabor-sovereign-minds",
+    "zero": "tabor-mind-zero",
+    "one": "tabor-mind-one"
+  },
+  "sourceDirectory": "app-factory/nathan-ai/personal-intelligence/minds/sovereign",
+  "workflow": ".github/workflows/sovereign-minds.yml",
+  "publicStatus": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/api/conductors",
+  "prompts": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/api/prompts",
+  "checks": ["Source-linked build", "Independent Worker health", "Exact quote isolation", "Master Conductor readiness", "Matching deploy revision"]
+}

@@ -1,0 +1,52 @@
+name: Sovereign Minds Conductor
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/sovereign/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json'
+      - 'app-factory/sovereign-boxes/registry.json'
+      - 'app-factory/nathan-ai/minds-chat/sources.json'
+      - 'app-factory/nathan-ai/agents-of-innocence/release-manifest.json'
+      - '.github/workflows/sovereign-minds.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/sovereign/**'
+      - '.github/workflows/sovereign-minds.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/personal-intelligence/minds/sovereign
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node build.mjs
+      - run: node --test test.mjs
+      - name: Verify Cloudflare dispatch and Master Conductor
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          node --input-type=module <<'JS'
+          const root = 'https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/';
+          const response = await fetch(root + 'api/conductors', { signal: AbortSignal.timeout(15000) });
+          if (!response.ok) throw new Error('Cloudflare status unavailable');
+          const status = await response.json();
+          if (!status.master.ready || !status.zero.ready || !status.one.ready) throw new Error('Conductor readiness check failed');
+          if (status.gitHubRelease !== process.env.GITHUB_SHA ||
+              status.zero.release !== status.gitHubRelease || status.one.release !== status.gitHubRelease) {
+            throw new Error('Run this check for the deployed Git commit');
+          }
+          console.log(status);
+          JS
