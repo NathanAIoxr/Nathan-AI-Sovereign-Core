@@ -11,6 +11,10 @@ import { academyLearningSite } from "./learning-methods/sites.mjs";
 const here = new URL("./", import.meta.url);
 export const blueprintSource = await readFile(new URL("blueprint.json", here), "utf8");
 export const blueprint = JSON.parse(blueprintSource);
+const handoffSource = await readFile(new URL("library-handoff.txt", here), "utf8");
+const blockStart = handoffSource.indexOf("=== CONDUCTOR HANDOFF: THE LIBRARY OF TABOR (NATHAN TABOR) ===");
+const blockEnd = handoffSource.lastIndexOf("\nUse code with caution.");
+if (blockStart < 0 || blockEnd <= blockStart) throw new Error("Library of Tabor handoff block is missing");
 const architectureSource = await readFile(new URL("architecture.txt", here), "utf8");
 const conductor = JSON.parse(await readFile(new URL("../../../deployments/conductor/academy/architecture.json", here), "utf8"));
 const prompts = [...architectureSource.matchAll(/^Prompt (\d+) — (.+):\n(.+)$/gm)]
@@ -21,6 +25,12 @@ const course = JSON.parse(await readFile(new URL("architecture-course.json", her
 const authorMotto = architectureSource.split("\n")[2].slice(1, -1);
 export const foundation = {
   ...foundationStatement,
+  threeApples: {
+    lesson: await readFile(new URL("three-apples.html", here), "utf8"),
+    source: await readFile(new URL("three-apples.txt", here), "utf8"),
+  },
+  realityMath: await readFile(new URL("reality-math.html", here), "utf8"),
+  libraryHandoff: { source: handoffSource, block: handoffSource.slice(blockStart, blockEnd) },
   architecture: {
     source: architectureSource,
     blueprint: await readFile(new URL("architecture.html", here), "utf8"),
@@ -59,6 +69,9 @@ function updateAcademyMap(source) {
       ["/institution/foundation/", "Learning paths and the Academy"],
       ["/institution/foundation/architecture/", "Learning paths and the Academy"],
       ["/institution/foundation/architecture/course/", "Learning paths and the Academy"],
+      ["/institution/foundation/library-handoff/", "Learning paths and the Academy"],
+      ["/institution/foundation/reality-math/", "Learning paths and the Academy"],
+      ["/institution/foundation/three-apples/", "Learning paths and the Academy"],
     ]) {
       const entries = current.catalog[group] ?? (current.catalog[group] = []);
       const entry = catalog.catalog[group].find(([href]) => href === path);

@@ -19,6 +19,12 @@
     "practice": "/tabor-academy/institution/foundation/architecture/practice/",
     "course": "/tabor-academy/institution/foundation/architecture/course/",
     "worksheet": "/tabor-academy/institution/foundation/architecture/course/worksheet.txt",
+    "connectedMaterials": {
+      "threeApples": "/tabor-academy/institution/foundation/three-apples/",
+      "threeApplesSource": "/tabor-academy/institution/foundation/three-apples/source.txt",
+      "realityMath": "/tabor-academy/institution/foundation/reality-math/",
+      "libraryHandoff": "/tabor-academy/institution/foundation/library-handoff/conductor.txt"
+    },
     "verification": "node app-factory/tabor-academy/institution/verify.mjs",
     "maintainerPrompt": "Use the four authored prompts in order. Record each source and review decision. Protect The One by checking audience access before sharing. Keep original wording intact and record corrections with their evidence. Use the equations in Prompt 1 for execution."
   }

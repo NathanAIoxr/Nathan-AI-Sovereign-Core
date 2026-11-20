@@ -118,6 +118,8 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
 details{margin-block:.85rem}summary{cursor:pointer;color:#e6cf87}
 fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0}legend{padding-inline:.4rem}
 .choice{display:flex;align-items:baseline;gap:.65rem;margin-block:.5rem}.choice input{width:auto;margin:0;flex:none;accent-color:#e6cf87}
+.reality-math article{padding-block:1rem;border-bottom:1px solid #465137}
+.reality-math summary{cursor:pointer;font-weight:700;color:#e6cf87}
 .table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}td,th{padding:.65rem;border-bottom:1px solid #778360;vertical-align:top}caption{text-align:left;padding-bottom:.4rem}
 </style></head><body><main><nav aria-label="Academy"><a href="/tabor-academy/">Academy home</a><a href="/tabor-academy/library/">Library of Tabor</a><a href="/tabor-academy/workbench/">Workbench</a></nav>${content}</main></body></html>`;
   }
@@ -157,7 +159,7 @@ fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0
   function foundationPage() {
     return layout(foundation.title, `<h1>${esc(foundation.title)}</h1>
 <div class="foundation-statement">${foundationQuote(foundation)}</div>
-<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
+<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
   }
 
   function architecturePage() {
@@ -169,7 +171,7 @@ fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0
 <p class="byline">The Unified Knowledge &amp; Family Engine of Nathan Tabor</p>
 <blockquote><p>If you don’t know truth, you don’t know True love because love without truth is tough love … while love with truth is unconditional love</p></blockquote>
 <p><a href="${foundation.path}architecture/course/">Start the teaching modules · How to Operate in This World</a></p>
-<nav aria-label="Architecture links"><a href="${foundation.path}">Academy Foundation</a><a href="#original">Original text</a><a href="#execution">Conductor blueprint</a><a href="#prompts">Four author prompts</a><a href="${foundation.path}architecture/practice/">Practice the method</a></nav>
+<nav aria-label="Architecture links"><a href="${foundation.path}">Academy Foundation</a><a href="#original">Original text</a><a href="#execution">Conductor blueprint</a><a href="#prompts">Four author prompts</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="${foundation.path}architecture/practice/">Practice the method</a></nav>
 <section id="original"><h2>Nathan Tabor’s original packet</h2>
 <p><a href="${foundation.path}architecture/source.txt">Open plain text</a></p>
 <details><summary>Read the full packet here</summary><pre class="architecture-source">${esc(architecture.source)}</pre></details></section>
@@ -203,6 +205,30 @@ ${architecture.blueprint}
 ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} correct.</strong></p>` : ""}
 <form method="get" action="${action}#result">${results.map(result => result.html).join("")}
 <button type="submit">Check answers</button>${submitted ? ` <a href="${action}">Start again</a>` : ""}</form>`);
+  }
+
+  function libraryHandoffPage() {
+    const title = "The Library of Tabor · Reality Math, Primary Truth & Conductor Handoff";
+    const handoffPath = foundation.path + "library-handoff/";
+    return layout(title, `<h1>${esc(title)}</h1>
+<nav aria-label="Library handoff links"><a href="${handoffPath}source.txt">Full original text</a><a href="${handoffPath}conductor.txt">Copy-and-paste Conductor block</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="${foundation.path}architecture/">Academy Architecture</a><a href="/tabor-academy/library/">Library of Tabor</a></nav>
+<pre class="architecture-source">${esc(foundation.libraryHandoff.source)}</pre>`);
+  }
+
+  function realityMathPage() {
+    const title = "Reality Math · Multiplication and Subtraction";
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">Tabor Academy</p>
+<p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a> · <a href="${foundation.path}three-apples/">The Three Apples Reality</a></p>
+<div class="reality-math">${foundation.realityMath}</div>`);
+  }
+
+  function threeApplesPage() {
+    const title = "The Three Apples Reality";
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">Tabor Academy · The Law of Conservation &amp; Full Accountability</p>
+<p><a href="${foundation.path}three-apples/source.txt">Read the original Three Apples text and Conductor handoff</a> · <a href="${foundation.path}reality-math/">Reality Math</a></p>
+<div class="reality-math">${foundation.threeApples.lesson}</div>`);
   }
 
   async function serveBlueprint(request, env, ctx) {
@@ -331,6 +357,24 @@ ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} 
         const page = renderArchitectureCourse({ course, root, slug, answer, layout, esc });
         if (page === null) return failure(request, "Module not found", 404);
         return respond(request, page, 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/library-handoff") {
+        return respond(request, libraryHandoffPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/library-handoff/source.txt") {
+        return respond(request, foundation.libraryHandoff.source, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/library-handoff/conductor.txt") {
+        return respond(request, foundation.libraryHandoff.block, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/reality-math") {
+        return respond(request, realityMathPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/three-apples") {
+        return respond(request, threeApplesPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/three-apples/source.txt") {
+        return respond(request, foundation.threeApples.source, 200, "text/plain; charset=utf-8");
       }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {

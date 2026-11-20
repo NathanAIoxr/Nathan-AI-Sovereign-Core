@@ -1,9 +1,10 @@
 export function renderArchitectureCourse({ course, root, slug, answer, layout, esc }) {
   const page = root + "course/";
+  const foundation = root.slice(0, -"architecture/".length);
   const list = entries => "<ol>" + entries.map(entry => "<li>" + esc(entry) + "</li>").join("") + "</ol>";
   if (!slug) {
     const minutes = course.modules.reduce((sum, item) => sum + item.minutes, 0);
-    return layout(course.title, `<nav aria-label="Architecture of Everything and Nothing"><a href="${root}">The Architecture</a><a href="${root}source.txt">Nathan Tabor’s original packet</a><a href="${page}worksheet.txt">Source ledger worksheet</a></nav>
+    return layout(course.title, `<nav aria-label="Architecture of Everything and Nothing"><a href="${root}">The Architecture</a><a href="${root}source.txt">Nathan Tabor’s original packet</a><a href="${page}worksheet.txt">Source ledger worksheet</a><a href="${foundation}three-apples/">The Three Apples Reality</a></nav>
 <h1>${esc(course.title)}</h1><p class="byline">${esc(course.subtitle)}</p>
 <blockquote><p>${esc(course.authorMotto)}</p><cite>Nathan Tabor</cite></blockquote>
 <p>Work each problem two ways. First, use the rules and records you encounter. Then go back to what happened, what the original says, and who needs to be protected.</p>
@@ -27,6 +28,7 @@ export function renderArchitectureCourse({ course, root, slug, answer, layout, e
     : "";
   const reading = {
     "library-lineage": `<p><a href="${root}#lineage">Open the library lineage and primary-source links</a></p>`,
+    "nine-cars": `<p><a href="${foundation}reality-math/#multiply">Work the Reality Math multiplication cases</a> · <a href="${foundation}three-apples/#middle">Compare the Three Apples demonstration</a></p>`,
     "primary-truth": `<p><a href="${root}source.txt">Open Nathan Tabor’s original packet</a></p>`,
     "master-conductor": `<p><a href="${root}#prompts">Open the four author prompts</a> · <a href="${root}conductor.json">Open the Conductor handoff</a></p>`,
   }[slug] ?? "";

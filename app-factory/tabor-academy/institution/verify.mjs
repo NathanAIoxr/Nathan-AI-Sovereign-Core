@@ -44,6 +44,25 @@ const checks = [
       assert.match(html, /Correct\./);
     }));
     assert.match(await fetchRoute(coursePath + "worksheet.txt"), /PROTECT THE ONE/);
+    const libraryHandoff = "/institution/foundation/library-handoff/";
+    assert.match(await fetchRoute(libraryHandoff), /The Nine Cars Axiom/);
+    assert.equal(await fetchRoute(libraryHandoff + "source.txt"), foundation.libraryHandoff.source);
+    assert.equal(await fetchRoute(libraryHandoff + "conductor.txt"), foundation.libraryHandoff.block);
+    const realityMath = await fetchRoute("/institution/foundation/reality-math/");
+    assert.match(realityMath, /9 × 0 = 0 dollars/);
+    assert.match(realityMath, /1 − 1 = 0 active registrations/);
+    assert.match(realityMath, /id="capstone"/);
+    const apples = "/institution/foundation/three-apples/";
+    const applesPage = await fetchRoute(apples);
+    assert.match(applesPage, /id="infancy"/);
+    assert.match(applesPage, /id="graduate"/);
+    assert.match(applesPage, /id="practice-audit"/);
+    assert.match(applesPage, /id="tabor-materials"/);
+    assert.match(applesPage, /id="references"/);
+    assert.equal(await fetchRoute(apples + "source.txt"), foundation.threeApples.source);
+    assert.match(await fetchRoute("/map/"), /The Three Apples Reality/);
+    assert.match(await fetchRoute("/map/"), /Reality Math · Multiplication and Subtraction/);
+    assert.match(await fetchRoute("/map/"), /Library of Tabor Conductor Handoff/);
   },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),
   async () => assert.match(await fetchRoute("/workbench/"), /Workbench/),

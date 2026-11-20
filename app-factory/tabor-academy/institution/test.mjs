@@ -82,7 +82,9 @@ export default {
   assert.ok((await lesson.text()).includes(expectedFoundationHTML));
   const architecture = await get("/institution/foundation/architecture/");
   assert.equal(architecture.status, 200);
-  assert.match(await architecture.text(), /Conductor blueprint/);
+  const architectureHTML = await architecture.text();
+  assert.match(architectureHTML, /Conductor blueprint/);
+  assert.match(architectureHTML, /href="[^"]+library-handoff\/"/);
   assert.equal(await (await get("/institution/foundation/architecture/source.txt")).text(), foundation.architecture.source);
   const path = "/institution/foundation/architecture/";
   const handoff = await (await get(path + "conductor.json")).json();
@@ -95,6 +97,7 @@ export default {
   const coursePath = path + "course/";
   const course = await (await get(coursePath)).text();
   assert.match(course, /8 modules/);
+  assert.match(course, /The Three Apples Reality/);
   for (const module of foundation.architecture.course.modules) {
     const lessonPath = coursePath + module.id + "/";
     assert.ok(course.includes(lessonPath));
@@ -139,6 +142,57 @@ test("serves Nathan’s entire foundation statement verbatim without a database"
   assert.match(html, /href="\/tabor-academy\/truth-lab\/"/);
   assert.equal((await get("/foundation/", { method: "HEAD" })).body, null);
   assert.equal((await get("/foundation/", { method: "POST" })).status, 405);
+});
+
+test("serves the authored Library of Tabor packet and its exact copy-and-paste block", async () => {
+  const path = "/foundation/library-handoff";
+  const get = suffix => call(new Request(url + path + suffix), {});
+  const original = readFileSync(new URL("library-handoff.txt", import.meta.url), "utf8");
+  assert.equal(await (await get("/source.txt")).text(), original);
+  const [, fromHeader] = original.split("\ntext\n");
+  const [expectedBlock] = fromHeader.split("\nUse code with caution.");
+  const block = await (await get("/conductor.txt")).text();
+  assert.equal(block, expectedBlock);
+  assert.match(block, /^=== CONDUCTOR HANDOFF: THE LIBRARY OF TABOR/);
+  assert.match(block, /5\. CONDUCTOR EXECUTION RULES:/);
+  const html = await (await get("/")).text();
+  assert.match(html, /The Nine Cars Axiom: Nine real cars/);
+  assert.match(html, /href="[^"]+conductor\.txt"/);
+  assert.match(html, /href="[^"]+reality-math\/"/);
+});
+
+test("teaches both operations with six worked modules and a capstone", async () => {
+  const path = url + "/foundation/reality-math/";
+  const response = await call(new Request(path), {});
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /9 × 0 = 0 dollars/);
+  assert.match(html, /1 − 1 = 0 active registrations/);
+  assert.equal((html.match(/<article /g) ?? []).length, 6);
+  assert.equal((html.match(/<details>/g) ?? []).length, 7);
+  assert.match(html, /id="capstone"/);
+  assert.match(html, /href="[^"]+library-handoff\/"/);
+  assert.equal((await call(new Request(path, { method: "HEAD" }), {})).body, null);
+});
+
+test("serves all nine Three Apples stages and preserves the Conductor source", async () => {
+  const path = url + "/foundation/three-apples/";
+  const get = suffix => call(new Request(path + suffix), {});
+  const page = await get("");
+  assert.equal(page.status, 200);
+  const html = await page.text();
+  for (const id of ["infancy", "toddler", "preschool", "elementary", "middle", "high", "college", "graduate", "practice-audit"]) {
+    assert.ok(html.includes('<article id="' + id + '">'));
+    assert.ok(html.includes('href="#' + id + '"'));
+  }
+  assert.match(html, /1 ÷ 4 = ¼ per piece/);
+  assert.match(html, /unresolved difference is 6 g/);
+  assert.match(html, /id="tabor-materials"/);
+  assert.match(html, /id="references"/);
+  assert.match(html, /href="[^"]+human-learning-arc\/"/);
+  assert.match(html, /href="[^"]+survival-mastery-domains\/"/);
+  assert.match(html, /href="https:\/\/www\.nist\.gov\//);
+  assert.equal(await (await get("source.txt")).text(), readFileSync(new URL("three-apples.txt", import.meta.url), "utf8"));
 });
 
 test("practice validates scores without creating any student record", async () => {
@@ -200,6 +254,7 @@ test("registers the civics lesson once in the deployed Academy map", () => {
   assert.match(assembled, /"\/institution\/civics\/","Comparative Civics/);
   assert.match(assembled, /"\/existing\/","Existing"/);
   assert.match(assembled, /"\/institution\/foundation\/","Tabor Academy Foundation"/);
+  assert.match(assembled, /"\/institution\/foundation\/library-handoff\/","Library of Tabor Conductor Handoff"/);
   assert.equal(buildWorker(assembled), assembled);
 });
 
