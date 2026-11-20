@@ -1,0 +1,26 @@
+{
+  "schema": "nathan-ai.crypto-fleet.manifest.v1",
+  "deployment_mode": "HOLD_EXISTING_WORKERS_READ_ONLY",
+  "arithmetic": {"build":"1+1=2","clear":"1-1=0","integrate":"1x1=1","verify":"1/1=1"},
+  "ownership_policy": "Only expressly authorized Cloudflare account, GitHub repository, and compute nodes with confirmed credentials and consent. No global node discovery, cryptojacking, proxy evasion, or unauthorized compute.",
+  "independent_projects": [
+    {"id":"bitcoin-sha256d-mirror","source":"tabor_sha256d_mirror.py","mode":"OFFLINE_TEST","cloudflare_worker":"nathan-ai-mining-lab"},
+    {"id":"sovereign-multi-axis","source":"May 24 2026 historical blueprint","mode":"HOLD","cloudflare_worker":"tabor-corp-mining-hub"},
+    {"id":"taborpool","source":"November 19 profile","mode":"HOLD","cloudflare_worker":null},
+    {"id":"taborboy","source":"November 19 profile","mode":"HOLD","cloudflare_worker":null},
+    {"id":"sovereign-coins-21","source":"app-factory/nathan-ai/sovereign-coins/registry.json","mode":"HOLD","cloudflare_worker":"nathan-ai-crypto-64"},
+    {"id":"tabor-world-nine","source":"tabor_world_crypto.py","mode":"HOLD","cloudflare_worker":null},
+    {"id":"tabor-bank-69","source":"app-factory/nathan-ai/tabor-bank-of-69/registry_69.json","mode":"HOLD","cloudflare_worker":null},
+    {"id":"reverse-quantum-miner","source":"nathan_ai_quantum_miner.py","mode":"HOLD","cloudflare_worker":null},
+    {"id":"wallet-recovery","source":"nathan_bitcoin_reserve_evidence","mode":"READ_ONLY","cloudflare_worker":null},
+    {"id":"mining-network-research","source":"nathan_coin_classification_overlay","mode":"READ_ONLY","cloudflare_worker":null}
+  ],
+  "compute_tiers": [
+    {"tier":"cloudflare-edge","role":"control, source catalog, verified telemetry","hash_mining":"not suitable"},
+    {"tier":"github-actions","role":"tests and build artifacts","hash_mining":"not authorized"},
+    {"tier":"owned-local-cpu-gpu","role":"opt-in bounded mining with measured power","hash_mining":"requires confirmed host authorization"},
+    {"tier":"owned-hpc-supercomputer","role":"optional authorized batch compute","hash_mining":"requires node inventory, scheduler allocation, and provider approval"}
+  ],
+  "launch_gates":["original-source-verified","tests-pass","explicit-node-authorization","budget-and-energy-caps","pool-and-wallet-ownership-verified","operator-approval"],
+  "status":"manifest-committed-no-mining-launch"
+}
