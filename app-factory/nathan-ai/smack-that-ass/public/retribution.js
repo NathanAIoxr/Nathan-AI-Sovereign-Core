@@ -7,7 +7,7 @@ const hierarchies = {
     ["Diocesan and parish clergy", ["Vicar General", "Episcopal Vicar", "Monsignor", "Parish Priest", "Priest", "Deacon"]],
     ["Religious orders", ["Superior General", "Provincial Superior", "Abbot", "Abbess", "Mother Superior", "Prior", "Prioress", "Nun", "Religious Sister", "Religious Brother", "Monk", "Friar"]],
   ],
-  kristian: [
+  christian: [
     ["Eastern Orthodox", ["Patriarch", "Metropolitan", "Archbishop", "Bishop", "Priest", "Deacon", "Abbot", "Abbess"]],
     ["Oriental Orthodox", ["Patriarch", "Catholicos", "Metropolitan", "Bishop", "Priest", "Deacon"]],
     ["Anglican and Episcopal", ["Primate", "Archbishop", "Presiding Bishop", "Bishop", "Dean", "Archdeacon", "Rector", "Vicar", "Priest", "Deacon"]],
@@ -31,7 +31,7 @@ const handChoice = byId("choose-hand");
 const faceChoice = byId("choose-face");
 const roles = new Map();
 const hierarchyButtons = Array.from(document.querySelectorAll("[data-hierarchy]"));
-const hierarchyLabels = { catholic: "Catholic hierarchy", kristian: "Kristian hierarchy" };
+const hierarchyLabels = { catholic: "Catholic hierarchy", christian: "Christian hierarchy" };
 const selection = new Map();
 let activeHierarchy = "catholic";
 let selectedRole;
