@@ -1,0 +1,41 @@
+name = "tweezer-os-holding"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[vars]
+PROJECT_ID = "tweezer-os"
+STAGING_ALIAS = "tweezer-os.test"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "zone-tweezer-os-db"
+database_id = "3d4f46af-d5c7-4a03-bf3c-2ebb7a04ec87"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "ZONE_ASSETS"
+bucket_name = "zone-tweezer-os-r2"
+
+[[kv_namespaces]]
+binding = "ZONE_CONFIG"
+id = "8393e5c4166e4ea9971ddca6fc26ce8a"
+
+[[queues.producers]]
+binding = "ZONE_JOBS"
+queue = "zone-tweezer-os-q"
+
+[[durable_objects.bindings]]
+name = "ZONE_STATE"
+class_name = "ZoneState"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ZoneState"]

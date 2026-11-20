@@ -1,0 +1,23 @@
+name: Zone · TWEEZER-OS
+on:
+  push:
+    branches:
+      - 'zone/tweezer-os'
+    paths:
+      - 'zones/isolated/tweezer-os/**'
+      - '.github/workflows/zone-tweezer-os.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test zone.test.mjs
+        working-directory: zones/isolated/tweezer-os
