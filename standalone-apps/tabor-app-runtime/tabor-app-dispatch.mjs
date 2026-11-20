@@ -42,4 +42,25 @@ function appDispatch(request, platforms) {
   }
 }
 
-export const dispatchTaborApp = appDispatch;
+const bedroomBase = "/18-plus/bronze-hands/";
+const bedroomWorkers = new Set([
+  "king-solomon-bronze-hands",
+  "cleopatra-bronze-hands",
+  "virgin-mary-bronze-hands",
+]);
+
+export async function dispatchTaborApp(request, platforms) {
+  const url = new URL(request.url);
+  if (url.origin !== origin || !url.pathname.startsWith(bedroomBase)) {
+    return appDispatch(request, platforms);
+  }
+
+  const name = url.pathname.slice(bedroomBase.length).split("/", 1)[0];
+  if (!bedroomWorkers.has(name)) return new Response("Application not found", { status: 404 });
+
+  try {
+    return await platforms.get(name, {}, { limits: { cpuMs: 60, subRequests: 0 } }).fetch(request);
+  } catch {
+    return new Response("Application unavailable", { status: 503 });
+  }
+}
