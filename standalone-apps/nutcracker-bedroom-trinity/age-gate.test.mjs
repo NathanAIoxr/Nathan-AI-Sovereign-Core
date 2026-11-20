@@ -1,10 +1,20 @@
 import assert from "node:assert/strict";
-import test from "node:test";
-import { readFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import test, { after } from "node:test";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const buildDirectory = await mkdtemp(join(tmpdir(), "nutcracker-test-"));
+after(() => rm(buildDirectory, { recursive: true, force: true }));
+execFileSync(process.execPath, [fileURLToPath(new URL("build.mjs", import.meta.url))], {
+  env: { ...process.env, NUTCRACKER_BUILD_DIRECTORY: buildDirectory }
+});
 
 for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
   const product = JSON.parse(await readFile(new URL(`products/${id}.json`, import.meta.url), "utf8"));
-  const { default: worker } = await import(`./dist/${product.worker}.mjs`);
+  const { default: worker } = await import(pathToFileURL(join(buildDirectory, `${product.worker}.mjs`)));
   const origin = "https://unified-operations-cockpit.nathantaboract.workers.dev";
   const mount = `/18-plus/bronze-hands/${product.worker}`;
   const request = (path, options) => worker.fetch(new Request(origin + mount + path, options));

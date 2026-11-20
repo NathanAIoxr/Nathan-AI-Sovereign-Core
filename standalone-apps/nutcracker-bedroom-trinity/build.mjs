@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { resolve, sep } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const fromRoot = (relativePath) => new URL(relativePath, import.meta.url);
 const productIds = ["solomon", "cleopatra", "virgin-mary"];
@@ -17,7 +18,8 @@ const [runtime, css, materialStudy, serif, ...products] = await Promise.all([
   ...productIds.map(async (id) => JSON.parse(await readFile(fromRoot(`products/${id}.json`), "utf8")))
 ]);
 
-const output = fromRoot("dist/");
+const outputDirectory = process.env.NUTCRACKER_BUILD_DIRECTORY;
+const output = outputDirectory ? pathToFileURL(resolve(outputDirectory) + sep) : fromRoot("dist/");
 await mkdir(output, { recursive: true });
 
 for (const [index, id] of productIds.entries()) {

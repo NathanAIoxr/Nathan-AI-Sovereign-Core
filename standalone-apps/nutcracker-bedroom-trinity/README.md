@@ -8,7 +8,7 @@ The Bedroom is the 18+ design collection based on the clasped bronze hands. Each
 | The Cleopatra Clit Caresser | [Cleopatra](products/cleopatra.json) | [cleopatra-bronze-hands](https://unified-operations-cockpit.nathantaboract.workers.dev/18-plus/bronze-hands/cleopatra-bronze-hands/) |
 | Finger Me Holes Til Me Holy by the Virgin Mary | [Virgin Mary](products/virgin-mary.json) | [virgin-mary-bronze-hands](https://unified-operations-cockpit.nathantaboract.workers.dev/18-plus/bronze-hands/virgin-mary-bronze-hands/) |
 
-Run `node build.mjs` to compile all three self-contained Workers to `dist/`. Pass `solomon`, `cleopatra` or `virgin-mary` to compile one. Build and test with Node.js 22 or later. Run `node --test` after the build.
+Run `node build.mjs` to compile all three self-contained Workers to `dist/`. Pass `solomon`, `cleopatra` or `virgin-mary` to compile one. Build and test with Node.js 22 or later. Run `node --test` for the test suite, which builds its own temporary Workers.
 
 For independent deployment, upload the chosen file as the main ES module via the Cloudflare Workers for Platforms API to the `nathan-tabor-platforms` dispatch namespace. Use the filename stem as the Worker name and compatibility date `2026-11-20`. The route table is in the [Tabor app dispatcher](../tabor-app-runtime/tabor-app-dispatch.mjs). Each site's `health` endpoint returns `ok`. The server-rendered 18+ question is self-attestation. Only a host-scoped cookie records an affirmative response, and the exit control clears it.
 
