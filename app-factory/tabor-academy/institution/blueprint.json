@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "institution": "Tabor Academy",
+    "author": "Talking Mammal Nathan Tabor",
+    "version": "1.0.0",
+    "created_utc": "2026-11-20",
+    "architecture": "Cloudflare Edge (Worker + D1 + KV + R2)"
+  },
+  "pillars": {
+    "1_curriculum": {
+      "role": "Multi-year educational roadmap across all subjects and grade levels",
+      "components": [
+        "domain_standards",
+        "grade_levels",
+        "graduation_requirements"
+      ]
+    },
+    "2_syllabus": {
+      "role": "Course-level contract between instructor and student",
+      "components": [
+        "course_id",
+        "grading_weights",
+        "weekly_schedule",
+        "policies"
+      ]
+    },
+    "3_scope_and_sequence": {
+      "role": "Master chronological ordering of skills to prevent gaps or redundancy",
+      "components": [
+        "prerequisite_graph",
+        "pacing_calendar",
+        "skill_nodes"
+      ]
+    },
+    "4_lesson_plans": {
+      "role": "Daily 45-60 minute instructional playbook",
+      "components": [
+        "warm_up_hook",
+        "direct_instruction",
+        "guided_practice",
+        "independent_work",
+        "exit_check"
+      ]
+    },
+    "5_assessment_and_rubrics": {
+      "role": "Proof of learning and mastery verification",
+      "components": [
+        "formative_checks",
+        "summative_exams",
+        "scoring_rubric",
+        "mastery_threshold_90_pct"
+      ]
+    },
+    "6_pedagogical_method": {
+      "role": "Rules for knowledge delivery and retention",
+      "modes": [
+        "direct_instruction",
+        "socratic_dialogue",
+        "mastery_progression",
+        "tactile_application"
+      ]
+    },
+    "7_library_and_materials": {
+      "role": "Physical and digital instructional assets stored in R2 & cataloged in D1",
+      "components": [
+        "primary_texts",
+        "workbooks",
+        "manipulatives",
+        "digital_media"
+      ]
+    },
+    "8_sis_and_transcripts": {
+      "role": "Administrative ledger tracking attendance, mastery, credits, and diplomas",
+      "components": [
+        "student_registry",
+        "attendance_log",
+        "gradebook",
+        "official_transcripts"
+      ]
+    },
+    "9_governance_and_compliance": {
+      "role": "Legal structure, safety protocols, and state non-public school compliance",
+      "components": [
+        "mission_charter",
+        "code_of_conduct",
+        "safety_protocols",
+        "state_registration"
+      ]
+    }
+  }
+}
