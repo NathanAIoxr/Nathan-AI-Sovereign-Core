@@ -1,0 +1,22 @@
+{
+  "name": "nathan-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/core.test.ts",
+    "test:py": "cd python && python3 -m unittest -v",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply nathan-ledger --local",
+    "db:migrate:remote": "wrangler d1 migrations apply nathan-ledger --remote",
+    "test:integration": "python3 python/integration_wrangler.py"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261120.1",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "wrangler": "4.166.0"
+  }
+}
