@@ -1,6 +1,7 @@
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
 import { dashboardScript } from "./dashboard-client.mjs";
+export { ZoneClock } from "./time-clock.mjs";
 
 export { ProjectConductor };
 
@@ -81,6 +82,16 @@ export default {
 
     const state = env.STATE.getByName(project);
     try {
+      if (method === "GET" && path === "/api/time") {
+        return json(await env.TIME.getByName("zone-clock").status());
+      }
+      if (method === "POST" && path === "/api/time/start") {
+        const token = (request.headers.get("Authorization") ?? "").match(/^Bearer ([^\s]+)$/i)?.[1] ?? "";
+        if (!await sameSecret(token, env.TIME_START_KEY) && !await sameSecret(token, env.OPERATOR_KEY)) {
+          return json({ error: "unauthorized" }, 401);
+        }
+        return json(await env.TIME.getByName("zone-clock").start(), 202);
+      }
       if (isRead && path === "/api/health") {
         const [ready] = await Promise.all([
           state.ready(),

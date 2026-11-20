@@ -52,3 +52,9 @@ wrangler deploy --dispatch-namespace nathan-tabor-platforms --var "RELEASE_SHA:$
 ```
 
 The public route uses the existing site registry at `app-factory/tabor-website-builder/src/sites.mjs`.
+
+## TIME for the seven private Zone sandboxes
+
+[Read TIME status](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/time) for the most recent alarm receipt and next tick. The alarm checks the project identity in each staging D1 database every 15 minutes across UTC boundaries. A failed database check leaves the next tick scheduled. Access to the project databases is through fixed Worker bindings, and the alarm issues SELECT statements only. The public status returns timestamps and counts.
+
+[Zone Sandbox reconciliation](zone-sandbox/README.md) verifies the resource inventory. The clock and automated provisioning are independently observable. Starting an idle clock requires a Conductor operator key or a temporary encrypted bootstrap key. Omit the bootstrap key after activation.

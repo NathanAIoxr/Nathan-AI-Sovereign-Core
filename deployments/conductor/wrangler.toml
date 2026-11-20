@@ -29,3 +29,46 @@ migrations_dir = "migrations"
 [[r2_buckets]]
 binding = "AUDIT"
 bucket_name = "nathan-ai-conductor-audit"
+
+[[durable_objects.bindings]]
+name = "TIME"
+class_name = "ZoneClock"
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["ZoneClock"]
+
+[[d1_databases]]
+binding = "TIME_WEBSITE"
+database_name = "sovereign-website-core-holding"
+database_id = "f2b38272-3774-4c7a-a2ee-3d5700a74fe6"
+
+[[d1_databases]]
+binding = "TIME_BOOKS"
+database_name = "sovereign-book-series-holding"
+database_id = "d8f6564f-9146-4c51-b48a-428e9aab1063"
+
+[[d1_databases]]
+binding = "TIME_APPS"
+database_name = "sovereign-apps-holding"
+database_id = "3f496ed8-0d01-4877-817c-ea7bc8b7fd36"
+
+[[d1_databases]]
+binding = "TIME_GAMES"
+database_name = "sovereign-games-holding"
+database_id = "30ba63b6-4b12-4ecc-97a1-d94b058b6c6b"
+
+[[d1_databases]]
+binding = "TIME_COMMAND"
+database_name = "zone-tap-that-command-center-db"
+database_id = "ed2bcc51-ce90-443c-90ff-ed284f7c0a58"
+
+[[d1_databases]]
+binding = "TIME_ARCADE"
+database_name = "zone-tap-that-arcade-db"
+database_id = "4d34a050-53ad-464c-b075-1295ca6a1b65"
+
+[[d1_databases]]
+binding = "TIME_PUMPKIN"
+database_name = "zone-collyn-tabor-pumpkin-patch-db"
+database_id = "46364868-ac37-4180-b8f8-d4ec2ba0b670"
