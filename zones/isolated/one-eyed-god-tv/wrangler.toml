@@ -1,0 +1,41 @@
+name = "one-eyed-god-tv-holding"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[vars]
+PROJECT_ID = "one-eyed-god-tv"
+STAGING_ALIAS = "one-eyed-god-tv.test"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "zone-one-eyed-god-tv-db"
+database_id = "82a6d4b4-8f3d-45f4-99bb-169275b0af37"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "ZONE_ASSETS"
+bucket_name = "zone-one-eyed-god-tv-r2"
+
+[[kv_namespaces]]
+binding = "ZONE_CONFIG"
+id = "0ecb6d0a3fd344708770cb0b861c3e49"
+
+[[queues.producers]]
+binding = "ZONE_JOBS"
+queue = "zone-one-eyed-god-tv-q"
+
+[[durable_objects.bindings]]
+name = "ZONE_STATE"
+class_name = "ZoneState"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ZoneState"]

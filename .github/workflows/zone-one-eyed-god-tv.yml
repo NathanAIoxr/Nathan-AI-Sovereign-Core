@@ -1,0 +1,23 @@
+name: Zone · ONE-EYED GOD TV
+on:
+  push:
+    branches:
+      - 'zone/one-eyed-god-tv'
+    paths:
+      - 'zones/isolated/one-eyed-god-tv/**'
+      - '.github/workflows/zone-one-eyed-god-tv.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test zone.test.mjs
+        working-directory: zones/isolated/one-eyed-god-tv
