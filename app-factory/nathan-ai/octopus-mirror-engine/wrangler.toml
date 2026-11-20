@@ -1,0 +1,9 @@
+# Dedicated Octopus Mirror Engine; do not overwrite existing Workers.
+name = "nathan-octopus-mirror-engine"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+# A route or workers.dev enablement must be approved and configured separately.
+# Required secret: OCTOPUS_API_TOKEN (set through Cloudflare secrets; never commit).
+[observability]
+enabled = true
