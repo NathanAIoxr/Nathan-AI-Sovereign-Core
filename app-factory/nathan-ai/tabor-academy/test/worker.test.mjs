@@ -142,3 +142,15 @@ test("Law of Order preserves Nathan's wording and opens with the community view"
   assert.match(reverse, /The payment comes the next day/);
   assert.match(await (await call("/order/?first=saw")).text(), /Yes. The Samaritan first saw/);
 });
+
+test("Miss Wilson’s Porch keeps the four scenes and gives case-specific evidence prompts", async () => {
+  const response = await call("/order/porch/");
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  for (const place of ["Chihuahua", "Tequila", "Geneva", "Jamaica"]) assert.match(html, new RegExp(place + " \\(1826\\)"));
+  assert.match(html, /cold cup of water and cut you a warm slice of apple pie/);
+  assert.match(await (await call("/order/porch/?case=report")).text(), /Institutional surveillance/);
+  assert.match(await (await call("/order/porch/?case=repair")).text(), /Open accountability/);
+  assert.match(await (await call("/order/porch/?case=water")).text(), /Help meets a need/);
+  assert.match(await (await call("/order/")).text(), /order\/porch\//);
+});
