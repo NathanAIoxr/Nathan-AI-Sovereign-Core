@@ -21,3 +21,9 @@ Technique 47 already has a printable lesson and sandbox. For each selected numbe
 3. Verify the exact activity on `/workbench/zones/<number>/`, and verify the guide's printable edition at `/workbench/?guide=<number>&print=1`. Record the commit, tested paths, Worker updates, and remaining count.
 
 When the Workbench backlog is complete, continue with field guide layouts, Field Companion, and Sandbox milestones. Verify the existing Workbench and Survival catalogs stay at 101 records each. Keep private source text in the private archive and preserve the nine-line homepage opening.
+
+## The Nathan Tabor Way curriculum
+
+The live curriculum is at `/way/`. Its path and mission tables are `academy_way_paths` and `academy_way_missions` in the Academy D1 database. Eight path Workers run in `tabor-academy-way-<path>-dev` with script name `curriculum`.
+
+Take a bounded mission batch when the Academy rotation selects curriculum expansion. Use the topic coverage on each path to select original exercises that fill a gap. Give each mission a finished outcome and topic-specific Build, Flip and clear, Integrate, and Verify steps. Bridge practice should identify an actual prerequisite. Keep the printed proof sheet and QI/QE prompts. Add the public rows in an incremental migration and sync the affected path Worker manifest with the existing Academy zone-worker template. Verify the exact mission at `/way/<path>/<mission>/` and its public catalog entry. Preserve the independent Workbench and Survival catalogs and their existing priorities.
