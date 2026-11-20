@@ -70,6 +70,14 @@ export class MasterConductor {
     const { results } = await this.db.prepare(
       'SELECT * FROM pending_emits ORDER BY enqueued_at,event_id LIMIT 25'
     ).all();
+    if (this.env.DELIVERY_MODE === 'd1') {
+      if (!results.length) return;
+      await this.db.batch(results.flatMap(row => [
+        statement(this.db, 'INSERT INTO received_events(event_id) VALUES (?) ON CONFLICT(event_id) DO NOTHING', row.event_id),
+        statement(this.db, 'INSERT INTO emit_receipts(event_id) VALUES (?)', row.event_id)
+      ]));
+      return;
+    }
     for (const row of results) {
       await this.env.EMIT_BUS.send({
         zone, event_id: row.event_id, event_type: row.event_type,
@@ -179,8 +187,14 @@ export class MasterConductor {
         const heartbeat = await this.db.prepare('SELECT max(tick_slot) AS slot FROM events').first();
         const audit = await this.db.prepare(`SELECT v.* FROM zone_verification v JOIN zone_runs r USING(run_id)
           WHERE v.revision <> 'simulation' ORDER BY r.started_at DESC, r.run_id DESC LIMIT 1`).first();
-        return json({ zone, suspended: !(await this.permitted()), pending: pending.count,
+        return json({ zone, suspended: !(await this.permitted()), pending: pending.count, delivery: this.env.DELIVERY_MODE === 'd1' ? 'D1' : 'QUEUE',
           lastTick: heartbeat.slot, slotMs: interval, audit });
+      }
+      if (method === 'POST' && path === '/clock') {
+        await this.arm();
+        if (!(await this.permitted())) return json({ error: 'Zone suspended' }, 423);
+        await this.tick(Date.now());
+        return json({ zone, delivery: this.env.DELIVERY_MODE === 'd1' ? 'D1' : 'QUEUE' });
       }
       if (method === 'POST' && path === '/tap') return this.tap(request);
       if (method === 'POST' && path === '/audit') return this.audit();
@@ -194,6 +208,13 @@ export default {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/internal/')) return json({ error: 'Unknown route' }, 404);
     if (request.method === 'GET' && url.pathname === '/') return env.ASSETS.fetch(request);
+    if (request.method === 'GET' && url.pathname === '/') {
+      if (env.ASSETS) return env.ASSETS.fetch(request);
+      return new Response(env.BOARD_HTML, { headers: {
+        'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store',
+        'X-Content-Type-Options': 'nosniff'
+      } });
+    }
     if (!env.ZONE_CONTROL_KEY ||
       request.headers.get('Authorization') !== `Bearer ${env.ZONE_CONTROL_KEY}`) {
       return json({ error: 'Staging credentials required' }, 401);
