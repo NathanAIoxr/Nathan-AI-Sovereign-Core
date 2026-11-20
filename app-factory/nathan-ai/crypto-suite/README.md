@@ -39,3 +39,16 @@ The existing wallet catalog holds the historical receiving-address reference pri
 Run `python3 ledger/verify.py` to regenerate and compare the expected bytes in memory. For a new reviewed version, regenerate files with `python3 ledger/verify.py --write`, apply `ledger/schema.sql`, and append the exact `ledger/state.json` bytes as a D1 BLOB keyed by the SHA-256 in `ledger/state.sha256`. Build the `mining-lab` edition with the dedicated D1 binding and run `bash ledger/verify-live.sh` after deployment. GitHub Actions runs the independent verifier and offers the live comparison on manual dispatch.
 
 This receipt verifies archived data, historical proof-of-work headers, and replica integrity. Production mining and mining RPCs are outside this mirror. The build uses Web Crypto and Python. It has no embedded private material, outbound edge webhooks, Git write credentials, or cross-service signing key. Provider-supported authentication still applies to deployment.
+
+
+## Octopus Mirror Engine by Nathan Tabor
+
+Run the offline Golden Goose benchmark with Node.js 22 or newer.
+
+```sh
+node octopus-mirror.mjs --nonces 1048576 --trials 3
+```
+
+The benchmark divides a fixed interval around the Bitcoin genesis nonce into nonoverlapping ranges, alternating intake from the low and high ends. Up to eight worker threads take the next range as they finish. The coordinator compares median throughput at 1, 2, 4, and 8 threads over the same input. Its timing includes worker startup, dispatch, and hashing. The JSON lists coverage, duplicate assignments, timing, independently verified target matches, and the fastest observed thread count. The speedup depends on workload size and available CPU.
+
+All input comes from the historical genesis fixture. The output is a proof and benchmark receipt. Nonce order changes traversal, while Bitcoin's [proof-of-work target and reward rules](https://developer.bitcoin.org/reference/block_chain.html) govern consensus. The benchmark performs zero network I/O and creates zero spendable cryptocurrency.
