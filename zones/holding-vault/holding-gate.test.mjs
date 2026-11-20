@@ -98,7 +98,7 @@ test('snapshot downloads require owner authorization', async () => {
 
 
 test('private stand-in pages deny guest access', async () => {
-  for (const path of ['/preview/project-a/site','/preview/project-a/site/part/example','/preview/provenance/project-a']) {
+  for (const path of ['/preview/project-a/site','/preview/project-a/site/part/example','/preview/project-a/provenance']) {
     const response = await gate.fetch(request(path),env);
     assert.equal(response.status,401);
     assert.equal(response.headers.get('cache-control'),'no-store');

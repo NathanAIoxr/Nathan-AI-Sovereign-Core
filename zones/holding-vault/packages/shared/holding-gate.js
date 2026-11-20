@@ -120,7 +120,7 @@ async function showProvenance(env, record, base, search, asJson) {
       UNION
       SELECT e.target_key FROM zone_reader_provenance_edges e JOIN reachable r ON e.source_key=r.node_key
     ), visible AS (
-      SELECT n.node_key,n.kind,n.locator,n.resolution
+      SELECT n.node_key,n.kind,n.locator,n.resolution,json_extract(n.details_json,'$.scan_status') AS scan_status
       FROM reachable r JOIN zone_reader_provenance_nodes n USING(node_key)
       ORDER BY CASE n.resolution WHEN 'verified-leaf' THEN 0 WHEN 'external-reference' THEN 1 WHEN 'unresolved' THEN 2 ELSE 3 END,n.node_key
       LIMIT 51 OFFSET ?
@@ -169,6 +169,19 @@ async function showReaders(env,base,search,asJson) {
   return page("Integration candidates",`<p><a href="${base}/preview">Project registry</a> · <a href="${path}.json${query(offset)}">JSON evidence</a></p>${files?`<ol>${files}</ol>`:"<p>No integration candidates for this view.</p>"}${next}`);
 }
 
+export async function canLaunch(env, id) {
+  if (env.LAUNCH_STATUS !== "LIVE") return false;
+  try {
+    const switches = await Promise.all([
+      env.CACHE.get("gate:*"),
+      env.CACHE.get("gate:" + id)
+    ]);
+    return switches.every((state) => state === "LIVE");
+  } catch {
+    return false;
+  }
+}
+
 async function handle(request, env) {
   const base = env.MOUNT_PATH === "/holding-vault" ? "/holding-vault" : "";
   const {pathname, searchParams} = new URL(request.url);
@@ -180,8 +193,9 @@ async function handle(request, env) {
 
   const publicMatch = /^\/holding\/([^/]+)\/?$/.exec(pathname);
   if (publicMatch && validId(publicMatch[1])) {
-    if (env.LAUNCH_STATUS === "LIVE") {
-      const record = await projectRow(env, publicMatch[1]);
+    if (await canLaunch(env, publicMatch[1])) {
+      const db = env.DB.withSession("first-primary");
+      const record = await projectRow({DB:db}, publicMatch[1]);
       if (record?.launch_status === "LIVE" && record.domain_status === "active") {
         const target = new URL(record.public_url);
         if (target.protocol === "https:" && target.hostname === record.domain && !target.username && !target.password && !target.port) {
