@@ -14,7 +14,9 @@ export function attachKeyboardAriaSelection(element, strands, region, { enabled 
   try {
     navigation = attachKeyboardStrandNavigation(element, strands, (selection, event) => {
       if (disposed) return;
-      if (onSelection(selection, event) !== false) live.onSelection(selection);
+      if (onSelection(selection, event) === false) return false;
+      live.onSelection(selection);
+      return true;
     }, { isEnabled: () => !disposed && navigationEnabled });
   } catch (error) {
     live.dispose();
