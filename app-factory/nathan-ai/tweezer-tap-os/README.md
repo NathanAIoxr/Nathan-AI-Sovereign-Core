@@ -38,3 +38,9 @@ Open one promotion PR from `zone/tweezer-tap-os` to `main`. After the branch che
 The original schema remains available for the original tests. Migration 0003 adds `conductor_evidence`, `conductor_delivery_receipts`, and `conductor_webhook_receipts`. The current dispatch Worker uses these tables and leaves the original `extraction_log` schema intact. The staging database retains the 12 original seeded TAP tiles.
 
 Cloudflare returned error 10037 for the standard Worker because the account is at 500 scripts. The private dispatch deployment has no attached Cron Trigger. Cloudflare also returned error 10007 when attaching it as a direct Queue consumer. A standard Worker slot or an authorized platform driver and compatible Queue consumer is required to start the verified recurring TIME/EMIT run. The control board remains on the internal staging alias and its operator secrets are provisioned separately.
+
+## D1 delivery fallback
+
+Cloudflare deployment `e00f2776157c438982dd68ba484547a8` runs as `zone-tweezer-tap-ledger` in `tweezer-tap-os-holding`. This companion uses the original staging ledger and `DELIVERY_MODE=d1`. A single D1 transaction records local delivery and acknowledges the corresponding outbox row. This mode performs ledger delivery without sending Queue messages or external webhooks. The hash-chain Conductor remains a separate deployment.
+
+The fallback source is `src/conductor.mjs` and its verification command is `node test.mjs` with Node 24. Authenticated `POST /clock` bootstraps the fallback's own Durable Object alarm once a dispatch entry point is configured. The upload is confirmed. Public ingress, live ticks, and end-to-end delivery still require verification.
