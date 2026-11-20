@@ -520,7 +520,7 @@ function serveOrder(request) {
       <p>Start with parents, grandparents, aunts, uncles, godparents, and neighbors. Then ask what a workshop, congregation, or state required. Use Nathan’s Madison County recollection as a question about community accountability: who taught, who intervened, and how did the parents hear about it?</p>
       <p class="screen-only"><a href="${orderPath}"${reverse ? "" : ' aria-current="page"'}>Home → community → institutions</a> ·
         <a href="${orderPath}?view=state"${reverse ? ' aria-current="page"' : ""}>Institutions → community → home</a></p>
-      <p><a href="${mount}/order/porch/">Miss Wilson’s Porch · Hospitality, accountability, and surveillance</a></p><p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
+      <p><a href="${mount}/order/porch/">Miss Wilson’s Porch · Hospitality, accountability, and surveillance</a></p><p><a href="${mount}/order/1626/">Go back another 200 years · 1626</a></p><p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
     </section>${regionMarkup}
     <section><h2>Timeline audit · Who set the date?</h2>
       <p>In the first places that adopted Pope Gregory XIII’s 1582 calendar reform, October 4 was followed by October 15. Other places adopted the calendar later. Record the place, the calendar used in the original, and who recorded the event before converting its date.</p>
@@ -560,7 +560,7 @@ function servePorch(request) {
     <section><h2>How That “Open-Range Freedom” Worked in 1826</h2>
       <p>The supplied scenes illustrate how hospitality might work. Their individual encounters and universal claims need evidence of their own.</p>
       <blockquote><p>In all four places 200 years ago, that exact same hospitality-and-accountability loop was the real social safety net:</p></blockquote>
-      ${places}<p><a href="${orderPath}">Open the four regional source lists</a> ·
+      ${places}<p><a href="${orderPath}">Open the four regional source lists</a> · <a href="${mount}/order/1626/">Compare the 1626 village syllabus</a> ·
         <a href="https://www.bl.uk/stories/blogs/posts/food-and-freedom-in-19th-century-jamaica">British Library · Food and Freedom in 19th-Century Jamaica</a></p>
     </section>
     <section><h2>The Two Sides of the Same Coin</h2><blockquote>
@@ -587,9 +587,122 @@ function servePorch(request) {
   });
 }
 
+
+const year1626Path = mount + "/order/1626/";
+const year1626Regions = [
+  {
+    "title": "Ethiopia · Highlands and royal court",
+    "community": "Begin with cultivation, livestock, seasonal runoff, hospitality, and the way families remember lineage. Ask how a household taught one field task and what type of record could show who did the teaching. Teff terracing, enjera, and roasted barley are research leads for particular communities.",
+    "institution": "The Ethiopian Orthodox Tewahedo Church had its own teaching traditions, including Ge’ez reading, chant (zema), and sacred poetry (qene). At the royal court, Susenyos’s Catholic turn and the Jesuit mission challenged Orthodox authority. Study the court, church schools, and households as distinct places of learning.",
+    "date": "In 1626 Susenyos pledged adherence to Rome. Fasilides succeeded him in 1632 and restored Orthodox rule. UNESCO dates Gondar’s establishment as a permanent capital to 1636. The later castles belong on the later side of that timeline.",
+    "test": "Draw a hillside with one sloped field and one terraced field. Use a tabletop tray to compare where a spoonful of water runs. Then read a court source and a church education study. Which source can tell you about each form of teaching, and which question remains open?",
+    "refs": [
+      [
+        "Matteo Salvadore · Jesuit Ethiopia and Susenyos",
+        "https://brill.com/view/journals/jemh/25/3/article-p194_2.pdf"
+      ],
+      [
+        "Educational practices of qene bet schools",
+        "https://www.tandfonline.com/doi/full/10.1080/2331186X.2022.2158673"
+      ],
+      [
+        "UNESCO · Gondar palaces and castles",
+        "https://whc.unesco.org/en/activities/156/"
+      ]
+    ]
+  },
+  {
+    "title": "Mainland China · Late Ming",
+    "community": "Start at a household, market, or shared waterway. Rice irrigation, silk production, tea processing, abacus reckoning, and storytelling offer different lines of inquiry. Ask what a lineage record can show about elders and what a local gazetteer or farming text can show about work in one district.",
+    "institution": "Follow the examination route through the Four Books and Five Classics, their commentaries, and the eight-legged essay format. Academies also hosted intellectual and moral inquiry. Donglin debates and persecution under Wei Zhongxian give the court and academy comparison a specific setting.",
+    "date": "1626 falls in the Tianqi reign, late in the Ming dynasty. A description of one county, clan, or academy has a geographic limit; note it before extending a claim about authority to other places.",
+    "test": "Explain the same irrigation problem two ways: as a short, structured written answer and as a tabletop demonstration with a tray. Ask a partner what each version lets them verify. Record where the methods help each other.",
+    "refs": [
+      [
+        "Oxford University Research Archive · Books, Reading, and Knowledge in Ming China",
+        "https://ora.ox.ac.uk/objects/uuid%3A5800e2b8-024b-415f-ae6a-3793efd3b955/files/m8b0e0359385cb26da26e5ce93fd9e152"
+      ],
+      [
+        "Berkshire Dictionary of Chinese Biography · Ming dynasty material",
+        "https://www.berkshirepublishing.com/assets_news/china/BERKSHIRE_MingDynastySample.pdf"
+      ]
+    ]
+  },
+  {
+    "title": "Southern Ocean, Tierra del Fuego, and Antarctica",
+    "community": "Start along the inhabited rim. The Yagán (Yaghan) knew coastal travel, canoes, marine food, and local weather in the channels around Tierra del Fuego. The Selk’nam had distinct, primarily land-based hunting and gathering practices on Isla Grande. Use a source specific to each people when asking how knowledge passed between generations.",
+    "institution": "Compare local routes and place knowledge with European shipboard dead reckoning, instruments, charts, and expedition goals. Mark Terra Australis Incognita as a conjecture on any map that proposes it; record an observed coastline separately.",
+    "date": "The geographic South Pole had no human settlement in 1626. Antarctic mainland sightings are generally dated to 1820, with priority disputed. Roald Amundsen’s party reached the geographic South Pole in 1911. Tierra del Fuego is north of Antarctica.",
+    "test": "Lay a modern map beside a historic southern chart. Mark the known coast, the conjectured land, the Indigenous homelands, and the geographic pole in different colors. Ask a partner to explain how the two maps support different claims.",
+    "refs": [
+      [
+        "Museo Chileno de Arte Precolombino · Yagán",
+        "https://museo.precolombino.cl/aprende/pueblos-culturas/pueblos-originarios/yag-n/"
+      ],
+      [
+        "Museo Chileno de Arte Precolombino · Selk’nam",
+        "https://museo.precolombino.cl/aprende/pueblos-culturas/pueblos-originarios/selk-nam/"
+      ],
+      [
+        "British Antarctic Survey · Antarctic mainland sightings",
+        "https://legacy.bas.ac.uk/about_antarctica/geopolitical/bat.php"
+      ],
+      [
+        "British Antarctic Survey · Reaching the South Pole",
+        "https://www.bas.ac.uk/news/south-pole-conquered-100-years-ago-today/"
+      ]
+    ]
+  },
+  {
+    "title": "Tidewater Virginia · Powhatan communities and Jamestown",
+    "community": "Begin in Powhatan towns and along the rivers. Housing, planting, fishing, canoe use, and local travel depended on practical knowledge. Ask who taught a particular skill. A yi-hakan or yehakin is a house; a description of the building cannot establish the authority of every relative or elder.",
+    "institution": "Set English parish instruction, royal administration, tobacco, and land records beside Powhatan accounts and colonial descriptions. The KJV (1611), Book of Common Prayer, hornbooks, and commercial bookkeeping are research leads. A dated school or household record would establish whether a particular learner used them.",
+    "date": "The Virginia Company’s charter was revoked in 1624 under James I. Virginia was already a royal colony by 1626 under Charles I. Jamestown’s earliest martial rules date to 1610–11; date any rule before applying it to 1626.",
+    "test": "Pick one activity such as growing corn or roofing a house. Compare a museum account, a dated colonial record, and any available account from a descendant community. For each, record the author, purpose, observation, and what remains uncertain.",
+    "refs": [
+      [
+        "National Park Service · A Short History of Jamestown",
+        "https://home.nps.gov/jame/learn/historyculture/a-short-history-of-jamestown.htm"
+      ],
+      [
+        "Encyclopedia Virginia · Houses in Early Virginia Indian Society",
+        "https://encyclopediavirginia.org/entries/houses-in-early-virginia-indian-society/"
+      ],
+      [
+        "Encyclopedia Virginia · Lawes Divine, Morall and Martiall",
+        "https://encyclopediavirginia.org/entries/lawes-divine-morall-and-martiall/"
+      ]
+    ]
+  }
+];
+
+function serveYear1626(request) {
+  const stateFirst = new URL(request.url).searchParams.get("view") === "state";
+  const layers = stateFirst ? [["Church, court, and state","institution"],["Home and community","community"]]
+    : [["Home and community","community"],["Church, court, and state","institution"]];
+  const sections = year1626Regions.map((region) => `<section><h2>${escape(region.title)}</h2>
+    ${layers.map(([label,key]) => `<h3>${label}</h3><p>${escape(region[key])}</p>`).join("")}
+    <h3>Check the dates</h3><p>${escape(region.date)}</p>
+    <h3>A · Field test</h3><p>${escape(region.test)}</p>
+    <ul>${region.refs.map(([label,url]) => `<li><a href="${escape(url)}">${escape(label)}</a></li>`).join("")}</ul></section>`).join("");
+  const body = `<nav><a href="${orderPath}">1826 · The village syllabus</a> ·
+    <a href="${porchPath}">Miss Wilson’s Porch</a></nav>
+    <p>Z · Show how people learned a real skill and prove what the source can tell you about it.</p>
+    <p class="screen-only"><a href="${year1626Path}"${stateFirst ? "" : ' aria-current="page"'}>Home → community → institutions</a> ·
+      <a href="${year1626Path}?view=state"${stateFirst ? ' aria-current="page"' : ""}>Institutions → community → home</a></p>
+    ${sections}
+    <section class="proof-sheet"><h2>Verify the order</h2><p>Pick one 1626 region and one from 1826. Find a household or community source and an institutional source for each. Give the place, date, author, and what each source could observe. Mark the difference between a practice you can document and a question that still needs evidence.</p>
+    <p>Practice and source:</p><div></div><p>What the record supports:</p><div></div><p>What I would check next:</p><div></div></section>`;
+  return new Response(request.method === "HEAD" ? null : workbenchPage("1626 · Who taught, and who set the syllabus?", body), {
+    headers: { ...workbenchHeaders, "content-type": "text/html; charset=utf-8" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((pathname === "/order/1626" || pathname === "/order/1626/") &&
+        (request.method === "GET" || request.method === "HEAD")) return serveYear1626(request);
     if ((pathname === "/order/porch" || pathname === "/order/porch/") &&
         (request.method === "GET" || request.method === "HEAD")) return servePorch(request);
     if ((pathname === "/order" || pathname === "/order/") && (request.method === "GET" || request.method === "HEAD")) return serveOrder(request);
