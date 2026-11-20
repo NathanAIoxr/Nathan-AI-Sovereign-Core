@@ -1,0 +1,10 @@
+{
+  "id": "tabor-academy",
+  "name": "Tabor Academy",
+  "zone": "tabor-academy",
+  "environment": "staging",
+  "entry": "src/worker.mjs",
+  "build": "npm run build",
+  "test": "npm test",
+  "components": ["Nathan AI Voice Box", "Tabor ONE", "Hop In Chatbox", "Library of Tabor", "Deterministic Binary Firewall", "MAKE AI YOURS"]
+}

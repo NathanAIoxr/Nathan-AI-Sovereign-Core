@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tabor Academy · Library of Tabor</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.mjs"></script></head>
+<body>
+<header class="masthead"><div class="brand"><span class="brand-mark" aria-hidden="true">T</span><div><strong>Tabor Academy</strong><small>Library of Tabor</small></div></div><div class="mast-actions"><span id="environment"></span><button type="button" id="spec-open" class="quiet">Original specification</button></div></header>
+<nav class="tabs" aria-label="Tabor Academy workspace">
+<button data-pane="matrix" aria-current="page">Tabor ONE</button><button data-pane="voice">Voice Box</button><button data-pane="library">Library of Tabor</button><button data-pane="verify">Verification</button>
+</nav>
+<main>
+<section id="matrix" class="pane">
+<div class="heading"><div><p class="eyebrow">HOP IN CHATBOX</p><h1>Start at the result.</h1><p class="intro">Follow the steps back to the origin. Turn the view in any direction and build it forward.</p></div><button type="button" id="new" class="primary">New inquiry</button></div>
+<div class="matrix-layout">
+<div class="card matrix-card">
+<div class="card-head"><div><p class="eyebrow">360-DEGREE MATRIX</p><h2 id="matrix-title"></h2></div><button id="forward" type="button" class="quiet">Trace forward</button></div>
+<div class="canvas-nav" aria-label="Matrix direction"><button type="button" data-direction="ltr" aria-pressed="true">Left to right</button><button type="button" data-direction="rtl" aria-pressed="false">Right to left</button><button type="button" data-direction="ttb" aria-pressed="false">Top to bottom</button><button type="button" data-direction="btt" aria-pressed="false">Bottom to top</button></div>
+<div id="canvas" aria-label="Knowledge path"></div>
+<div class="node-detail" aria-live="polite"><span id="node-label" class="eyebrow"></span><p id="node-text"></p></div>
+</div>
+<aside class="card tools"><h2>Cero, Uno, Dos</h2>
+<div class="mode-list"><button data-mode="0"><b>0</b><span><strong>Cero</strong><small>Clearing / reset</small></span></button><button data-mode="1" aria-pressed="true"><b>1</b><span><strong>Uno</strong><small>Anchor / origin</small></span></button><button data-mode="2"><b>2</b><span><strong>Dos</strong><small>Generative build</small></span></button></div>
+<label for="role">MAKE AI YOURS</label><select id="role" data-field="role"><option>Facilitator</option><option>Storyteller</option></select>
+<p id="role-prompt" class="helper"></p><textarea aria-label="Storyteller or facilitator contribution" data-field="storyteller" rows="3"></textarea>
+</aside>
+</div>
+<section id="entry-editor" class="card editor"><div class="card-head"><div><p class="eyebrow">HOP IN CHATBOX</p><h2>Build the inquiry</h2></div><button id="save" class="primary">Save to Library</button></div>
+<div class="fields"><label>Title<input data-field="title" maxlength="180"></label><label>Archive type<select data-field="kind"><option>Lesson</option><option>Tool</option><option>Simulation</option><option>Insight</option><option>Blueprint</option><option>Historical record</option></select></label>
+<label>End result<textarea data-field="result" rows="2"></textarea></label><label>Origin<textarea data-field="origin" rows="2"></textarea></label>
+<label>Attributes<textarea data-field="attributes" rows="2"></textarea></label><label>Characteristics<textarea data-field="characteristics" rows="2"></textarea></label>
+<label>Functionalities<textarea data-field="functionalities" rows="2"></textarea></label><label>Inquiry domain<select data-field="domain"><option>Physical</option><option>Spiritual</option><option>Both</option></select></label>
+<label class="wide">Steps from result back to origin <small>One step per line</small><textarea id="step-input" rows="3"></textarea></label></div>
+</section>
+</section>
+<section id="voice" class="pane" hidden>
+<div class="heading"><div><p class="eyebrow">ZERO-FRICTION CAPTURE</p><h1>Nathan AI Voice Box</h1><p class="intro">Capture the exact words and keep the recording for cadence and pronunciation.</p></div></div>
+<div class="card editor">
+<div class="card-head"><h2>Capture</h2><button type="button" id="mic" class="primary">Record voice</button></div>
+<p id="record-state" class="helper" aria-live="polite"></p><audio id="audio" controls hidden></audio>
+<label class="check"><input id="auto-transcribe" type="checkbox" checked> Enable automatic voice-to-text</label>
+<label>Original wording<textarea id="transcript" data-field="transcript" rows="7" placeholder="Speak or enter the wording exactly as given."></textarea></label>
+<div class="fields"><label>Exact phonetic sound / pronunciation notes<textarea data-field="phonetic" rows="3" placeholder="Word — IPA or pronunciation, timestamp if known"></textarea></label><label>Original root meaning<textarea data-field="rootMeaning" rows="3" placeholder="Word — root, meaning, source locator"></textarea></label></div>
+<div id="word-index" aria-live="polite"></div><label>Corrections and later additions<textarea data-field="corrections" rows="3"></textarea></label>
+<button id="save-voice" class="primary">Save original capture</button>
+</div>
+</section>
+<section id="library" class="pane" hidden>
+<div class="heading"><div><p class="eyebrow">SOVEREIGN ARCHIVE</p><h1>Library of Tabor</h1><p class="intro">Find an insight, blueprint, or historical record. Open its source and trace the connection.</p></div></div>
+<div class="matrix-layout">
+<div class="card editor"><h2>Catalog</h2>
+<form id="search-form"><label>Search the archive<input type="search" id="catalog-search" placeholder="Title, phrase, classification, Strong’s number"></label>
+<div class="inline"><label>Collection<select id="collection"><option value="private">My workspace</option><option value="public">Published archive</option></select></label><label>Group by<select id="classification"><option value="">Record type</option><option value="lcc">Library of Congress</option><option value="dewey">Dewey Decimal</option><option value="mode">Cero, Uno, Dos</option></select></label></div>
+<label class="check" id="semantic-control"><input id="semantic" type="checkbox"> Include related concepts</label><button class="primary">Search</button></form><div id="results" aria-live="polite"></div>
+</div>
+<div class="card editor"><h2>Index the current inquiry</h2>
+<div class="fields"><label>Library of Congress<input data-field="lcc"></label><label>Dewey Decimal<input data-field="dewey"></label></div>
+<label>Source type<select data-field="sourceType"><option>Primary historical record</option><option>Strong’s Concordance</option><option>Original manuscript</option><option>Other source</option></select></label>
+<label>Source title, author, or archive<input data-field="source"></label><label>Exact passage, page, or date<input data-field="locator"></label>
+<label>Source link<input data-field="sourceUrl" type="url"></label><a id="open-source" target="_blank" rel="noopener" hidden>Open source record</a>
+<label>Strong’s Concordance reference<input data-field="strong" placeholder="Example H7225"></label>
+<button class="primary" id="save-index">Save classification and source</button>
+</div></div>
+</section>
+<section id="verify" class="pane" hidden>
+<div class="heading"><div><p class="eyebrow">SOVEREIGNTY &amp; INNOCENCE FILTER</p><h1>Deterministic Binary Firewall</h1><p class="intro">Protect innocence and reproduce the result before a lesson, tool, or simulation enters the archive.</p></div></div>
+<div class="matrix-layout"><div class="card editor"><h2>Run the check</h2>
+<div class="fields"><label>Does it protect innocence?<select id="protect"><option value="">Unreviewed</option><option value="1">1 · Yes</option><option value="0">0 · No</option></select></label>
+<label>Can it be replicated? <small>For manual demonstrations</small><select id="replicate"><option value="">Unreviewed</option><option value="1">1 · Yes</option><option value="0">0 · No</option></select></label>
+<label>Operation<select data-field="test"><option value="manual">Manual demonstration</option><option value="addition">Addition</option><option value="subtraction">Subtraction</option><option value="reversal">Text reversal</option><option value="exact">Exact match</option></select></label>
+<label>Input <small>Use two comma-separated integers for arithmetic</small><input data-field="input"></label><label>Expected result<input data-field="expected"></label></div>
+<div class="inline checks"><label class="check"><input id="manipulation" type="checkbox"> Manipulation</label><label class="check"><input id="ambiguity" type="checkbox"> Ambiguity</label><label class="check"><input id="hiddenControl" type="checkbox"> Hidden control</label></div>
+<button id="run" class="primary">Verify both rules</button><div id="verdict" aria-live="polite"></div></div>
+<aside class="card editor"><h2>Archive publication</h2><div class="equation">1+1=2</div><p>Both rules pass. Retain the lesson.</p><div class="equation">1-1=0</div><p>A rule fails. Clear it from the learner-facing archive.</p>
+<label class="check"><input id="approved" type="checkbox"> I approve publishing the lesson and its source details.</label>
+<button type="button" class="primary" id="publish">Publish verified entry</button><button id="withdraw" class="quiet" type="button" hidden>Withdraw from archive</button>
+</aside></div></section>
+<p id="status" role="status" hidden></p>
+</main>
+<dialog id="spec"><form method="dialog"><button class="quiet">Close</button></form><h2>Original specification</h2><pre id="spec-text"></pre></dialog>
+</body></html>
