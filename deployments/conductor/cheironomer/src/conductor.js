@@ -72,6 +72,13 @@ export async function command(instance, principal, operation, body) {
   if (operation==="propose" || operation==="voice") {
     const input=operation==="voice"?body:normalize(body);
     if (state.paused && input.action!=="arm") return {error:"BRAKE"};
+    if (input.action==="register-dns") {
+      const source=instance.env.LEDGER;
+      const claims=await Promise.all(input.domains.map(({domain,zoneId})=>source.prepare(
+        "SELECT zone_id FROM dns_provision_receipts WHERE domain=? AND zone_id=? AND gate_mode='HOLDING'"
+      ).bind(domain,zoneId).first()));
+      if(claims.some(claim=>!claim))return {error:"dns_provision_receipt_required"};
+    }
     if (input.action==="promote" && !(await verifyPhysicalRoute(instance.env,input.domain)).verified) return {error:"physical_route_unverified"};
     const payload=JSON.stringify(input);
     const proof=await sha(payload);
@@ -160,6 +167,15 @@ async function flush(instance,sql) {
       env.LEDGER.prepare("INSERT INTO provenance_ledger VALUES(?,?,?,?,?,?,?)")
         .bind(row.id,seal.type,prev,alien,neila,digest,sealTime(row.id))
     ]);
+  }
+  if (!cancelled && ["register-dns","holding","promote"].includes(row.kind)) {
+    const domains=row.kind==="register-dns"?item.domains.map(entry=>entry.domain):[item.domain];
+    for (const domain of domains) {
+      const desired=await env.LEDGER.prepare("SELECT state FROM dns_zone_fleet WHERE domain=?").bind(domain).first();
+      if (!desired) continue;
+      await env.ZONE_KV.put("ZONE_STATUS:"+domain,desired.state);
+      await env.LEDGER.prepare("UPDATE dns_provision_receipts SET gate_mode=? WHERE domain=?").bind(desired.state,domain).run();
+    }
   }
   if (!cancelled && row.kind==="dispatch") {
     const staged=await env.LEDGER.prepare("SELECT identity_id FROM virtual_zones WHERE identity_id=?").bind(item.identity).first();

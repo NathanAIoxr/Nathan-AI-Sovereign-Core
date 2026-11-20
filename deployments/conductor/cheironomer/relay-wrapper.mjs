@@ -5,7 +5,16 @@ const bus="nathan-ai-cheironomer-events";
 const target=env=>env.CHEIR_ZONES.get("nathan-ai-conductor");
 
 export default {
-  fetch(request,env,ctx) {return legacy.fetch(request,env,ctx);},
+  async fetch(request,env,ctx) {
+    const domain=new URL(request.url).hostname;
+    if (domain.endsWith(".workers.dev")) return legacy.fetch(request,env,ctx);
+    const holding=()=>new Response("Nathan AI · HOLDING",{status:503,headers:{"Cache-Control":"no-store","Retry-After":"60","Content-Type":"text/plain; charset=utf-8"}});
+    if(await env.CHEIR_HOLDING.get("ZONE_STATUS:"+domain)!=="LIVE")return holding();
+    const check=await target(env).fetch(base+"/internal/dns-gate?domain="+encodeURIComponent(domain),
+      {headers:{Authorization:"Bearer "+env.CHEIR_RELAY_KEY}});
+    if(!check.ok||!(await check.json()).live)return holding();
+    return fetch(request);
+  },
   async scheduled(event,env) {
     const [old,health]=await Promise.allSettled([
       legacy.scheduled(event,env),

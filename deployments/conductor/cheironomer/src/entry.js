@@ -1,3 +1,4 @@
+import {voiceProofs} from "./github_voice_proofs.js";
 import {json} from "./conductor.js";
 import {hud,hudScript} from "./hud.js";
 import {readOwnedGraph} from "./nathan_reader_bots.js";
@@ -58,6 +59,7 @@ export async function cheironomer(request,env,path) {
     await state.cheirWake();
     return json({...await state.cheirStatus(),release:env.RELEASE_SHA??"local"});
   }
+  if(path==="/internal/voice-proofs") return voiceProofs(request,env);
   if(!path.startsWith("/operator/")) return json({error:"not_found"},404);
   const user=await operator(request,env);
   if(!user)return json({error:"operator_required"},401);

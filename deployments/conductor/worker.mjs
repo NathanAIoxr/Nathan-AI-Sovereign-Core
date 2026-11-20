@@ -71,6 +71,17 @@ export default {
     const { pathname } = new URL(request.url);
     const path = (pathname === prefix || pathname.startsWith(prefix + "/") ? pathname.slice(prefix.length) : pathname) || "/";
     const method = request.method;
+    if (path==="/cheironomer/internal/dns-gate" && method==="GET") {
+      const token=(request.headers.get("Authorization")??"").match(/^Bearer ([^\s]+)$/i)?.[1]??"";
+      if(!await sameSecret(token,env.CHEIR_RELAY_KEY))return json({error:"unauthorized"},401);
+      const host=new URL(request.url).searchParams.get("domain");
+      if(!host||! /^(?=.{1,253}$)[a-z0-9]+(?:[a-z0-9.-]*[a-z0-9])?$/.test(host))return json({error:"invalid_domain"},400);
+      const [record,status]=await Promise.all([
+        env.LEDGER.prepare("SELECT state FROM dns_zone_fleet WHERE domain=?").bind(host).first(),
+        env.TIME.getByName("cheironomer").cheirStatus()
+      ]);
+      return json({live:record?.state==="LIVE"&&!status.paused});
+    }
     if (path==="/cheironomer/internal/emit" && method==="POST") {
       const token=(request.headers.get("Authorization")??"").match(/^Bearer ([^\s]+)$/i)?.[1]??"";
       if(!await sameSecret(token,env.CHEIR_RELAY_KEY))return json({error:"unauthorized"},401);

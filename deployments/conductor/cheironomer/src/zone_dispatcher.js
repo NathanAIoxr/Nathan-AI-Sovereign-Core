@@ -64,13 +64,13 @@ export async function verifyPhysicalRoute(env,domain) {
   const row=await env.LEDGER.prepare("SELECT dns_zone_id FROM dns_zone_fleet WHERE domain=?").bind(domain).first();
   if(!row)return {verified:false,reason:"Domain is unregistered"};
   const p="/zones/"+row.dns_zone_id;
-  const [zone,tls,records,routes,apps]=await Promise.all([
-    provider(env,p),provider(env,p+"/settings/ssl"),provider(env,p+"/dns_records?name="+encodeURIComponent(domain)),
+  const [zone,tls,alwaysHttps,records,routes,apps]=await Promise.all([
+    provider(env,p),provider(env,p+"/settings/ssl"),provider(env,p+"/settings/always_use_https"),provider(env,p+"/dns_records?name="+encodeURIComponent(domain)),
     provider(env,p+"/workers/routes"),provider(env,"/accounts/"+env.CF_ACCOUNT_ID+"/access/apps")
   ]);
   const owns=zone.account?.id===env.CF_ACCOUNT_ID&&zone.name===domain&&zone.status==="active";
   const origin=records.some(x=>x.name===domain&&x.proxied&&["A","AAAA","CNAME"].includes(x.type));
-  const route=routes.some(x=>x.pattern===domain+"/*"&&x.script==="tabor-bridge");
+  const route=routes.some(x=>x.pattern===domain+"/*"&&x.script==="tabor-train-operations");
   const guard=apps.some(x=>x.domain===domain||x.domain===domain+"/*");
-  return {verified:owns&&tls.value==="strict"&&origin&&route&&guard,zoneId:row.dns_zone_id};
+  return {verified:owns&&tls.value==="strict"&&alwaysHttps.value==="on"&&origin&&route&&guard,zoneId:row.dns_zone_id};
 }
