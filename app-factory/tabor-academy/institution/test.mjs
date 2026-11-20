@@ -175,6 +175,21 @@ test("teaches both operations with six worked modules and a capstone", async () 
   assert.equal((await call(new Request(path, { method: "HEAD" }), {})).body, null);
 });
 
+test("publishes the Vatican history dossier and preserves the author directive", async () => {
+  const path = url + "/foundation/vatican-history/";
+  const response = await call(new Request(path), {});
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  for (const section of ["early", "crusades", "authority", "1666", "flag", "accountability", "next"]) {
+    assert.match(html, new RegExp('id="' + section + '"'));
+  }
+  assert.match(html, /eighth century/);
+  assert.match(html, /Section IV/);
+  assert.match(html, /McCann v\. Greenway/);
+  const source = await call(new Request(path + "source.txt"), {});
+  assert.equal(await source.text(), readFileSync(new URL("vatican-history.txt", import.meta.url), "utf8"));
+});
+
 test("compares signed multiplication and preserves the dated Vatican client count", async () => {
   const path = url + "/foundation/reality-math/";
   const get = async query => (await call(new Request(path + query), {})).text();

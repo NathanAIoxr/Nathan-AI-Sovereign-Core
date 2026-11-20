@@ -25,6 +25,10 @@ const course = JSON.parse(await readFile(new URL("architecture-course.json", her
 const authorMotto = architectureSource.split("\n")[2].slice(1, -1);
 export const foundation = {
   ...foundationStatement,
+  vaticanHistory: {
+    lesson: await readFile(new URL("vatican-history.html", here), "utf8"),
+    source: await readFile(new URL("vatican-history.txt", here), "utf8"),
+  },
   millionDollar: {
     lesson: await readFile(new URL("million-dollar.html", here), "utf8"),
     source: await readFile(new URL("million-dollar.txt", here), "utf8"),
@@ -69,6 +73,7 @@ function updateAcademyMap(source) {
     const current = JSON.parse(json);
     for (const [path, group] of [
       [civicsPath, "History and the record"],
+      ["/institution/foundation/vatican-history/", "History and the record"],
       ["/institution/learning-methods/", "Learning paths and the Academy"],
       ["/institution/foundation/", "Learning paths and the Academy"],
       ["/institution/foundation/architecture/", "Learning paths and the Academy"],

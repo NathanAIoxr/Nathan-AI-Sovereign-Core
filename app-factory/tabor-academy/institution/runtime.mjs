@@ -159,7 +159,7 @@ fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0
   function foundationPage() {
     return layout(foundation.title, `<h1>${esc(foundation.title)}</h1>
 <div class="foundation-statement">${foundationQuote(foundation)}</div>
-<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
+<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="${foundation.path}vatican-history/">Vatican history</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
   }
 
   function architecturePage() {
@@ -242,6 +242,15 @@ ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} 
 <p class="byline">Tabor Academy</p>
 <p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a> · <a href="${foundation.path}three-apples/">The Three Apples Reality</a> · <a href="${foundation.path}reality-math/million-dollar/">The Million-Dollar Multiplication Test</a></p>
 <div class="reality-math">${explorer}${foundation.realityMath}</div>`);
+  }
+
+  function vaticanHistoryPage() {
+    const title = "Vatican History · Crusades, Banking, and Jurisdiction";
+    const path = foundation.path + "vatican-history/";
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">Tabor Academy · History and the record</p>
+<p><a href="${path}source.txt">Read Nathan Tabor’s exact directive</a></p>
+${foundation.vaticanHistory.lesson}`);
   }
 
   function millionDollarPage(search) {
@@ -414,6 +423,12 @@ ${foundation.millionDollar.lesson}`);
       }
       if (path === "/foundation/library-handoff/conductor.txt") {
         return respond(request, foundation.libraryHandoff.block, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/vatican-history") {
+        return respond(request, vaticanHistoryPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/vatican-history/source.txt") {
+        return respond(request, foundation.vaticanHistory.source, 200, "text/plain; charset=utf-8");
       }
       if (path === "/foundation/reality-math") {
         return respond(request, realityMathPage(url.searchParams), 200, "text/html; charset=utf-8");

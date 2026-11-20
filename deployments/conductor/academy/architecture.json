@@ -25,9 +25,16 @@
       "realityMath": "/tabor-academy/institution/foundation/reality-math/",
       "allMultipliers": "/tabor-academy/institution/foundation/reality-math/#multipliers",
       "bankingHistory": "/tabor-academy/institution/foundation/reality-math/#banking-history",
+      "vaticanHistory": "/tabor-academy/institution/foundation/vatican-history/",
+      "vaticanHistorySource": "/tabor-academy/institution/foundation/vatican-history/source.txt",
       "millionDollar": "/tabor-academy/institution/foundation/reality-math/million-dollar/",
       "millionDollarSource": "/tabor-academy/institution/foundation/reality-math/million-dollar/source.txt",
       "libraryHandoff": "/tabor-academy/institution/foundation/library-handoff/conductor.txt"
+    },
+    "vaticanResearch": {
+      "state": "ready-for-research",
+      "tracks": ["Early Christian attestation and terminology", "Crusade authorization and affected communities", "Sacred-tree sources and chronology", "Papal banking and institutional continuity", "1666 statutes and legal scope", "Admiralty jurisdiction and courtroom flags", "Colonial authority and survivor accountability"],
+      "task": "Expand the dossier one dated record at a time. Preserve the author directive and classify each finding separately. Record actors, jurisdiction, source provenance, and unresolved questions before linking events."
     },
     "verification": "node app-factory/tabor-academy/institution/verify.mjs",
     "maintainerPrompt": "Use the four authored prompts in order. Record each source and review decision. Protect The One by checking audience access before sharing. Keep original wording intact and record corrections with their evidence. Use the equations in Prompt 1 for execution."
