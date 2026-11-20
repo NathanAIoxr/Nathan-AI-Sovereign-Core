@@ -1,4 +1,4 @@
-export function createInstitution(blueprint, release, civics, foundation, foundationQuote) {
+export function createInstitution(blueprint, release, civics, foundation, foundationQuote, renderArchitectureCourse) {
   const base = "/tabor-academy/institution";
   const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
   const outlineQueries = {
@@ -168,6 +168,7 @@ fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0
     return layout(title, `<h1>${title}</h1>
 <p class="byline">The Unified Knowledge &amp; Family Engine of Nathan Tabor</p>
 <blockquote><p>If you don’t know truth, you don’t know True love because love without truth is tough love … while love with truth is unconditional love</p></blockquote>
+<p><a href="${foundation.path}architecture/course/">Start the teaching modules · How to Operate in This World</a></p>
 <nav aria-label="Architecture links"><a href="${foundation.path}">Academy Foundation</a><a href="#original">Original text</a><a href="#execution">Conductor blueprint</a><a href="#prompts">Four author prompts</a><a href="${foundation.path}architecture/practice/">Practice the method</a></nav>
 <section id="original"><h2>Nathan Tabor’s original packet</h2>
 <p><a href="${foundation.path}architecture/source.txt">Open plain text</a></p>
@@ -317,6 +318,19 @@ ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} 
       }
       if (path === "/foundation/architecture/practice") {
         return respond(request, architecturePractice(url.searchParams), 200, "text/html; charset=utf-8");
+      }
+      const coursePath = "/foundation/architecture/course";
+      if (path === coursePath + "/worksheet.txt") {
+        return respond(request, foundation.architecture.course.worksheet, 200, "text/plain; charset=utf-8");
+      }
+      if (path === coursePath || path.startsWith(coursePath + "/")) {
+        const course = foundation.architecture.course;
+        const slug = path.slice(coursePath.length + 1);
+        const root = foundation.path + "architecture/";
+        const answer = url.searchParams.get("answer");
+        const page = renderArchitectureCourse({ course, root, slug, answer, layout, esc });
+        if (page === null) return failure(request, "Module not found", 404);
+        return respond(request, page, 200, "text/html; charset=utf-8");
       }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {

@@ -34,6 +34,16 @@ const checks = [
     assert.match(await fetchRoute(path + "practice/?source=object&index=edition&equation=version&family=cleared"), /4 of 4 correct/);
     assert.ok((await fetchRoute("/map/")).includes(foundation.title));
     assert.match(await fetchRoute("/map/"), /The Architecture of Everything and Nothing/);
+    const coursePath = path + "course/";
+    const course = await fetchRoute(coursePath);
+    assert.match(architecture, /architecture\/course\//);
+    assert.match(course, /8 modules/);
+    await Promise.all(foundation.architecture.course.modules.map(async module => {
+      const html = await fetchRoute(coursePath + module.id + "/?answer=" + module.check.correct);
+      assert.match(html, /How to operate without this world stupidity/);
+      assert.match(html, /Correct\./);
+    }));
+    assert.match(await fetchRoute(coursePath + "worksheet.txt"), /PROTECT THE ONE/);
   },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),
   async () => assert.match(await fetchRoute("/workbench/"), /Workbench/),
