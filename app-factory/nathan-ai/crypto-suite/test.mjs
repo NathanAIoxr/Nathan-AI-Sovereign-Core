@@ -32,6 +32,7 @@ test("Golden Goose verifies upstream Bitcoin headers and rejects mismatches", as
   const mainnet = "/api/bitcoin-mainnet";
   const tip = "https://mempool.space/api/blocks/tip/hash";
   const expectedHeader = "https://mempool.space/api/block/" + GENESIS_HASH + "/header";
+  const backup = "https://blockstream.info";
   upstream.mock.mockImplementation(async url => {
     if (url === tip) return new Response(GENESIS_HASH);
     assert.equal(url, expectedHeader);
@@ -43,6 +44,14 @@ test("Golden Goose verifies upstream Bitcoin headers and rejects mismatches", as
   assert.equal((await result.json()).blockHash, GENESIS_HASH);
   assert.match(await (await get("mining-lab", "/golden-goose")).text(), /Nathan AI Rocket 🚀/);
   assert.equal((await get("crypto-64", mainnet)).status, 404);
+
+  upstream.mock.mockImplementation(async url => {
+    if (url === tip) return new Response(null, { status: 503 });
+    if (url === backup + "/api/blocks/tip/hash") return new Response(GENESIS_HASH);
+    assert.equal(url, backup + "/api/block/" + GENESIS_HASH + "/header");
+    return new Response(GENESIS);
+  });
+  assert.equal((await (await get("mining-lab", mainnet)).json()).source, backup);
 
   upstream.mock.mockImplementation(async url => new Response(
     url === tip ? GENESIS_HASH : GENESIS.slice(0, -2) + "00"

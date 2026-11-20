@@ -137,12 +137,12 @@ const miningRegistryRoutes = new Map([
   ["/verify-hash", "/verify-hash"],
 ]);
 
-const bitcoinExplorer = "https://mempool.space";
+const bitcoinExplorers = ["https://mempool.space", "https://blockstream.info"];
 const bitcoinMainnetPath = "/api/bitcoin-mainnet";
 
-async function readBitcoinHex(path, length, signal) {
-  const response = await fetch(bitcoinExplorer + "/api/" + path, { redirect: "error", signal });
-  if (!response.ok || !response.body) throw new Error("Bitcoin source unavailable");
+async function readBitcoinHex(source, path, length, signal) {
+  const response = await fetch(source + "/api/" + path, { redirect: "error", signal });
+  if (!response.ok || !response.body) throw new Error("Bitcoin source HTTP " + response.status);
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let value = "";
@@ -152,12 +152,15 @@ async function readBitcoinHex(path, length, signal) {
       const { done, value: chunk } = await reader.read();
       if (done) break;
       size += chunk.byteLength;
-      if (size > length + 8) throw new Error("Bitcoin source response too long");
+      if (size > length + 8) {
+        await reader.cancel();
+        throw new Error("Bitcoin source response too long");
+      }
       value += decoder.decode(chunk, { stream: true });
     }
     value += decoder.decode();
   } finally {
-    await reader.cancel();
+    reader.releaseLock();
   }
   const hex = value.trim().toLowerCase();
   if (hex.length !== length || !/^[0-9a-f]+$/.test(hex)) throw new Error("Invalid response from Bitcoin source");
@@ -170,35 +173,38 @@ async function bitcoinMainnetEvidence(request) {
   const cached = await cache?.match(cacheKey).catch(() => undefined);
   if (cached) return cached;
 
-  try {
-    const signal = AbortSignal.timeout(6000);
-    const hash = await readBitcoinHex("blocks/tip/hash", 64, signal);
-    const header = await readBitcoinHex("block/" + hash + "/header", 160, signal);
-    const proof = await headerProof(header);
-    if (proof.hash !== hash || !proof.meetsTarget) throw new Error("Bitcoin header proof failed");
+  for (const source of bitcoinExplorers) {
+    try {
+      const signal = AbortSignal.timeout(3500);
+      const hash = await readBitcoinHex(source, "blocks/tip/hash", 64, signal);
+      const header = await readBitcoinHex(source, "block/" + hash + "/header", 160, signal);
+      const proof = await headerProof(header);
+      if (proof.hash !== hash || !proof.meetsTarget) throw new Error("Bitcoin header proof failed");
 
-    const response = json({
-      network: "bitcoin-mainnet",
-      source: bitcoinExplorer,
-      observedAt: new Date().toISOString(),
-      blockHash: hash,
-      header,
-      target: proof.target,
-      meetsEmbeddedTarget: true,
-      evidence: "provider-reported tip with independently checked header proof of work",
-    });
-    response.headers.set("Cache-Control", "public, max-age=60");
-    await cache?.put(cacheKey, response.clone()).catch(() => undefined);
-    return response;
-  } catch {
-    return json({ network: "bitcoin-mainnet", error: "Live Bitcoin header verification is temporarily unavailable." }, 503);
+      const response = json({
+        network: "bitcoin-mainnet",
+        source,
+        observedAt: new Date().toISOString(),
+        blockHash: hash,
+        header,
+        target: proof.target,
+        meetsEmbeddedTarget: true,
+        evidence: "provider-reported tip with independently checked header proof of work",
+      });
+      response.headers.set("Cache-Control", "public, max-age=60");
+      await cache?.put(cacheKey, response.clone()).catch(() => undefined);
+      return response;
+    } catch (error) {
+      console.warn("Bitcoin header verification failed", { source, message: error.message });
+    }
   }
+  return json({ network: "bitcoin-mainnet", error: "Live Bitcoin header verification is temporarily unavailable." }, 503);
 }
 
 function goldenGoosePage(result) {
   const block = result.blockHash
     ? '<dl><dt>Observed at (UTC)</dt><dd>'+escape(result.observedAt)+'</dd>'+
-      '<dt>Bitcoin block hash</dt><dd><a href="'+bitcoinExplorer+'/block/'+escape(result.blockHash)+'">'+escape(result.blockHash)+'</a></dd>'+
+      '<dt>Bitcoin block hash</dt><dd><a href="'+escape(result.source)+'/block/'+escape(result.blockHash)+'">'+escape(result.blockHash)+'</a></dd>'+
       '<dt>Header proof of work</dt><dd>Double SHA-256 reproduced the block hash and met the embedded target.</dd></dl>'
     : '<p role="status">'+escape(result.error)+'</p>';
   return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
@@ -206,7 +212,7 @@ function goldenGoosePage(result) {
     '<main class="wrap"><div class="hero"><h1>The Modern-Day Real-Life Golden Goose by Nathan Tabor</h1>'+
     '<p>Nathan AI Rocket 🚀 · Live Bitcoin verification</p>'+
     '<p><a href="/">Mining Lab</a> · <a href="'+bitcoinMainnetPath+'">Verification JSON</a> · <a href="/launch">Mining launch readiness</a></p></div>'+
-    section("Bitcoin mainnet", "The conductor checks the current block header reported by Mempool. The hash check covers the header and its embedded target.", block)+
+    section("Bitcoin mainnet", "The conductor checks the latest block header reported by the explorer. The hash check covers the header and its embedded target.", block)+
     section("Fleet mining and rewards", "Fleet hashrate, accepted shares, and payouts require telemetry from an enrolled Bitcoin miner and its pool.", "")+
     '</main></html>';
 }
