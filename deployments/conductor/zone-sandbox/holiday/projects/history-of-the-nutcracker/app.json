@@ -1,0 +1,16 @@
+{
+  "id": "history-of-the-nutcracker",
+  "title": "The History of the Nutcracker",
+  "kind": "nonfiction history",
+  "author": "Nathan Tabor",
+  "original": "Write I and connect all the dots … no bullshit just the history of the nutcracker",
+  "sources": [
+    "deployments/conductor/zone-sandbox/holiday/projects/history-of-the-nutcracker/history.md"
+  ],
+  "branch": "zone/history-of-the-nutcracker",
+  "namespace": "history-of-the-nutcracker-holding",
+  "taskWorker": "zone-history-of-the-nutcracker",
+  "publicApp": null,
+  "next": "Carry the supplied article into the Holiday & Spirit collection as its own nonfiction history.",
+  "acceptance": "The article preserves the chronology, source links and evidence limits from the archaeological finds through the Christmas ballet tradition."
+}
