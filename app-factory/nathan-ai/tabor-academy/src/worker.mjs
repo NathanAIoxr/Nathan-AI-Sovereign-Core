@@ -1,4 +1,4 @@
-const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
+const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n.way-entry {margin-top:2rem}\n.way-entry a {display:inline-block;padding:.85rem 1.1rem;background:#e6cf87;color:#161c12;font-weight:750;text-decoration:none}\n.way-entry a:focus-visible {outline:3px solid #f9f3e4;outline-offset:5px}\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p class=\"way-entry\"><a href=\"/tabor-academy/way/\">Start the Nathan Tabor Way</a></p>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
 
 const teaser = {
   fetch(request) {
@@ -134,6 +134,10 @@ function workbenchPage(title, body) {
   form{display:flex;flex-wrap:wrap;gap:.7rem;align-items:end} label{display:grid;gap:.25rem}
   input,button{font:inherit;padding:.4rem} input{max-width:5rem} button{cursor:pointer}
   svg{max-width:100%;height:auto;display:block} .outcome{background:#f8f4e9;color:#1a2015;padding:1rem;max-width:27rem;border-radius:.2rem}
+  .way-clock{color:#e6cf87;font-weight:700}.way-clock span{padding-inline:.25rem}
+  .way-grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem}
+  .way-grid li{border:1px solid #778360;padding:1rem}.way-grid a{font-size:1.15rem;font-weight:700}.way-grid p{margin-bottom:0}
+  .proof-sheet div{height:1.5rem;border-bottom:1px solid #778360}
   @media print{ .mastery-card{break-inside:avoid;border-bottom:1px solid #777;padding-bottom:1em} :root{color-scheme:light;background:white;color:black} main{padding:0} nav,.sandbox,.screen-only{display:none}
     h1{font-size:24pt}.outcome{padding:0;background:white}#triangle-template{width:4.5in;height:3.6in;max-width:none} section{break-inside:avoid} }
   </style><main><nav><a href="${mount}/">Tabor Academy</a> · <a href="${mount}/library/">Library of Tabor</a> · <a href="${workbenchPath}">Workbench</a></nav>
@@ -351,9 +355,75 @@ async function serveSurvival(request, env) {
   }
 }
 
+
+const wayPath = mount + "/way/";
+
+function wayMission(mission) {
+  const activities = [["12 · Build", mission.build], ["3 · Flip and clear", mission.flip],
+    ["6 · Integrate", mission.integrate], ["9 · Verify", mission.verify]];
+  return `<article class="mastery-card">
+    <h2>Z · Finished outcome</h2><p>${escape(mission.outcome)}</p>
+    ${activities.map(([label, text]) => `<h2>${label}</h2><p>${escape(text)}</p>`).join("")}
+    <h2>A · Show what made it work</h2>
+    <dl><dt>QI · What did you figure out?</dt><dd>Record your evidence and the step that changed the result.</dd>
+      <dt>QE · Can someone else use what you learned?</dt><dd>Teach the step. Ask what was confusing and show what you changed.</dd></dl>
+    ${mission.link ? `<p><a href="${mount}/${escape(mission.link)}">Open the companion activity</a></p>` : ""}
+    <section class="proof-sheet"><h2>Proof sheet</h2><p>What I made or found:</p><div></div>
+      <p>How I checked it:</p><div></div><p>What a second person could repeat:</p><div></div></section>
+  </article>`;
+}
+
+async function serveWay(request, env) {
+  const url = new URL(request.url);
+  const respond = (body, type, status = 200) => new Response(request.method === "HEAD" ? null : body, {
+    status, headers: { ...workbenchHeaders, "content-type": type + "; charset=utf-8" },
+  });
+  const tail = url.pathname.slice("/way".length).replace(/^[/]|[/]$/g, "");
+  const parts = tail ? tail.split("/") : [];
+  const catalog = tail === "catalog.json";
+  if (!catalog && (parts.length > 2 || parts.some((part) => !/^[a-z][a-z0-9-]*$/.test(part)))) {
+    return respond("Learning path not found.", "text/plain", 404);
+  }
+  const [path = null, slug = null] = catalog ? [] : parts;
+  const notFound = () => respond("Learning path or mission not found.", "text/plain", 404);
+  try {
+    const [p, m] = await env.LIBRARY.batch([
+      env.LIBRARY.prepare("SELECT slug,title,purpose,coverage FROM academy_way_paths WHERE (?1 IS NULL OR slug=?1) ORDER BY position").bind(path),
+      env.LIBRARY.prepare(`SELECT slug,path,title,outcome,build,flip,integrate,verify,link FROM academy_way_missions
+        WHERE (?1 IS NULL OR path=?1) AND (?2 IS NULL OR slug=?2) ORDER BY position`).bind(path, slug),
+    ]);
+    if (catalog) return respond(JSON.stringify({ paths: p.results, missions: m.results }), "application/json");
+    if (path && !p.results.length) return notFound();
+    if (slug) {
+      const mission = m.results[0];
+      if (!mission) return notFound();
+      return respond(workbenchPage(mission.title, `<p class="screen-only"><a href="${wayPath}${escape(path)}/">${escape(p.results[0].title)}</a></p>${wayMission(mission)}`), "text/html");
+    }
+    if (path) {
+      const track = p.results[0];
+      const missionLinks = m.results.map((row) => `<li><a href="${wayPath}${escape(path)}/${escape(row.slug)}/">${escape(row.title)}</a>
+        <p>${escape(row.outcome)}</p></li>`).join("");
+      return respond(workbenchPage(track.title, `<p class="screen-only"><a href="${wayPath}">The Nathan Tabor Way</a></p>
+        <p>${escape(track.purpose)}</p><h2>Start a mission</h2><ul>${missionLinks}</ul>
+        <section><h2>Topics to build toward</h2><p>${escape(track.coverage)}</p></section>`), "text/html");
+    }
+    const grid = p.results.map((row) => `<li><a href="${wayPath}${escape(row.slug)}/">${escape(row.title)}</a><p>${escape(row.purpose)}</p></li>`).join("");
+    return respond(workbenchPage("The Nathan Tabor Way", `
+      <p>Choose something you want to make, understand, or prove. Start with the finished outcome (Z), work back to what makes it possible (A), then show that the result holds.</p>
+      <p class="way-clock">12 · Build <span>→</span> 3 · Flip and clear <span>→</span> 6 · Integrate <span>→</span> 9 · Verify</p>
+      <h2>Choose a path</h2><ul class="way-grid">${grid}</ul>
+      <p><a href="${wayPath}readiness/bridge-check/">Find the prerequisite you need next</a> · <a href="${mount}/survival/">Survival-to-Modernity Mastery Drills</a></p>`), "text/html");
+  } catch (error) {
+    console.error("Academy curriculum query failed", error);
+    return respond("Curriculum temporarily unavailable.", "text/plain", 503);
+  }
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((request.method === "GET" || request.method === "HEAD") &&
+        (pathname === "/way" || pathname.startsWith("/way/"))) return serveWay(request, env);
     if ((request.method === "GET" || request.method === "HEAD") &&
         (pathname === "/survival" || pathname.startsWith("/survival/"))) return serveSurvival(request, env);
     if ((request.method === "GET" || request.method === "HEAD") &&
