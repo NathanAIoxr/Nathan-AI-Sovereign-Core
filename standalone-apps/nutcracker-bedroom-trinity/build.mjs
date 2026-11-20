@@ -9,11 +9,10 @@ if (requestedId && !productIds.includes(requestedId)) {
   throw new Error(`Unknown product: ${requestedId}`);
 }
 
-const [runtime, css, client, image, serif, ...products] = await Promise.all([
+const [runtime, css, materialStudy, serif, ...products] = await Promise.all([
   readFile(fromRoot("src/site.mjs"), "utf8"),
   readFile(fromRoot("src/site.css"), "utf8"),
-  readFile(fromRoot("src/site.js"), "utf8"),
-  readFile(fromRoot("assets/bronze-hands.webp"), "base64"),
+  readFile(fromRoot("assets/silicone-material-study.webp"), "base64"),
   readFile(fromRoot("assets/instrument-serif.woff2"), "base64"),
   ...productIds.map(async (id) => JSON.parse(await readFile(fromRoot(`products/${id}.json`), "utf8")))
 ]);
@@ -26,13 +25,11 @@ for (const [index, id] of productIds.entries()) {
   const product = products[index];
   const others = products.filter((_, otherIndex) => otherIndex !== index)
     .map(({ name, worker }) => ({ name, worker }));
-  const conceptImage = await readFile(fromRoot(`assets/${id}-concept.webp`), "base64");
-  const revision = createHash("sha256").update(css).update(client).update(conceptImage).digest("hex").slice(0, 12);
-  const data = JSON.stringify({ product, others, css, client, revision });
+  const revision = createHash("sha256").update(css).update(materialStudy).digest("hex").slice(0, 12);
+  const data = JSON.stringify({ product, others, css, revision });
   const module = `${runtime}
 const settings = ${data};
-settings.image = Uint8Array.from(atob(${JSON.stringify(image)}), (character) => character.charCodeAt(0));
-settings.conceptImage = Uint8Array.from(atob(${JSON.stringify(conceptImage)}), (character) => character.charCodeAt(0));
+settings.materialStudy = Uint8Array.from(atob(${JSON.stringify(materialStudy)}), (character) => character.charCodeAt(0));
 settings.serif = Uint8Array.from(atob(${JSON.stringify(serif)}), (character) => character.charCodeAt(0));
 export default createSite(settings);
 `;

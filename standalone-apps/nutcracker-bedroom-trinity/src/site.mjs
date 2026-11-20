@@ -7,7 +7,7 @@ const publicIngress = "https://unified-operations-cockpit.nathantaboract.workers
 const publicBase = "/18-plus/bronze-hands/";
 const securityHeaders = {
   "Cache-Control": "private, no-store",
-  "Content-Security-Policy": "default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
+  "Content-Security-Policy": "default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
   "Referrer-Policy": "same-origin",
   "X-Content-Type-Options": "nosniff",
   "X-Robots-Tag": "noindex, nofollow"
@@ -45,9 +45,8 @@ function gate(revision, declined = false) {
          <button class="button primary" type="submit" name="answer" value="yes">Yes, I’m 18 or older</button>
          <button class="button secondary" type="submit" name="answer" value="no">No, take me back</button>
        </form>`;
-  return page("18+ Only · Bronze Hands", "age-page", `
+  return page("18+ Only · The Bedroom", "age-page", `
     <main class="gate">
-      <figure class="gate-art" aria-hidden="true"><img src="./bronze-hands.webp" width="1080" height="720" alt=""></figure>
       <div class="gate-panel">
         <div class="age-mark" aria-label="18 and older">18+</div>
         ${panel}
@@ -58,15 +57,8 @@ function gate(revision, declined = false) {
 function productPage(product, others, revision) {
   const details = product.details.map(([term, description]) =>
     `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(description)}</dd></div>`).join("");
-  const finishes = product.finishes.map(([name, description, key], index) => `
-    <label class="finish-option">
-      <input type="radio" name="finish" value="${escapeHtml(key)}" data-description="${escapeHtml(description)}"${index === 0 ? " checked" : ""}>
-      <span class="swatch swatch-${escapeHtml(key)}" aria-hidden="true"></span>
-      <span>${escapeHtml(name)}</span>
-    </label>`).join("");
   const othersList = others.map(({ name, worker }) =>
     `<li><a href="${publicIngress}${publicBase}${worker}/">${escapeHtml(name)} <span aria-hidden="true">↗</span></a></li>`).join("");
-  const defaultFinish = escapeHtml(product.finishes[0][2]);
   const scripture = product.scripture
     ? `<blockquote><p>“Let her breasts satisfy thee at all times.”</p><cite><a href="${verse}">Proverbs 5:19 · KJV</a></cite></blockquote>`
     : "";
@@ -86,10 +78,12 @@ function productPage(product, others, revision) {
           <p class="description">${escapeHtml(product.description)}</p>
           <a class="button primary" href="#design">Explore the design <span aria-hidden="true">↓</span></a>
         </div>
-        <figure class="hero-art" data-finish-preview data-finish="${defaultFinish}">
-          <img src="./concept.webp?v=${revision}" width="1080" height="720" fetchpriority="high" alt="${escapeHtml(product.artDescription)}">
-          <figcaption>Concept rendering based on the clasped bronze hands</figcaption>
-        </figure>
+        <aside class="material-summary" aria-label="Product concept status">
+          <p class="eyebrow">Product concept</p>
+          <p class="material-title">Matte silicone</p>
+          <p class="material-color"><span aria-hidden="true"></span>${escapeHtml(product.color)}</p>
+          <a href="#material-study">View the material and packaging study <span aria-hidden="true">↓</span></a>
+        </aside>
       </section>
       <section class="design" id="design" aria-labelledby="design-heading">
         <div>
@@ -97,17 +91,10 @@ function productPage(product, others, revision) {
           <dl class="design-details">${details}</dl>
           <p class="source"><a href="${museum}">Original bronze hands at the National Archaeological Museum of Taranto ↗</a></p>
         </div>
-        <div class="finish-panel">
-          <fieldset>
-            <legend>Preview a finish</legend>
-            <figure class="finish-art" data-finish-preview data-finish="${defaultFinish}">
-              <img src="./concept.webp?v=${revision}" width="1080" height="720" loading="lazy" alt="">
-            </figure>
-            <div class="finish-options">${finishes}</div>
-          </fieldset>
-          <p id="finish-note" aria-live="polite">${escapeHtml(product.finishes[0][1])}</p>
-          <p class="status">Product concept</p>
-        </div>
+        <figure class="material-study" id="material-study">
+          <img src="./silicone-material-study.webp?v=${revision}" width="1296" height="864" loading="lazy" alt="Three silicone sample tiles and packaging labeled Solomon, Cleopatra, and Virgin Mary">
+          <figcaption>Silicone color and packaging study. Product artwork is pending.</figcaption>
+        </figure>
       </section>
       ${scripture}
       <section class="collection" id="collection" aria-labelledby="collection-heading">
@@ -121,11 +108,10 @@ function productPage(product, others, revision) {
           <p class="approval">“${approvalLine}”</p>
         </div>
       </section>
-    </main>
-    <script src="./site.js?v=${revision}" defer></script>`, revision);
+    </main>`, revision);
 }
 
-export function createSite({ product, others, css, client, image, conceptImage, serif, revision }) {
+export function createSite({ product, others, css, materialStudy, serif, revision }) {
   const ageCookie = `__Host-bronze-hands-18-${product.theme}`;
   const mount = `${publicBase}${product.worker}`;
   const confirmed = productPage(product, others, revision);
@@ -133,10 +119,7 @@ export function createSite({ product, others, css, client, image, conceptImage, 
   const declined = gate(revision, true);
   const resources = {
     "/site.css": [css, "text/css; charset=utf-8"],
-    "/site.js": [client, "text/javascript; charset=utf-8"],
     "/instrument-serif.woff2": [serif, "font/woff2"],
-    "/bronze-hands.webp": [image, "image/webp"],
-    "/concept.webp": [conceptImage, "image/webp"],
     "/robots.txt": ["User-agent: *\nDisallow: /\n", "text/plain; charset=utf-8"]
   };
   const html = (body, status = 200) => new Response(body, {
@@ -177,8 +160,14 @@ export function createSite({ product, others, css, client, image, conceptImage, 
         return new Response(null, { status: 405, headers: { ...securityHeaders, Allow: "GET, HEAD, POST" } });
       }
 
+      const confirmedAge = (request.headers.get("Cookie") ?? "").split(";")
+        .some((cookie) => cookie.trim() === `${ageCookie}=yes`);
       let response;
-      if (Object.hasOwn(resources, pathname)) {
+      if (pathname === "/silicone-material-study.webp") {
+        response = confirmedAge ? new Response(materialStudy, {
+          headers: { ...securityHeaders, "Content-Type": "image/webp" }
+        }) : html("Page not found", 404);
+      } else if (Object.hasOwn(resources, pathname)) {
         const [body, contentType] = resources[pathname];
         response = new Response(body, {
           headers: { ...securityHeaders, "Content-Type": contentType, "Cache-Control": "public, max-age=3600" }
@@ -188,8 +177,7 @@ export function createSite({ product, others, css, client, image, conceptImage, 
       } else if (pathname === "/declined") {
         response = html(declined);
       } else if (pathname === "/") {
-        const cookies = (request.headers.get("Cookie") ?? "").split(";").map((cookie) => cookie.trim());
-        response = html(cookies.includes(`${ageCookie}=yes`) ? confirmed : entry);
+        response = html(confirmedAge ? confirmed : entry);
       } else {
         response = html("Page not found", 404);
       }
