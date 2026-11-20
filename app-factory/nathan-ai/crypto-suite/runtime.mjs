@@ -141,7 +141,7 @@ const bitcoinExplorers = ["https://mempool.space", "https://blockstream.info"];
 const bitcoinMainnetPath = "/api/bitcoin-mainnet";
 
 async function readBitcoinHex(source, path, length, signal) {
-  const response = await fetch(source + "/api/" + path, { redirect: "error", signal });
+  const response = await fetch(source + "/api/" + path, { redirect: "manual", signal });
   if (!response.ok || !response.body) throw new Error("Bitcoin source HTTP " + response.status);
   const reader = response.body.getReader();
   const decoder = new TextDecoder();

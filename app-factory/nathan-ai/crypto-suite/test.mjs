@@ -53,6 +53,12 @@ test("Golden Goose verifies upstream Bitcoin headers and rejects mismatches", as
   });
   assert.equal((await (await get("mining-lab", mainnet)).json()).source, backup);
 
+  upstream.mock.mockImplementation(async (_url, options) => {
+    assert.equal(options.redirect, "manual");
+    return new Response(null, { status: 302, headers: { location: "https://invalid.example" } });
+  });
+  assert.equal((await get("mining-lab", mainnet)).status, 503);
+
   upstream.mock.mockImplementation(async url => new Response(
     url === tip ? GENESIS_HASH : GENESIS.slice(0, -2) + "00"
   ));
