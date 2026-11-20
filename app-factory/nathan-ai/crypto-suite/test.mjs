@@ -55,3 +55,30 @@ test("mining launch readiness keeps unresolved chain and capacity gates visible"
   assert.equal(result.gates.length,3);
   assert.equal((await (await get("mining-lab","/api/launch-readiness",{})).json()).ready,false);
 });
+
+test("Mining Lab publishes the committed receipt and fails closed on D1 divergence", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const expected = await readFile(new URL("./ledger/state.json", import.meta.url));
+  const endpoint = "/api/crypto-mirror";
+  const binary = await get("mining-lab", endpoint + "/state.bin");
+  assert.equal(binary.headers.get("content-type"), "application/octet-stream");
+  assert.deepEqual(Buffer.from(await binary.arrayBuffer()), expected);
+  const readD1 = stateHex => ({
+    CRYPTO_MIRROR: { prepare: () => ({ bind: () => ({
+      first: async () => ({ state_hex: stateHex }),
+    }) }) },
+  });
+  const verified = await get("mining-lab", endpoint, readD1(expected.toString("hex")));
+  assert.equal(verified.status, 200);
+  const result = await verified.json();
+  assert.equal(result.verification, 2);
+  assert.equal(result.state.reserve.reportedUsd, "1700000000000");
+  assert.equal(result.state.wallet.reserveRelationship, "NOT_ESTABLISHED");
+  assert.deepEqual(result.state.mining.reverseProofs.map(proof => proof.meetsTarget), [false, true, false]);
+  for (const environment of [{}, readD1("00")]) {
+    const rejected = await get("mining-lab", endpoint, environment);
+    assert.equal(rejected.status, 503);
+    assert.equal((await rejected.json()).verification, 0);
+  }
+  assert.equal((await get("crypto-64", endpoint)).status, 404);
+});

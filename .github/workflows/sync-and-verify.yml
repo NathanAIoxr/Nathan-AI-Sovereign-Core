@@ -1,0 +1,44 @@
+name: Nathan AI Crypto Mirror
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/crypto-suite/**'
+      - 'app-factory/nathan-ai/sovereign-coins/integrations/**'
+      - '.github/workflows/sync-and-verify.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/crypto-suite/**'
+      - 'app-factory/nathan-ai/sovereign-coins/integrations/**'
+      - '.github/workflows/sync-and-verify.yml'
+  workflow_dispatch:
+    inputs:
+      verify_live:
+        description: Compare the deployed Cloudflare receipt with this Git ref
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify the Git receipt independently
+        run: python3 app-factory/nathan-ai/crypto-suite/ledger/verify.py
+      - name: Verify the Worker and wallet integration
+        run: |
+          node --test app-factory/nathan-ai/crypto-suite/test.mjs
+          node --test app-factory/nathan-ai/sovereign-coins/integrations/gateway.test.mjs
+      - name: Compare Git, Worker and D1 bytes
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_live }}
+        run: bash app-factory/nathan-ai/crypto-suite/ledger/verify-live.sh

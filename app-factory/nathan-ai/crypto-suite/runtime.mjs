@@ -54,7 +54,7 @@ const tools = {
     '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/restoration">Restoration archive</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
     '<p id="coin-status" role="status">Loading registry…</p><div id="coins"></div>'),
   "mining-lab": () => section("Bitcoin header proof", "SHA-256d and compact-target comparison for an 80-byte header. Header proof is one component of Bitcoin block validation.",
-    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/launch">Production launch readiness</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry">Sovereign Coin Registry</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry#hash">SHA-256 / SHA3-512 verifier</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
+    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/api/crypto-mirror">Mining and wallet evidence receipt</a> · <a href="/launch">Production launch readiness</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry">Sovereign Coin Registry</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry#hash">SHA-256 / SHA3-512 verifier</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
     '<div class="actions"><button>Verify proof</button><button type="button" id="genesis">Use genesis header</button></div></form>'+output("proof-result"))+
     section("Electricity estimate", "Enter measured or hypothetical values for your own equipment.",'<form id="energy">'+number("watts","Power in watts")+number("hours","Run hours")+number("rate","Cost per kWh")+'<button>Calculate</button></form>'+output("energy-result")),
   "cryptology": () => section("SHA-256", "This tool computes a SHA-256 digest in your browser.",
@@ -171,6 +171,9 @@ export function createApp(id) {
       return path === "/launch" ? send(miningLaunchPage(result),"text/html") : json(result);
     }
     if (path === "/api/genesis-proof" && id === "mining-lab") return json({ header: GENESIS, ...(await headerProof(GENESIS)) });
+    if (id === "mining-lab" && ["/api/crypto-mirror", "/api/crypto-mirror/state.bin"].includes(path)) {
+      return serveCryptoMirror(path, env);
+    }
     if (path === "/api/roles" && ["crypt-operations","crypto-dmsp-dit"].includes(id)) return json({ roles });
     if (path === "/api/oracle/health" && id === "crypt-operations") {
       const [coins, mining] = await Promise.allSettled([
