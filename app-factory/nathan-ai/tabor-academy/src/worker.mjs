@@ -1,4 +1,4 @@
-const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n.way-entry {margin-top:2rem}\n.way-entry a {display:inline-block;padding:.85rem 1.1rem;background:#e6cf87;color:#161c12;font-weight:750;text-decoration:none}\n.way-entry a:focus-visible {outline:3px solid #f9f3e4;outline-offset:5px}\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p class=\"way-entry\"><a href=\"/tabor-academy/way/\">Start the Nathan Tabor Way</a> · <a href=\"/tabor-academy/order/\">The Law of Order</a></p>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
+const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n.way-entry {margin-top:2rem}\n.way-entry a {display:inline-block;padding:.85rem 1.1rem;background:#e6cf87;color:#161c12;font-weight:750;text-decoration:none}\n.way-entry a:focus-visible {outline:3px solid #f9f3e4;outline-offset:5px}\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<p><a href=\"/tabor-academy/talking-mammals/\" style=\"color:#e6cf87\">the academy for TALKING MAMMALS</a></p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p class=\"way-entry\"><a href=\"/tabor-academy/way/\">Start the Nathan Tabor Way</a> · <a href=\"/tabor-academy/order/\">The Law of Order</a></p>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
 
 const teaser = {
   fetch(request) {
@@ -1003,9 +1003,73 @@ async function servePeaceSource(request, env) {
   }
 }
 
+function serveTalkingMammals(request) {
+  const body = `
+    <p>By Nathan Tabor</p>
+    <nav aria-label="Lesson sections" class="guide-links">
+      <a href="#manners">Manners and muscle memory</a>
+      <a href="#gas">The walking gas factory</a>
+      <a href="#dog">The dog book</a>
+      <a href="#flip">The conversation flipped</a>
+      <a href="#cats">Those cats</a>
+      <a href="#herder">Chief herder of cats</a>
+    </nav>
+
+    <section id="manners"><h2>Manners and muscle memory</h2>
+      <p>Why say “excuse me” when you’re alone? The conversation starts with habits that carry on without an audience. Saying “bless you” to a dog or apologizing to a chair makes the reflex easier to notice.</p>
+      <blockquote>Apologizing to myself, that’s just meat carbon, dead element body I live in</blockquote>
+      <p>Nathan’s vessel metaphor takes the joke inward. The good manners are yours, even when the only mammal in the room is you.</p>
+    </section>
+
+    <section id="gas"><h2>The walking gas factory</h2>
+      <blockquote>When you look at it just the way it is. I’m a walking gas factory.</blockquote>
+      <p>Start with the burp and follow it backward. Some gas comes from air you swallow. Bacteria in the large intestine produce more as they break down certain carbohydrates. The amount and frequency vary from person to person.</p>
+      <p><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/gas-digestive-tract/symptoms-causes">NIDDK · What causes digestive gas?</a></p>
+    </section>
+
+    <section id="dog"><h2>I TALKED TO MY DOG LIKE A HUMAN</h2>
+      <p>By Nathan Tabor</p>
+      <blockquote>A BOOK ON HOW TO USE COMMON SENSE AND LOGIC WHICH YOU ALREADY USED TO TRAIN YOUR DOG AND STOP TRYING TO TRAIN THEM LIKE THE ANIMAL THAT THEY ARE NOT</blockquote>
+      <blockquote>“HEY! Do you talk to your dog like a human and do you feed it human food?”</blockquote>
+      <p>In Nathan’s account of asking thousands of people, everyone he asked said they talked to their dog. Some objected to the food question. The distinction matters because talking and feeding are two different observations.</p>
+      <p>In everyday conversation, a dog can attend to tone, familiar words, and what is happening around you. Try speaking naturally during a familiar, low-distraction routine. Give the dog time to respond and reward the behavior you want repeated.</p>
+      <p><a href="https://pubmed.ncbi.nlm.nih.gov/27576923/">Andics and colleagues · How dogs process speech</a> · <a href="https://avsab.org/resources/position-statements/">American Veterinary Society of Animal Behavior · Humane dog training</a></p>
+    </section>
+
+    <section id="flip"><h2>And my dog talks to me like a human</h2>
+      <blockquote>And my Human talks to me like a dog oh wait ... and my dog talks to me like a human haha</blockquote>
+      <p>Turn the question around. What did your dog do before you spoke? What changed after you paused? Record an action you can see, such as stepping back, approaching, or turning toward a sound. Then write what you think that action meant.</p>
+    </section>
+
+    <section id="cats"><h2>And those CATS!!!</h2>
+      <blockquote>And those CATS!!! MADE RESPECT and MAD SO DONT LIKE TO BE CUDDLED</blockquote>
+      <p>Give the cat room to choose. Let them approach, pause if they accept touch, and let them leave. A cat can choose to stay nearby and still prefer space. Keep track of what this cat does in this moment.</p>
+      <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11383066/">AAFP and ISFM · Feline environmental needs</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/36280656/">De Mouzon and colleagues · Cats’ responses to familiar voices</a></p>
+    </section>
+
+    <section id="herder"><h2>Chief herder of cats</h2>
+      <p>When people asked what it was like to chair the Forsyth County Republican Party, Nathan remembers his answer this way:</p>
+      <blockquote>I said simple I’m the chief herder of cats</blockquote>
+      <p>Try the same listening exercise with a voluntary group. Ask what each person wants to take on, say the shared goal plainly, and check who actually chose to participate.</p>
+    </section>
+
+    <section class="proof-sheet"><h2>Field exercise · What did the other mammal do?</h2>
+      <ol><li>Pick one familiar interaction. Write the sound, words, or gesture you used.</li>
+      <li>Wait. Write what the other mammal did, including choosing to leave or stay still.</li>
+      <li>Reverse it. Write what signal they gave you first and how you responded.</li>
+      <li>Repeat on another day. Compare what you observed with what you thought it meant.</li></ol>
+      <p>What I observed:</p><div></div><p>What I inferred:</p><div></div><p>What changed when I took the other side:</p><div></div>
+    </section>`;
+  return new Response(request.method === "HEAD" ? null : workbenchPage("the academy for TALKING MAMMALS", body), {
+    headers: { ...workbenchHeaders, "content-type": "text/html; charset=utf-8" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((pathname === "/talking-mammals" || pathname === "/talking-mammals/") &&
+        (request.method === "GET" || request.method === "HEAD")) return serveTalkingMammals(request);
     if (pathname === "/order/time-of-peace/source.txt" &&
         (request.method === "GET" || request.method === "HEAD")) return servePeaceSource(request, env);
     if ((pathname === "/order/time-of-peace" || pathname === "/order/time-of-peace/") &&

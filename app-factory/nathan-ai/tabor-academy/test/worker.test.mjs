@@ -9,7 +9,7 @@ test("opens with Nathan Tabor's nine lines", async () => {
   const page = await call("/");
   assert.equal(page.status, 200);
   const text = (await page.text()).replace(/<[^>]*>/g, "").replace(/\s+/g, " ");
-  assert.match(text, /TABOR ACADEMY BY NATHAN TABOR U R my family - one blood - cousins/);
+  assert.match(text, /TABOR ACADEMY BY NATHAN TABOR the academy for TALKING MAMMALS U R my family - one blood - cousins/);
   assert.match(text, /Open Tabor Workbench/);
   assert.doesNotMatch(text, /COMING SOON/);
 });
@@ -202,4 +202,24 @@ test("verbatim Time of Peace route returns exact bytes and excludes private note
   assert.match(await (await call("/order/time-of-peace/")).text(), /Read the original source text/);
   verbatim_body += "\nchanged";
   assert.equal((await open(path)).status, 503);
+});
+
+
+test("Talking Mammals preserves Nathan's book title and gives all six threads a lesson", async () => {
+  const home = await (await call("/")).text();
+  assert.match(home, /href="\/tabor-academy\/talking-mammals\/"[^>]*>the academy for TALKING MAMMALS/);
+  const response = await call("/talking-mammals/");
+  assert.equal(response.status, 200);
+  const body = await response.text();
+  for (const id of ["manners", "gas", "dog", "flip", "cats", "herder"]) {
+    assert.ok(body.includes('id="' + id + '"'));
+  }
+  assert.match(body, /I TALKED TO MY DOG LIKE A HUMAN/);
+  assert.match(body, /And my Human talks to me like a dog oh wait \.\.\. and my dog talks to me like a human haha/);
+  assert.match(body, /I said simple I’m the chief herder of cats/);
+  assert.match(body, /What I observed/);
+  assert.equal((await call("/talking-mammals")).status, 200);
+  assert.equal(await (await call("/talking-mammals/", "HEAD")).text(), "");
+  assert.equal((await call("/talking-mammals/", "POST")).status, 405);
+  assert.equal((await call("/talking-mammals/source.txt")).status, 404);
 });
