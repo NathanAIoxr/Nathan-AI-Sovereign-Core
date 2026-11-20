@@ -22,5 +22,10 @@
     "handoff": "deployments/conductor/sovereign-minds/handoff.json",
     "catalog": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-minds",
     "workflow": ".github/workflows/sovereign-mind-evidence.yml"
+  },
+  "receipt": {
+    "source": "deployments/conductor/sovereign-minds/receipt.json",
+    "live": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/handoffs/sovereign-minds",
+    "event": "handoff:sovereign-minds:cde9705f9630960aa0faeeafcf1b38a8906d3e26"
   }
 }

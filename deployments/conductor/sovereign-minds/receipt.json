@@ -1,0 +1,80 @@
+{
+  "schema": "nathan-ai.conductor.project-handoff.v1",
+  "id": "handoff:sovereign-minds:cde9705f9630960aa0faeeafcf1b38a8906d3e26",
+  "project": "sovereign-minds",
+  "title": "Sovereign Minds handoff",
+  "recipient": "Nathan AI Master Conductor",
+  "state": "received",
+  "verifiedAt": "2026-11-20T17:02:35Z",
+  "release": "cde9705f9630960aa0faeeafcf1b38a8906d3e26",
+  "sourceRevision": "5f438bba7eb23542c87c7e37dc6b3abc9bfa184f",
+  "directory": {
+    "url": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/",
+    "records": 1572,
+    "workers": {
+      "registry": "tabor-sovereign-minds",
+      "zero": "tabor-mind-zero",
+      "one": "tabor-mind-one"
+    },
+    "status": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/api/conductors",
+    "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/cde9705f9630960aa0faeeafcf1b38a8906d3e26/app-factory/nathan-ai/personal-intelligence/minds/sovereign",
+    "workflow": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/workflows/sovereign-minds.yml"
+  },
+  "minds": [
+    {
+      "name": "Zero",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/zero/",
+      "prompt": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/zero/prompt",
+      "worker": "tabor-mind-zero"
+    },
+    {
+      "name": "One",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/one/",
+      "prompt": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/one/prompt",
+      "worker": "tabor-mind-one"
+    }
+  ],
+  "lasso": {
+    "prompts": "https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/api/prompts",
+    "evidence": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/lasso-evidence.json",
+    "originalInstruction": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/cde9705f9630960aa0faeeafcf1b38a8906d3e26/app-factory/nathan-ai/personal-intelligence/minds/sovereign/author-source.txt",
+    "releaseGate": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/release-gate/health",
+    "policy": "lasso-release-v1"
+  },
+  "companions": [
+    {
+      "name": "Sovereign MIND evidence profiles",
+      "url": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-minds",
+      "status": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-minds/api/catalog",
+      "release": "345c128910c7446b8306fb569bda0d1a7467fe1c",
+      "profiles": [
+        "zero",
+        "one",
+        "proton",
+        "neutron",
+        "electron",
+        "atom",
+        "nathan-tabor"
+      ]
+    },
+    {
+      "name": "Tabor Academy Minds",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/",
+      "status": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/healthz",
+      "release": "e86805e0d2023a09",
+      "sourceRevision": "3283d919559180799aed709bb08ddcbf554f46b5"
+    },
+    {
+      "name": "Groundskeeper AI · Collyn Phillips Tabor",
+      "url": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/groundskeeper-ai",
+      "status": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/groundskeeper-ai/api/health",
+      "release": "9fd371fecfa654c0214c1933705da08dff2f7688"
+    }
+  ],
+  "checks": [
+    "Sovereign Minds registry, Zero and One reported the same release.",
+    "The registry reported 1,572 separately addressable records.",
+    "Cloudflare Master Conductor, Groundskeeper AI and Lasso release gate returned ready.",
+    "The existing seven source-evidence profiles and Tabor Academy Minds were reachable."
+  ]
+}
