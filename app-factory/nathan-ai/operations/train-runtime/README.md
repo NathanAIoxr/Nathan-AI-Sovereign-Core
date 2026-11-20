@@ -19,6 +19,7 @@ This additive, independent Cloudflare Worker is a **live, bounded planning servi
 - `GET /roster`: full team and role boundaries
 - `GET /operations`: RAM, OCTOPUS, CONVOY specifications and eight channel roles
 - `GET /demo`: complete simulated in-memory mission
+- `GET /conductors`: complete UTF-8 [conductor transcript](./sources/train-orchestra-monkey-conductor.txt)
 - `POST /run`: validates up to 24 owner-submitted tasks and returns the three-step plan
 
 Example request:
@@ -34,6 +35,10 @@ Example request:
 ```
 
 All work items are in request memory only; no external tasks are created, scheduled, dispatched, or duplicated. Do not submit passwords, personal data, source material intended to remain private, or privileged instructions to this public endpoint.
+
+### Conductor source
+
+The live [conductor transcript](https://tabor-train-operations.nathantaboract.workers.dev/conductors) publishes the full submitted text about passenger rail, freight rail, the locomotive engineer, orchestra conducting, and the train-orchestra-monkey conductor. [Source metadata and checksum](./sources/train-orchestra-monkey-conductor.json) record the original ingestion. The transcript preserves the supplied source excerpts and historical anecdotes as research material.
 
 ### Provenance and boundaries
 

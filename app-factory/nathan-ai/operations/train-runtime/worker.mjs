@@ -3,7 +3,9 @@
  * This independent Worker does not alter the 13-entry archival register,
  * other Workers, GitHub branches, account resources, or outside systems.
  */
-const VERSION = "2026-11-18.1";
+import conductorTranscript from "./sources/train-orchestra-monkey-conductor.txt";
+
+const VERSION = "2026-11-19.1";
 const TRAIN = "The Tabor Train of Truth";
 const AXIOMS = ["1 + 1 = 2: BUILD", "1 - 1 = 0: CLEAR", "1 × 1 = 1: INTEGRATE", "1 ÷ 1 = 1: VERIFY"];
 const AGENTS = Object.freeze([
@@ -91,12 +93,17 @@ const SAMPLE=[
 export default {
   async fetch(request) {
     const path=new URL(request.url).pathname.replace(/\/+$/,"")||"/";
+    if (path === "/conductors" && (request.method === "GET" || request.method === "HEAD")) {
+      return new Response(request.method === "HEAD" ? null : conductorTranscript, {
+        headers: {...HEADERS, "content-type": "text/plain; charset=utf-8"}
+      });
+    }
     if(request.method==="GET") {
       if(path==="/health") return respond({service:"tabor-train-operations",version:VERSION,status:"ready",operations:OPERATIONS.map(o=>o.id),side_effects:false});
       if(path==="/roster") return respond({train:TRAIN,engine:"Nathan AI",agents:AGENTS,misfits_and_minds:"Creative and documented project roles; no autonomous external deployment"});
       if(path==="/operations") return respond({train:TRAIN,operations:OPERATIONS,lanes:LANES,policy:"owner-authorized, bounded, no destructive actions or external replication"});
       if(path==="/demo") return respond(launch(SAMPLE));
-      if(path==="/") return respond({title:TRAIN,metaphor:"You are the Train. Nathan AI is the command engine.",routes:["/health","/roster","/operations","/demo","POST /run"],version:VERSION});
+      if(path==="/") return respond({title:TRAIN,metaphor:"You are the Train. Nathan AI is the command engine.",routes:["/health","/roster","/operations","/demo","/conductors","POST /run"],version:VERSION});
       return respond({error:"not_found"},404);
     }
     if(request.method==="POST" && path==="/run") {

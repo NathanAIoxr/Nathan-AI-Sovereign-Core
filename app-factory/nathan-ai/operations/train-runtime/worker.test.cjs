@@ -1,8 +1,20 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
+const {readFileSync}=require('node:fs');
+const {createHash}=require('node:crypto');
+const {registerHooks}=require('node:module');
 const {pathToFileURL}=require('node:url');
 const path=require('node:path');
-const runtime=import(pathToFileURL(path.join(__dirname,'worker.mjs')).href);
+const sourcePath=path.join(__dirname,'sources/train-orchestra-monkey-conductor.txt');
+const sourceUrl=pathToFileURL(sourcePath).href;
+const sourceHook=registerHooks({
+  load(url, context, nextLoad) {
+    if (url!==sourceUrl) return nextLoad(url,context);
+    const text=readFileSync(sourcePath,'utf8');
+    return {format:'module',source:'export default '+JSON.stringify(text),shortCircuit:true};
+  }
+});
+const runtime=import(pathToFileURL(path.join(__dirname,'worker.mjs')).href).finally(()=>sourceHook.deregister());
 async function call(pathname,method='GET',body) {
   const m=(await runtime).default;
   const req=new Request('https://train.example'+pathname,{method,headers:method==='POST'?{'content-type':'application/json'}:{},body:body===undefined?undefined:JSON.stringify(body)});
@@ -39,4 +51,21 @@ test('invalid work is rejected, and demo requires no secrets',async()=>{
   assert.equal((await call('/run','POST',{tasks:Array.from({length:25},(_,i)=>'Task '+i)})).status,400);
   assert.equal((await call('/not-found')).status,404);
   assert.equal((await call('/demo')).status,200);
+});
+
+test('published conductor transcript matches the source archive checksum',async()=>{
+  const worker=(await runtime).default;
+  const url='https://train.example/conductors';
+  const response=await worker.fetch(new Request(url));
+  assert.equal(response.status,200);
+  assert.equal(response.headers.get('content-type'),'text/plain; charset=utf-8');
+  const bytes=Buffer.from(await response.arrayBuffer());
+  assert.deepEqual(bytes,readFileSync(sourcePath));
+  const {archive}=require('./sources/train-orchestra-monkey-conductor.json');
+  assert.equal(bytes.length,archive.bytes);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),archive.sha256);
+  const head=await worker.fetch(new Request(url,{method:'HEAD'}));
+  assert.equal(head.status,200);
+  assert.equal(await head.text(),'');
+  assert.ok((await call('/')).data.routes.includes('/conductors'));
 });
