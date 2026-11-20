@@ -1,4 +1,5 @@
 import { assets } from './card-assets.mjs';
+import { publishReferences } from './card-intake-publish.mjs';
 import { engineSpecs, listResearch, researchForGame, researchSummary } from './card-reference-api.mjs';
 
 export const route = '/tabor-academy/card-games/';
@@ -83,6 +84,7 @@ async function info(db) {
 }
 
 export async function serveCardGames(request, db, path) {
+  if (path === 'api/references/intake' && request.method === 'POST') return publishReferences(request,db);
   if (request.method !== 'GET') return json({ error: 'Use GET' }, 405);
   const url = new URL(request.url);
   if (Object.hasOwn(assets, path)) {

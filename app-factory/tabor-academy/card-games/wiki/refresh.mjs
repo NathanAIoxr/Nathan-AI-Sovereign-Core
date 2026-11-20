@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { collectWikipedia } from './wikimedia.mjs';
 import { intakeStatements, prepareIntake } from './intake.mjs';
+import { audience } from '../card-intake-auth.mjs';
 
 const first = (flag) => {
   const i = process.argv.indexOf(flag);
@@ -27,9 +28,33 @@ if (process.argv.includes('--write-sql-json')) {
   const {schema,chunks,receipt} = statements;
   await writeFile(resolve(output,'d1-intake.json'),JSON.stringify([schema,...chunks,receipt]));
 }
+const config = JSON.parse(await readFile(new URL('../cloudflare.json',import.meta.url),'utf8'));
+if (process.argv.includes('--github-identity')) {
+  const {ACTIONS_ID_TOKEN_REQUEST_URL:identityUrl,ACTIONS_ID_TOKEN_REQUEST_TOKEN:identityRequest} = process.env;
+  if (!identityUrl || !identityRequest) throw Error('GitHub workflow identity is missing');
+  const url = new URL(identityUrl);
+  if (url.protocol!=='https:' || !url.hostname.endsWith('.actions.githubusercontent.com')) throw Error('Unexpected workflow identity endpoint');
+  url.searchParams.set('audience',audience);
+  const response = await fetch(url,{headers:{authorization:'Bearer '+identityRequest,accept:'application/json'},
+    redirect:'error',signal:AbortSignal.timeout(15000)});
+  if (!response.ok) throw Error('GitHub workflow identity returned HTTP '+response.status);
+  const {value:btx} = await response.json();
+  if (typeof btx!=='string' || !btx) throw Error('GitHub did not return a workflow JWT');
+  const publish = new URL('api/references/intake',config.publicUrl);
+  const {references,specs,evidence,receipt} = run;
+  const delivered = await fetch(publish,{method:'POST',redirect:'error',signal:AbortSignal.timeout(30000),
+    headers:{authorization:'Bearer '+btx,'content-type':'application/json'},
+    body:JSON.stringify({references,specs,evidence,receipt}),
+  });
+  const result = await delivered.json();
+  if (!delivered.ok || result.id!==receipt.correlationId) {
+    throw Error('Card research publish returned HTTP '+delivered.status+': '+(result.error||'unverified receipt'));
+  }
+  if (output) await writeFile(resolve(output,'published.json'),JSON.stringify(result,null,2)+'\n');
+}
 if (process.argv.includes('--d1')) {
   const {CLOUDFLARE_ACCOUNT_ID:account,CLOUDFLARE_API_TOKEN:cloudToken} = process.env;
-  const {database,publicUrl} = JSON.parse(await readFile(new URL('../cloudflare.json',import.meta.url),'utf8'));
+  const {database} = config;
   if (!account || !cloudToken) throw Error('Cloudflare D1 credentials are missing');
   const url = 'https://api.cloudflare.com/client/v4/accounts/' + encodeURIComponent(account) + '/d1/database/' + database + '/query';
   async function query(sql) {
@@ -43,7 +68,9 @@ if (process.argv.includes('--d1')) {
   await query(statements.schema);
   for (const sql of statements.chunks) await query(sql);
   await query(statements.receipt);
-  const health = new URL('api/references/summary',publicUrl);
+}
+if (process.argv.includes('--github-identity') || process.argv.includes('--d1')) {
+  const health = new URL('api/references/summary',config.publicUrl);
   health.searchParams.set('verify',run.receipt.correlationId);
   const status = await fetch(health,{signal:AbortSignal.timeout(15000),cache:'no-store'});
   if (!status.ok) throw Error('Live card research endpoint returned HTTP '+status.status);

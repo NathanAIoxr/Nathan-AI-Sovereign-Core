@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 concurrency:
   group: tabor-academy-card-research-production
@@ -40,11 +41,9 @@ jobs:
       - name: Refresh Wikimedia and original sources
         env:
           WIKIMEDIA_ACCESS_TOKEN: ${{ secrets.WIKIMEDIA_ACCESS_TOKEN || secrets.WIKIPEDIA_API_KEY }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           set -eu
-          npm run refresh-references -- --output "$RUNNER_TEMP/card-intake" --d1
+          npm run refresh-references -- --output "$RUNNER_TEMP/card-intake" --github-identity
       - uses: actions/upload-artifact@v4
         if: always()
         with:
