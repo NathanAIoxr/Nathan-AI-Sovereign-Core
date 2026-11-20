@@ -1,0 +1,336 @@
+{
+  "description": "Direct GitHub manifest and Cloudflare D1 comparison. Dispatch Worker invocation is unverified.",
+  "projects": [
+    {
+      "project": "collyn-tabor-pumpkin-patch",
+      "github": {
+        "path": "deployments/conductor/zone-sandbox/projects.json",
+        "revision": "3566b6ee6f3693e0874201b1529872fa44b5ed25"
+      },
+      "cloudflare": [
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "collyn-tabor-pumpkin-patch",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the project identity to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "collyn-tabor-pumpkin-patch",
+        "ns": "nathan-tabor-sandbox",
+        "ok": true,
+        "deployment": "ffa683cfebaf41078592caa13bffa0a8"
+      }
+    },
+    {
+      "project": "hold-still-tweezers",
+      "github": {
+        "path": "zones/isolated/hold-still-tweezers/app.json",
+        "revision": "b29e408aac27dfe08da399a2b5823cce3c12e217"
+      },
+      "cloudflare": [
+        {
+          "table": "staged_app",
+          "rows": [
+            {
+              "project": "hold-still-tweezers",
+              "mode": "HOLDING",
+              "alias": "hold-still-tweezers.test",
+              "fixtures": 5
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the app identity and staging metadata to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "hold-still-tweezers",
+        "ns": "hold-still-tweezers-holding",
+        "ok": true,
+        "deployment": "e656886d06bf448da6f76bb40eb24d12"
+      }
+    },
+    {
+      "project": "one-eyed-god-tv",
+      "github": {
+        "path": "zones/isolated/one-eyed-god-tv/app.json",
+        "revision": "f002c553765726a0c79b70f686fdebe5b8a0d3cd"
+      },
+      "cloudflare": [
+        {
+          "table": "staged_app",
+          "rows": [
+            {
+              "project": "one-eyed-god-tv",
+              "mode": "HOLDING",
+              "alias": "one-eyed-god-tv.test",
+              "fixtures": 4
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the app identity and staging metadata to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "one-eyed-god-tv",
+        "ns": "one-eyed-god-tv-holding",
+        "ok": true,
+        "deployment": "ff520905a1344f4699a27214a658a6c4"
+      }
+    },
+    {
+      "project": "possom-hollar-83",
+      "github": {
+        "path": "zones/isolated/possom-hollar-83/app.json",
+        "revision": "0a2e189f39ebccd8ac2aaa56acbee8f2a04af2b8"
+      },
+      "cloudflare": [
+        {
+          "table": "staged_app",
+          "rows": [
+            {
+              "project": "possom-hollar-83",
+              "mode": "HOLDING",
+              "alias": "possom-hollar-83.test",
+              "fixtures": 41
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the app identity and staging metadata to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "possom-hollar-83",
+        "ns": "possom-hollar-83-holding",
+        "ok": true,
+        "deployment": "17157086c2094873add59d8d797e8bf9"
+      }
+    },
+    {
+      "project": "sovereign-apps",
+      "github": {
+        "path": "deployments/conductor/zone-sandbox/projects.json",
+        "revision": "3566b6ee6f3693e0874201b1529872fa44b5ed25"
+      },
+      "cloudflare": [
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "sovereign-apps",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the project identity to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "sovereign-apps",
+        "ns": "sovereign-apps-holding",
+        "ok": true,
+        "deployment": "d1dded1f3d7046128748fed00cb319c6"
+      }
+    },
+    {
+      "project": "sovereign-book-series",
+      "github": {
+        "path": "deployments/conductor/zone-sandbox/projects.json",
+        "revision": "3566b6ee6f3693e0874201b1529872fa44b5ed25"
+      },
+      "cloudflare": [
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "sovereign-book-series",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the project identity to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "sovereign-book-series",
+        "ns": "sovereign-book-series-holding",
+        "ok": true,
+        "deployment": "6fc65162230342b8b86fa975c295bf7f"
+      }
+    },
+    {
+      "project": "sovereign-games",
+      "github": {
+        "path": "deployments/conductor/zone-sandbox/projects.json",
+        "revision": "3566b6ee6f3693e0874201b1529872fa44b5ed25"
+      },
+      "cloudflare": [
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "sovereign-games",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the project identity to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "sovereign-games",
+        "ns": "sovereign-games-holding",
+        "ok": true,
+        "deployment": "d3fc387b3b0d4d7c8815f5c114f4a459"
+      }
+    },
+    {
+      "project": "sovereign-website-core",
+      "github": {
+        "path": "deployments/conductor/zone-sandbox/projects.json",
+        "revision": "3566b6ee6f3693e0874201b1529872fa44b5ed25"
+      },
+      "cloudflare": [
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "sovereign-website-core",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the project identity to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "sovereign-website-core",
+        "ns": "sovereign-website-core-holding",
+        "ok": true,
+        "deployment": "20bea5a3e2af482195ac8b175f0529b9"
+      }
+    },
+    {
+      "project": "tap-that-arcade",
+      "github": {
+        "path": "zones/isolated/tap-that-arcade/app.json",
+        "revision": "cd5622f9d1809664774f5f649530ce4a80d72739"
+      },
+      "cloudflare": [
+        {
+          "table": "staged_app",
+          "rows": [
+            {
+              "project": "tap-that-arcade",
+              "mode": "HOLDING",
+              "alias": "tap-that-arcade.test",
+              "fixtures": 5
+            }
+          ]
+        },
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "tap-that-arcade",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "review",
+      "integration": "Resolve manifest differences",
+      "findings": [
+        "Zone tables disagree on release state"
+      ],
+      "dispatch": {
+        "project": "tap-that-arcade",
+        "ns": "tap-that-arcade-holding",
+        "ok": true,
+        "deployment": "8bc225216dbe4500bb1776afc4fd2086"
+      }
+    },
+    {
+      "project": "tap-that-command-center",
+      "github": {
+        "path": "zones/isolated/tap-that-command-center/app.json",
+        "revision": "9909c1a6209fc24ddc36b285d414f9688230aa1d"
+      },
+      "cloudflare": [
+        {
+          "table": "staged_app",
+          "rows": [
+            {
+              "project": "tap-that-command-center",
+              "mode": "HOLDING",
+              "alias": "tap-that-command-center.test",
+              "fixtures": 8
+            }
+          ]
+        },
+        {
+          "table": "zone_manifest",
+          "rows": [
+            {
+              "project": "tap-that-command-center",
+              "mode": "REHEARSAL"
+            }
+          ]
+        }
+      ],
+      "status": "review",
+      "integration": "Resolve manifest differences",
+      "findings": [
+        "Zone tables disagree on release state"
+      ],
+      "dispatch": {
+        "project": "tap-that-command-center",
+        "ns": "tap-that-command-center-holding",
+        "ok": true,
+        "deployment": "9cf85fad1b514d7e9a42c48e3e6981c7"
+      }
+    },
+    {
+      "project": "tweezer-os",
+      "github": {
+        "path": "zones/isolated/tweezer-os/app.json",
+        "revision": "81adbfa1fdff845e0bfc68369c4222e5034b3bec"
+      },
+      "cloudflare": [
+        {
+          "table": "staged_app",
+          "rows": [
+            {
+              "project": "tweezer-os",
+              "mode": "HOLDING",
+              "alias": "tweezer-os.test",
+              "fixtures": 12
+            }
+          ]
+        }
+      ],
+      "status": "candidate",
+      "integration": "Link the app identity and staging metadata to the zone catalog",
+      "findings": [],
+      "dispatch": {
+        "project": "tweezer-os",
+        "ns": "tweezer-os-holding",
+        "ok": true,
+        "deployment": "466e003d7adb4821a94a94edc5a021e5"
+      }
+    }
+  ]
+}
