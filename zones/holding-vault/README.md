@@ -62,3 +62,9 @@ Verify the DNS, certificate, application response, and access boundary before sw
 Run `node scripts/sync-replica.mjs` from this directory after applying the migrations. The Cloudflare token needs access to read the build ledger and Pages inventory and write to the Holding Vault database. The sync preserves project scopes, keeps existing launch controls, and stores source snapshots and SHA-256 digests in D1. A project can have GitHub, native platform, game station, audit, and release components. An existing production reference describes the original project. The replica stays in HOLDING.
 
 Open a project in the owner preview to inspect its staged components or download its JSON snapshot. Source file and asset references point to their original locations. Use the app's own build workflow for its code and binaries. Native signatures, private R2 object bytes, and complete production databases are outside this inventory import.
+
+## Private stand-in websites
+
+Every workspace has a stand-in website at `/holding-vault/preview/<workspace-id>/site`. Its reserved `.zones.test` name is displayed in the preview. The working URL is served by Tabor Bridge behind Cloudflare Access. The placeholder name is never written to production domain or DNS fields.
+
+Each staged component has a private page scoped to its workspace and stable source identity. The preview views update with the underlying registry and component snapshots, so new entries receive pages automatically. Open the workspace first to reach its stand-in website and snapshot. Supply the real hostname and release details when the project is ready for launch.
