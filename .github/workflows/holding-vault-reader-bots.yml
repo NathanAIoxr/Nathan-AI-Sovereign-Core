@@ -1,0 +1,35 @@
+name: Holding Vault reader bots
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['integrations/holding-vault-readers/**', '.github/workflows/holding-vault-reader-bots.yml']
+permissions:
+  contents: read
+concurrency:
+  group: holding-vault-reader-bots
+  cancel-in-progress: false
+jobs:
+  read:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        reader: [github, cloudflare]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node --test integrations/holding-vault-readers/readers.test.mjs
+      - name: Record source-backed proposals
+        run: node integrations/holding-vault-readers/run.mjs "$READER"
+        env:
+          READER: ${{ matrix.reader }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.READER_CLOUDFLARE_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'a70580bacdf96c946662b7b67dcb45b5' }}
