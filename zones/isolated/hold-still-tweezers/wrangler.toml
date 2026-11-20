@@ -1,0 +1,41 @@
+name = "hold-still-tweezers-holding"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[vars]
+PROJECT_ID = "hold-still-tweezers"
+STAGING_ALIAS = "hold-still-tweezers.test"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "zone-hold-still-tweezers-db"
+database_id = "d10ead17-923c-4e1c-8202-94656f3b2e85"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "ZONE_ASSETS"
+bucket_name = "zone-hold-still-tweezers-r2"
+
+[[kv_namespaces]]
+binding = "ZONE_CONFIG"
+id = "b52e8ee949174d5db91de2f505f8e5ae"
+
+[[queues.producers]]
+binding = "ZONE_JOBS"
+queue = "zone-hold-still-tweezers-q"
+
+[[durable_objects.bindings]]
+name = "ZONE_STATE"
+class_name = "ZoneState"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ZoneState"]
