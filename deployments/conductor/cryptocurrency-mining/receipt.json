@@ -1,0 +1,109 @@
+{
+  "schema": "nathan-ai.conductor.project-handoff.v1",
+  "id": "handoff:cryptocurrency-mining:1b30f38b353b1114551d544d3a02fd17c8b771b2",
+  "project": "cryptocurrency-mining",
+  "title": "Cryptocurrency Mining handoff",
+  "recipient": "Nathan AI Master Conductor",
+  "lead": "Nathan AI Rocket 🚀",
+  "state": "received",
+  "verifiedAt": "2026-11-20T17:55:23.291Z",
+  "sourceRevision": "1b30f38b353b1114551d544d3a02fd17c8b771b2",
+  "mining": {
+    "state": "awaiting-enrolled-hardware",
+    "verified": false,
+    "registeredHardware": 0,
+    "heartbeats": 0,
+    "plannedSlots": {
+      "super2x": 1000,
+      "hyper": 1000
+    },
+    "acceptedShares": null,
+    "payoutsVerified": null,
+    "launchReady": false
+  },
+  "proof": {
+    "kind": "public-header-proof",
+    "hash": "00000000000000000001acd99c643790858197cc7f9362be592a44d5ef31dfbb",
+    "passed": true,
+    "observedAt": "2026-11-20T17:55:23.281Z"
+  },
+  "course": {
+    "count": 12,
+    "modules": [
+      "foundations",
+      "bitcoin-proof",
+      "pools-stratum",
+      "hardware-software",
+      "wallet-rewards",
+      "power-economics",
+      "networks",
+      "fleet-operations",
+      "octopus-mirror",
+      "golden-goose",
+      "nature-analogies",
+      "verification-lab"
+    ]
+  },
+  "work": [
+    {
+      "title": "Nathan AI Rocket 🚀 mining conductor",
+      "status": "Live verification and fleet status",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/rocket-conductor/api/status"
+    },
+    {
+      "title": "Mining Lab",
+      "status": "Live Bitcoin proof tools and launch-readiness report",
+      "url": "https://nathan-ai-mining-lab.nathantaboract.workers.dev/launch"
+    },
+    {
+      "title": "The Modern-Day Real-Life Golden Goose",
+      "status": "Public cleanup lab and nine-method replay. Earlier private Bitcoin Core regtest accepted one block from each method.",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/golden-goose/"
+    },
+    {
+      "title": "Octopus Mirror Engine",
+      "status": "Independent source and offline verification engine",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/octopus-mirror-engine"
+    },
+    {
+      "title": "The Cryptocurrency Pooper",
+      "status": "Independent holding zone. Earlier local EVM test minted 6 POOPER test units.",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/zone/cryptocurrency-pooper/app-factory/nathan-ai/cryptocurrency-pooper"
+    },
+    {
+      "title": "Tabor Academy · Cryptocurrency Mining",
+      "status": "Twelve interactive lessons with separate development zones",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/mining/"
+    },
+    {
+      "title": "Independent crypto fleet manifest",
+      "status": "Sovereign Multi-Axis, TABORPOOL, TABORBOY, quantum-mining research, and original source references",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/4e47829a3d819b1d19b698ad70b3648f2bf4be2d/app-factory/nathan-ai/crypto-fleet/independent-project-manifest.json"
+    },
+    {
+      "title": "Mining & Wallet Command Center",
+      "status": "Provider and source registry",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/ab803b7a628d323b5eaf303c5c2429d16fbfd6cf/app-factory/nathan-ai/sovereign-coins/integrations"
+    },
+    {
+      "title": "Original crypto source recovery",
+      "status": "21-coin original, Tabor World nine, 64-coin restoration, Tabor Bank of 69, and wallet provenance remain distinct",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/bc674a189428b0152c56107a5816dd1a79f77273/app-factory/nathan-ai/integration-ledger/ORIGINAL_SOURCE_RECOVERY_MAP.md"
+    },
+    {
+      "title": "New Sovereignty's Bitcoin proof lesson",
+      "status": "Independent Academy integration in holding",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/zone/new-sovereignty/app-factory/nathan-ai/new-sovereignty"
+    },
+    {
+      "title": "Sovereign Minds and the Lasso of Truth",
+      "status": "Related Conductor handoff and evidence gate",
+      "url": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/sovereign-minds"
+    }
+  ],
+  "next": [
+    "Enroll one explicitly authorized SHA-256 miner through the owner's management interface.",
+    "Verify the owner-selected pool configuration, payout destination, and operating limits in the private operator system.",
+    "Record recent hardware telemetry and pool-reported accepted shares before marking a mainnet mining launch. Verify payouts separately from the pool statement and transaction record."
+  ]
+}

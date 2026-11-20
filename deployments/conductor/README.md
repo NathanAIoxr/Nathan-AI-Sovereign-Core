@@ -8,6 +8,8 @@ Nathan AI’s control plane for submitting a known operation, seeing it move thr
 
 [Sovereign Minds handoff](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/sovereign-minds) records the registry release, the independent Zero and One Workers, reviewed Lasso evidence, and related deployments in the Conductor ledger. [Versioned receipt](sovereign-minds/receipt.json)
 
+[Cryptocurrency Mining handoff](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/cryptocurrency-mining) records Rocket’s fleet snapshot, the Bitcoin proof, independent mining projects, and the twelve Academy modules. [Versioned receipt](cryptocurrency-mining/receipt.json)
+
 [Sovereign MINDs](sovereign-minds/) uses the same Cloudflare cockpit and provides a GitHub release verifier, a source ledger, and the Lasso of Truth prompts.
 
 [Lasso of Truth Release Gate](release-gate/) validates staged binary, algorithm and LLM output before release and returns a 1 or 0 with a receipt.
