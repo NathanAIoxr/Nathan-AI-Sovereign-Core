@@ -1,0 +1,9 @@
+# The Conductor Zone Sandbox
+
+**TIME** runs the rehearsal reconciliation every 15 minutes and on changes to this directory. **ALIEN** resolves the checked-in project IDs and their isolated branches. **EMIT** reconciles the dedicated D1, private R2, KV, Queue, and holding Worker in the sandbox dispatch namespace. **NEILA** verifies the D1 identity and Worker bindings and records the result in the GitHub run summary.
+
+Add an independent project to `projects.json` to enroll it. Each Zone starts with a unique `zone/<project>` branch, a staging D1 manifest, and dedicated bindings. The branch is created once and is never reset by the recurring job. A retry reuses named resources. This workflow uses the existing repository deploy credentials and cannot accept a command, hostname, or arbitrary target from an event payload.
+
+The holding Worker checks its D1 manifest at `GET /health` for an authorized internal dispatcher. A Zone needs its app artifact, reviewed migrations, synthetic fixtures, and a protected preview route before project rehearsals can begin. `REHEARSAL` confirms the staging envelope. To switch production, the operator must issue the explicit Launch Zone command after verifying the app, deployment revision, migration plan, and Access or public routing. This workflow has no production migration, merge, DNS, or traffic-switch step.
+
+See [GitHub Actions schedule behavior](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule) for cadence limits.
