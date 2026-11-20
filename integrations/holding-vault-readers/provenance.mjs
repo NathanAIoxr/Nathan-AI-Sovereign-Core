@@ -1,6 +1,6 @@
 import {REPOSITORY} from './readers.mjs';
 
-const statuses = new Set(['directory','gitlink','symlink','binary','large-blob','references-found','reference-boundary','no-static-reference']);
+const statuses = new Set(['directory','gitlink','symlink','binary','large-blob','references-found','no-static-reference']);
 const allowedPath = (value,empty=false) => typeof value==='string' && value.length<=1024 &&
   ((empty && value==='') || (value.length>0 && !/[\u0000-\u001f\\]/.test(value) &&
   value.split('/').every(part=>part && part!=='.' && part!=='..')));

@@ -114,7 +114,7 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
       }
       if(targets.size)bySource.set(path,targets);
       if(graphNodes.get(path)?.[1]==='large-blob') {
-        graphNodes.get(path)[1]=targets.size?'references-found':boundaryPaths.has(path)?'reference-boundary':'no-static-reference';
+        graphNodes.get(path)[1]=targets.size||boundaryPaths.has(path)?'references-found':'no-static-reference';
       }
     }
   }
@@ -139,7 +139,7 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
     if(targets)for(const target of targets)pending.push(target);
   }
   const summary={...counts,internalReferences,linkedFiles:reached.size,terminalFiles:resolvedBranches.size,
-    linkedOrigins:linkedOrigins.size,contentDigest:digest.digest('hex')};
+    linkedOrigins:linkedOrigins.size,referenceBoundaries:boundaryPaths.size,contentDigest:digest.digest('hex')};
   if(!includeGraph)return summary;
   const edges=[];
   for(const [from,targets] of bySource){
