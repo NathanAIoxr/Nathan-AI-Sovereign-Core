@@ -46,7 +46,7 @@ const headers = {
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[c]);
 export function createLearningExplorer(catalog, {
-  root, title, lead, headerLinks, promoteOn, destination, marker, sectionLabel, returnLabel, renderDecision,
+  root, title, lead, headerLinks, promoteOn, destination, marker, sectionLabel, returnLabel, renderDecision, renderGuideLanding, renderGuideDomain, browseLabel,
 }) {
   const eraUrl = (era) => `${root}/${era.id}/`;
   const stationUrl = (era, station) => `${eraUrl(era)}${station.id}/`;
@@ -58,13 +58,18 @@ export function createLearningExplorer(catalog, {
   <main><h1>${escape(heading)}</h1>${body}</main><footer>${anchor(catalog.academy, "Open the course in Tabor Academy")}</footer></body></html>`;
   }
 
-  function overview() {
+  function overview(request) {
+    if (renderGuideLanding) {
+      return page(title, `${renderGuideLanding(request)}
+      <details><summary>Explore the records</summary><ul class="sources">${catalog.sources.map((source) => `<li>${anchor(source.url, source.name)}</li>`).join("")}</ul></details>`);
+    }
     return page(title, `<p class="lead">${escape(lead)}</p>
     <ol class="timeline">${catalog.eras.map((era) => `<li><div><p class="tag">${escape(era.tag)}</p><h2>${anchor(eraUrl(era), era.title)}</h2></div><p>${escape(era.purpose)}</p></li>`).join("")}</ol>
     <section><h2>Explore the records</h2><ul class="sources">${catalog.sources.map((source) => `<li>${anchor(source.url, source.name)}</li>`).join("")}</ul></section>`);
   }
 
   function showEra(era) {
+    if (renderGuideDomain) return page(era.title, renderGuideDomain(era));
     return page(era.title, `<p class="lead">${escape(era.purpose)}</p><ul class="stations">
     ${era.stations.map((station) => `<li><a href="${stationUrl(era, station)}">${escape(station.title)}<span>${escape(station.station)}</span></a></li>`).join("")}</ul>`);
   }
@@ -94,7 +99,7 @@ export function createLearningExplorer(catalog, {
       return send(JSON.stringify(catalog), 200, { "content-type": "application/json; charset=utf-8" });
     }
     const tail = pathname.slice(root.length).replace(/^\//, "").replace(/\/$/, "");
-    if (!tail) return send(overview());
+    if (!tail) return send(overview(request));
     const [eraId, stationId, ...extra] = tail.split("/");
     const era = catalog.eras.find((candidate) => candidate.id === eraId);
     if (era && !extra.length) {
@@ -134,7 +139,7 @@ export function createLearningExplorer(catalog, {
             element(element) {
               if (inserted) return;
               inserted = true;
-              element.after(`<p ${marker}>${anchor(root + "/", title)}</p>`, { html: true });
+              element.after(`<p ${marker}>${anchor(root + "/", browseLabel ?? title)}</p>`, { html: true });
             },
           }).transform(response);
         }
