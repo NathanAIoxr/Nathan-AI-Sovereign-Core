@@ -175,6 +175,19 @@ test("teaches both operations with six worked modules and a capstone", async () 
   assert.equal((await call(new Request(path, { method: "HEAD" }), {})).body, null);
 });
 
+test("compares signed multiplication and preserves the dated Vatican client count", async () => {
+  const path = url + "/foundation/reality-math/";
+  const get = async query => (await call(new Request(path + query), {})).text();
+  const page = await get("");
+  assert.match(page, /100 × 0\.8 = 80/);
+  assert.match(page, /id="banking-history"/);
+  assert.match(page, /over 12,000 clients in more than 110 countries/);
+  assert.match(await get("?start=-100&factor=1.25"), /-100 × 1\.25 = -125/);
+  assert.match(await get("?start=0.01&factor=-0.01"), /0\.01 × -0\.01 = -0\.0001/);
+  assert.match(await get("?start=1000000&factor=0"), /1,000,000 × 0 = 0/);
+  assert.match(await get("?factor=1001"), /Enter a starting amount and a multiplier/);
+});
+
 test("reconciles actual deductions in the Million-Dollar Multiplication lesson", async () => {
   const path = url + "/foundation/reality-math/million-dollar/";
   const get = async suffix => (await call(new Request(path + suffix), {})).text();

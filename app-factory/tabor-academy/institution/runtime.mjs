@@ -215,12 +215,33 @@ ${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} 
 <pre class="architecture-source">${esc(foundation.libraryHandoff.source)}</pre>`);
   }
 
-  function realityMathPage() {
+  function realityMathPage(search) {
+    const start = search.get("start") ?? "100";
+    const factor = search.get("factor") ?? "0.8";
+    const decimal = /^-?\d{1,7}(?:\.\d{1,2})?$/;
+    const validStart = decimal.test(start) && Math.abs(Number(start)) <= 1_000_000;
+    const validFactor = decimal.test(factor) && Math.abs(Number(factor)) <= 1_000;
+    let result = "Enter a starting amount and a multiplier, using up to two decimal places.";
+    if (validStart && validFactor) {
+      const startCents = Math.round(Number(start) * 100);
+      const factorHundredths = Math.round(Number(factor) * 100);
+      const product = startCents * factorHundredths;
+      const change = product - startCents * 100;
+      const render = new Intl.NumberFormat("en-US", { maximumFractionDigits: 4 });
+      const comparison = change === 0 ? "unchanged" : change > 0 ? "higher" : "lower";
+      result = `<strong>${render.format(startCents / 100)} × ${render.format(factorHundredths / 100)} = ${render.format(product / 10_000)}</strong>. The product is ${comparison} by ${render.format(Math.abs(change) / 10_000)} compared with the starting amount.`;
+    }
+    const explorer = `<section id="multiplier-test"><h2>Try a multiplier</h2>
+<p>Keep the same unit from start to finish. Track any real-world movement separately.</p>
+<form class="score" method="get" action="${foundation.path}reality-math/#multiplier-test">
+<label for="start">Starting amount</label><input id="start" name="start" type="number" min="-1000000" max="1000000" step="0.01" required value="${validStart ? start : ""}">
+<label for="factor">Multiplier</label><input id="factor" name="factor" type="number" min="-1000" max="1000" step="0.01" required value="${validFactor ? factor : ""}">
+<button type="submit">Multiply</button></form><output for="start factor">${result}</output></section>`;
     const title = "Reality Math · Multiplication and Subtraction";
     return layout(title, `<h1>${title}</h1>
 <p class="byline">Tabor Academy</p>
 <p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a> · <a href="${foundation.path}three-apples/">The Three Apples Reality</a> · <a href="${foundation.path}reality-math/million-dollar/">The Million-Dollar Multiplication Test</a></p>
-<div class="reality-math">${foundation.realityMath}</div>`);
+<div class="reality-math">${explorer}${foundation.realityMath}</div>`);
   }
 
   function millionDollarPage(search) {
@@ -395,7 +416,7 @@ ${foundation.millionDollar.lesson}`);
         return respond(request, foundation.libraryHandoff.block, 200, "text/plain; charset=utf-8");
       }
       if (path === "/foundation/reality-math") {
-        return respond(request, realityMathPage(), 200, "text/html; charset=utf-8");
+        return respond(request, realityMathPage(url.searchParams), 200, "text/html; charset=utf-8");
       }
       if (path === "/foundation/reality-math/million-dollar") {
         return respond(request, millionDollarPage(url.searchParams), 200, "text/html; charset=utf-8");
