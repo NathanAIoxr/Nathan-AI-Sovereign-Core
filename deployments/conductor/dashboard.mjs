@@ -11,6 +11,7 @@ button{margin:.3rem .3rem .3rem 0}article{padding:.8rem 0;border-top:1px solid G
 <p>Nathan AI</p><h1>The Conductor</h1>
 <p id="health" aria-live="polite">Checking service health…</p>
 <p><a href="/tabor-sites/sovereign-minds">Open Sovereign MINDs</a></p>
+<p><a href="/tabor-sites/groundskeeper-ai">Open Groundskeeper AI</a></p>
 <section aria-label="Operator controls">
 <label for="key">Operator key</label><input id="key" type="password" autocomplete="off" maxlength="512">
 <div>

@@ -1,0 +1,18 @@
+{
+  "id": "groundskeeper-ai",
+  "name": "Groundskeeper AI",
+  "roleDesign": "COLLYN PHILLIPS TABOR · THE GROUNDSKEEPER",
+  "source": "deployments/conductor/groundskeeper/",
+  "conductor": "nathan-ai-conductor",
+  "worker": "nathan-ai-groundskeeper",
+  "namespace": "nathan-tabor-platforms",
+  "mount": "/tabor-sites/groundskeeper-ai",
+  "releaseDestination": "groundskeeper-ai",
+  "workflow": ".github/workflows/groundskeeper-ai.yml",
+  "operations": {
+    "readiness": "GET /api/health",
+    "observe": "GET /api/status",
+    "stage": "GET /api/stage",
+    "release": "POST /api/release"
+  }
+}

@@ -1,0 +1,40 @@
+name: Groundskeeper AI
+on:
+  pull_request:
+    paths:
+      - 'deployments/conductor/groundskeeper/**'
+      - 'app-factory/tabor-website-builder/src/sites.mjs'
+      - 'deployments/conductor/dashboard.mjs'
+      - '.github/workflows/groundskeeper-ai.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'deployments/conductor/groundskeeper/**'
+      - 'app-factory/tabor-website-builder/src/sites.mjs'
+      - 'deployments/conductor/dashboard.mjs'
+      - '.github/workflows/groundskeeper-ai.yml'
+  workflow_dispatch:
+    inputs:
+      release:
+        description: GitHub revision reported by the live Groundskeeper Worker
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node --test deployments/conductor/groundskeeper/groundskeeper.test.mjs deployments/conductor/release-gate/release-gate.test.mjs
+      - if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_RELEASE: ${{ inputs.release }}
+        run: node deployments/conductor/groundskeeper/verify-live.mjs "$EXPECTED_RELEASE"

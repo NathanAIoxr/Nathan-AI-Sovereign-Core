@@ -3,6 +3,7 @@ export const publicOrigin = 'https://unified-operations-cockpit.nathantaboract.w
 const definitions = [
   ['sovereignty', 'nathan-ai-sovereignty-box', 'Sovereignty', 'Sovereignty', 'Nathan AI · Sovereign Box', 'Start with 0 or 1 and compose three directions across three mirrors.', 'pine'],
   ['conductor', 'nathan-ai-conductor', 'The Conductor', 'The Conductor', 'Nathan AI · Operations', 'Verify a release, review jobs, and approve checked-in deployments.', 'pine'],
+  ['groundskeeper-ai', 'nathan-ai-groundskeeper', 'Groundskeeper AI', 'Groundskeeper AI', 'Nathan AI · Operations', 'Check service readiness, continuity, and report release.', 'pine'],
   ['sovereign-minds', 'nathan-ai-sovereign-minds', 'Sovereign MINDs', 'Sovereign MINDs', 'Nathan AI · Sovereign MINDs', 'Browse independently deployed MIND records and evidence.', 'pine'],
   ['mind-zero', 'nathan-ai-mind-zero', 'Zero MIND', 'Zero MIND', 'Nathan AI · Sovereign MINDs', 'Read the source ledger and the MIND profile.', 'pine'],
   ['mind-one', 'nathan-ai-mind-one', 'One MIND', 'One MIND', 'Nathan AI · Sovereign MINDs', 'Read the source ledger and the MIND profile.', 'pine'],
