@@ -92,9 +92,11 @@ test("editable draft interaction handlers work with fictional local input", asyn
     approach.value = "boundary";
     draft.value = "Edited locally by the user.";
     assert.equal(draft.value, "Edited locally by the user.");
+    focused = false;
     handlers.get("reset")();
     assert.equal(panel.hidden, true);
     assert.equal(status.textContent, "");
+    assert.equal(focused, true, "reset restores keyboard focus to starting point");
   } finally {
     if (previousDocument === undefined) delete globalThis.document;
     else globalThis.document = previousDocument;
