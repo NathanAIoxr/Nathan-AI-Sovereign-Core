@@ -25,6 +25,7 @@ export function attachKeyboardAriaSelection(element, strands, region, { enabled 
   }
   return Object.freeze({
     getSelectedId() { return disposed ? null : navigation.getSelectedId(); },
+    getSelectedIndex() { return disposed ? -1 : navigation.getSelectedIndex(); },
     setEnabled(value) {
       if (typeof value !== 'boolean') throw new TypeError('enabled must be boolean');
       if (disposed) return false;
