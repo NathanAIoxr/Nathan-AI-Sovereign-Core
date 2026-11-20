@@ -60,3 +60,17 @@ test('returns each Bogan performance separately and filters KJV comparisons', as
   assert.equal(denied.status, 405);
   db.close();
 });
+
+test('mounts the index at a distinct prefix and delegates every other route', async () => {
+  const {mountSongIndex} = await import('./music-lab-adapter.mjs');
+  const original = {fetch: request => new Response('music:' + new URL(request.url).pathname)};
+  const joined = mountSongIndex(worker, original);
+  const {db, stub: CATALOG} = openCatalog();
+  const request = path => joined.fetch(new Request('https://music.example' + path), {CATALOG});
+  assert.equal(await (await request('/api/score')).text(), 'music:/api/score');
+  assert.equal(await (await request('/song-bible-indexed')).text(), 'music:/song-bible-indexed');
+  assert.equal((await request('/song-bible-index?q=blues')).headers.get('location'), 'https://music.example/song-bible-index/?q=blues');
+  assert.equal((await (await request('/song-bible-index/api/recordings?q=Bogan')).json()).recordings.length, 2);
+  assert.ok((await (await request('/song-bible-index/')).text()).includes('href="/song-bible-index/api/handoff"'));
+  db.close();
+});

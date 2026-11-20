@@ -1,6 +1,6 @@
 # Tabor Song & KJV Index
 
-[Search the catalog](https://tabor-song-bible-index.nathantaboract.workers.dev/) · [Cloudflare health](https://tabor-song-bible-index.nathantaboract.workers.dev/api/health) · [Nathan AI Conductor handoff](https://tabor-song-bible-index.nathantaboract.workers.dev/api/handoff)
+[Search the catalog](https://tabor-music-lab.nathantaboract.workers.dev/song-bible-index/) · [Cloudflare health](https://tabor-music-lab.nathantaboract.workers.dev/song-bible-index/api/health) · [Nathan AI Conductor handoff](https://tabor-music-lab.nathantaboract.workers.dev/song-bible-index/api/handoff)
 
 A versioned recording catalog for dirty blues, hokum, other adult-themed music, and songs with documented KJV connections. Recording and release years are labeled separately. The catalog holds public music metadata, short editorial notes, and source links.
 
@@ -22,3 +22,7 @@ The source index and SQL schema are in `seed.json` and `schema.sql`. The Conduct
 5. Check the live health and recording search. Count a work, performance and KJV link separately.
 
 GET `/api/recordings` accepts `q`, `relationship` and `page`. Search matches artist, title, genre, theme and linked KJV reference. Relationship values are `text_setting`, `retelling`, `allusion`, and `thematic_parallel`. GET `/api/handoff` reads this project's handoff receipt from the existing Conductor ledger.
+
+## Worker routing
+
+The read-only catalog is served under `/song-bible-index/` on the existing Music Lab Worker. The adapter delegates other paths to the existing Music Lab source. The Cloudflare deployment uses the adapter as the entry module and binds `CATALOG` and `LEDGER` to the named D1 resources. The original source is carried forward verbatim as a module in the Worker upload.

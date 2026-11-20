@@ -14,6 +14,7 @@ const escape = value => String(value ?? '').replace(/[&<>"']/g, char =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const sourceLink = (url, title) => '<a href="' + escape(url) + '">' + escape(title) + '</a>';
 const conductor = 'https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor';
+export const indexPath = '/song-bible-index';
 const batchSize = 50;
 
 async function search(requestUrl, db) {
@@ -63,7 +64,7 @@ ${item.passages.length ? '<ul>' + item.passages.map(link => '<li><strong>' + esc
   '<li>' + sourceLink(source.url, source.name) + ' · ' + escape(source.role) + '</li>').join('')}</ul></details></article>`;
 
 function renderIndex(result) {
-  const pageUrl = page => '/?' + new URLSearchParams({ q: result.q, relationship: result.relationship, page });
+  const pageUrl = page => indexPath + '/?' + new URLSearchParams({ q: result.q, relationship: result.relationship, page });
   const options = Object.entries(labels).map(([key, label]) => '<option value="' + key + '"' +
     (key === result.relationship ? ' selected' : '') + '>' + label + '</option>').join('');
   const pagination = (result.page > 1 ? '<a href="' + escape(pageUrl(result.page - 1)) + '">Previous</a>' : '') +
@@ -78,7 +79,7 @@ button{cursor:pointer}article{border-top:1px solid #4d4b45;padding:1rem 0}articl
 ul{padding-left:1.35rem}nav{display:flex;gap:1rem;flex-wrap:wrap}details{margin:.55em 0}summary{cursor:pointer}
 </style></head><body><main><h1>Tabor Song &amp; KJV Index</h1>
 <p>Search recordings, themes and Bible passages. Open a source to check a recording or comparison.</p>
-<nav><a href="/api/handoff">Conductor handoff</a><a href="${conductor}">Nathan AI Conductor</a><a href="/api/recordings">JSON catalog</a></nav>
+<nav><a href="${indexPath}/api/handoff">Conductor handoff</a><a href="${conductor}">Nathan AI Conductor</a><a href="${indexPath}/api/recordings">JSON catalog</a></nav>
 <form method="get"><label>Search<input name="q" maxlength="160" value="${escape(result.q)}" placeholder="Artist, title, theme, KJV reference"></label>
 <label>Connection to the KJV<select name="relationship"><option value="">All recordings</option>${options}</select></label><button>Search</button></form>
 <p>${result.recordings.length} result${result.recordings.length === 1 ? '' : 's'} on this page</p>
