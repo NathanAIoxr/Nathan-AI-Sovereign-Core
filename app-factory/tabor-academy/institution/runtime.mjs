@@ -114,6 +114,8 @@ input,button{font:inherit;padding:.55rem .75rem;border:1px solid #778360}input{w
 output{display:block;margin-top:1rem;font-weight:bold}
 blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
 .foundation-statement{font-size:clamp(1rem,2.25vw,1.3rem);max-width:52rem}
+.reality-math article{padding-block:1rem;border-bottom:1px solid #465137}
+.reality-math summary{cursor:pointer;font-weight:700;color:#e6cf87}
 .architecture-source{font:inherit;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
 .table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}td,th{padding:.65rem;border-bottom:1px solid #778360;vertical-align:top}caption{text-align:left;padding-bottom:.4rem}
 </style></head><body><main><nav aria-label="Academy"><a href="/tabor-academy/">Academy home</a><a href="/tabor-academy/library/">Library of Tabor</a><a href="/tabor-academy/workbench/">Workbench</a></nav>${content}</main></body></html>`;
@@ -154,7 +156,7 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
   function foundationPage() {
     return layout(foundation.title, `<h1>${esc(foundation.title)}</h1>
 <div class="foundation-statement">${foundationQuote(foundation)}</div>
-<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
+<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
   }
 
   function architecturePage() {
@@ -170,8 +172,16 @@ ${foundation.architecture.blueprint}`);
     const title = "The Library of Tabor · Reality Math, Primary Truth & Conductor Handoff";
     const handoffPath = foundation.path + "library-handoff/";
     return layout(title, `<h1>${esc(title)}</h1>
-<nav aria-label="Library handoff links"><a href="${handoffPath}source.txt">Full original text</a><a href="${handoffPath}conductor.txt">Copy-and-paste Conductor block</a><a href="${foundation.path}architecture/">Academy Architecture</a><a href="/tabor-academy/library/">Library of Tabor</a></nav>
+<nav aria-label="Library handoff links"><a href="${handoffPath}source.txt">Full original text</a><a href="${handoffPath}conductor.txt">Copy-and-paste Conductor block</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}architecture/">Academy Architecture</a><a href="/tabor-academy/library/">Library of Tabor</a></nav>
 <pre class="architecture-source">${esc(foundation.libraryHandoff.source)}</pre>`);
+  }
+
+  function realityMathPage() {
+    const title = "Reality Math · Multiplication and Subtraction";
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">Tabor Academy</p>
+<p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a></p>
+<div class="reality-math">${foundation.realityMath}</div>`);
   }
 
   async function serveBlueprint(request, env, ctx) {
@@ -290,6 +300,9 @@ ${foundation.architecture.blueprint}`);
       }
       if (path === "/foundation/library-handoff/conductor.txt") {
         return respond(request, foundation.libraryHandoff.block, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/reality-math") {
+        return respond(request, realityMathPage(), 200, "text/html; charset=utf-8");
       }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {

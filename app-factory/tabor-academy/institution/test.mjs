@@ -133,6 +133,21 @@ test("serves the authored Library of Tabor packet and its exact copy-and-paste b
   const html = await (await get("/")).text();
   assert.match(html, /The Nine Cars Axiom: Nine real cars/);
   assert.match(html, /href="[^"]+conductor\.txt"/);
+  assert.match(html, /href="[^"]+reality-math\/"/);
+});
+
+test("teaches both operations with six worked modules and a capstone", async () => {
+  const path = url + "/foundation/reality-math/";
+  const response = await call(new Request(path), {});
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /9 × 0 = 0 dollars/);
+  assert.match(html, /1 − 1 = 0 active registrations/);
+  assert.equal((html.match(/<article /g) ?? []).length, 6);
+  assert.equal((html.match(/<details>/g) ?? []).length, 7);
+  assert.match(html, /id="capstone"/);
+  assert.match(html, /href="[^"]+library-handoff\/"/);
+  assert.equal((await call(new Request(path, { method: "HEAD" }), {})).body, null);
 });
 
 test("practice validates scores without creating any student record", async () => {

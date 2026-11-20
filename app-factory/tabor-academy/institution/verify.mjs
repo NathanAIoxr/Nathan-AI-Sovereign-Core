@@ -32,6 +32,11 @@ const checks = [
     assert.match(await fetchRoute(handoff), /The Nine Cars Axiom/);
     assert.equal(await fetchRoute(handoff + "source.txt"), foundation.libraryHandoff.source);
     assert.equal(await fetchRoute(handoff + "conductor.txt"), foundation.libraryHandoff.block);
+    const course = await fetchRoute("/institution/foundation/reality-math/");
+    assert.match(course, /9 × 0 = 0 dollars/);
+    assert.match(course, /1 − 1 = 0 active registrations/);
+    assert.match(course, /id="capstone"/);
+    assert.match(await fetchRoute("/map/"), /Reality Math · Multiplication and Subtraction/);
     assert.match(await fetchRoute("/map/"), /Library of Tabor Conductor Handoff/);
     assert.ok((await fetchRoute("/map/")).includes(foundation.title));
   },
