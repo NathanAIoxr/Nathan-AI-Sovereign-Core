@@ -5,11 +5,13 @@ import worker from "../src/worker.mjs";
 const call = (pathname, method = "GET") =>
   worker.fetch(new Request(new URL(pathname, "https://academy.example"), { method }));
 
-test("serves Nathan Tabor's launch announcement", async () => {
+test("opens with Nathan Tabor's nine lines", async () => {
   const page = await call("/");
   assert.equal(page.status, 200);
   const text = (await page.text()).replace(/<[^>]*>/g, "").replace(/\s+/g, " ");
-  assert.match(text, /TABOR ACADEMY COMING SOON LIKE IN THE NEXT FIVE MINUTES BY NATHAN TABOR/);
+  assert.match(text, /TABOR ACADEMY BY NATHAN TABOR U R my family - one blood - cousins/);
+  assert.match(text, /Open Tabor Workbench/);
+  assert.doesNotMatch(text, /COMING SOON/);
 });
 
 test("exposes service health", async () => {
@@ -49,4 +51,23 @@ test("library only displays hash-matching records and keeps archive text private
   assert.match(body, /Archive &lt;test&gt;/);
   assert.match(body, /Public interpretation/);
   assert.doesNotMatch(body, /Unpublished voice transcript|Tampered entry/);
+});
+
+test("knotted cord sandbox distinguishes square, non-square and impossible triangles", async () => {
+  assert.match(await (await call("/workbench/47/")).text(), /first two sides is square/);
+  assert.match(await (await call("/workbench/47/?a=3&b=4&c=6")).text(), /is not square/);
+  assert.match(await (await call("/workbench/47/?a=1&b=2&c=9")).text(), /cannot close/);
+  assert.equal((await call("/workbench/?guide=8")).status, 404);
+});
+
+test("a Workbench zone displays its brief and field activity", async () => {
+  const record = {
+    number: 65, guide: 5, title: "Weaving & Loom Patterns", media: "GW",
+    namespace_name: "tabor-academy-065-dev", brief: "Warp & Weft",
+  };
+  const env = { LIBRARY: { prepare: () => ({ bind: (number) => ({ first: async () => number === 65 ? record : null }) }) } };
+  const response = await worker.fetch(new Request("https://academy.example/workbench/zones/65/"), env);
+  assert.equal(response.status, 200);
+  assert.match(await response.text(), /tabor-academy-065-dev/);
+  assert.equal((await worker.fetch(new Request("https://academy.example/workbench/zones/102/"), env)).status, 404);
 });
