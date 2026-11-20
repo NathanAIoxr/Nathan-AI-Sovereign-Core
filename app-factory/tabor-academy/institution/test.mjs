@@ -2,8 +2,8 @@ import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { blueprint, blueprintSource, buildWorker, civics, release } from "./build.mjs";
-import { foundation, foundationQuote } from "./foundation.mjs";
+import { blueprint, blueprintSource, buildWorker, civics, foundation, release } from "./build.mjs";
+import { foundationQuote } from "./foundation.mjs";
 import { createInstitution } from "./runtime.mjs";
 import { learningMethods, seedSql } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
@@ -79,6 +79,10 @@ export default {
   const lesson = await get("/institution/foundation/");
   assert.equal(lesson.status, 200);
   assert.ok((await lesson.text()).includes(expectedFoundationHTML));
+  const architecture = await get("/institution/foundation/architecture/");
+  assert.equal(architecture.status, 200);
+  assert.match(await architecture.text(), /Conductor blueprint/);
+  assert.equal(await (await get("/institution/foundation/architecture/source.txt")).text(), foundation.architecture.source);
   assert.equal(await (await get("/library/")).text(), "/library/");
 });
 

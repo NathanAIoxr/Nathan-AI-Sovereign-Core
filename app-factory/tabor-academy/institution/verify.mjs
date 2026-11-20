@@ -2,8 +2,7 @@ import { readFile } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import assert from "node:assert/strict";
-import { blueprintSource, civics, release } from "./build.mjs";
-import { foundation } from "./foundation.mjs";
+import { blueprintSource, civics, foundation, release } from "./build.mjs";
 
 const config = JSON.parse(await readFile(new URL("cloudflare.json", import.meta.url), "utf8"));
 const curl = promisify(execFile);
@@ -26,6 +25,9 @@ const checks = [
       assert.ok(lesson.includes(paragraph));
     }
     assert.equal(await fetchRoute("/institution/foundation/source.txt"), foundation.statement);
+    const architecture = await fetchRoute("/institution/foundation/architecture/");
+    assert.match(architecture, /Conductor blueprint/);
+    assert.equal(await fetchRoute("/institution/foundation/architecture/source.txt"), foundation.architecture.source);
     assert.ok((await fetchRoute("/map/")).includes(foundation.title));
   },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),

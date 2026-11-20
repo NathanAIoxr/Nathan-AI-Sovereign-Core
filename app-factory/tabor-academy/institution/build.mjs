@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { createInstitution } from "./runtime.mjs";
-import { foundation, foundationQuote } from "./foundation.mjs";
+import { foundation as foundationStatement, foundationQuote } from "./foundation.mjs";
 import { learningMethods } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
 import { academyLearningSite } from "./learning-methods/sites.mjs";
@@ -10,6 +10,13 @@ import { academyLearningSite } from "./learning-methods/sites.mjs";
 const here = new URL("./", import.meta.url);
 export const blueprintSource = await readFile(new URL("blueprint.json", here), "utf8");
 export const blueprint = JSON.parse(blueprintSource);
+export const foundation = {
+  ...foundationStatement,
+  architecture: {
+    source: await readFile(new URL("architecture.txt", here), "utf8"),
+    blueprint: await readFile(new URL("architecture.html", here), "utf8"),
+  },
+};
 export const civics = {
   html: await readFile(new URL("civics/lesson.html", here), "utf8"),
   source: await readFile(new URL("civics/source.txt", here), "utf8"),
