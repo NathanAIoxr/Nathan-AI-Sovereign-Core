@@ -71,3 +71,24 @@ test("a Workbench zone displays its brief and field activity", async () => {
   assert.match(await response.text(), /tabor-academy-065-dev/);
   assert.equal((await worker.fetch(new Request("https://academy.example/workbench/zones/102/"), env)).status, 404);
 });
+
+test("survival track renders all three card sections and supports category filters and printing", async () => {
+  const row = {
+    number: 2, category: 1, modern: "Brita Water Filter", root: "Bio-Sand & Charcoal Filtration",
+    mechanic: "Test mechanism", field_test: "Test setup", original_context: null,
+    namespace_name: "tabor-academy-survival-002-dev",
+  };
+  const env = { LIBRARY: { prepare: () => ({
+    bind: (number, category) => ({ all: async () => ({
+      results: (!number || number === 2) && (!category || category === 1) ? [row] : [],
+    }) }),
+  }) } };
+  const open = (path) => worker.fetch(new Request("https://academy.example"+path), env);
+  const html = await (await open("/survival/2/")).text();
+  assert.match(html, /Z · Modern convenience/);
+  assert.match(html, /Mechanics/);
+  assert.match(html, /A · Field test/);
+  assert.match(await (await open("/survival/?category=1&print=1")).text(), /class="mastery-card"/);
+  assert.deepEqual((await (await open("/survival/cards.json?category=7")).json()).cards, []);
+  assert.equal((await open("/survival/102/")).status, 404);
+});
