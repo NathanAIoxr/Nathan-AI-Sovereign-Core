@@ -1,19 +1,17 @@
 name = "zone-tweezer-tap-conductor"
-main = "src/conductor.mjs"
-compatibility_date = "2026-06-01"
+main = "src/runtime.mjs"
+compatibility_date = "2026-11-19"
 workers_dev = false
 preview_urls = false
 
-[assets]
-directory = "./public"
-binding = "ASSETS"
-run_worker_first = true
-
-[version_metadata]
-binding = "BUILD"
-
 [triggers]
 crons = ["* * * * *"]
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
 
 [[durable_objects.bindings]]
 name = "CONDUCTOR"
@@ -27,6 +25,11 @@ new_sqlite_classes = ["MasterConductor"]
 binding = "ZONE_DB"
 database_name = "zone-tweezer-ledger-db"
 database_id = "059f7a3a-43d1-49ea-80b2-65245436500f"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "ZONE_KV"
+id = "3f89117be0b743a2b1453c1ec1d5b167"
 
 [[r2_buckets]]
 binding = "ZONE_R2"
@@ -38,6 +41,9 @@ queue = "zone-tweezer-events-q"
 
 [[queues.consumers]]
 queue = "zone-tweezer-events-q"
-max_batch_size = 10
-max_retries = 5
 dead_letter_queue = "zone-tweezer-events-dlq"
+max_batch_size = 10
+max_batch_timeout = 5
+max_retries = 5
+max_concurrency = 1
+retry_delay = 15

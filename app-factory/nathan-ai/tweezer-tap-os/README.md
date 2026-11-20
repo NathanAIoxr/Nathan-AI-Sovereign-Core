@@ -1,22 +1,40 @@
-# TWEEZER-OS · TAP THAT
-Staging project for zone/tweezer-tap-os.
+# TWEEZER-OS × TAP THAT · TIME / EMIT · ALIEN / NEILA
 
-- TIME uses a ten-second slot and a minute cron to bootstrap or recover the Durable Object alarm. Scheduling is best effort. A missed slot is visible as a gap.
-- EMIT commits events and outbox entries atomically, publishes under the same event ID, and deduplicates consumption in D1. Queue send and sent receipt cannot share a transaction, so duplicate delivery is expected.
-- ALIEN runs schema, smoke and manifest checks. NEILA reruns those checks in reverse order. Each result has an R2 evidence record attached to a Worker version and run. A passing rehearsal aids release review.
-- TAP THAT ships an iPhone-friendly control board and a ledger of simulated commands. Cartridge tiles are a rehearsal interface. The Big Red Button persists suspension in the Durable Object. Resume re-enables event generation and flushing.
+This holding zone coordinates the two standalone apps through synthetic cartridge rehearsals. The current runtime is `src/runtime.mjs`, with its single-file `stage-board.html` staged in R2. The original prototype, its seed migration and its test still run against the original tables. Migration 0003 adds the verified hash chain and its receipt tables independently.
 
-## Verify and configure
-Run `node test.mjs` with Node 24. Tests use SQLite and local doubles for Cloudflare bindings.
-The GitHub workflow runs the same checks for relevant pull requests or on dispatch. It uses read-only repository permissions.
+## Staging stack
 
-The named staging D1 database, R2 bucket, queue, and dead-letter queue exist. Both SQL migrations were applied through the D1 API and the seed was verified. If adopting Wrangler migrations on this database, reconcile its migration history with the applied schema first. Cloudflare rejected creation of the staging Worker because the account reached its 500-Worker limit. Once capacity is available, set the ZONE_CONTROL_KEY Worker secret and configure an authorized staging route for the board.
-The health/status output exposes the latest heartbeat, outbox count, brake state, and latest audit. The board shell can be served without a credential. All its API requests require the staging operator credential.
+| Component | Resource |
+| --- | --- |
+| Staging branch | `zone/tweezer-tap-os` |
+| Dedicated Cloudflare namespace | `tweezer-tap-os-holding` |
+| Conductor Worker | `zone-tweezer-tap-conductor` |
+| Durable Object | `MasterConductor` |
+| Ledger and track warrant | `zone-tweezer-ledger-db` |
+| Holding mode and emergency brake | `zone-tweezer-config-kv` |
+| EMIT Queue | `zone-tweezer-events-q` |
+| Queue dead-letter destination | `zone-tweezer-events-dlq` |
+| Private cartridge and audit store | `zone-tweezer-artifacts` |
+| Private alias | `tweezer-tap-os.test` |
 
-The release switch is a reviewed GitHub change after staging evidence exists. Platform-side staging deployment, end-to-end queue execution, and the production promotion still require verification. The current package implements fictional game events, no physical drivers.
+TIME coalesces Cron and alarm signals into one UTC heartbeat per minute. A ten-second Durable Object alarm checks the virtual watchdog, resumes the outbox and continues TIME once armed. The D1 warrant and KV holding mode gate commands. Two distinct authenticated operators acquire the hold interlock in strongly consistent Durable Object storage. The emergency button and simulated flinch limit stop the active cartridge. The KV brake stops further simulation on the next authority check. The runtime's integrity fault latches the brake.
 
-## Cloudflare dispatch status
+ALIEN executes deterministic transitions. NEILA replays the reducer and reconstructs each previous state from its undo record. Rehearsals also verify reverse continuity between all 60 measures. EMIT projects an append-only, hash-linked D1 ledger and content-addressed private R2 evidence from the transactional Durable Object outbox. Queue retries may duplicate a message. The consumer verifies the evidence and records one logical delivery receipt per ID.
 
-Cloudflare contains a script named `zone-tweezer-tap-conductor` in the isolated `tweezer-tap-os-holding` dispatch namespace. That script is a different build from this branch. It writes a sequence and hash-chain record to `extraction_log`, while this branch's applied ledger has the columns `event_id`, `result`, and `created_at`. Reconcile the deployed source and schema before sending live events.
+## Operation
 
-Cloudflare Queues rejected attachment of the dispatch script as a direct consumer with error 10007. The queue still has zero consumers. The regular Worker account is at 500 scripts. The staged script had no verified public route, heartbeat, or queue delivery at the time of this check. A complete deployment needs either regular Worker capacity for this branch's Worker or a dedicated, configured dispatch entry point and queue consumer with compatible bindings.
+- `GET /` displays the single-file board on the internal alias. `GET /status` reports the warrant and simulation state. `POST /tap` uses `{id, trigger, mission}`; retries reuse the same ID.
+- Configure distinct Cloudflare Worker secrets `OPERATOR_A_KEY` and `OPERATOR_B_KEY` for operator access. `SENSOR_KEY` enables the staging-only `POST /sensor` input for simulated flinch events. The board keeps an operator key only in the current input field.
+- An optional staging webhook is configured through `REHEARSAL_WEBHOOK_URL`, `REHEARSAL_WEBHOOK_HOST`, and `REHEARSAL_WEBHOOK_KEY`. The subscriber validates the exact canonical request-body HMAC and deduplicates by the event ID. Delivery retries are possible.
+- On a standard Worker deployment, use the checked-in Wrangler config for the every-minute UTC Cron Trigger and automatic Queue consumer. For Workers for Platforms, provide a private platform clock driver and a supported Queue consumer. Uploading a Worker to a dispatch namespace by itself neither arms the alarm nor attaches a Cron Trigger or a consumer.
+- Run `node --test test/*.test.mjs` with Node 24 from this directory. The suite covers time deduplication, exact reverse order, immutable ledger writes, role isolation, receipt deduplication and recovery from an EMIT error.
+
+## GitHub main-line switch
+
+Open one promotion PR from `zone/tweezer-tap-os` to `main`. After the branch checks pass and an independent reviewer approves its exact SHA, a maintainer can push a tag named `launch/tweezer-tap-os/<staged-sha>-<main-sha>` at the staged commit. Both identifiers are full 40-character SHAs. GitHub Actions assesses Measures 61–72, reverses all 72 measures, verifies fresh TIME and EMIT evidence in Cloudflare D1 using the repository Cloudflare credentials, rechecks the branch heads, and requests the exact-head PR merge through GitHub. The switch is scoped to this PR and release. The staging board has no production write path.
+
+## Deployment verification
+
+The original schema remains available for the original tests. Migration 0003 adds `conductor_evidence`, `conductor_delivery_receipts`, and `conductor_webhook_receipts`. The current dispatch Worker uses these tables and leaves the original `extraction_log` schema intact. The staging database retains the 12 original seeded TAP tiles.
+
+Cloudflare returned error 10037 for the standard Worker because the account is at 500 scripts. The private dispatch deployment has no attached Cron Trigger. Cloudflare also returned error 10007 when attaching it as a direct Queue consumer. A standard Worker slot or an authorized platform driver and compatible Queue consumer is required to start the verified recurring TIME/EMIT run. The control board remains on the internal staging alias and its operator secrets are provisioned separately.

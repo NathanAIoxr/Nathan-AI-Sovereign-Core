@@ -1,0 +1,31 @@
+name: Tweezer TAP launch switch
+on:
+  push:
+    tags: ['launch/tweezer-tap-os/**']
+permissions:
+  contents: write
+  actions: read
+  pull-requests: write
+concurrency:
+  group: tweezer-tap-os-production-switch
+  cancel-in-progress: false
+jobs:
+  verify-and-switch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test test/*.test.mjs
+        working-directory: app-factory/nathan-ai/tweezer-tap-os
+      - run: node src/release.mjs
+        working-directory: app-factory/nathan-ai/tweezer-tap-os
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
