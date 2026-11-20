@@ -1,3 +1,6 @@
+import { serveScrollLedger } from "./sovereign-engine/scroll-ledger.mjs";
+import { serveSovereignEngine } from "./sovereign-engine/worker.mjs";
+import { serveSovereignEngineHandoff } from "./sovereign-engine/handoff.mjs";
 import { nodeTemplate } from "./node-template/runtime.mjs";
 import { serveHolidayHandoff } from "./holiday-handoff.mjs";
 import { serveSovereignMindsHandoff } from "./sovereign-minds-handoff.mjs";
@@ -120,6 +123,12 @@ export default {
         return json({error:"temporarily_unavailable"},503);
       }
     }
+    const scrollResponse = await serveScrollLedger(request, env, path, limitedBody);
+    if (scrollResponse) return scrollResponse;
+    const engineResponse = await serveSovereignEngine(request, env, path);
+    if (engineResponse) return engineResponse;
+    const engineHandoff = serveSovereignEngineHandoff(request, path);
+    if (engineHandoff) return engineHandoff;
     const holidayHandoff = serveHolidayHandoff(request, path);
     if (holidayHandoff) return holidayHandoff;
     const mindsHandoff = serveSovereignMindsHandoff(request, path, env.LEDGER);

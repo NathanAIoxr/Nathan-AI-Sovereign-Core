@@ -1,0 +1,492 @@
+Here is the complete, production-ready Nathan AI Sovereign Artifact & Scroll Ledger package—combining the 144-bit fixed-anchor gate, SHA-256 content fingerprinting, UTC time-scroll stamping, Dead Sea Scrolls / artifact catalog fields, previous-hash chaining, and batch D1 transaction writes to stay well under Cloudflare D1's daily write limits.
+Everything below is ready to drop directly into Nathan-AI-Sovereign-Core.
+
+1. Cloudflare D1 / SQLite Schema (schema.sql)
+
+sql
+CREATE TABLE IF NOT EXISTS artifact_scroll_ledger (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    anchor_hex TEXT NOT NULL DEFAULT 'AA55FF01312B313D327E312D313D300400F0',
+    scroll_siglum TEXT NOT NULL,          -- e.g., '1QIsa-a', '3Q15', '4Q175'
+    cave_or_site TEXT NOT NULL,           -- e.g., 'Qumran Cave 1', 'Qumran Cave 3'
+    medium TEXT NOT NULL,                 -- 'parchment', 'papyrus', 'copper', 'stone'
+    script_lang TEXT NOT NULL,            -- 'Hebrew', 'Aramaic', 'Greek', 'Paleo-Hebrew'
+    epigraphic_status TEXT NOT NULL,      -- 'extant_verified' | 'reconstructed'
+    unix_timestamp INTEGER NOT NULL,      -- 64-bit UTC epoch time-scroll stamp
+    iso_timestamp TEXT NOT NULL,          -- UTC ISO-8601 string
+    content_nfc TEXT NOT NULL,            -- Unicode NFC canonical text
+    payload_sha256 TEXT NOT NULL UNIQUE,  -- SHA-256 of canonical record + anchor
+    prev_chain_sha256 TEXT NOT NULL,      -- Hash of preceding record in chain
+    media_asset_sha256 TEXT               -- Optional SHA-256 of infrared/multispectral scan
+);
+
+CREATE INDEX IF NOT EXISTS idx_scroll_siglum ON artifact_scroll_ledger(scroll_siglum);
+CREATE INDEX IF NOT EXISTS idx_unix_timestamp ON artifact_scroll_ledger(unix_timestamp);
+Use code with caution.
+
+2. Cloudflare Worker Ingest & Batch Engine (src/index.ts)
+
+This Worker self-initializes the table on boot, validates the 144-bit anchor (AA55FF01312B313D327E312D313D300400F0), normalizes Unicode text to NFC, computes WebCrypto SHA-256 hashes, links each record to the previous chain hash, and commits records in a single env.DB.batch() transaction.
+typescript
+export interface Env {
+  DB: D1Database;
+}
+
+interface ArtifactInput {
+  scroll_siglum: string;
+  cave_or_site: string;
+  medium: string;
+  script_lang: string;
+  epigraphic_status: "extant_verified" | "reconstructed";
+  raw_text: string;
+  media_asset_sha256?: string | null;
+}
+
+const MASTER_ANCHOR_HEX = "AA55FF01312B313D327E312D313D300400F0";
+const EXPECTED_RAIL_XOR = [0x00, 0x06, 0x00, 0x00, 0x02];
+const GENESIS_HASH = "0".repeat(64);
+
+const BOOTSTRAP_SQL = `
+CREATE TABLE IF NOT EXISTS artifact_scroll_ledger (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    anchor_hex TEXT NOT NULL DEFAULT 'AA55FF01312B313D327E312D313D300400F0',
+    scroll_siglum TEXT NOT NULL,
+    cave_or_site TEXT NOT NULL,
+    medium TEXT NOT NULL,
+    script_lang TEXT NOT NULL,
+    epigraphic_status TEXT NOT NULL,
+    unix_timestamp INTEGER NOT NULL,
+    iso_timestamp TEXT NOT NULL,
+    content_nfc TEXT NOT NULL,
+    payload_sha256 TEXT NOT NULL UNIQUE,
+    prev_chain_sha256 TEXT NOT NULL,
+    media_asset_sha256 TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_scroll_siglum ON artifact_scroll_ledger(scroll_siglum);
+CREATE INDEX IF NOT EXISTS idx_unix_timestamp ON artifact_scroll_ledger(unix_timestamp);
+`;
+
+function validate144BitAnchor(hexHeader: string | null): { valid: boolean; reason: string } {
+  if (!hexHeader) return { valid: false, reason: "Missing X-Sovereign-Anchor header" };
+  const clean = hexHeader.replace(/\s+/g, "").toUpperCase();
+  if (clean.length !== 36 || !/^[0-9A-F]{36}$/.test(clean)) {
+    return { valid: false, reason: "Invalid frame length: expected 18 bytes (36 hex chars)" };
+  }
+
+  const bytes = new Uint8Array(18);
+  for (let i = 0; i < 18; i++) {
+    bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
+  }
+
+  if (bytes[0] !== 0xaa || bytes[1] !== 0x55 || bytes[2] !== 0xff || bytes[3] !== 0x01) {
+    return { valid: false, reason: "SOF clock phase or LTR direction lock fault" };
+  }
+  if (bytes[9] !== 0x7e || bytes[16] !== 0x00 || bytes[17] !== 0xf0) {
+    return { valid: false, reason: "Spine delimiter or EOF boundary fault" };
+  }
+
+  let combinedXor = 0;
+  for (let i = 0; i < 5; i++) {
+    const r1 = bytes[4 + i];
+    const r2 = bytes[10 + i];
+    if ((r1 ^ r2) !== EXPECTED_RAIL_XOR[i]) {
+      return { valid: false, reason: `Dual-rail misalignment at byte ${i}` };
+    }
+    combinedXor ^= r1 ^ r2;
+  }
+
+  if (bytes[15] !== combinedXor || combinedXor !== 0x04 || clean !== MASTER_ANCHOR_HEX) {
+    return { valid: false, reason: "XOR checksum seal mismatch" };
+  }
+
+  return { valid: true, reason: "1+1=2_VERIFIED" };
+}
+
+async function sha256Hex(input: string): Promise<string> {
+  const data = new TextEncoder().encode(input);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+
+    // 1. Enforce 144-Bit Fixed-Anchor Gate on all requests
+    const gate = validate144BitAnchor(request.headers.get("X-Sovereign-Anchor"));
+    if (!gate.valid) {
+      return Response.json({ status: "1-1=0_PURGE", error: gate.reason }, { status: 403 });
+    }
+
+    // 2. Idempotent Schema Bootstrap on Boot
+    await env.DB.exec(BOOTSTRAP_SQL);
+
+    // 3. Batch Ingest Route: POST /ingest
+    if (request.method === "POST" && url.pathname === "/ingest") {
+      const body = (await request.json()) as { records?: ArtifactInput[] };
+      const records = body.records ?? [];
+      if (!Array.isArray(records) || records.length === 0) {
+        return Response.json({ status: "1-1=0_PURGE", error: "No records provided" }, { status: 400 });
+      }
+
+      // Fetch tail hash of existing chain
+      const lastRow = await env.DB.prepare(
+        "SELECT payload_sha256 FROM artifact_scroll_ledger ORDER BY id DESC LIMIT 1"
+      ).first<{ payload_sha256: string }>();
+
+      let prevHash = lastRow?.payload_sha256 ?? GENESIS_HASH;
+      const statements: D1PreparedStatement[] = [];
+      const sealedSummary: Array<{ scroll_siglum: string; payload_sha256: string; iso_timestamp: string }> = [];
+
+      const insertStmt = env.DB.prepare(`
+        INSERT INTO artifact_scroll_ledger (
+          anchor_hex, scroll_siglum, cave_or_site, medium, script_lang,
+          epigraphic_status, unix_timestamp, iso_timestamp, content_nfc,
+          payload_sha256, prev_chain_sha256, media_asset_sha256
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `);
+
+      for (const item of records) {
+        const contentNfc = item.raw_text.trim().normalize("NFC");
+        const unixTs = Math.floor(Date.now() / 1000);
+        const isoTs = new Date(unixTs * 1000).toISOString().replace(/\.\d{3}Z$/, "Z");
+
+        const canonicalPayload = JSON.stringify({
+          anchor: MASTER_ANCHOR_HEX,
+          lang: item.script_lang,
+          media_hash: item.media_asset_sha256 ?? null,
+          medium: item.medium,
+          prev_hash: prevHash,
+          siglum: item.scroll_siglum,
+          site: item.cave_or_site,
+          status: item.epigraphic_status,
+          text: contentNfc,
+          ts_unix: unixTs,
+        });
+
+        const payloadSha256 = await sha256Hex(canonicalPayload);
+
+        statements.push(
+          insertStmt.bind(
+            MASTER_ANCHOR_HEX,
+            item.scroll_siglum,
+            item.cave_or_site,
+            item.medium,
+            item.script_lang,
+            item.epigraphic_status,
+            unixTs,
+            isoTs,
+            contentNfc,
+            payloadSha256,
+            prevHash,
+            item.media_asset_sha256 ?? null
+          )
+        );
+
+        sealedSummary.push({
+          scroll_siglum: item.scroll_siglum,
+          payload_sha256: payloadSha256,
+          iso_timestamp: isoTs,
+        });
+
+        prevHash = payloadSha256;
+      }
+
+      // Single atomic batch transaction to minimize D1 write overhead
+      await env.DB.batch(statements);
+
+      return Response.json({
+        status: "1+1=2_COMMITTED",
+        anchor: MASTER_ANCHOR_HEX,
+        count: sealedSummary.length,
+        head_sha256: prevHash,
+        records: sealedSummary,
+      });
+    }
+
+    // 4. Chain Audit & Query Route: GET /ledger
+    if (request.method === "GET" && url.pathname === "/ledger") {
+      const siglum = url.searchParams.get("siglum");
+      const query = siglum
+        ? env.DB.prepare("SELECT * FROM artifact_scroll_ledger WHERE scroll_siglum = ? ORDER BY id ASC").bind(siglum)
+        : env.DB.prepare("SELECT * FROM artifact_scroll_ledger ORDER BY id DESC LIMIT 50");
+
+      const { results } = await query.all();
+      return Response.json({ status: "1+1=2_VERIFIED", count: results.length, records: results });
+    }
+
+    return Response.json({ status: "1+1=2_ONLINE", anchor: MASTER_ANCHOR_HEX });
+  },
+};
+Use code with caution.
+
+3. Local Python Engine & Seed Importer (nathan_ai_scroll_ledger.py)
+
+This attaches the exact same cryptographic envelope to your local Nathan-AI-Sovereign-Core SQLite database and provides a direct sync function to push sealed batches to your Cloudflare Worker endpoint.
+python
+#!/usr/bin/env python3
+"""
+Nathan AI Sovereign Artifact & Dead Sea Scroll Provenance Engine.
+Enforces 144-bit fixed-anchor gate, NFC Unicode normalization, UTC time-scroll
+stamping, SHA-256 hash chaining, local SQLite persistence, and Cloudflare Worker sync.
+"""
+
+import hashlib
+import json
+import sqlite3
+import time
+import unicodedata
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+
+MASTER_ANCHOR_HEX = "AA55FF01312B313D327E312D313D300400F0"
+EXPECTED_RAIL_XOR = bytes.fromhex("0006000002")
+GENESIS_HASH = "0" * 64
+LOCAL_DB_PATH = Path("./nathan_ai_sovereign_ledger.sqlite")
+
+
+def verify_144bit_anchor(hex_str: str = MASTER_ANCHOR_HEX) -> bool:
+    clean = hex_str.replace(" ", "").upper()
+    if len(clean) != 36:
+        return False
+    frame = bytes.fromhex(clean)
+    if frame[0:3] != b"\xaa\x55\xff" or frame[3] != 0x01:
+        return False
+    if frame[9] != 0x7E or frame[16:18] != b"\x00\xf0":
+        return False
+    r1, r2 = frame[4:9], frame[10:15]
+    if bytes(a ^ b for a, b in zip(r1, r2)) != EXPECTED_RAIL_XOR:
+        return False
+    xor_seal = 0
+    for b in r1 + r2:
+        xor_seal ^= b
+    return frame[15] == xor_seal == 0x04
+
+
+def init_local_db(db_path: Path = LOCAL_DB_PATH) -> sqlite3.Connection:
+    if not verify_144bit_anchor(MASTER_ANCHOR_HEX):
+        raise RuntimeError("1-1=0 PURGE: 144-bit anchor verification failed.")
+
+    conn = sqlite3.connect(db_path)
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS artifact_scroll_ledger (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            anchor_hex TEXT NOT NULL DEFAULT 'AA55FF01312B313D327E312D313D300400F0',
+            scroll_siglum TEXT NOT NULL,
+            cave_or_site TEXT NOT NULL,
+            medium TEXT NOT NULL,
+            script_lang TEXT NOT NULL,
+            epigraphic_status TEXT NOT NULL,
+            unix_timestamp INTEGER NOT NULL,
+            iso_timestamp TEXT NOT NULL,
+            content_nfc TEXT NOT NULL,
+            payload_sha256 TEXT NOT NULL UNIQUE,
+            prev_chain_sha256 TEXT NOT NULL,
+            media_asset_sha256 TEXT
+        )
+        """
+    )
+    conn.commit()
+    return conn
+
+
+def append_artifact_record(
+    conn: sqlite3.Connection,
+    scroll_siglum: str,
+    cave_or_site: str,
+    medium: str,
+    script_lang: str,
+    epigraphic_status: str,
+    raw_text: str,
+    media_asset_sha256: str | None = None,
+) -> dict:
+    row = conn.execute(
+        "SELECT payload_sha256 FROM artifact_scroll_ledger ORDER BY id DESC LIMIT 1"
+    ).fetchone()
+    prev_hash = row[0] if row else GENESIS_HASH
+
+    content_nfc = unicodedata.normalize("NFC", raw_text.strip())
+    unix_ts = int(time.time())
+    iso_ts = datetime.fromtimestamp(unix_ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    canonical_payload = json.dumps(
+        {
+            "anchor": MASTER_ANCHOR_HEX,
+            "lang": script_lang,
+            "media_hash": media_asset_sha256,
+            "medium": medium,
+            "prev_hash": prev_hash,
+            "siglum": scroll_siglum,
+            "site": cave_or_site,
+            "status": epigraphic_status,
+            "text": content_nfc,
+            "ts_unix": unix_ts,
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+    payload_sha256 = hashlib.sha256(canonical_payload.encode("utf-8")).hexdigest()
+
+    conn.execute(
+        """
+        INSERT INTO artifact_scroll_ledger (
+            anchor_hex, scroll_siglum, cave_or_site, medium, script_lang,
+            epigraphic_status, unix_timestamp, iso_timestamp, content_nfc,
+            payload_sha256, prev_chain_sha256, media_asset_sha256
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            MASTER_ANCHOR_HEX,
+            scroll_siglum,
+            cave_or_site,
+            medium,
+            script_lang,
+            epigraphic_status,
+            unix_ts,
+            iso_ts,
+            content_nfc,
+            payload_sha256,
+            prev_hash,
+            media_asset_sha256,
+        ),
+    )
+    conn.commit()
+
+    return {
+        "anchor_hex": MASTER_ANCHOR_HEX,
+        "scroll_siglum": scroll_siglum,
+        "cave_or_site": cave_or_site,
+        "medium": medium,
+        "script_lang": script_lang,
+        "epigraphic_status": epigraphic_status,
+        "unix_timestamp": unix_ts,
+        "iso_timestamp": iso_ts,
+        "content_nfc": content_nfc,
+        "payload_sha256": payload_sha256,
+        "prev_chain_sha256": prev_hash,
+        "media_asset_sha256": media_asset_sha256,
+    }
+
+
+def verify_entire_chain(conn: sqlite3.Connection) -> tuple[bool, str]:
+    rows = conn.execute(
+        """
+        SELECT id, anchor_hex, scroll_siglum, cave_or_site, medium, script_lang,
+               epigraphic_status, unix_timestamp, content_nfc, payload_sha256,
+               prev_chain_sha256, media_asset_sha256
+        FROM artifact_scroll_ledger ORDER BY id ASC
+        """
+    ).fetchall()
+
+    expected_prev = GENESIS_HASH
+    for r in rows:
+        (
+            rec_id, anchor, siglum, site, medium, lang,
+            status, unix_ts, text_nfc, stored_hash, prev_hash, media_hash
+        ) = r
+
+        if anchor != MASTER_ANCHOR_HEX or prev_hash != expected_prev:
+            return False, f"1-1=0 PURGE: Chain link broken at record ID {rec_id}"
+
+        recomputed = hashlib.sha256(
+            json.dumps(
+                {
+                    "anchor": anchor,
+                    "lang": lang,
+                    "media_hash": media_hash,
+                    "medium": medium,
+                    "prev_hash": prev_hash,
+                    "siglum": siglum,
+                    "site": site,
+                    "status": status,
+                    "text": text_nfc,
+                    "ts_unix": unix_ts,
+                },
+                sort_keys=True,
+                ensure_ascii=False,
+            ).encode("utf-8")
+        ).hexdigest()
+
+        if recomputed != stored_hash:
+            return False, f"1-1=0 PURGE: Content hash tampered at record ID {rec_id}"
+
+        expected_prev = stored_hash
+
+    return True, f"1+1=2 VERIFIED: All {len(rows)} ledger records intact."
+
+
+def push_batch_to_worker(worker_url: str, records: list[dict]) -> dict:
+    req = urllib.request.Request(
+        f"{worker_url.rstrip('/')}/ingest",
+        data=json.dumps({"records": records}).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "X-Sovereign-Anchor": MASTER_ANCHOR_HEX,
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+if __name__ == "__main__":
+    db = init_local_db()
+    seed = append_artifact_record(
+        db,
+        scroll_siglum="1QIsa-a",
+        cave_or_site="Qumran Cave 1",
+        medium="parchment",
+        script_lang="Hebrew",
+        epigraphic_status="extant_verified",
+        raw_text="Great Isaiah Scroll — Column I, Line 1 anchor verification record.",
+    )
+    ok, status = verify_entire_chain(db)
+    print(status)
+    print("Head SHA-256:", seed["payload_sha256"])
+Use code with caution.
+
+📋 Copy-Paste Handoff for ChatGPT / Claude / Open-Source Coding Agents
+
+markdown
+# HANDOFF: NATHAN AI SOVEREIGN SCROLL & ARTIFACT PROVENANCE ENGINE
+**Architect:** John "Nathan" Tabor  
+**Repository:** `NathanAIoxr/Nathan-AI-Sovereign-Core`  
+**Stack:** Cloudflare Workers, Cloudflare D1, Python 3, SQLite, GitHub Actions (`Six Dogs CI`)
+
+## 1. MANDATORY 144-BIT FIXED-ANCHOR LOCK
+Every request, database record, CI gate, and agent mutation is locked to the 18-byte (144-bit) dual-rail binary anchor (`1+1=2` and `1-1=0`):
+- **Hex Signature:** `AA55FF01312B313D327E312D313D300400F0`
+- **HTTP Header:** `X-Sovereign-Anchor: AA55FF01312B313D327E312D313D300400F0`
+- **Binary Rules:** `1 + 1 = 2` (Generative Addition — valid passes committed & hashed) | `1 - 1 = 0` (Absolute Clearing — invalid frames, unsealed payloads, or broken hashes rejected immediately).
+
+## 2. ATTACHED MODULES IN THIS BUILD
+1. **`schema.sql` & `src/index.ts` (Cloudflare Worker + D1):**
+   - Self-bootstraps `artifact_scroll_ledger` on first request (`CREATE TABLE IF NOT EXISTS`).
+   - Validates `X-Sovereign-Anchor` before any DB read/write.
+   - Normalizes text to Unicode `NFC`, computes WebCrypto `SHA-256`, stamps UTC Unix + ISO-8601 time-scroll timestamps, links `prev_chain_sha256`, and writes via single-transaction `env.DB.batch()` to conserve D1 daily row writes.
+2. **`nathan_ai_scroll_ledger.py` (Local Python Sovereign Engine):**
+   - Mirrors the exact D1 cryptographic schema in local SQLite (`nathan_ai_sovereign_ledger.sqlite`).
+   - Includes `verify_entire_chain()` for full-ledger hash auditing and `push_batch_to_worker()` for syncing local records to Cloudflare D1.
+
+## 3. ARTIFACT & DEAD SEA SCROLL METADATA STANDARD
+All ingested records enforce:
+- `scroll_siglum` (e.g., `1QIsa-a`, `3Q15`, `4Q175`)
+- `cave_or_site` (e.g., `Qumran Cave 1`)
+- `medium` (`parchment`, `papyrus`, `copper`, `stone`)
+- `script_lang` (`Hebrew`, `Aramaic`, `Greek`, `Paleo-Hebrew`)
+- `epigraphic_status` (`extant_verified` vs. `reconstructed`)
+- `media_asset_sha256` (optional infrared/multispectral scan fingerprint)
+
+## 4. NEXT ACTIONS FOR THIS AGENT SESSION
+- Do not alter the 144-bit anchor hex or downgrade cryptographic checks.
+- Keep Cloudflare deployments flat-bundled with zero uninitialized Git submodules.
+- Ask which batch source (Markdown, JSON, SQLite, or image scans) or GitHub Action CI workflow we are wiring into `artifact_scroll_ledger` next.
+Use code with caution.
+If you'd like to extend this setup further, let me know if you want:
+• A batch importer script to migrate existing records from your local JSON or Markdown files directly into nathan_ai_scroll_ledger.py
+• A GitHub Actions CI workflow that runs verify_entire_chain() on every commit before deploying the Worker
+Try without personalization

@@ -37,6 +37,8 @@ flowchart TD
   Job --> Ledger["D1 ledger and private R2 audit"]
 ```
 
+[Full-Spectrum Sovereign Engine](sovereign-engine/) extends the node template with leased local intake, batched D1 receipts and R2 overflow.
+
 ## One-time credentials
 
 Set these as encrypted secrets on `nathan-ai-conductor` in the `nathan-tabor-platforms` namespace. Use a separate strong random value for each key. Keep the operator key in the operator’s credential store.
