@@ -20,3 +20,10 @@ CREATE TABLE IF NOT EXISTS zone_reader_candidates (
 ) STRICT;
 CREATE INDEX IF NOT EXISTS zone_reader_review_idx
   ON zone_reader_candidates(review_status,observed_at DESC,workspace_id);
+
+CREATE TABLE IF NOT EXISTS zone_reader_git_coverage (
+  run_id TEXT PRIMARY KEY,
+  commit_sha TEXT NOT NULL,
+  summary_json TEXT NOT NULL CHECK(json_valid(summary_json)),
+  completed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+) STRICT;

@@ -1,5 +1,6 @@
 import {execFileSync} from 'node:child_process';
 import {REPOSITORY,validManifest} from './readers.mjs';
+import {scanGitContent} from './github-content.mjs';
 
 const base='https://tabor-bridge.nathantaboract.workers.dev/vault-reader-jobs/';
 const reader=process.argv[2];
@@ -55,5 +56,6 @@ if(reader==='cloudflare'){
       if(data&&typeof data==='object'&&!Array.isArray(data))verified.push([match[2],match[1]]);
     }catch(error){if(!(error instanceof SyntaxError))throw error;}
   }
-  console.log(JSON.stringify(await call('POST',verified)));
+  const coverage=scanGitContent(commit,REPOSITORY);
+  console.log(JSON.stringify(await call('POST',{manifests:verified,coverage})));
 }
