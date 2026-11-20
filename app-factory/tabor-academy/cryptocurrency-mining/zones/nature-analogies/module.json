@@ -1,0 +1,66 @@
+{
+  "id": "nature-analogies",
+  "title": "Natural refineries and computing analogies",
+  "outcome": "Compare an observed cleanup mechanism to a bounded computing analogy.",
+  "show": "Sort the original examples into fungi, plants, microbes and animals. Put a computing analogy beside each group and name what would need to be measured.",
+  "concepts": [
+    [
+      "Fungi",
+      "Oyster mushrooms and Pestalotiopsis are the starting examples for studying substrate changes and filtering. Evidence for a specific compound and setting is needed before generalizing to another substance."
+    ],
+    [
+      "Plants",
+      "Sunflowers, spider plants, snake plants and water hyacinth prompt questions about uptake, indoor-air claims and cleanup scale. A contaminant transferred to biomass can still require controlled handling."
+    ],
+    [
+      "Microbes",
+      "Ideonella sakaiensis is a documented PET example under study conditions. Geobacter and Alcanivorax borkumensis illustrate different research questions about electron transfer and oil degradation."
+    ],
+    [
+      "Animals",
+      "Oysters, clams and mussels illustrate filtration. Waxworms and mealworms prompt questions about plastic fragmentation, breakdown products and what the observations establish."
+    ],
+    [
+      "What to measure",
+      "Record the compound, conditions, change, and remaining material. Elements such as heavy metals can move or change chemical form, and radioactive isotopes remain radioactive until they decay."
+    ]
+  ],
+  "replicate": [
+    "Make an input, output, and remaining-material diagram using paper tokens or a published study.",
+    "Relate one example to deduplication, quarantine, or monitoring. Identify the actual source of electricity and work in a Bitcoin mine."
+  ],
+  "check": [
+    "What evidence distinguishes removal from transfer?",
+    "Measure the substance in both the original medium and the receiving material. Include any breakdown products and use appropriate controls."
+  ],
+  "sources": [
+    [
+      "Yoshida et al. · PET-degrading bacterium",
+      "https://pubmed.ncbi.nlm.nih.gov/26965627/"
+    ],
+    [
+      "U.S. EPA · Phytoremediation Resource Guide",
+      "https://www.epa.gov/sites/default/files/2015-04/documents/phytoresgude.pdf"
+    ],
+    [
+      "NOAA · Nutrient pollution",
+      "https://oceanservice.noaa.gov/facts/nutpollution.html"
+    ],
+    [
+      "Russell et al. · Fungi and polyester polyurethane",
+      "https://pubmed.ncbi.nlm.nih.gov/21764951/"
+    ],
+    [
+      "Cummings and Waring · Indoor plants and air cleaning",
+      "https://pubmed.ncbi.nlm.nih.gov/31695112/"
+    ],
+    [
+      "Review · Electron transfer beyond the outer membrane",
+      "https://pubmed.ncbi.nlm.nih.gov/37713456/"
+    ],
+    [
+      "Schneiker et al. · Alcanivorax borkumensis",
+      "https://pubmed.ncbi.nlm.nih.gov/16878126/"
+    ]
+  ]
+}

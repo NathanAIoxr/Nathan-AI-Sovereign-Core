@@ -1,0 +1,42 @@
+{
+  "id": "networks",
+  "title": "Other networks and proof of stake",
+  "outcome": "Classify the consensus mechanism before describing how a network adds blocks.",
+  "show": "Make comparison cards for Bitcoin, Monero, and Ethereum mainnet.",
+  "concepts": [
+    [
+      "Bitcoin",
+      "Bitcoin uses proof of work and double SHA-256. Its ASIC tooling and pool interfaces are specific to the job."
+    ],
+    [
+      "Monero",
+      "Monero uses RandomX, a different proof-of-work algorithm. Bitcoin SHA-256d proofs do not satisfy Monero’s RandomX rules."
+    ],
+    [
+      "Ethereum mainnet",
+      "Ethereum mainnet switched to proof of stake at The Merge. Its validators propose and attest to blocks under different rules."
+    ]
+  ],
+  "replicate": [
+    "On each card, write consensus, proof or validation role, and source.",
+    "Explain why a claim reading ‘mine any cryptocurrency with one miner’ needs to identify the network and algorithm first."
+  ],
+  "check": [
+    "Which of the three currently uses proof of stake?",
+    "Ethereum mainnet. Bitcoin and Monero use different proof-of-work algorithms."
+  ],
+  "sources": [
+    [
+      "Bitcoin developer guide · Mining",
+      "https://developer.bitcoin.org/devguide/mining.html"
+    ],
+    [
+      "Monero technical specification",
+      "https://docs.getmonero.org/technical-specs/"
+    ],
+    [
+      "Ethereum · The Merge",
+      "https://ethereum.org/roadmap/merge/"
+    ]
+  ]
+}

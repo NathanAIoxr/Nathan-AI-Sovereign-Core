@@ -1,0 +1,38 @@
+{
+  "id": "power-economics",
+  "title": "Electricity, heat, and operating costs",
+  "outcome": "Calculate energy consumption and operating cost from measured or provided inputs.",
+  "show": "Make an operating sheet with wall power, hours, energy, price per kWh, cooling and other costs.",
+  "concepts": [
+    [
+      "Energy and power",
+      "Watts measure power. Divide watts by 1,000 to get kilowatts. Multiply kilowatts by elapsed hours to get kilowatt-hours."
+    ],
+    [
+      "Efficiency",
+      "Joules per terahash describes the energy required for a given amount of hashing. Evaluate cooling power, uptime, and measurement conditions alongside miner efficiency."
+    ],
+    [
+      "Operating picture",
+      "Electricity cost is one input. Hardware, cooling, downtime, network difficulty, pool fees and payout rules also affect outcomes. A profitability claim needs a stated period and inputs."
+    ]
+  ],
+  "replicate": [
+    "Use a sample miner drawing 800 W for eight hours at $0.12 per kWh. Compute energy and electricity cost.",
+    "Add hypothetical cooling power of 200 W for the same eight hours and recompute both figures."
+  ],
+  "check": [
+    "What is the total with cooling in that example?",
+    "Total power is 1 kW, energy is 8 kWh, and electricity costs $0.96."
+  ],
+  "sources": [
+    [
+      "Bitaxe ESP-Miner",
+      "https://github.com/bitaxeorg/ESP-Miner"
+    ],
+    [
+      "Bitcoin developer guide · Mining",
+      "https://developer.bitcoin.org/devguide/mining.html"
+    ]
+  ]
+}

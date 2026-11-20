@@ -1,0 +1,42 @@
+{
+  "id": "bitcoin-proof",
+  "title": "Bitcoin proof of work",
+  "outcome": "Reproduce the relationship between a block header, nonce, hash, and target.",
+  "show": "Open the Golden Goose verifier. Identify the reported block hash and check the evidence it gives for the header’s embedded target.",
+  "concepts": [
+    [
+      "The header",
+      "The 80-byte Bitcoin block header includes the version, previous block hash, Merkle root, time, compact target and nonce."
+    ],
+    [
+      "The test",
+      "Bitcoin applies SHA-256 twice to the header. The resulting hash, interpreted as an integer in Bitcoin’s convention, must be at or below the target."
+    ],
+    [
+      "Search space",
+      "A miner can change the nonce and, when necessary, update other permitted candidate fields. A new coinbase extranonce changes the Merkle root. A smaller target is harder to meet."
+    ]
+  ],
+  "replicate": [
+    "Use the toy target of 20. Of hashes 70, 20, 5, and 21, circle every value the rule accepts.",
+    "Trace the header fields from the Bitcoin reference and compare the toy rule with the same inequality in the live verifier."
+  ],
+  "check": [
+    "Does verifying a public block header earn any Bitcoin?",
+    "Header verification checks proof already found. Mining seeks new valid work for a candidate block."
+  ],
+  "sources": [
+    [
+      "Bitcoin developer reference · Block headers",
+      "https://developer.bitcoin.org/reference/block_chain.html"
+    ],
+    [
+      "Bitcoin developer guide · Mining",
+      "https://developer.bitcoin.org/devguide/mining.html"
+    ],
+    [
+      "Golden Goose · Live Bitcoin verifier",
+      "https://nathan-ai-mining-lab.nathantaboract.workers.dev/golden-goose"
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "fleet-operations",
+  "title": "Cloudflare, GitHub, and Nathan AI Rocket 🚀",
+  "outcome": "Draw a fleet diagram that distinguishes physical mining, monitoring and code delivery.",
+  "show": "Place authorized ASICs and the pool on one row. Put Cloudflare telemetry and GitHub source and tests on a second row.",
+  "concepts": [
+    [
+      "Hardware inventory",
+      "A fleet record names an owned or expressly authorized device, its model and assigned operator. A Super 2X or Hyper slot counts capacity in the plan. Operational counts require actual inventory and observations."
+    ],
+    [
+      "Cloudflare",
+      "Workers can serve the dashboard, verify a public header and report health. A dispatch namespace gives a development Worker a separate deployment target."
+    ],
+    [
+      "GitHub",
+      "GitHub holds code and runs project tests. GitHub Actions terms prohibit cryptomining, including on self-hosted Actions runners."
+    ]
+  ],
+  "replicate": [
+    "Trace the legitimate records for one device from inventory to a pool-acknowledged share.",
+    "On the diagram, mark where to display an offline device, an unassigned slot and an accepted share. Give each a distinct status."
+  ],
+  "check": [
+    "What evidence upgrades a planned slot to a mining endpoint?",
+    "An authorized real device with a confirmed inventory identity and evidence that its configured pool is receiving work."
+  ],
+  "sources": [
+    [
+      "Cloudflare Workers limits",
+      "https://developers.cloudflare.com/workers/platform/limits/"
+    ],
+    [
+      "GitHub Actions product terms",
+      "https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features"
+    ],
+    [
+      "Cloudflare Workers for Platforms · Dynamic dispatch",
+      "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/dynamic-dispatch/"
+    ],
+    [
+      "Nathan AI Rocket fleet policy",
+      "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/nathan-ai-rocket-conductor/bitcoin-fleet-policy.json"
+    ]
+  ]
+}

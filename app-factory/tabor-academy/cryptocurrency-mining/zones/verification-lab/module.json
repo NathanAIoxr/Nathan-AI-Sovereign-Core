@@ -1,0 +1,42 @@
+{
+  "id": "verification-lab",
+  "title": "Verification lab and field book",
+  "outcome": "Turn one lesson into a reproducible evidence record another learner can check.",
+  "show": "Fill a field-book sheet with a question, an input, a predicted result, an observation, and a source.",
+  "concepts": [
+    [
+      "Read-only route",
+      "Open the Golden Goose mainnet verifier. Record the reported hash and observation time. Reproduce the header proof using the Mining Lab or an independent tool."
+    ],
+    [
+      "Local practice route",
+      "Bitcoin Core regtest creates a local development network where learners can produce practice blocks without joining Bitcoin mainnet. The practice chain uses its own local data."
+    ],
+    [
+      "Show and replicate",
+      "Give a partner the public input and the source, plus the rule you used. Record whether they got the same result. Explain any difference before combining observations."
+    ]
+  ],
+  "replicate": [
+    "Pick the public verification route or the local practice route. Record which network you used.",
+    "Keep categories for observed, calculated, and claimed. Add a partner’s independent result with a timestamp."
+  ],
+  "check": [
+    "What should a second learner need to reproduce the check?",
+    "The same public input or controlled local setup, the verification rule, the selected network, and the expected result format."
+  ],
+  "sources": [
+    [
+      "Golden Goose · Live Bitcoin verifier",
+      "https://nathan-ai-mining-lab.nathantaboract.workers.dev/golden-goose"
+    ],
+    [
+      "Bitcoin developer reference · Block headers",
+      "https://developer.bitcoin.org/reference/block_chain.html"
+    ],
+    [
+      "Bitcoin developer examples · Regtest",
+      "https://developer.bitcoin.org/examples/testing.html"
+    ]
+  ]
+}

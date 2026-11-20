@@ -1,0 +1,38 @@
+{
+  "id": "foundations",
+  "title": "Blocks, transactions, and consensus",
+  "outcome": "Explain what a miner proposes and what a full node verifies.",
+  "show": "Draw three cards labeled user, miner, and full node. Connect them with arrows carrying a signed transaction, a candidate block, and an accepted or rejected result.",
+  "concepts": [
+    [
+      "Transactions",
+      "A Bitcoin transaction spends existing outputs and creates new outputs. The network checks signatures and spending rules."
+    ],
+    [
+      "Blocks and the mempool",
+      "A block links to a previous block and commits to a set of transactions. A node’s mempool holds pending transactions the node knows about. Different nodes can have different mempools."
+    ],
+    [
+      "Consensus",
+      "Miners assemble candidate blocks and seek proof of work. Full nodes independently validate proof of work and the other consensus rules before accepting a block."
+    ]
+  ],
+  "replicate": [
+    "Write two sample payment slips and a duplicate that spends the same output.",
+    "Ask a partner to act as a full node and explain which conflicting spend is rejected after the first is included in the chosen chain."
+  ],
+  "check": [
+    "Who decides whether a proposed block follows the rules?",
+    "Each full node checks independently against its consensus rules."
+  ],
+  "sources": [
+    [
+      "Bitcoin developer guide · Mining",
+      "https://developer.bitcoin.org/devguide/mining.html"
+    ],
+    [
+      "Bitcoin developer reference · Block headers",
+      "https://developer.bitcoin.org/reference/block_chain.html"
+    ]
+  ]
+}

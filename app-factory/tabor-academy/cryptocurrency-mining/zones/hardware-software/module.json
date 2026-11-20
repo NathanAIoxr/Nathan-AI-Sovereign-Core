@@ -1,0 +1,42 @@
+{
+  "id": "hardware-software",
+  "title": "ASICs, CPUs, GPUs, and open-source tools",
+  "outcome": "Match hardware and software to a chain and a job.",
+  "show": "Build a reference card with three columns labeled hardware, mining software or firmware, and verifying software.",
+  "concepts": [
+    [
+      "Application-specific integrated circuits",
+      "ASICs are designed for a specific workload. Bitcoin’s SHA-256d mining is ordinarily performed by dedicated ASICs."
+    ],
+    [
+      "CPU and GPU",
+      "A general-purpose CPU handles varied workloads. A GPU excels at parallel computation. Suitability depends on the chain’s algorithm, and hardware capability by itself says little about economic viability."
+    ],
+    [
+      "Tools to inspect",
+      "Explore Bitaxe ESP-Miner firmware, Bitcoin Core node software, and the Stratum V2 Reference Implementation. Record the role of each before selecting a setup for practice."
+    ]
+  ],
+  "replicate": [
+    "Pick a source repository. Identify what it runs on, what input it expects, and what output you can independently check.",
+    "Describe where a pool account and a local miner belong on the card without collecting real classmates’ credentials."
+  ],
+  "check": [
+    "Which tool validates the blockchain in this example?",
+    "Bitcoin Core is full-node software. ESP-Miner firmware runs compatible Bitaxe hardware, and the Stratum implementation handles mining communications."
+  ],
+  "sources": [
+    [
+      "Bitaxe ESP-Miner",
+      "https://github.com/bitaxeorg/ESP-Miner"
+    ],
+    [
+      "Bitcoin Core",
+      "https://github.com/bitcoin/bitcoin"
+    ],
+    [
+      "Stratum V2 Reference Implementation",
+      "https://github.com/stratum-mining"
+    ]
+  ]
+}

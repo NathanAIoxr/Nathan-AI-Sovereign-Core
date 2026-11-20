@@ -1,0 +1,42 @@
+{
+  "id": "pools-stratum",
+  "title": "Solo mining, pools, and Stratum",
+  "outcome": "Trace one job from the pool to a miner and one share back.",
+  "show": "Draw a pool-to-miner arrow labeled job and a miner-to-pool arrow labeled share. Add a second checkpoint for the stricter network target.",
+  "concepts": [
+    [
+      "Solo mining",
+      "A solo miner seeks a valid block and receives block rewards if that block is accepted and the miner controls the coinbase payout."
+    ],
+    [
+      "Pooled mining",
+      "A pool tracks contributed work with shares that meet its own target. Pool-specific terms govern payment. A qualifying share also meets the network target only when it is low enough."
+    ],
+    [
+      "Stratum",
+      "Stratum carries work and share submissions. Stratum V2 has a public specification and open-source reference implementation. Firmware and pool support determine what can connect."
+    ]
+  ],
+  "replicate": [
+    "Use hypothetical pool and network targets of 50 and 5. Sort values 3, 8, and 60 into both targets, only pool target, or neither.",
+    "Mark the difference between an accepted share, a valid block, and a payout in the diagram."
+  ],
+  "check": [
+    "What does an accepted share prove?",
+    "The pool acknowledged qualifying work under its share and job rules. The share alone establishes neither a block nor a payout."
+  ],
+  "sources": [
+    [
+      "Bitcoin developer guide · Mining",
+      "https://developer.bitcoin.org/devguide/mining.html"
+    ],
+    [
+      "Stratum V2 mining protocol",
+      "https://stratumprotocol.org/specification/05-mining-protocol/"
+    ],
+    [
+      "Stratum V2 Reference Implementation",
+      "https://github.com/stratum-mining"
+    ]
+  ]
+}

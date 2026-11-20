@@ -1,0 +1,46 @@
+{
+  "id": "octopus-mirror",
+  "title": "Octopus Mirror Engine",
+  "outcome": "Compare nine views of one record and explain which steps are actual proof-of-work checks.",
+  "show": "Draw a three-by-three grid. Rows are forward, backward, and inverted. Columns are this side of the mirror, as the mirror, and the other side of the mirror.",
+  "concepts": [
+    [
+      "Forward and backward",
+      "Use the forward pass to record what goes in and comes out. Use the backward view to trace a receipt to its inputs. Hash verification recomputes from the original bytes."
+    ],
+    [
+      "Inverted",
+      "For the classroom example, invert the acceptance predicate to list rejects. Byte-order conversion between Bitcoin’s displayed hash and serialized bytes is a separate representation issue."
+    ],
+    [
+      "The eight arms",
+      "The project names eight arms: intake, forward, reverse, distribute, optimize, refine, Golden Goose, and conductor. They can model separate queues or stages. Mining hardware still tests candidate headers against the network target. Reordering changes which guesses are visited first."
+    ],
+    [
+      "Suction and camouflage",
+      "These names come from the original biological metaphor. In a computing system, define the actual operation and measure its result, such as filtering duplicates or comparing a candidate hash to its target. Pending transactions and orphaned blocks confer no automatic ownership or payout."
+    ]
+  ],
+  "replicate": [
+    "Use candidate values 7, 17 and 4 with target 10. Run them forward and backward and invert the predicate for a reject list.",
+    "Fill this side with inputs, as the mirror with verification, and the other side with receipts. Compare normalized pass and reject sets for each order."
+  ],
+  "check": [
+    "What remains true if the same guesses are checked in reverse order?",
+    "The same guesses satisfy the target. Receipt order can change, while the target and accepted set stay the same."
+  ],
+  "sources": [
+    [
+      "Octopus Mirror Engine · Nathan Tabor project",
+      "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/octopus-mirror-engine"
+    ],
+    [
+      "Bitcoin developer reference · Block headers",
+      "https://developer.bitcoin.org/reference/block_chain.html"
+    ],
+    [
+      "Golden Goose · Live Bitcoin verifier",
+      "https://nathan-ai-mining-lab.nathantaboract.workers.dev/golden-goose"
+    ]
+  ]
+}

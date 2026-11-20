@@ -1,0 +1,38 @@
+{
+  "id": "wallet-rewards",
+  "title": "Wallets, rewards, and payout evidence",
+  "outcome": "Follow the evidence from a block reward or pool balance to a confirmed transaction.",
+  "show": "Draw separate boxes for work, payout record, on-chain transaction, and receiving wallet.",
+  "concepts": [
+    [
+      "Reward sources",
+      "The Bitcoin coinbase transaction can claim the block subsidy and transaction fees under network rules. A pool can distribute proceeds according to its own published payment terms."
+    ],
+    [
+      "Wallet evidence",
+      "A public address can help check receipt on-chain. Wallet keys authorize spending. Keep seed phrases and private keys outside the exercise."
+    ],
+    [
+      "Receipts",
+      "A pool dashboard shows accounting. A transaction ID can locate a broadcast transaction. Confirmation shows inclusion in the chain, and wallet control requires separate evidence."
+    ]
+  ],
+  "replicate": [
+    "Given a sample share counter, pool balance, and transaction ID, label which item answers each question about work, accounting, and payment.",
+    "Write which piece of evidence is still missing if the sample has no transaction ID or only an unconfirmed transaction."
+  ],
+  "check": [
+    "Which item can you use to look up a payment on a block explorer?",
+    "A transaction ID. Check its network, outputs, and confirmation status together."
+  ],
+  "sources": [
+    [
+      "Bitcoin developer guide · Mining",
+      "https://developer.bitcoin.org/devguide/mining.html"
+    ],
+    [
+      "Bitcoin developer guide · Wallets",
+      "https://developer.bitcoin.org/devguide/wallets.html"
+    ]
+  ]
+}
