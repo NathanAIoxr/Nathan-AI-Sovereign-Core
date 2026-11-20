@@ -7,8 +7,8 @@
   const open = document.querySelector("#open-minds");
   const assets = new URL(root.dataset.assets, location.href);
   const pages = new URL("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/");
-  const { createDirectory, pageSize, reply } = window.NathanMindsChat;
-  const requestedMind = new URLSearchParams(location.search).get("mind");
+  const { createDirectory, lassoReply, nathanMindId, pageSize, reply } = window.NathanMindsChat;
+  const requestedMind = new URLSearchParams(location.search).get("mind") || root.dataset.defaultMind;
 
   root.innerHTML = `
     <header class="minds-header">
@@ -30,6 +30,7 @@
           <label>Mind family
             <select data-family>
               <option value="">All Mind families</option>
+              <option value="author-source-mind">Nathan Tabor</option>
               <option value="humans">Historical people</option>
               <option value="deities">Gods and goddesses</option>
               <option value="goddesses">Goddesses</option>
@@ -63,6 +64,7 @@
         <h2 id="minds-active">Choose a Mind</h2>
         <p data-purpose></p>
         <p data-source></p>
+        <div class="minds-buttons" data-prompts aria-label="Nathan Mind prompts" hidden></div>
         <div class="minds-log" role="log" aria-label="Mind conversation" data-log></div>
         <form data-ask>
           <label>Your question<textarea name="question" rows="3" maxlength="1500" required></textarea></label>
@@ -100,6 +102,18 @@
     get("purpose").textContent = record.purpose;
     get("source").textContent = record.sourceId ? "Source: " + record.sourceId : "";
     if (record.id === "omni.opal-ai") addLink(get("source"), "Open Opal AI’s source record", "ai-mapping/");
+    const prompts = get("prompts");
+    prompts.replaceChildren();
+    prompts.hidden = record.id !== nathanMindId || !directory.lassoTruth;
+    if (!prompts.hidden) {
+      for (const { label, question } of directory.lassoTruth.prompts) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        button.addEventListener("click", () => ask(question));
+        prompts.append(button);
+      }
+    }
     get("send").disabled = false;
     get("log").replaceChildren();
     for (const button of get("list").querySelectorAll("button")) {
@@ -200,21 +214,52 @@
     select(virtualRecord(address));
   });
   addressInput.addEventListener("input", () => addressInput.setCustomValidity(""));
-  get("ask").addEventListener("submit", event => {
-    event.preventDefault();
-    const question = questionInput.value.trim();
+  function ask(question) {
     if (!question || !selectState.selected) return;
     const log = get("log");
     const turn = document.createElement("article");
     const prompt = document.createElement("p");
     const answer = document.createElement("p");
     prompt.textContent = question;
-    answer.textContent = reply(directory, selectState.selected, question);
     turn.append(prompt, answer);
+    if (selectState.selected.id === nathanMindId) {
+      const result = lassoReply(directory.lassoTruth, question);
+      answer.textContent = result.message;
+      for (const record of result.evidence) {
+        const entry = document.createElement("details");
+        const title = document.createElement("summary");
+        const description = document.createElement("p");
+        const source = document.createElement("p");
+        title.textContent = record.title + " · " + (record.eventDate || record.date);
+        description.textContent = record.text;
+        source.textContent = record.label + " · " + record.reference.title +
+          (record.eventDate ? " · Account recorded " + record.date : "");
+        if (record.reference.url) {
+          source.append(" · ");
+          addLink(source, "Open source", record.reference.url);
+        }
+        entry.append(title, description);
+        if (record.quote) {
+          const quote = document.createElement("blockquote");
+          quote.textContent = record.quote;
+          entry.append(quote);
+        }
+        entry.append(source);
+        entry.open = result.status !== "timeline" || turn.querySelector("details") === null;
+        turn.append(entry);
+      }
+    } else {
+      answer.textContent = reply(directory, selectState.selected, question);
+    }
     log.append(turn);
     if (log.childElementCount > 24) log.firstElementChild.remove();
-    questionInput.value = "";
     turn.scrollIntoView({ block: "nearest" });
+  }
+
+  get("ask").addEventListener("submit", event => {
+    event.preventDefault();
+    ask(questionInput.value.trim());
+    questionInput.value = "";
   });
   get("clear").addEventListener("click", () => get("log").replaceChildren());
 
@@ -243,7 +288,7 @@
       get("author").hidden = false;
       get("controls").hidden = false;
       render();
-      const selected = requestedMind && directory.get(requestedMind);
+      const selected = directory.get(requestedMind || (dialog ? "" : nathanMindId));
       if (selected) select(selected);
     } catch {
       get("summary").textContent = "The Mind registry could not load.";

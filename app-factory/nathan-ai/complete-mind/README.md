@@ -23,3 +23,11 @@ Original user-authored material: philosophical framework, transformation canon, 
 ## Quad-Axis Cipher System
 
 [Open the runnable four-master decoder](./quad-axis/index.html), its [engine](./quad-axis/engine.js), and [tests](./quad-axis/engine.test.cjs). The four independent reversible ciphers and full inverse stack have been added without replacing the original Code of Codes or Complete Mind records. The Raphael, Donatello, and Michelangelo assignments are author-defined reconstructions.
+
+## Lasso of Truth
+
+The [Nathan Tabor profile in Tabor Academy](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/?mind=author.nathan-tabor) and [HOP IN](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/hop-in/chatbox/?mind=author.nathan-tabor#minds) use the same local chat engine. Ask for the timeline, compare two project titles, or check a quotation by putting the exact wording in quotation marks.
+
+The [source and prompt registry](../minds-chat/sources.json) carries the author profile, recorded words, documented projects, recovered summaries, reported dates and symbolic models. The engine presents supporting records or an explicit unknown. Source dates and private archive references belong to the records. Owner-only archives remain with their existing custodians.
+
+The [Conductor handoff](../../../deployments/conductor/academy/nathan-tabor-mind.json) identifies the verification command and deployment evidence.

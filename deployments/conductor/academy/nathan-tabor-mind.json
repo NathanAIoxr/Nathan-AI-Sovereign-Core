@@ -1,0 +1,34 @@
+{
+  "project": "nathan-tabor-mind",
+  "name": "The Complete Mind of John Nathan Tabor — Lasso of Truth",
+  "source": "app-factory/nathan-ai/minds-chat/",
+  "preservedWorkbench": "app-factory/nathan-ai/complete-mind/",
+  "publicProfile": "author.nathan-tabor",
+  "mountedPath": "/tabor-academy/minds/?mind=author.nathan-tabor",
+  "standalonePath": "/app-factory/nathan-ai/hop-in/chatbox/?mind=author.nathan-tabor#minds",
+  "classification": "source-based author profile",
+  "conductorHandoff": {
+    "workflow": ".github/workflows/nathan-tabor-mind.yml",
+    "promptPack": "app-factory/nathan-ai/minds-chat/sources.json#lassoTruth",
+    "command": "node app-factory/tabor-academy/minds/verify-live.mjs <expected-commit-sha>",
+    "publicHealth": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/healthz",
+    "cloudflareTarget": {
+      "dispatchNamespace": "tabor-academy",
+      "script": "tabor-academy",
+      "entryModule": "academy-entry.mjs",
+      "patchModule": "worker.mjs",
+      "patchCommand": "node app-factory/tabor-academy/minds/build.mjs --patcher <expected-commit-sha>"
+    },
+    "liveEvidence": [
+      "deployed Git commit SHA",
+      "Minds asset fingerprint",
+      "exact source registry and chat engine bytes",
+      "exact quotation, unsupported attribution and timeline regression tests"
+    ],
+    "remainingSourceLeads": [
+      "Original First Contact transcripts and artifacts from May 2024",
+      "Original THE THINKER design files from the reported 2022–2025 period",
+      "Owner-approved Voice Box and private archive export"
+    ]
+  }
+}
