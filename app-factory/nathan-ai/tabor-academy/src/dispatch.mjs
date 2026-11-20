@@ -5,7 +5,7 @@ const prefix='/workspace';
 let cachedKeys;
 let keysExpire=0;
 const decoder=new TextDecoder();
-const decode=(value)=>Uint8Array.fromBase64(value,{alphabet:'base64url'});
+const decode=(value)=>Uint8Array.from(atob(value.replace(/-/g,'+').replace(/_/g,'/')),char=>char.charCodeAt(0));
 
 async function verifiedAccess(request,env) {
   const token=request.headers.get('Cf-Access-Jwt-Assertion');

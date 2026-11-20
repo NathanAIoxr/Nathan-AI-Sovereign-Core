@@ -10,6 +10,15 @@ const stmt = (env,sql,...params) => env.DB.prepare(sql).bind(...params);
 const embedding = '@cf/baai/bge-small-en-v1.5';
 const json = (data,status=200,headers={}) => Response.json(data,{status,headers:{'Cache-Control':'no-store',...headers}});
 const error = (message,status=400) => json({error:message},status);
+function encodeAudio(buffer) {
+  const bytes=new Uint8Array(buffer);
+  const chunkSize=24576;
+  const chunks=[];
+  for(let i=0;i<bytes.length;i+=chunkSize) {
+    chunks.push(btoa(String.fromCharCode(...bytes.subarray(i,i+chunkSize))));
+  }
+  return chunks.join('');
+}
 const deserialize = (row) => ({...JSON.parse(row.content),id:row.id,revision:row.revision,published:row.published===1});
 function workspace(request) {
   const name = new URL(request.url).protocol==='https:' ? '__Host-tabor_academy' : 'tabor_academy';
@@ -138,7 +147,7 @@ async function handle(request,env,ctx) {
     let warning='';
     if (url.searchParams.get('transcribe')==='1' && env.AI) {
       try {
-        const result=await env.AI.run('@cf/openai/whisper-large-v3-turbo',{audio:new Uint8Array(buffer).toBase64()});
+        const result=await env.AI.run('@cf/openai/whisper-large-v3-turbo',{audio:encodeAudio(buffer)});
         transcript=result.text||'';
       } catch { warning='Audio saved. Automatic transcription is unavailable for this recording.'; }
     }
