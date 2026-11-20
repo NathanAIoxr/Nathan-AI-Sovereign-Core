@@ -1,0 +1,54 @@
+{
+  "title": "Tabor Bank of 69",
+  "type": "virtual coin and mining research registry",
+  "existing_64": {
+    "preserve_existing": true,
+    "authoritative_source": "existing 64-position restoration archive; do not replace",
+    "verified_named_positions": 42,
+    "unresolved_positions": 22
+  },
+  "new_positions": [
+    {
+      "slot": 65,
+      "symbol": null,
+      "name": null,
+      "state": "RESERVED_UNNAMED",
+      "requires_identity_verification": true
+    },
+    {
+      "slot": 66,
+      "symbol": null,
+      "name": null,
+      "state": "RESERVED_UNNAMED",
+      "requires_identity_verification": true
+    },
+    {
+      "slot": 67,
+      "symbol": null,
+      "name": null,
+      "state": "RESERVED_UNNAMED",
+      "requires_identity_verification": true
+    },
+    {
+      "slot": 68,
+      "symbol": null,
+      "name": null,
+      "state": "RESERVED_UNNAMED",
+      "requires_identity_verification": true
+    },
+    {
+      "slot": 69,
+      "symbol": null,
+      "name": null,
+      "state": "RESERVED_UNNAMED",
+      "requires_identity_verification": true
+    }
+  ],
+  "financial_activity": "DISABLED",
+  "source_of_truth": "Existing 64-coin registry; independent additional five slots",
+  "related_modules": [
+    "voice-vault-mirror/src/mirror_risk.js",
+    "voice-vault-mirror/schema_voice_fleet.sql"
+  ],
+  "notes": "No token mint, wallet custody, mining pool connection, or transfer implied."
+}
