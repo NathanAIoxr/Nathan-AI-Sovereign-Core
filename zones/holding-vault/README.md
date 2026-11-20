@@ -74,3 +74,11 @@ Each staged component has a private page scoped to its workspace and stable sour
 The global KV launch switch is `gate:*`. Each workspace uses `gate:<workspace-id>`. Both keys must explicitly contain `LIVE` before a public redirect is possible. `BRAKE`, `HOLDING`, missing keys, and KV failures close the gate. The Worker also requires `LAUNCH_STATUS=LIVE` and reads the individual launch state and domain verification from the D1 primary. For an immediate project brake, set the D1 launch state to `HOLDING` and set its KV switch to `BRAKE`. For a global rollout brake, set `gate:*` to `BRAKE`. Allow for Cloudflare KV propagation before treating the KV update as effective at every location.
 
 Private source traces follow provenance edges for each workspace and its companion projects. A trace marks unresolved references, external references, and nodes with no outgoing edge in the tracked graph. It also reports when its 2,000-node limit is reached. Follow a trace from the owner preview for the project.
+
+## Source trails
+
+Open **Source trail** inside an owner preview. The route walks all recorded references reachable from that workspace and lists the results 50 at a time. Each entry includes its direct references. The JSON route returns the same records. The walk deduplicates node IDs and handles cycles.
+
+The provenance tables hold repository path and Git object identifiers, staged snapshot identifiers and digests, and Cloudflare resource relationships. The `buildProvenance` function in `scripts/provenance.mjs` accepts a D1 query function, the Cloudflare account inventory, and the pinned repository path map. Use `after` and `through` to resume a range of staged rows. Apply migration `0004_provenance.sql` first.
+
+A verified root is an account or repository reached by the stored chain. Entries labeled external reference retain the destination origin. Unresolved entries retain the available path evidence. The separate GitHub Actions workflow refreshes integration candidates from the mapped manifests and build ledgers every six hours.

@@ -90,7 +90,7 @@ export async function renderZoneSite(env, record, base, part, cursor = "0") {
 
   const root = `${base}/preview/${record.workspace_id}`;
   const title = record.project_name;
-  const header = `<nav aria-label="Project preview"><a href="${root}">Workspace</a> · <a href="${root}/site">Website preview</a> · <a href="${root}/snapshot.json">Snapshot</a> · <a href="${base}/preview/readers?workspace=${record.workspace_id}">Integration candidates</a></nav><p><strong>Private staging</strong> · <code>${escape(site.preview_hostname)}</code></p>`;
+  const header = `<nav aria-label="Project preview"><a href="${root}">Workspace</a> · <a href="${root}/site">Website preview</a> · <a href="${root}/snapshot.json">Snapshot</a> · <a href="${base}/preview/readers?workspace=${record.workspace_id}">Integration candidates</a> · <a href="${root}/provenance">Source trail</a></nav><p><strong>Private staging</strong> · <code>${escape(site.preview_hostname)}</code></p>`;
   if (part) {
     const key = partIdentity(part);
     if (!key) return text("Component not found",404);
@@ -109,6 +109,33 @@ export async function renderZoneSite(env, record, base, part, cursor = "0") {
   const next = results.length>pageSize ? `<p><a href="${root}/site?offset=${offset+pageSize}">Next components</a></p>` : "";
   const placeholder = record.domain ? escape(record.domain) : "Assigned at launch";
   return page(title,`${header}<dl><dt>Website domain</dt><dd>${placeholder}</dd><dt>Launch state</dt><dd>${escape(record.launch_status)}</dd></dl><h2>Staged areas</h2>${items ? `<ul>${items}</ul>` : "<p>No staged areas yet.</p>"}${next}`);
+}
+
+async function showProvenance(env, record, base, search, asJson) {
+  const offset = search.get("offset") ?? "0";
+  if (!/^(0|[1-9][0-9]{0,6})$/.test(offset)) return text("Invalid cursor",400);
+  const {results} = await env.DB.prepare(`
+    WITH RECURSIVE reachable(node_key) AS (
+      VALUES(?)
+      UNION
+      SELECT e.target_key FROM zone_reader_provenance_edges e JOIN reachable r ON e.source_key=r.node_key
+    ), visible AS (
+      SELECT n.node_key,n.kind,n.locator,n.resolution
+      FROM reachable r JOIN zone_reader_provenance_nodes n USING(node_key)
+      ORDER BY CASE n.resolution WHEN 'verified-leaf' THEN 0 WHEN 'external-reference' THEN 1 WHEN 'unresolved' THEN 2 ELSE 3 END,n.node_key
+      LIMIT 51 OFFSET ?
+    )
+    SELECT v.*, (SELECT json_group_array(json_object('relation',e.relation,'target',e.target_key))
+      FROM zone_reader_provenance_edges e WHERE e.source_key=v.node_key) AS references_json
+    FROM visible v`).bind("zone:"+record.workspace_id,Number(offset)).all();
+  const nextOffset = results.length>50 ? Number(offset)+50 : null;
+  const rows = results.slice(0,50).map(({references_json,...row}) => ({...row,references:JSON.parse(references_json)}));
+  if (asJson) return json({workspace:record.workspace_id,rows,nextOffset});
+  const workspace = `${base}/preview/${record.workspace_id}`;
+  const path = `${workspace}/provenance`;
+  const list = rows.map(row => `<li><code>${escape(row.locator)}</code> · ${escape(row.kind)} · ${escape(row.resolution)}<details><summary>${row.references.length} direct references</summary><ul>${row.references.map(edge=>`<li>${escape(edge.relation)} · <code>${escape(edge.target)}</code></li>`).join("")}</ul></details></li>`).join("");
+  const next = nextOffset===null ? "" : `<p><a href="${path}?offset=${nextOffset}">Next page</a></p>`;
+  return page("Source trail",`<p><a href="${workspace}">${escape(record.project_name)}</a> · <a href="${path}.json?offset=${offset}">JSON evidence</a></p>${list?`<ol>${list}</ol>`:"<p>No source trail is available for this workspace.</p>"}${next}`);
 }
 
 async function showReaders(env,base,search,asJson) {
@@ -182,6 +209,14 @@ async function handle(request, env) {
     return page("Project staging registry", `<p><a href="${base}/preview/readers">Integration candidates</a></p><ul>${items}</ul>${next}`);
   }
 
+  const provenance = /^\/preview\/([^/]+)\/provenance(?:\.json)?\/?$/.exec(pathname);
+  if (provenance) {
+    if (!validId(provenance[1])) return text("Project not found",404);
+    const project = await projectRow(env,provenance[1]);
+    if (!project) return text("Project not found",404);
+    return await showProvenance(env,project,base,searchParams,pathname.includes(".json"));
+  }
+
   const site = /^\/preview\/([^/]+)\/site(?:\/part\/([^/]+))?\/?$/.exec(pathname);
   if (site) {
     if (!validId(site[1])) return text("Project website not found",404);
@@ -209,7 +244,7 @@ async function handle(request, env) {
     const list = rows.map((row) => `<li>${escape(row.component_type)} · ${escape(row.source_ref ?? row.source_id)}</li>`).join("");
     const snapshot = `${base}/preview/${record.workspace_id}/snapshot.json`;
     const count = nextOffset === null ? rows.length : "30+";
-    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><p><a href="${base}/preview/${record.workspace_id}/site">Website preview</a></p><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a></p><ul>${list}</ul>`);
+    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><p><a href="${base}/preview/${record.workspace_id}/site">Website preview</a> · <a href="${base}/preview/${record.workspace_id}/provenance">Source trail</a></p><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a></p><ul>${list}</ul>`);
   }
 
   const segments = match[3].split("/");
