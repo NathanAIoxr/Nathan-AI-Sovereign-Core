@@ -30,3 +30,18 @@ test("search escapes markup and the archive and Conductor resolve", async () => 
   assert.equal((await get("/", "HEAD")).body, null);
   assert.equal((await get("/", "POST")).status, 405);
 });
+
+test("the Academy mount preserves other routes and generates canonical links", async () => {
+  const { withJeffreyEpsteinBible } = await import("./worker.mjs");
+  const { mountJeffreyEpsteinBible } = await import("./mount.mjs");
+  const mount = "/tabor-academy/jeffrey-epstein-bible";
+  const academy = withJeffreyEpsteinBible({ fetch: () => new Response("Academy fallback") });
+  const get = path => academy.fetch(new Request("https://academy.test" + path));
+  assert.match(await (await get(mount + "/")).text(), /action="\/tabor-academy\/jeffrey-epstein-bible\/"/);
+  assert.equal((await get("/jeffrey-epstein-bible/chapter/accesspoint/")).status, 200);
+  assert.equal(await (await get("/jeffrey-epstein-bible-other")).text(), "Academy fallback");
+  const source = "export default withApprenticeshipZone(academy);\n";
+  const patched = mountJeffreyEpsteinBible(source);
+  assert.match(patched, /withJeffreyEpsteinBible\(withApprenticeshipZone\(academy\)\)/);
+  assert.equal(mountJeffreyEpsteinBible(patched), patched);
+});
