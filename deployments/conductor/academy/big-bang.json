@@ -3,7 +3,7 @@
   "name": "BIG BANG TIMES NATHAN TABOR",
   "operator": "Nathan Tabor",
   "authorSource": "app-factory/tabor-academy/big-bang/author.txt",
-  "courseModule": "app-factory/tabor-academy/big-bang/index.html",
+  "courseModule": "app-factory/tabor-academy/big-bang/page.mjs",
   "mountedPath": "/tabor-academy/big-bang/",
   "conductorHandoff": {
     "relatedHandoff": "tabor-academy/conductor-handoffs/2026-11-20-truth-love-innocence.md",
@@ -13,9 +13,21 @@
       "Academy homepage motto",
       "Verbatim author source",
       "Four-check lesson",
-      "GitHub release SHA"
+      "GitHub release SHA",
+      "Interactive EXPLODE control and six Academy pathways"
     ],
-    "workflow": ".github/workflows/tabor-academy-big-bang.yml"
+    "experienceBuilder": "app-factory/tabor-academy/big-bang/experience.mjs",
+    "scope": [
+      "heart",
+      "soul",
+      "shadow",
+      "spirit",
+      "nothing",
+      "everything"
+    ],
+    "maintainerPrompt": "Preserve the exact author source. Keep the six Academy paths linked to their source work and the four-check lesson accessible as an independent learning activity.",
+    "verification": "node app-factory/tabor-academy/big-bang/verify-live.mjs <commit-sha>",
+    "lesson": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/lesson/"
   },
-  "fieldworkPath": "/tabor-academy/big-bang/fieldwork/"
+  "experience": "app-factory/tabor-academy/big-bang/index.html"
 }
