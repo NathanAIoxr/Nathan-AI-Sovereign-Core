@@ -96,7 +96,7 @@ export default {
               Accept: "application/vnd.github+json",
               "User-Agent": "Nathan-AI-Conductor"
             },
-            redirect: "error",
+            redirect: "manual",
             signal: AbortSignal.timeout(5000)
           });
           if (!response.ok) {
