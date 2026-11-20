@@ -1,0 +1,14 @@
+{
+  "id": "reader-canary:350f0961-1a6f-445d-8851-f950e1d2e012",
+  "first": {
+    "leased": 2,
+    "acknowledged": 2,
+    "retried": 0
+  },
+  "replay": {
+    "leased": 1,
+    "acknowledged": 1,
+    "retried": 0
+  },
+  "rows": 1
+}
