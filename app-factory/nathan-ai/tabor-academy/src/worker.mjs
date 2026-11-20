@@ -142,18 +142,27 @@ function workbenchPage(title, body) {
 
 async function workbenchCatalog(env, guide) {
   const { results } = await env.LIBRARY.prepare(`
-    SELECT t.number, t.guide, t.guide_title, t.title, t.media, z.namespace_name, z.brief
+    SELECT t.number, t.guide, t.guide_title, t.title, t.media, z.namespace_name, z.brief,
+           a.outcome, a.demonstration, a.verification
     FROM academy_techniques AS t LEFT JOIN academy_technique_zones AS z ON t.number = z.number
+    LEFT JOIN academy_field_activities AS a ON a.number = t.number
     WHERE (?1 IS NULL OR t.guide = ?1) ORDER BY t.number
   `).bind(guide).all();
-  return results.map(({ media, ...record }) => ({
+  return results.map(({ media, outcome, demonstration, verification, ...record }) => ({
+    field_activity: outcome ? { outcome, demonstration, verification } : null,
     ...record, media: Array.from(media, (key) => mediumNames[key]),
     zone: workbenchPath + "zones/" + record.number + "/",
     lesson: record.number === 47 ? workbenchPath + "47/" : null,
   }));
 }
 
-function renderGuides(records, guide) {
+function renderGuides(records, guide, print) {
+  if (print) {
+    const cards = records.filter((entry) => entry.field_activity).map((entry) =>
+      `<article class="mastery-card"><h2>${entry.number}. ${escape(entry.title)}</h2>${renderFieldActivity(entry.field_activity)}</article>`).join("");
+    return workbenchPage(guide ? "Field Guide " + guide : "Workbench Field Activities",
+      cards || "<p>No printable field activities in this guide yet.</p>");
+  }
   const links = guideNames.slice(1).map((name, index) =>
     `<li><a href="${workbenchPath}?guide=${index + 1}">${index + 1}. ${escape(name)}</a></li>`).join("");
   const sections = new Map();
@@ -166,11 +175,11 @@ function renderGuides(records, guide) {
     <h2>Field Guide ${number} · ${escape(entries[0].guide_title)}</h2>
     <ol class="catalog" start="${entries[0].number}">${entries.map((entry) => `<li>
       <a href="${entry.zone}">${escape(entry.title)}</a>
-      <span class="media">${escape(entry.media.join(" · "))}${entry.lesson ? " · Lesson and sandbox ready" : fieldActivities[entry.number] ? " · Field activity ready" : ""}</span>
+      <span class="media">${escape(entry.media.join(" · "))}${entry.lesson ? " · Lesson and sandbox ready" : entry.field_activity ? " · Field activity ready" : ""}</span>
     </li>`).join("")}</ol></section>`).join("");
   return workbenchPage(guide ? "Field Guide " + guide : "Tabor Workbench", `
     <p>${guide ? "Technique index for this field guide." : "101 techniques across seven field guides. Each entry shows where it belongs in the Academy blueprint."}</p>
-    <ul class="guide-links">${links}</ul>${index}`);
+    <ul class="guide-links">${links}</ul><p><a href="${workbenchPath}?print=1${guide ? "&amp;guide=" + guide : ""}">Print available field activities</a></p>${index}`);
 }
 
 function cordLesson(params) {
@@ -220,55 +229,22 @@ function cordLesson(params) {
 }
 
 
-const fieldActivities = {
-  "4": [
-    "A paper bridge that holds three coins",
-    "Place the finished bridge on two books and put three coins on it. Turn it over to inspect the folds.",
-    "Fold a sheet into an accordion and span the same gap. Test one coin at a time and compare with a flat sheet."
-  ],
-  "21": [
-    "One proverb you can test",
-    "Read “Measure twice, cut once.” Decide what measuring twice is supposed to prevent.",
-    "Use two strips of paper. Mark a target length once on the first strip and check the second strip twice. Tear along each mark and compare both strips against the target."
-  ],
-  "46": [
-    "Two piles combined into one total",
-    "Put two pebbles in the left space and three in the right space. Move them into the middle one at a time as you count.",
-    "Draw three circles on paper for the two starting piles and the total. Build a second example with different counts and tell someone how you checked the result."
-  ],
-  "59": [
-    "A folded paper shape that stands on its own",
-    "Look at a folded accordion standing on its long edge. Count the peaks and valleys from one end.",
-    "Fold two identical sheets, one into an accordion and one just down the center. Stand both on a flat surface and compare what happens when you gently nudge them."
-  ],
-  "65": [
-    "A small woven square with alternating rows",
-    "Turn over a sample of paper weaving. Trace one strip across the page and say where it passes over and under.",
-    "Lay four paper strips on the table. Weave a fifth strip over and under. Start the next row the opposite way. Tug one loose edge, repair it, and explain why the alternating pattern matters."
-  ],
-  "92": [
-    "Two shares made by one person and chosen by another",
-    "Give two players eight paper tokens. One player makes two shares and the other chooses first.",
-    "Ask each player what made the result fair. Swap roles and repeat with an odd number of tokens. Compare the new shares and agree on a rule for the extra token."
-  ],
-  "101": [
-    "A finished object the learner can build and teach",
-    "Choose one Workbench field activity. Show the finished result and explain the check you used to see whether it worked.",
-    "Rebuild it from the starting materials, then teach another person the steps. Record what they could reproduce and one place where the explanation needed to be clearer."
-  ]
-};
+function renderFieldActivity(activity) {
+  return `<section><h2>Z · Finished outcome</h2><p>${escape(activity.outcome)}</p>
+    <h2>Show it</h2><p>${escape(activity.demonstration)}</p>
+    <h2>A · Replicate and verify</h2><p>${escape(activity.verification)}</p></section>`;
+}
 
 async function renderZone(number, env) {
   const record = await env.LIBRARY.prepare(`
-    SELECT t.number, t.title, t.guide, t.media, z.namespace_name, z.brief
+    SELECT t.number, t.title, t.guide, t.media, z.namespace_name, z.brief,
+           a.outcome, a.demonstration, a.verification
     FROM academy_techniques AS t JOIN academy_technique_zones AS z ON t.number = z.number
+    LEFT JOIN academy_field_activities AS a ON a.number = t.number
     WHERE t.number = ?
   `).bind(number).first();
   if (!record) return null;
-  const activity = fieldActivities[number];
-  const field = activity ? `<section><h2>Z · Finished outcome</h2><p>${escape(activity[0])}</p>
-    <h2>Show it</h2><p>${escape(activity[1])}</p>
-    <h2>A · Replicate and verify</h2><p>${escape(activity[2])}</p></section>`
+  const field = record.outcome ? renderFieldActivity(record)
     : number === 47 ? `<section><h2>Field activity and Sandbox</h2><p><a href="${workbenchPath}47/">Open the printable cord lesson and triangle test</a></p></section>` : "";
   return workbenchPage(number + ". " + record.title, `
     <p><a href="${workbenchPath}?guide=${record.guide}">Field Guide ${record.guide}</a> ·
@@ -303,7 +279,7 @@ async function serveWorkbench(request, env) {
   try {
     const records = await workbenchCatalog(env, guide);
     return isJson ? render(JSON.stringify({ techniques: records }), "application/json")
-      : render(renderGuides(records, guide), "text/html");
+      : render(renderGuides(records, guide, url.searchParams.get("print") === "1"), "text/html");
   } catch (error) {
     console.error("Academy technique query failed", error);
     return render("Workbench temporarily unavailable.", "text/plain", 503);
