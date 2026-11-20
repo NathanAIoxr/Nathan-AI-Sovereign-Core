@@ -1,7 +1,5 @@
 name: Holding Vault reader bots
 on:
-  pull_request:
-    paths: ['integrations/holding-vault-readers/**', '.github/workflows/holding-vault-reader-bots.yml']
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
@@ -31,20 +29,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: node --test integrations/holding-vault-readers/*.test.mjs
+      - run: node --test integrations/holding-vault-readers/readers.test.mjs
       - name: Record source-backed proposals
-        if: github.event_name != 'pull_request'
         run: node integrations/holding-vault-readers/run-oidc.mjs "$READER"
         env:
           READER: ${{ matrix.reader }}
-      - name: Trace GitHub files and references
-        if: matrix.reader == 'github' && github.event_name != 'pull_request'
-        run: node integrations/holding-vault-readers/trace-github.mjs "${RUNNER_TEMP}/github-reader-receipt.json"
-      - name: Save the GitHub provenance graph
-        if: matrix.reader == 'github' && github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-reader-provenance
-          path: ${{ runner.temp }}/github-reader-receipt.json
-          if-no-files-found: error
-          retention-days: 7

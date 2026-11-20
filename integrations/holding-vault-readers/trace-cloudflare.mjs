@@ -75,30 +75,30 @@ export async function scanStorage(request, account, source, options = {}) {
     if (!read.success || !read.result?.values) throw Error('KV batch read failed');
     values = read.result.values;
   }
-  for (const item of page.result) {
+  async function readItem(item) {
     const key = item.name ?? item.key;
-    if (!isKV && key.startsWith('reader-provenance/')) continue;
     const locator = root + '/' + await fingerprint(key);
     try {
       if (isKV) {
         const value = Object.hasOwn(values, key) ? values[key] : null;
         if (typeof value !== 'string') throw Error('KV key missing');
-        records.push(await evidence(locator, value, true));
-        continue;
+        return await evidence(locator, value, true);
       }
       if (item.size > (options.maximumObjectBytes ?? 262144)) {
-        records.push({locator,state:'object-size-boundary',size:item.size,links:[]});
-        continue;
+        return {locator,state:'object-size-boundary',size:item.size,links:[]};
       }
       const value = await request({method:'GET',path:base + '/objects/' + encodeURIComponent(key)});
       if (typeof value === 'string' || value instanceof Uint8Array) {
-        records.push(await evidence(locator,value,true));
-      } else {
-        records.push(await evidence(locator,JSON.stringify(value),true));
+        return await evidence(locator,value,true);
       }
+      return await evidence(locator,JSON.stringify(value),true);
     } catch {
-      records.push({locator,state:'read-error',links:[]});
+      return {locator,state:'read-error',links:[]};
     }
+  }
+  const items = isKV ? page.result : page.result.filter(item => !item.key.startsWith('reader-provenance/'));
+  for (let start = 0; start < items.length; start += 6) {
+    records.push(...await Promise.all(items.slice(start, start + 6).map(readItem)));
   }
   const next = page.result_info?.is_truncated === false ? null : page.result_info?.cursor || null;
   if (page.result_info?.is_truncated === true && !next) throw Error('Storage listing did not return its next cursor');

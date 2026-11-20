@@ -1,5 +1,7 @@
 import {VAULT,BUILD_LEDGER,REPOSITORY,validManifest,manifestRows,githubCandidates,cloudflareCandidates,persist} from './readers.mjs';
 
+import {graphJob} from './provenance.mjs';
+
 const ISSUER='https://token.actions.githubusercontent.com';
 const AUDIENCE='https://tabor-bridge.nathantaboract.workers.dev/vault-reader-jobs/';
 const WORKFLOW=(REPOSITORY+'/.github/workflows/holding-vault-reader-bots.yml@refs/heads/main').toLowerCase();
@@ -38,12 +40,22 @@ export async function authenticate(request,loadKeys=()=>fetch(ISSUER+'/.well-kno
   }
 }
 
+const coverageFields=['trackedBlobs','textFiles','otherFiles','oversizeFiles','submodules','internalReferences','linkedFiles','terminalFiles','linkedOrigins'];
+function validCoverage(value) {
+  return Boolean(value && typeof value==='object' && !Array.isArray(value) &&
+    Object.keys(value).length===coverageFields.length+1 &&
+    coverageFields.every(name=>Number.isSafeInteger(value[name])&&value[name]>=0) &&
+    value.textFiles+value.otherFiles+value.oversizeFiles===value.trackedBlobs &&
+    value.linkedFiles<=value.trackedBlobs && value.terminalFiles<=value.linkedFiles &&
+    /^[a-f0-9]{64}$/.test(value.contentDigest??''));
+}
+
 export default {
   async fetch(request,env) {
     const url=new URL(request.url);
-    if(!['/github','/cloudflare'].includes(url.pathname)||url.search)return reply({error:'Not found'},404);
+    if(!['/github','/cloudflare','/github-tree'].includes(url.pathname)||url.search)return reply({error:'Not found'},404);
     const reader=url.pathname.slice(1);
-    if(!(request.method==='POST'||(request.method==='GET'&&reader==='github')))return reply({error:'Method not allowed'},405);
+    if(!(request.method==='POST'||(request.method==='GET'&&reader!=='cloudflare')))return reply({error:'Method not allowed'},405);
     const claims=await authenticate(request);
     if(!claims)return reply({error:'Reader workflow identity required'},401);
     const query=(db,sql,params=[])=>{
@@ -52,6 +64,9 @@ export default {
       throw Error('Unknown reader database');
     };
     try {
+      const switches=await Promise.all([env.CACHE.get('reader:*'),env.CACHE.get('reader:'+reader)]);
+      if(switches.some(value=>value!=='RUN'))return reply({reader,paused:true},423);
+      if(reader==='github-tree')return await graphJob(request,env.VAULT,claims.sha,reply);
       const runId='github-actions-'+claims.run_id+'-'+claims.run_attempt;
       if(reader==='cloudflare'){
         const {rowsRead,candidates}=await cloudflareCandidates(query);
@@ -63,10 +78,18 @@ export default {
       if(!Number.isFinite(length)||length>450000)return reply({error:'Reader batch too large'},413);
       const raw=await request.text();
       if(raw.length>450000)return reply({error:'Reader batch too large'},413);
-      let pairs;
-      try{pairs=JSON.parse(raw);}catch{return reply({error:'Invalid JSON batch'},400);}
+      let payload;
+      try{payload=JSON.parse(raw);}catch{return reply({error:'Invalid JSON batch'},400);}
+      const pairs=Array.isArray(payload)?payload:payload?.manifests;
+      const coverage=Array.isArray(payload)?undefined:payload?.coverage;
+      if(coverage!==undefined&&!validCoverage(coverage))return reply({error:'Invalid Git coverage receipt'},400);
       if(!Array.isArray(pairs)||pairs.length>3000||pairs.some(x=>!Array.isArray(x)||x.length!==2||typeof x[0]!=='string'||!validManifest(x[0])||!/^[a-f0-9]{40}$/.test(x[1]??'')))return reply({error:'Invalid manifest evidence'},400);
-      return reply(await persist(query,reader,runId,REPOSITORY+'@'+claims.sha,rows.length,githubCandidates(rows,new Map(pairs),claims.sha)));
+      const result=await persist(query,reader,runId,REPOSITORY+'@'+claims.sha,rows.length,githubCandidates(rows,new Map(pairs),claims.sha));
+      if(coverage){
+        await query(VAULT,`INSERT INTO zone_reader_git_coverage (run_id,commit_sha,summary_json) VALUES (?,?,?)
+          ON CONFLICT(run_id) DO UPDATE SET summary_json=excluded.summary_json`,[runId,claims.sha,JSON.stringify(coverage)]);
+      }
+      return reply({...result,coverage:coverage??null});
     } catch {
       return reply({error:'Reader job failed'},503);
     }

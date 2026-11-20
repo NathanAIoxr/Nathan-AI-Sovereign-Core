@@ -6,14 +6,10 @@ The native GitHub Actions schedule runs both readers every six hours at minute 1
 
 Open the owner-only Holding Vault reader queue at `/holding-vault/preview/readers`. Review the linked source and the destination zone before deciding whether to integrate a candidate.
 
-## Provenance readers
+The GitHub job also opens each tracked Git object up to 4 MiB at the workflow commit. Its coverage receipt counts parsed UTF-8 text, non-text blobs, larger objects, and submodule pointers. It resolves explicit repository-local paths against the same commit and walks detected references with a visited set. It stores aggregate counts and a content checksum in `zone_reader_git_coverage`. File contents, link query strings, and tokens are excluded from the receipt. The reader does not execute Git contents or download linked sites, submodules, or LFS objects.
 
-`NATHAN_GH_BOT` hashes all Git blobs in the checked-out commit, including binary blobs. `NATHAN_LINK_TRACER` resolves references within that commit and records every inbound path, including when several files point to the same target. Its graph identifies text files with no detected outbound references and files that can reach those leaves. It keeps missing paths, external destinations, binaries, Git LFS pointers, and size limits visible in the receipt. It does not call destination URLs. Run from the repository:
+The source graph records pinned files, directory membership, and verified in-repository reference edges in the existing private provenance tables. An immutable commit receipt is recorded after all batches are present. Outside URLs contribute to aggregate coverage. The job issues no network requests to referenced destinations.
 
-```sh
-node integrations/holding-vault-readers/trace-github.mjs /tmp/github-reader-receipt.json
-```
+The reader service checks `reader:*` and its role-specific Holding Vault KV key before each job or graph batch. The keys are `reader:github`, `reader:cloudflare`, and `reader:github-tree`. Only `RUN` enables a key. Use `BRAKE` to pause a reader. Missing or unavailable controls close the service. Project launch controls use separate `gate:` keys.
 
-The existing GitHub job can save that JSON graph as a GitHub Actions artifact. The graph contains digests, paths, and references rather than source bytes.
-
-`NATHAN_CF_BOT` exports `scanD1` and `scanStorage` in `trace-cloudflare.mjs`. Pass an authenticated Cloudflare request function and an owned source. D1 returns the next row offset. KV and R2 return the next provider cursor. Record the cursor alongside each completed batch. D1 offsets describe the current ordered source and can shift when the source changes during a run. Review per-record read errors and object size boundaries before marking a source complete.
+`NATHAN_CF_BOT` exports `scanD1` and `scanStorage` in `trace-cloudflare.mjs`. Pass an authenticated Cloudflare request function and an owned source. D1 returns the next row offset. KV and R2 return the next provider cursor. Record the cursor alongside each completed batch. D1 offsets describe the current ordered source and can shift when the source changes during a run. Review per-record read errors and object size boundaries before marking a source complete. The output includes source locators, content digests, and detected references, and leaves source data in place.
