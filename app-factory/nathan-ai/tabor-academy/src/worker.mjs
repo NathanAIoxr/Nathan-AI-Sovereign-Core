@@ -954,7 +954,7 @@ function servePeace(request) {
         const [label,url] = peaceContent.refs[id];
         return `<li><a href="${escape(url)}">${escape(label)}</a></li>`;
       }).join("")}</ul></details>`).join("")}</section>`).join("");
-  const body = `<p class="screen-only"><a href="${orderPath}">The Law of Order</a> · <a href="${year1626Path}">1626</a> ·
+  const body = `<p class="screen-only"><a href="${peacePath}source.txt">Read the original source text</a></p><p class="screen-only"><a href="${orderPath}">The Law of Order</a> · <a href="${year1626Path}">1626</a> ·
     <a href="${orderPath}">1826</a> · <a href="${porchPath}">Miss Wilson’s Porch</a></p>
     <nav class="screen-only"><a href="${peacePath}"${family || reverse ? "" : ' aria-current="page"'}>Follow the rotation</a> ·
       <a href="${peacePath}?view=reverse"${reverse ? ' aria-current="page"' : ""}>Trace the rotation backward</a> ·
@@ -984,9 +984,30 @@ function servePeace(request) {
   });
 }
 
+
+async function servePeaceSource(request, env) {
+  const headers = { ...workbenchHeaders, "content-type": "text/plain; charset=utf-8" };
+  const respond = (body, status) => new Response(request.method === "HEAD" ? null : body, { status, headers });
+  try {
+    const row = await env.LIBRARY.prepare(`
+      SELECT sha256 AS record_id, verbatim_body FROM academy_history_sources
+      WHERE slug = ? AND visibility = 'public'
+    `).bind("time-of-peace").first();
+    if (!row) return respond("Source not found.", 404);
+    if (!(await matchesArchiveHash(row))) return respond("Source failed its integrity check.", 503);
+    headers.etag = '"' + row.record_id + '"';
+    return respond(row.verbatim_body, 200);
+  } catch (error) {
+    console.error("Academy source retrieval failed", error);
+    return respond("Source temporarily unavailable.", 503);
+  }
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if (pathname === "/order/time-of-peace/source.txt" &&
+        (request.method === "GET" || request.method === "HEAD")) return servePeaceSource(request, env);
     if ((pathname === "/order/time-of-peace" || pathname === "/order/time-of-peace/") &&
         (request.method === "GET" || request.method === "HEAD")) return servePeace(request);
     if ((pathname === "/order/1626" || pathname === "/order/1626/") &&
