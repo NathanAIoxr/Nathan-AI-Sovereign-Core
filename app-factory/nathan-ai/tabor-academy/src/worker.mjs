@@ -1,4 +1,4 @@
-const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a></p>\n</main>\n</body>\n</html>";
+const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
 
 const teaser = {
   fetch(request) {
@@ -134,7 +134,7 @@ function workbenchPage(title, body) {
   form{display:flex;flex-wrap:wrap;gap:.7rem;align-items:end} label{display:grid;gap:.25rem}
   input,button{font:inherit;padding:.4rem} input{max-width:5rem} button{cursor:pointer}
   svg{max-width:100%;height:auto;display:block} .outcome{background:#f8f4e9;color:#1a2015;padding:1rem;max-width:27rem;border-radius:.2rem}
-  @media print{ :root{color-scheme:light;background:white;color:black} main{padding:0} nav,.sandbox,.screen-only{display:none}
+  @media print{ .mastery-card{break-inside:avoid;border-bottom:1px solid #777;padding-bottom:1em} :root{color-scheme:light;background:white;color:black} main{padding:0} nav,.sandbox,.screen-only{display:none}
     h1{font-size:24pt}.outcome{padding:0;background:white}#triangle-template{width:4.5in;height:3.6in;max-width:none} section{break-inside:avoid} }
   </style><main><nav><a href="${mount}/">Tabor Academy</a> · <a href="${mount}/library/">Library of Tabor</a> · <a href="${workbenchPath}">Workbench</a></nav>
   <h1>${escape(title)}</h1>${body}</main></html>`;
@@ -310,9 +310,76 @@ async function serveWorkbench(request, env) {
   }
 }
 
+
+const survivalPath = mount + "/survival/";
+const survivalCategories = ["Water, Fire & Thermal Mastery","Navigation, Time & Sky Reading","Food Sourcing, Agriculture & Preservation","Shelter, Cordage & Structural Engineering","Tools, Metallurgy & Material Transformation","Health, First Aid & Body Resilience","Communication, Memory & Sovereign Mind"];
+
+function survivalCardMarkup(row) {
+  const sources = {
+    1: ["CDC · Emergency drinking water", "https://www.cdc.gov/water-emergency/about/index.html"],
+    2: ["CDC · Emergency drinking water", "https://www.cdc.gov/water-emergency/about/index.html"],
+    88: ["Poison Control · Activated charcoal", "https://www.poison.org/articles/activated-charcoal"],
+    101: ["National Park Service · Ten Essentials", "https://www.nps.gov/articles/10essentials.htm"],
+  };
+  const source = sources[row.number];
+  return `<article class="mastery-card"><h2>${row.number}. ${escape(row.modern)} → ${escape(row.root)}</h2>
+    <h3>Z · Modern convenience</h3><p>${escape(row.modern)}</p>
+    <h3>Mechanics</h3><p>${escape(row.mechanic)}</p>
+    <h3>A · Field test</h3><p>${escape(row.field_test)}</p>
+    ${row.original_context ? `<details class="screen-only"><summary>Original blueprint wording</summary><p>${escape(row.original_context)}</p></details>` : ""}
+    ${source ? `<p><a href="${source[1]}">${source[0]}</a></p>` : ""}
+    <h3>Show and replicate</h3><p>Record your setup, what you observed, and what happened when you repeated the test.</p></article>`;
+}
+
+async function serveSurvival(request, env) {
+  const url = new URL(request.url);
+  const head = request.method === "HEAD";
+  const respond = (body, type, status = 200) => new Response(head ? null : body, {
+    status, headers: { ...workbenchHeaders, "content-type": type + "; charset=utf-8" },
+  });
+  const tail = url.pathname.slice("/survival".length).replace(/^[/]|[/]$/g, "");
+  const isList = tail === "" || tail === "cards.json";
+  const number = /^[1-9][0-9]{0,2}$/.test(tail) ? Number(tail) : null;
+  const rawCategory = url.searchParams.get("category");
+  if ((!isList && (number === null || number > 101)) || (rawCategory !== null && !/^[1-7]$/.test(rawCategory))) {
+    return respond("Survival mastery card or category not found.", "text/plain", 404);
+  }
+  const category = rawCategory === null ? null : Number(rawCategory);
+  try {
+    const { results } = await env.LIBRARY.prepare(`
+      SELECT number, category, modern, root, original_context, mechanic, field_test, namespace_name
+      FROM survival_mastery_cards WHERE (?1 IS NULL OR number=?1)
+        AND (?2 IS NULL OR category=?2) ORDER BY number
+    `).bind(number, category).all();
+    if (number && !results.length) return respond("Survival mastery card not found.", "text/plain", 404);
+    if (tail === "cards.json") return respond(JSON.stringify({ cards: results }), "application/json");
+    const crumbs = `<p class="screen-only"><a href="${survivalPath}">All Survival-to-Modernity Mastery Drills</a></p>`;
+    if (number) {
+      return respond(workbenchPage("Survival-to-Modernity Mastery Card", crumbs + survivalCardMarkup(results[0])), "text/html");
+    }
+    const print = url.searchParams.get("print") === "1";
+    const links = survivalCategories.map((name, i) =>
+      `<li><a href="${survivalPath}?category=${i + 1}">${escape(name)}</a></li>`).join("");
+    const intro = print ? "" : `<p>Tabor Academy’s 101 Survival-to-Modernity Mastery Drills take everyday modern buttons, switches, and conveniences and peel them backward (Z → A) to the raw physical, natural, and mechanical skills humans had to master before the grid existed.</p><p>Each item starts with the Modern Convenience (Z) people take for granted today, strips away the hidden automation, and gives the learner the Root Survival Mechanic (A) to test, build, and replicate with their own hands.</p>
+      <ul class="guide-links">${links}</ul><p><a href="${survivalPath}?print=1${category ? "&amp;category=" + category : ""}">Open printable ${category ? "category" : "card deck"}</a></p>`;
+    const body = print ? results.map(survivalCardMarkup).join("") : survivalCategories.map((name, i) => {
+      const group = results.filter((row) => row.category === i + 1);
+      return group.length ? `<section><h2>${escape(name)}</h2><ol class="catalog" start="${group[0].number}">
+        ${group.map((row) => `<li><a href="${survivalPath}${row.number}/">${escape(row.modern)} → ${escape(row.root)}</a></li>`).join("")}
+      </ol></section>` : "";
+    }).join("");
+    return respond(workbenchPage("101 Survival-to-Modernity Mastery Drills", intro + body), "text/html");
+  } catch (error) {
+    console.error("Academy mastery query failed", error);
+    return respond("Survival-to-Modernity track temporarily unavailable.", "text/plain", 503);
+  }
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((request.method === "GET" || request.method === "HEAD") &&
+        (pathname === "/survival" || pathname.startsWith("/survival/"))) return serveSurvival(request, env);
     if ((request.method === "GET" || request.method === "HEAD") &&
         (pathname === "/workbench" || pathname.startsWith("/workbench/"))) return serveWorkbench(request, env);
     if (pathname !== "/library" && pathname !== "/library/") return teaser.fetch(request);
