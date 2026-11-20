@@ -1,6 +1,8 @@
 name: TWEEZER-OS zone verification
 on:
   workflow_dispatch:
+  push:
+    branches: [zone/tweezer-tap-os]
   pull_request:
     branches: [main]
     paths:
