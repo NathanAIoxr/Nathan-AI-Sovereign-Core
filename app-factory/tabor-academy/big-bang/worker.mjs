@@ -7,7 +7,7 @@ const navTargets = new Map([
   ["/minds/", "main nav"]
 ]);
 
-export function connectBigBang(academy, assets, revision) {
+export function connectBigBang(academy, assets, revision, homeMotto) {
   return {
     ...academy,
     async fetch(request, env, ctx) {
@@ -20,7 +20,10 @@ export function connectBigBang(academy, assets, revision) {
         if (pathname === path + "/healthz") {
           const headers = { "cache-control": "no-store" };
           if (request.method === "HEAD") return new Response(null, { headers });
-          return Response.json({ service: "tabor-academy-big-bang", ready: true, revision }, { headers });
+          return Response.json({
+            service: "tabor-academy-big-bang", ready: true, revision,
+            ok: true, project: "tabor-academy-big-bang", release: revision
+          }, { headers });
         }
         const asset = assets[pathname.slice(path.length + 1)];
         if (!asset) return new Response("Page not found", { status: 404 });
@@ -28,7 +31,7 @@ export function connectBigBang(academy, assets, revision) {
           headers: {
             "content-type": asset.type,
             "cache-control": "no-cache",
-            "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; frame-ancestors 'none'",
+            "content-security-policy": asset.policy ?? "default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; frame-ancestors 'none'",
             "x-content-type-options": "nosniff",
             "x-tabor-big-bang-revision": revision
           }
@@ -41,7 +44,20 @@ export function connectBigBang(academy, assets, revision) {
           !response.headers.get("content-type")?.startsWith("text/html")) return response;
 
       let inserted = false;
-      return new HTMLRewriter().on(selector, {
+      let hasMotto = false;
+      const rewriter = new HTMLRewriter();
+      if (pathname === "/") {
+        rewriter.on('section[aria-label="Tabor Academy motto"]', { element() { hasMotto = true; } });
+        rewriter.on("main", {
+          element(element) {
+            element.onEndTag(end => {
+              if (!hasMotto) end.before(homeMotto, { html: true });
+              hasMotto = true;
+            });
+          }
+        });
+      }
+      return rewriter.on(selector, {
         element(element) {
           if (inserted) return;
           inserted = true;
