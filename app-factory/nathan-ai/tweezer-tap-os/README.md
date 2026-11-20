@@ -14,3 +14,9 @@ The named staging D1 database, R2 bucket, queue, and dead-letter queue exist. Bo
 The health/status output exposes the latest heartbeat, outbox count, brake state, and latest audit. The board shell can be served without a credential. All its API requests require the staging operator credential.
 
 The release switch is a reviewed GitHub change after staging evidence exists. Platform-side staging deployment, end-to-end queue execution, and the production promotion still require verification. The current package implements fictional game events, no physical drivers.
+
+## Cloudflare dispatch status
+
+Cloudflare contains a script named `zone-tweezer-tap-conductor` in the isolated `tweezer-tap-os-holding` dispatch namespace. That script is a different build from this branch. It writes a sequence and hash-chain record to `extraction_log`, while this branch's applied ledger has the columns `event_id`, `result`, and `created_at`. Reconcile the deployed source and schema before sending live events.
+
+Cloudflare Queues rejected attachment of the dispatch script as a direct consumer with error 10007. The queue still has zero consumers. The regular Worker account is at 500 scripts. The staged script had no verified public route, heartbeat, or queue delivery at the time of this check. A complete deployment needs either regular Worker capacity for this branch's Worker or a dedicated, configured dispatch entry point and queue consumer with compatible bindings.
