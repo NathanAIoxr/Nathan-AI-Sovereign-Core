@@ -72,3 +72,25 @@ database_id = "4d34a050-53ad-464c-b075-1295ca6a1b65"
 binding = "TIME_PUMPKIN"
 database_name = "zone-collyn-tabor-pumpkin-patch-db"
 database_id = "46364868-ac37-4180-b8f8-d4ec2ba0b670"
+
+[vars]
+CHEIR_ACCESS_AUD = "5ee928ec18ae9f746f5ee81971ef12317cd542a4b795f7c5ab96300ddde805fc"
+
+[[kv_namespaces]]
+binding = "ZONE_KV"
+id = "f0c0ef9b5a964825ba2508f8dd7ca6b8"
+
+[[d1_databases]]
+binding = "VAULT_READ"
+database_name = "tabor-holding-vault"
+database_id = "2744aea4-b218-41e9-ab21-a04f25c10475"
+
+[[queues.producers]]
+binding = "EMIT_BUS"
+queue = "nathan-ai-cheironomer-events"
+
+[ai]
+binding = "AI"
+
+# Native push/Cron requires a standard Worker address. Dispatch uses HTTP pull
+# and the same 10-second Durable Object alarm with a minute audit cadence.

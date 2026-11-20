@@ -1,4 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
+import {wake, status as cheirStatus, heartbeat, command, proposal} from "./cheironomer/src/conductor.js";
 
 const interval = 15 * 60 * 1000;
 const projects = [
@@ -12,6 +13,19 @@ const projects = [
 ];
 
 export class ZoneClock extends DurableObject {
+  async cheirWake() { return wake(this); }
+  async cheirStatus() { return cheirStatus(this); }
+  async cheirProposal(id) { return proposal(this,id); }
+  async cheirCommand(user, operation, body) { return command(this,user,operation,body); }
+
+  async fetch(request) {
+    if (new URL(request.url).pathname!=="/events" || request.headers.get("Upgrade")!=="websocket") return new Response("Not found",{status:404});
+    if (this.ctx.getWebSockets().length>=16) return new Response("Capacity",{status:429});
+    const pair=new WebSocketPair();
+    this.ctx.acceptWebSocket(pair[1]);
+    return new Response(null,{status:101,webSocket:pair[0]});
+  }
+
   async start() {
     if (await this.ctx.storage.getAlarm() === null) {
       await this.ctx.storage.setAlarm(Date.now() + 100);
@@ -26,6 +40,7 @@ export class ZoneClock extends DurableObject {
   }
 
   async alarm() {
+    if (await this.ctx.storage.get("cheironomer-clock")) return heartbeat(this);
     // TIME sets the next tick before checking the train manifest.
     const now = Date.now();
     await this.ctx.storage.setAlarm((Math.floor(now / interval) + 1) * interval);
