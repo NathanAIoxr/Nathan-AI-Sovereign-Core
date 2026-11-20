@@ -78,12 +78,10 @@ function productPage(product, others, revision) {
           <p class="description">${escapeHtml(product.description)}</p>
           <a class="button primary" href="#design">Explore the design <span aria-hidden="true">↓</span></a>
         </div>
-        <aside class="material-summary" aria-label="Product concept status">
-          <p class="eyebrow">Product concept</p>
-          <p class="material-title">Matte silicone</p>
-          <p class="material-color"><span aria-hidden="true"></span>${escapeHtml(product.color)}</p>
-          <a href="#material-study">View the material and packaging study <span aria-hidden="true">↓</span></a>
-        </aside>
+        <figure class="concept-art">
+          <img src="./concept.webp?v=${revision}" width="1024" height="512" fetchpriority="high" alt="${escapeHtml(product.artDescription)}">
+          <figcaption class="material-color"><span aria-hidden="true"></span>${escapeHtml(product.color)} · Matte silicone concept rendering</figcaption>
+        </figure>
       </section>
       <section class="design" id="design" aria-labelledby="design-heading">
         <div>
@@ -93,7 +91,7 @@ function productPage(product, others, revision) {
         </div>
         <figure class="material-study" id="material-study">
           <img src="./silicone-material-study.webp?v=${revision}" width="1296" height="864" loading="lazy" alt="Three silicone sample tiles and packaging labeled Solomon, Cleopatra, and Virgin Mary">
-          <figcaption>Silicone color and packaging study. Product artwork is pending.</figcaption>
+          <figcaption>Silicone color and packaging study</figcaption>
         </figure>
       </section>
       ${scripture}
@@ -111,7 +109,7 @@ function productPage(product, others, revision) {
     </main>`, revision);
 }
 
-export function createSite({ product, others, css, materialStudy, serif, revision }) {
+export function createSite({ product, others, css, conceptImage, materialStudy, serif, revision }) {
   const ageCookie = `__Host-bronze-hands-18-${product.theme}`;
   const mount = `${publicBase}${product.worker}`;
   const confirmed = productPage(product, others, revision);
@@ -121,6 +119,10 @@ export function createSite({ product, others, css, materialStudy, serif, revisio
     "/site.css": [css, "text/css; charset=utf-8"],
     "/instrument-serif.woff2": [serif, "font/woff2"],
     "/robots.txt": ["User-agent: *\nDisallow: /\n", "text/plain; charset=utf-8"]
+  };
+  const productImages = {
+    "/concept.webp": conceptImage,
+    "/silicone-material-study.webp": materialStudy
   };
   const html = (body, status = 200) => new Response(body, {
     status,
@@ -163,8 +165,8 @@ export function createSite({ product, others, css, materialStudy, serif, revisio
       const confirmedAge = (request.headers.get("Cookie") ?? "").split(";")
         .some((cookie) => cookie.trim() === `${ageCookie}=yes`);
       let response;
-      if (pathname === "/silicone-material-study.webp") {
-        response = confirmedAge ? new Response(materialStudy, {
+      if (Object.hasOwn(productImages, pathname)) {
+        response = confirmedAge ? new Response(productImages[pathname], {
           headers: { ...securityHeaders, "Content-Type": "image/webp" }
         }) : html("Page not found", 404);
       } else if (Object.hasOwn(resources, pathname)) {

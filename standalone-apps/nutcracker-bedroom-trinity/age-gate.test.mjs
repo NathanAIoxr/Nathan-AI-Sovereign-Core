@@ -20,7 +20,7 @@ for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
     const before = await landing.text();
     assert.match(before, /Are you 18 or older/);
     assert.ok(!before.includes(product.name));
-    assert.doesNotMatch(before, /silicone-material-study\.webp|bronze-hands\.webp/);
+    assert.doesNotMatch(before, /silicone-material-study\.webp|bronze-hands\.webp|concept\.webp/);
     assert.match(landing.headers.get("Cache-Control"), /no-store/);
 
     const denied = await post("/age", { answer: "no" });
@@ -41,9 +41,14 @@ for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
     assert.ok(after.includes(product.attribution));
     assert.match(after, /Matte silicone/);
     assert.ok(after.includes(product.color));
+    assert.ok(after.includes(product.artDescription));
+    assert.match(after, /concept\.webp\?v=[a-f0-9]{12}/);
     assert.match(after, /silicone-material-study\.webp\?v=[a-f0-9]{12}/);
-    assert.match(after, /Product artwork is pending/);
-    assert.doesNotMatch(after, /bronze-hands\.webp|concept\.webp/);
+    assert.doesNotMatch(after, /Product artwork is pending|bronze-hands\.webp/);
+    const concept = await request("/concept.webp?v=test", { headers: { Cookie: cookie } });
+    assert.equal(concept.headers.get("Content-Type"), "image/webp");
+    assert.match(concept.headers.get("Cache-Control"), /no-store/);
+    assert.deepEqual(Buffer.from(await concept.arrayBuffer()), await readFile(new URL(`assets/${id}-concept.webp`, import.meta.url)));
     const study = await request("/silicone-material-study.webp?v=test", { headers: { Cookie: cookie } });
     assert.equal(study.headers.get("Content-Type"), "image/webp");
     assert.match(study.headers.get("Cache-Control"), /no-store/);
@@ -102,7 +107,7 @@ test("shared ingress routes only the designated 18+ paths to the independent Wor
   assert.equal(calls.length, 0);
 });
 
-test("Conductor receipt links to each age-gated site and lists pending artwork", async () => {
+test("Conductor receipt links to each age-gated site and records the published artwork", async () => {
   const { serveNutcrackerBedroomHandoff } = await import("../../deployments/conductor/handoffs/nutcracker-bedroom.mjs");
   const route = "/api/handoffs/nutcracker-bedroom";
   const url = "https://example.test" + route;
@@ -111,7 +116,8 @@ test("Conductor receipt links to each age-gated site and lists pending artwork",
   assert.equal(release.materialDirection, "Matte silicone");
   assert.equal(release.sites.length, 3);
   assert.equal(new Set(release.sites.map(({ url }) => url)).size, 3);
-  assert.match(release.artwork.pending, /Three distinct/);
+  assert.match(release.artwork.published, /Three distinct matte silicone/);
+  assert.equal(release.artwork.pending, null);
   assert.equal(serveNutcrackerBedroomHandoff(new Request(url, { method: "POST" }), route).status, 405);
   assert.equal(serveNutcrackerBedroomHandoff(new Request(url), "/api/health"), null);
 });

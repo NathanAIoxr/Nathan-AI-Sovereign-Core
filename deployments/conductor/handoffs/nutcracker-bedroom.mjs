@@ -10,8 +10,8 @@ export const bedroomRelease = {
   materialDirection: "Matte silicone",
   historicalReference: "Clasped bronze hands",
   artwork: {
-    published: "Silicone color and packaging study",
-    pending: "Three distinct silicone product renderings"
+    published: "Three distinct matte silicone concept renderings and the original color and packaging study",
+    pending: null
   },
   source: "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/476",
   sites: [
@@ -49,7 +49,7 @@ export function serveNutcrackerBedroomHandoff(request, path) {
 <p>The Bedroom · 18+ only</p>
 <p>Proposed material is matte silicone. The clasped bronze hands are the historical shape reference.</p>
 <h2>Live concept pages</h2><ul>${links}</ul>
-<p>The pages display the silicone color and packaging study. Three distinct silicone product renderings are pending.</p>
+<p>Each page displays its own matte silicone concept rendering. The collection’s color and packaging study appears in the design section.</p>
 <p><a href="${bedroomRelease.source}">GitHub source and review</a></p>
 </main></body></html>`;
   return new Response(request.method === "HEAD" ? null : page, {

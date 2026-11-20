@@ -25,11 +25,13 @@ for (const [index, id] of productIds.entries()) {
   const product = products[index];
   const others = products.filter((_, otherIndex) => otherIndex !== index)
     .map(({ name, worker }) => ({ name, worker }));
-  const revision = createHash("sha256").update(css).update(materialStudy).digest("hex").slice(0, 12);
+  const conceptImage = await readFile(fromRoot(`assets/${id}-concept.webp`), "base64");
+  const revision = createHash("sha256").update(css).update(materialStudy).update(conceptImage).digest("hex").slice(0, 12);
   const data = JSON.stringify({ product, others, css, revision });
   const module = `${runtime}
 const settings = ${data};
 settings.materialStudy = Uint8Array.from(atob(${JSON.stringify(materialStudy)}), (character) => character.charCodeAt(0));
+settings.conceptImage = Uint8Array.from(atob(${JSON.stringify(conceptImage)}), (character) => character.charCodeAt(0));
 settings.serif = Uint8Array.from(atob(${JSON.stringify(serif)}), (character) => character.charCodeAt(0));
 export default createSite(settings);
 `;

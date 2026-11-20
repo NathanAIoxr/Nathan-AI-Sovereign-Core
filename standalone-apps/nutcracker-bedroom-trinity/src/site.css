@@ -120,22 +120,12 @@ img { display: block; width: 100%; height: auto; }
 .attribution { color: var(--accent); font-size: .93rem; }
 .description { max-width: 42ch; color: var(--muted); }
 .hero .button { margin-top: .65rem; }
-.material-summary {
-  display: grid;
-  align-content: center;
-  gap: .85rem;
-  min-height: clamp(14rem, 32vw, 23rem);
-  padding: clamp(1.3rem, 5vw, 4rem);
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-.material-title { font: 400 clamp(2.3rem, 5.2vw, 4.8rem)/1 var(--serif); }
 .material-color { display: flex; align-items: center; gap: .6rem; color: var(--muted); }
-.material-color span { width: 1rem; height: 1rem; background: var(--silicone); border: 1px solid #fff5; border-radius: 50%; }
+.material-color span { flex: 0 0 1rem; height: 1rem; background: var(--silicone); border: 1px solid #fff5; border-radius: 50%; }
 .solomon { --silicone: #55616f; }
 .cleopatra { --silicone: #755865; }
 .virgin-mary { --silicone: #e1d1b4; }
-.material-study { overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.concept-art, .material-study { overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
 figcaption { padding: .65rem 1rem; color: var(--muted); font-size: .75rem; }
 .design, .collection {
   display: grid;
