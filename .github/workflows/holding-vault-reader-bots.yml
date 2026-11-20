@@ -14,6 +14,9 @@ concurrency:
 jobs:
   read:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
     timeout-minutes: 12
     strategy:
       fail-fast: false
@@ -28,8 +31,6 @@ jobs:
           node-version: 24
       - run: node --test integrations/holding-vault-readers/readers.test.mjs
       - name: Record source-backed proposals
-        run: node integrations/holding-vault-readers/run.mjs "$READER"
+        run: node integrations/holding-vault-readers/run-oidc.mjs "$READER"
         env:
           READER: ${{ matrix.reader }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.READER_CLOUDFLARE_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'a70580bacdf96c946662b7b67dcb45b5' }}
