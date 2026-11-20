@@ -1,0 +1,35 @@
+name: Sovereign Ledger handoff checks
+on:
+  pull_request:
+    paths:
+      - deployments/conductor/sovereign-ledger/**
+      - .github/workflows/nathan-sovereign-ledger-handoff.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-d1:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: deployments/conductor/sovereign-ledger
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:py
+      - name: Check vector drift
+        run: |
+          python3 python/gen_vectors.py
+          git diff --exit-code -- test/vectors.json
+      - name: Verify signed HTTP and concurrency under Wrangler local D1
+        run: npm run test:integration

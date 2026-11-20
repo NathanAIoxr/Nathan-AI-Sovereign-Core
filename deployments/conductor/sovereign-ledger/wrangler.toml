@@ -1,0 +1,13 @@
+name = "nathan-ledger"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ledger"
+database_id = "REPLACE_WITH_ID_FROM_wrangler_d1_create"
+migrations_dir = "migrations"
+
+# Secrets (never in this file):
+#   wrangler secret put LEDGER_HMAC_SECRET
+#   wrangler secret put LEDGER_HMAC_SECRET_NEXT   # only during rotation

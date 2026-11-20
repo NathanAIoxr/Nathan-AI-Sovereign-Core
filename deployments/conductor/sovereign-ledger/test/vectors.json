@@ -1,0 +1,92 @@
+{
+  "anchor": "AA55FF01312B313D327E312D313D300400F0",
+  "cases": [
+    {
+      "input": {
+        "scroll_siglum": "1QIsa-a",
+        "cave_or_site": "Qumran Cave 1",
+        "medium": "parchment",
+        "script_lang": "Hebrew",
+        "epigraphic_status": "extant_verified",
+        "raw_text": "  בראשית ברא אלהים  ",
+        "media_asset_sha256": null
+      },
+      "canonical_content": "{\"anchor\":\"AA55FF01312B313D327E312D313D300400F0\",\"entry_type\":\"record\",\"lang\":\"Hebrew\",\"media_hash\":null,\"medium\":\"parchment\",\"ref\":null,\"siglum\":\"1QIsa-a\",\"site\":\"Qumran Cave 1\",\"status\":\"extant_verified\",\"text\":\"בראשית ברא אלהים\"}",
+      "content_nfc": "בראשית ברא אלהים",
+      "client_sha256": "088d46517bb557117f834c1945f060372d85b0906f195dbc6308fbffe0ddef01",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "ts": 1767225600,
+      "payload_sha256": "288e515c092afa4ccee6aa67db0e9a693e117bb93c341694968769aa0053be3d"
+    },
+    {
+      "input": {
+        "scroll_siglum": "4Q175",
+        "cave_or_site": "Qumran Cave 4",
+        "medium": "parchment",
+        "script_lang": "Paleo-Hebrew",
+        "epigraphic_status": "reconstructed",
+        "raw_text": "line1\nline2\ttabbed \"quoted\" \\ back",
+        "media_asset_sha256": "abababababababababababababababababababababababababababababababab"
+      },
+      "canonical_content": "{\"anchor\":\"AA55FF01312B313D327E312D313D300400F0\",\"entry_type\":\"record\",\"lang\":\"Paleo-Hebrew\",\"media_hash\":\"abababababababababababababababababababababababababababababababab\",\"medium\":\"parchment\",\"ref\":null,\"siglum\":\"4Q175\",\"site\":\"Qumran Cave 4\",\"status\":\"reconstructed\",\"text\":\"line1\\nline2\\ttabbed \\\"quoted\\\" \\\\ back\"}",
+      "content_nfc": "line1\nline2\ttabbed \"quoted\" \\ back",
+      "client_sha256": "65ba0c08092b34bffbb414d40888da68a9c9bcbd396a7227a87b50e1c104ec8a",
+      "prev": "288e515c092afa4ccee6aa67db0e9a693e117bb93c341694968769aa0053be3d",
+      "ts": 1767225601,
+      "payload_sha256": "753ff2674ac952f98591fd2f381d3e626c84ac850d70547d6b544ced5c9a833c"
+    },
+    {
+      "input": {
+        "scroll_siglum": "3Q15",
+        "cave_or_site": "Qumran Cave 3",
+        "medium": "copper",
+        "script_lang": "Hebrew",
+        "epigraphic_status": "extant_verified",
+        "raw_text": "é composed? café   sep 📜 \u0001 ctrl",
+        "media_asset_sha256": null
+      },
+      "canonical_content": "{\"anchor\":\"AA55FF01312B313D327E312D313D300400F0\",\"entry_type\":\"record\",\"lang\":\"Hebrew\",\"media_hash\":null,\"medium\":\"copper\",\"ref\":null,\"siglum\":\"3Q15\",\"site\":\"Qumran Cave 3\",\"status\":\"extant_verified\",\"text\":\"é composed? café   sep 📜 \\u0001 ctrl\"}",
+      "content_nfc": "é composed? café   sep 📜 \u0001 ctrl",
+      "client_sha256": "38210c850bd5676a687c1593b777fe0b47e1cd32bf861416eb2f34384c033820",
+      "prev": "753ff2674ac952f98591fd2f381d3e626c84ac850d70547d6b544ced5c9a833c",
+      "ts": 1767225602,
+      "payload_sha256": "d795922ce590f9788fc1dff40585d3dacd324cafd46d928fc500d16651d4a90e"
+    },
+    {
+      "input": {
+        "entry_type": "correction",
+        "ref_client_sha256": "088d46517bb557117f834c1945f060372d85b0906f195dbc6308fbffe0ddef01",
+        "scroll_siglum": "1QIsa-a",
+        "cave_or_site": "Qumran Cave 1",
+        "medium": "parchment",
+        "script_lang": "Hebrew",
+        "epigraphic_status": "extant_verified",
+        "raw_text": "corrected reading"
+      },
+      "canonical_content": "{\"anchor\":\"AA55FF01312B313D327E312D313D300400F0\",\"entry_type\":\"correction\",\"lang\":\"Hebrew\",\"media_hash\":null,\"medium\":\"parchment\",\"ref\":\"088d46517bb557117f834c1945f060372d85b0906f195dbc6308fbffe0ddef01\",\"siglum\":\"1QIsa-a\",\"site\":\"Qumran Cave 1\",\"status\":\"extant_verified\",\"text\":\"corrected reading\"}",
+      "content_nfc": "corrected reading",
+      "client_sha256": "cd45ef2d248e775423fccfc61f1efd3f12a77d45877a10dbe77e6c98bda44ed9",
+      "prev": "d795922ce590f9788fc1dff40585d3dacd324cafd46d928fc500d16651d4a90e",
+      "ts": 1767225603,
+      "payload_sha256": "9b8924c87df01b33105459c9d0b86887857062e97fe59db49de47723d087c1e9"
+    }
+  ],
+  "hmac": [
+    {
+      "secret": "test-secret-key",
+      "ts": "1767225600",
+      "method": "POST",
+      "path": "/ingest?x=1",
+      "body": "",
+      "signature": "89c578ec13f98e3c9d03764aa3b9e0fb69e952be2b541ff603efb706b3e8d922"
+    },
+    {
+      "secret": "test-secret-key",
+      "ts": "1767225600",
+      "method": "POST",
+      "path": "/ingest?x=1",
+      "body": "{\"records\":[{\"raw_text\":\"א\"}]}",
+      "signature": "b3faa728e73c05ba90a024ef6751131edb57b9786820f65a82022b51da9cebdf"
+    }
+  ]
+}
