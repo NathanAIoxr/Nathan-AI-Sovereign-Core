@@ -12,7 +12,22 @@ async function read(response){
   return response.json();
 }
 const {value}=await read(await fetchBound(oidc,{headers:{Authorization:"Bearer "+ACTIONS_ID_TOKEN_REQUEST_TOKEN}}));
-const {voiceEvidence}=await read(await fetchBound(vault,{headers:{Authorization:"Bearer "+value}}));
+const source=await fetchBound(vault,{headers:{Authorization:"Bearer "+value}});
+if(source.status===401) {
+  const payload=JSON.parse(Buffer.from(value.split(".")[1],"base64url").toString("utf8"));
+  const now=Math.floor(Date.now()/1000);
+  console.log(JSON.stringify({
+    repository:String(payload.repository_id)==="1038249626"&&payload.repository?.toLowerCase()===repository.toLowerCase(),
+    audience:payload.aud===vault,
+    issuer:payload.iss==="https://token.actions.githubusercontent.com",
+    workflow:payload.workflow_ref?.toLowerCase()===(repository+"/.github/workflows/zone-switch.yml@refs/heads/main").toLowerCase(),
+    ref:payload.ref==="refs/heads/main",
+    event:["push","workflow_dispatch"].includes(payload.event_name),
+    validity:Number.isFinite(payload.exp)&&payload.exp>now&&payload.exp<=now+900&&Number.isFinite(payload.nbf)&&payload.nbf<=now+10,
+    vaultEndpoint:(await source.clone().json()).error==="github_workflow_required"
+  }));
+}
+const {voiceEvidence}=await read(source);
 if(!Array.isArray(voiceEvidence)||voiceEvidence.length>1000||voiceEvidence.some(row=>
   !/^[0-9a-f-]{36}$/.test(row.event_id)||!/^[a-f0-9]{64}$/.test(row.source_hash)||!Number.isFinite(Date.parse(row.created_at))))throw Error("Malformed voice proof response");
 const evidence=voiceEvidence.map(({event_id,source_hash,created_at})=>({event_id,source_hash,created_at}));
