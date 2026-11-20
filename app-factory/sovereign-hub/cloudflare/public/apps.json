@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 367,
+  "count": 368,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1722,6 +1722,14 @@
       "entry": "app-factory/system/index.html",
       "group": "system",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/system/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-fe13e8ebfea8ca08",
+      "title": "Minds \u00b7 Tabor Academy",
+      "entry": "app-factory/tabor-academy/minds/index.html",
+      "group": "tabor-academy",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/tabor-academy/minds/index.html",
       "adoption": "integration_required"
     },
     {
