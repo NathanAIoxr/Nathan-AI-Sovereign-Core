@@ -1,5 +1,7 @@
 const title = "Jeffrey Epstein Bible";
 const description = "Where the Bible and the Epstein files are laid over each other.";
+const publicMount = "/tabor-academy/jeffrey-epstein-bible";
+const publicSite = "https://tabor-bridge.nathantaboract.workers.dev" + publicMount;
 const archive = "https://www.justice.gov/epstein";
 const disclosures = archive + "/doj-disclosures";
 const repo = "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core";
@@ -133,8 +135,8 @@ function archives() {
 export const handoff = {
   project: "jeffrey-epstein-bible",
   title, author: "Nathan Tabor",
-  url: "https://jeffrey-epstein-bible.nathantaboract.workers.dev/",
-  index: "/api/index.json", archive: "/archives/", workflow: "review-before-publication",
+  url: publicSite + "/",
+  index: publicSite + "/api/index.json", archive: publicSite + "/archives/", workflow: "review-before-publication",
   source: repo + "/tree/main/app-factory/jeffrey-epstein-bible",
   required: ["publisher", "document identifier or docket", "source URL", "date", "page locator where available", "evidence status", "KJV reference"],
   next: ["Expand by dated record. Compare source, action, actor, and jurisdiction before connecting events.",
@@ -143,34 +145,51 @@ export const handoff = {
     "Run the Worker tests, verify pages on Cloudflare, and update the chapter coverage count."],
 };
 
+async function serve(request, mount, requestedPath) {
+  const url = new URL(request.url);
+  const path = requestedPath.replace(/\/$/, "") || "/";
+  let content;
+  let contentType = "text/html; charset=utf-8";
+  let status = 200;
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response("Method not allowed", { status: 405, headers: { allow: "GET, HEAD" } });
+  }
+  if (path === "/") content = home((url.searchParams.get("q") || "").slice(0, 120));
+  else if (path === "/archives") content = archives();
+  else if (["/api/index.json", "/conductor.json", "/healthz"].includes(path)) {
+    contentType = "application/json; charset=utf-8";
+    content = JSON.stringify(path === "/conductor.json" ? handoff :
+      path === "/healthz" ? { ok: true, chapters: chapters.length } : { title, author: handoff.author, archives: collections, datasets, chapters });
+  } else {
+    const chapter = chapters.find(item => path === "/chapter/" + item.id);
+    if (chapter) content = chapterPage(chapter);
+    else {
+      status = 404;
+      content = page("Chapter not found", '<h1>Chapter not found</h1><p><a href="/">Browse all chapters</a></p>');
+    }
+  }
+  if (mount && contentType.startsWith("text/html")) {
+    content = content.replace(/\b(href|action)="\/(?!\/)/g, (_, name) => name + '="' + mount + "/");
+  }
+  return new Response(request.method === "HEAD" ? null : content, {
+    status, headers: { "content-type": contentType, "x-content-type-options": "nosniff",
+      "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
+      "referrer-policy": "no-referrer", "cache-control": "no-store" },
+  });
+}
+
 export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    const path = url.pathname.replace(/\/$/, "") || "/";
-    let content;
-    let contentType = "text/html; charset=utf-8";
-    let status = 200;
-    if (request.method !== "GET" && request.method !== "HEAD") {
-      return new Response("Method not allowed", { status: 405, headers: { allow: "GET, HEAD" } });
-    }
-    if (path === "/") content = home((url.searchParams.get("q") || "").slice(0, 120));
-    else if (path === "/archives") content = archives();
-    else if (["/api/index.json", "/conductor.json", "/healthz"].includes(path)) {
-      contentType = "application/json; charset=utf-8";
-      content = JSON.stringify(path === "/conductor.json" ? handoff :
-        path === "/healthz" ? { ok: true, chapters: chapters.length } : { title, author: handoff.author, archives: collections, datasets, chapters });
-    } else {
-      const chapter = chapters.find(item => path === "/chapter/" + item.id);
-      if (chapter) content = chapterPage(chapter);
-      else {
-        status = 404;
-        content = page("Chapter not found", '<h1>Chapter not found</h1><p><a href="/">Browse all chapters</a></p>');
-      }
-    }
-    return new Response(request.method === "HEAD" ? null : content, {
-      status, headers: { "content-type": contentType, "x-content-type-options": "nosniff",
-        "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
-        "referrer-policy": "no-referrer", "cache-control": "no-store" },
-    });
-  },
+  fetch(request) { return serve(request, "", new URL(request.url).pathname); },
 };
+
+export function withJeffreyEpsteinBible(academy) {
+  return {
+    ...academy,
+    fetch(request, env, ctx) {
+      const path = new URL(request.url).pathname;
+      const prefix = [publicMount, "/jeffrey-epstein-bible"].find(candidate => path === candidate || path.startsWith(candidate + "/"));
+      if (prefix) return serve(request, publicMount, path.slice(prefix.length));
+      return academy.fetch(request, env, ctx);
+    },
+  };
+}

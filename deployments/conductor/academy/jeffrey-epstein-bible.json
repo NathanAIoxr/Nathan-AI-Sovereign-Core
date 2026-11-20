@@ -2,9 +2,10 @@
   "project": "jeffrey-epstein-bible",
   "author": "Nathan Tabor",
   "app": "app-factory/jeffrey-epstein-bible/",
-  "liveUrl": "https://jeffrey-epstein-bible.nathantaboract.workers.dev/",
-  "handoff": "https://jeffrey-epstein-bible.nathantaboract.workers.dev/conductor.json",
+  "liveUrl": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/jeffrey-epstein-bible/",
+  "handoff": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/jeffrey-epstein-bible/conductor.json",
   "coverage": "Nine chapter summaries at launch, official source collection links",
+  "mount": "Tabor Academy dispatch Worker, using app-factory/jeffrey-epstein-bible/mount.mjs",
   "state": "ready-for-editorial-review",
   "task": "Expand one sourced chapter at a time. Preserve author wording, identify provenance and evidentiary status, keep victim and private details out of the public index, and verify the release."
 }
