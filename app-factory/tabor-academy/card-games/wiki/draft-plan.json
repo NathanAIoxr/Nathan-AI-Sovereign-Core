@@ -1,0 +1,27 @@
+{
+  "key": "tabor-academy-card-games-engines-v1",
+  "title": "Tabor Academy Card Games: Gin Rummy and Cribbage draft engines",
+  "tasks": [
+    {
+      "key": "gin-rummy-match",
+      "kind": "module",
+      "publish": 0,
+      "depends_on": [],
+      "prompt": "Draft an original, dependency-free JavaScript ES module for the Tabor Academy two-player Gin Rummy match. Export createMatch, legalActions, applyAction, and visibleState. Accept a predefined shuffled 52-card deck for deterministic tests, preserve card identity, and validate every move. Deal ten per player. Model first offer, passing, stock or discard draws, mandatory discard, prohibited immediate re-discard, deadwood with disjoint melds, knock at ten, gin, legal lay-offs against ordinary knocks, undercut, cancelled hand at two stock cards, rotating dealer and cumulative score. Follow the Academy edition bonus values: gin 20, undercut 10, goal 100 before optional agreed bonuses. Explicitly conceal other hands and future stock in visibleState. Keep it pure and offline: no filesystem, network, dependencies, eval, environment access or auto-publishing. Include a deterministic fixture and explain any edge case assumptions in short code comments."
+    },
+    {
+      "key": "six-card-cribbage-match",
+      "kind": "module",
+      "publish": 0,
+      "depends_on": [],
+      "prompt": "Draft an original, dependency-free JavaScript ES module for Tabor Academy six-card Cribbage. Export createMatch, legalActions, applyAction, scoreHand and visibleState. Accept an injected deck, and enforce immutable validated transitions. Players draft two cards each into the crib. Score heels, complete pegging to 31 with go and sequence reset, pairs, runs, fifteens, last card, then score non-dealer hand, dealer hand and crib separately. Count each distinct fifteen, pair and run, ordinary hand flush versus five-card crib flush, and nobs. Match ends immediately at 121. Include a 29-hand fixture and a pegging fixture with an exact 31. Keep it pure and offline: no filesystem, network, dependencies, eval, environment access or auto-publishing."
+    },
+    {
+      "key": "card-game-lesson-checks",
+      "kind": "module",
+      "publish": 0,
+      "depends_on": [],
+      "prompt": "Draft a pure JavaScript ES module of original instructional fixtures for Tabor Academy card games. Export validated fixtures and gradeRunningTally for ten or fewer illustrative problems. Begin with a comfortable-table reminder and a no-timer accessibility option. Cover Gin deadwood, ordinary knock versus gin, undercut scoring, Cribbage counting of pairs, distinct fifteens and overlapping runs, and suit tracking with visible versus unknown cards. Use short answer explanations with explicit sums and no stakes. No generated historical claims, provider integrations, dependency imports or network access. Treat examples as draft classroom exercises for review."
+    }
+  ]
+}

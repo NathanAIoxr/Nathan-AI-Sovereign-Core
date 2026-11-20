@@ -12,11 +12,31 @@
     "binding": "CARD_GAMES_DB"
   },
   "baseline": { "records": 2321, "inLibraryRules": 24, "browserActivities": 10, "lessons": 10 },
+  "research": {
+    "intake": "app-factory/tabor-academy/card-games/wiki/refresh.mjs",
+    "workflow": ".github/workflows/tabor-academy-card-source-intake.yml",
+    "liveStatus": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/card-games/api/references/summary",
+    "wikipediaScope": "English Wikipedia card-game categories, page and revision metadata",
+    "ownerArchive": "app-factory/game-reference-lab/morning-additions-238.json",
+    "ownerEngineSpecs": "app-factory/game-reference-lab/morning-mechanics-taxonomy.json",
+    "conductorEvidence": "app-factory/nathan-ai/sovereign-conductor-bridge/src/conductor.mjs",
+    "globalSourceRegistry": "tabor_academy_db:tabor_global_source_registry/wikipedia",
+    "initialReceipt": "tabor-cards-2220ff288de0bb933759784d",
+    "initialCounts": { "wikipedia": 516, "ownerArchive": 69, "engineSpecs": 22, "matched": 116, "buildBacklog": 519 }
+  },
+  "automation": {
+    "draftProvider": "tabor-build-loop",
+    "draftPlanId": "19e4d5f7-6326-49e1-8694-4a0c222024d4",
+    "draftPlanSource": "app-factory/tabor-academy/card-games/wiki/draft-plan.json",
+    "draftConsole": "https://tabor-build-loop.nathantaboract.workers.dev/console/",
+    "taskKeys": ["gin-rummy-match", "six-card-cribbage-match", "card-game-lesson-checks"],
+    "projectCheckWorkflow": ".github/workflows/tabor-academy-card-games.yml"
+  },
   "recovery": {
     "order": ["Identify source and variant", "Draft and check the rules", "Write the lesson", "Implement and test the browser edition", "Publish and verify counts"],
     "historyStatuses": ["documented", "reconstructed", "fragment"],
     "statusForNewDesign": "original",
-    "next": ["Build complete digital Gin Rummy and Cribbage", "Extend solo and regional deck coverage", "Write classroom variants for more source-linked games"]
+    "next": ["Review the three Build Loop artifacts and test each against its sources", "Build complete digital Gin Rummy and Cribbage", "Use card research backlog for implementations and classroom variants"]
   },
   "checks": ["npm test", "npm run verify"]
 }

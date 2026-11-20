@@ -11,7 +11,7 @@
 <body>
   <header class="masthead">
     <a href="/tabor-academy/">Tabor Academy</a>
-    <nav aria-label="Card Games Library"><a href="#catalog">Catalog</a><a href="#lessons">Lessons</a></nav>
+    <nav aria-label="Card Games Library"><a href="#catalog">Catalog</a><a href="#research">Sources</a><a href="#lessons">Lessons</a></nav>
   </header>
   <main>
     <section class="hero" aria-labelledby="title">
@@ -42,6 +42,29 @@
       <div class="more"><button id="more" type="button" hidden>More games</button></div>
     </section>
     <section id="game-detail" aria-labelledby="game-title" hidden></section>
+    <section id="research" aria-labelledby="research-title">
+      <h2 id="research-title">Research sources</h2>
+      <p id="research-summary" class="section-intro" aria-live="polite">Loading research sources…</p>
+      <form id="reference-form">
+        <label>Source
+          <select name="source">
+            <option value="wikipedia">Wikipedia</option>
+            <option value="nathan-archive">Nathan Tabor’s card-game archive</option>
+          </select>
+        </label>
+        <label class="query">Search source titles
+          <input name="q" type="search" maxlength="100" placeholder="Gin rummy, Scopa, Hanafuda…">
+        </label>
+        <button type="submit">Find sources</button>
+      </form>
+      <p id="reference-label" class="note" aria-live="polite"></p>
+      <div id="reference-results" class="catalog-grid"></div>
+      <div class="more"><button id="reference-more" type="button" hidden>More sources</button></div>
+      <details id="research-specs">
+        <summary>Card engine specifications</summary>
+        <div id="specs-list"></div>
+      </details>
+    </section>
     <section id="lessons" aria-labelledby="lessons-title">
       <h2 id="lessons-title">From first deal to strategy</h2>
       <p class="section-intro">Start with a comfortable table. Work forward at your own pace.</p>

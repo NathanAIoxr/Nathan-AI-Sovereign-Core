@@ -1,4 +1,5 @@
 import { assets } from './card-assets.mjs';
+import { engineSpecs, listResearch, researchForGame, researchSummary } from './card-reference-api.mjs';
 
 export const route = '/tabor-academy/card-games/';
 const statuses = new Set(['documented','reconstructed','original','indexed','fragment']);
@@ -92,6 +93,12 @@ export async function serveCardGames(request, db, path) {
   try {
     if (path === 'api/health') return await info(db);
     if (path === 'api/games') return await listGames(url, db);
+    if (path === 'api/references/summary') return json(await researchSummary(db));
+    if (path === 'api/references/engine-specs') return json({ specs:await engineSpecs(db) });
+    if (path === 'api/references') {
+      const result = await listResearch(db,url.searchParams);
+      return result ? json(result) : json({error:'Unknown reference source'},400);
+    }
     if (path === 'api/lessons') {
       const { results } = await db.prepare('SELECT id,level,title,body,game_id FROM card_lessons ORDER BY sequence').all();
       return json({ lessons: results.map(({ body, ...row }) => ({ ...row, ...JSON.parse(body) })) });
@@ -99,7 +106,7 @@ export async function serveCardGames(request, db, path) {
     const detail = /^api\/games\/([a-z0-9-]{1,90})$/.exec(path);
     if (detail) {
       const row = await db.prepare('SELECT ' + columns + ' FROM card_games WHERE id = ?').bind(detail[1]).first();
-      if (row) return json(fullRecord(row));
+      if (row) return json({ ...fullRecord(row),researchReferences:await researchForGame(db,row.id) });
     }
     return json({ error: 'Not found' }, 404);
   } catch (error) {

@@ -128,6 +128,15 @@ async function showGame(id, focus = false) {
       }
       detail.append(el('h3','Sources'),sources);
     }
+    if (game.researchReferences?.length) {
+      const refs = el('ul');
+      for (const item of game.researchReferences) {
+        const row = el('li');
+        row.append(referenceLink(item,item.title + (item.revision ? ' · Wikipedia' : ' · Nathan Tabor archive')));
+        refs.append(row);
+      }
+      detail.append(el('h3','Research references'),refs);
+    }
     if (game.engine && Object.hasOwn(activities,game.engine)) {
       const table = el('div'); table.id = 'play-table';
       detail.append(table);
@@ -168,6 +177,93 @@ async function lessons() {
     }
   } catch { target.textContent = 'Lessons could not load. Reload to try again.'; }
 }
+
+function referenceLink(item, label) {
+  const link = el('a',label);
+  link.href = item.revision_url || item.url;
+  return link;
+}
+
+const referenceForm = byId('reference-form');
+const referenceResults = byId('reference-results');
+const referenceMore = byId('reference-more');
+const referenceLabel = byId('reference-label');
+let activeReferences = new URLSearchParams(new FormData(referenceForm));
+let referenceOffset = 0;
+let referenceRequest = 0;
+
+async function showReferences(append = false) {
+  const currentRequest = ++referenceRequest;
+  const params = new URLSearchParams(activeReferences);
+  params.set('offset',append ? referenceOffset : 0);
+  referenceMore.disabled = true;
+  referenceLabel.textContent = 'Loading sources…';
+  try {
+    const result = await get('api/references?' + params);
+    if (currentRequest !== referenceRequest) return;
+    const items = result.items.map((item) => {
+      const card = el('article','','catalog-card');
+      const title = el('h3',item.title);
+      const notes = item.source === 'nathan-archive' ? item.id + ' · Author’s reference' :
+        item.record_type === 'reference' ? 'Wikipedia reference' : 'Wikipedia game lead';
+      card.append(title,el('p',notes,'metadata'),referenceLink(item,item.revision ? 'Open cited revision' : 'Open author’s archive'));
+      if (item.linked_game) card.append(gameLink(item.linked_game,'Open linked catalog game'));
+      return card;
+    });
+    if (append) referenceResults.append(...items);
+    else referenceResults.replaceChildren(...items);
+    referenceOffset = result.nextOffset;
+    referenceMore.hidden = referenceOffset === null;
+    referenceLabel.textContent = result.total ? 'Showing ' + referenceResults.children.length + ' of ' + result.total + ' sources' : 'No sources match.';
+    if (append && items.length) items[0].querySelector('a').focus();
+  } catch {
+    if (currentRequest === referenceRequest) {
+      referenceLabel.textContent = 'Sources could not load. Run the search again.';
+      referenceMore.hidden = true;
+    }
+  } finally {
+    if (currentRequest === referenceRequest) referenceMore.disabled = false;
+  }
+}
+
+referenceForm.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  activeReferences = new URLSearchParams(new FormData(referenceForm));
+  showReferences();
+});
+referenceForm.elements.source.addEventListener('change',()=>{
+  activeReferences = new URLSearchParams(new FormData(referenceForm));
+  showReferences();
+});
+referenceMore.addEventListener('click',()=>showReferences(true));
+
+async function prepareReferences() {
+  try {
+    const data = await get('api/references/summary');
+    const counts = Object.fromEntries(data.sources.map(({source,total})=>[source,total]));
+    byId('research-summary').textContent = (counts.wikipedia || 0).toLocaleString() + ' Wikipedia records · ' +
+      (counts['nathan-archive'] || 0) + ' Nathan Tabor archive references · ' + data.engineSpecs + ' engine specifications';
+  } catch {
+    byId('research-summary').textContent = 'Research totals are temporarily unavailable.';
+  }
+}
+const specDetails = byId('research-specs');
+specDetails.addEventListener('toggle',async ()=>{
+  const target = byId('specs-list');
+  if (!specDetails.open || target.children.length) return;
+  try {
+    const data = await get('api/references/engine-specs');
+    target.replaceChildren(...data.specs.map((item)=>{
+      const p = el('p');
+      const anchor = el('a',item.id);
+      anchor.href = item.url;
+      p.append(anchor,document.createTextNode(' · ' + item.purpose));
+      return p;
+    }));
+  } catch {
+    target.textContent = 'Engine specifications could not load.';
+  }
+});
 
 const scoreForm = byId('score-form');
 const scoreKey = 'tabor-academy-card-scores-v1';
@@ -237,6 +333,8 @@ window.addEventListener('popstate',() => {
 hydrateFilters();
 scoreDisplay();
 prepare();
+prepareReferences();
+showReferences();
 search();
 lessons();
 const opened = new URL(location.href).searchParams.get('game');

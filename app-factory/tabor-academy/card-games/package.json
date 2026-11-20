@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs --local-assets",
-    "test": "npm run build && node --test test.mjs",
+    "test": "npm run build && node --test test.mjs wiki/*.test.mjs",
     "deploy": "node deploy.mjs",
-    "verify": "node verify.mjs"
+    "verify": "node verify.mjs",
+    "refresh-references": "node wiki/refresh.mjs"
   }
 }

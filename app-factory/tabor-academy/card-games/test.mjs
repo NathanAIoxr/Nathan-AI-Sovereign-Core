@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 import { DatabaseSync } from 'node:sqlite';
 import { buildSeed } from './catalog.mjs';
@@ -9,6 +10,7 @@ import { activities, combinations, deadwood, deck, handTotal, hiLo } from './pub
 const seed = await buildSeed();
 const sqlite = new DatabaseSync(':memory:');
 sqlite.exec([seed.schema,...seed.chunks,seed.receipt].join('\n'));
+sqlite.exec(await readFile(new URL('wiki/schema.sql',import.meta.url),'utf8'));
 function statement(query, params = []) {
   return {
     bind: (...values) => statement(query,values),

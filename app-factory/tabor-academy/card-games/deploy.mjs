@@ -45,6 +45,7 @@ const snapshot = (m) => JSON.stringify([...m].sort(([a],[b]) => a.localeCompare(
 
 const { schema,chunks,receipt,release } = await buildSeed();
 await query(schema);
+await query(await readFile(new URL("wiki/schema.sql",import.meta.url),"utf8"));
 for (const sql of chunks) await query(sql);
 await query(receipt);
 

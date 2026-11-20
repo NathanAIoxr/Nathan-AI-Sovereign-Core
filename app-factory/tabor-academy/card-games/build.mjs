@@ -15,6 +15,7 @@ export async function buildModules() {
   }
   return new Map([
     ['academy-card-games.mjs',await readFile(new URL('academy-card-games.mjs',root),'utf8')],
+    ['card-reference-api.mjs',await readFile(new URL('card-reference-api.mjs',root),'utf8')],
     ['card-assets.mjs','export const assets = ' + JSON.stringify(assets) + ';\n'],
   ]);
 }
