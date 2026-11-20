@@ -24,7 +24,7 @@ if(source.status===401) {
     ref:payload.ref==="refs/heads/main",
     event:["push","workflow_dispatch"].includes(payload.event_name),
     validity:Number.isFinite(payload.exp)&&payload.exp>now&&payload.exp<=now+900&&Number.isFinite(payload.nbf)&&payload.nbf<=now+10,
-    vaultEndpoint:(await source.clone().json()).error==="github_workflow_required"
+    vaultStep:(await source.clone().json()).step??"unavailable"
   }));
 }
 const {voiceEvidence}=await read(source);
