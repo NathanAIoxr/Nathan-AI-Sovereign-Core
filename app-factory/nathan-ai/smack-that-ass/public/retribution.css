@@ -130,3 +130,22 @@ kbd { font: inherit; border: 1px solid var(--line); border-radius: .2rem; paddin
   }
   .target { height: clamp(17rem, 68vw, 22rem); min-height: 17rem; }
 }
+
+.page-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .25rem .85rem; }
+.hierarchy-picker { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .75rem; }
+.hierarchy-picker button {
+  padding: .48rem .85rem; min-height: 2.75rem; border: 1px solid var(--line);
+  border-radius: .4rem; background: var(--panel); font-weight: 750;
+}
+.hierarchy-picker button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--panel); }
+.roster { max-height: 30.5rem; overflow: auto; }
+.dedication blockquote {
+  margin: 0 0 .45rem; padding-left: .65rem; border-left: 2px solid var(--line);
+  font: 600 1.12rem/1.45 Georgia, serif;
+}
+.dedication article > a { display: inline-block; margin-right: .7rem; margin-bottom: .25rem; }
+@media (max-width: 420px) {
+  .page-header { align-items: start; }
+  .page-header nav { flex-direction: column; }
+  .hierarchy-picker button { flex: 1; padding-inline: .45rem; }
+}

@@ -1,6 +1,6 @@
 # SMACK THAT ASS (AUTHORITARIAN SATANIC SOULS)
 
-Select one of nine fictional figures based on Catholic Church offices, titles, and religious-order roles. Choose **Hand** or **Face** and tap the illustration or press Space. Only the player can strike. The app links to the Ryan Report and Scottish Child Abuse Inquiry records under **Historical record**.
+Choose a fictional figure from the Catholic hierarchy or the Kristian hierarchy. The roles are grouped by church tradition. The KJV dedication quotes the words ass and asses, links Revelation 22:18–19, and attributes the warning about damnation to a published sermon. Choose **Hand** or **Face** and tap the illustration or press Space. Only the player can strike. The app links to the Ryan Report and Scottish Child Abuse Inquiry records under **Historical record**.
 
 [Open the app](https://pub-a374b836528943e2917457f04363c2ff.r2.dev/releases/smack-that-ass/index.html) · [Release health](https://pub-a374b836528943e2917457f04363c2ff.r2.dev/releases/smack-that-ass/health.json)
 

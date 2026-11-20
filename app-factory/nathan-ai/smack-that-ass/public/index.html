@@ -3,39 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A fictional, one-way interaction about abuse of power in Catholic-run institutions.">
+  <meta name="description" content="A fictional, one-way interaction with Catholic and Kristian rosters, a KJV dedication, and historical inquiry records.">
   <meta name="theme-color" content="#efebe1">
   <title>SMACK THAT ASS</title>
-  <link rel="stylesheet" href="retribution.css">
-  <script src="retribution.js" defer></script>
+  <link rel="stylesheet" href="retribution.css?v=kjv-rosters">
+  <script src="retribution.js?v=kjv-rosters" defer></script>
 </head>
 <body>
   <header class="page-header">
     <a class="wordmark" href="index.html">SMACK THAT ASS</a>
-    <a href="#historical-record">Historical record</a>
+    <nav aria-label="Page sections"><a href="#kjv-dedication">KJV dedication</a><a href="#historical-record">Historical record</a></nav>
   </header>
 
   <main>
     <header class="intro">
       <h1>SMACK THAT ASS <span class="name-meaning">(AUTHORITARIAN SATANIC SOULS)</span></h1>
-      <p>Choose a fictional Catholic Church figure. Only the player can slap the hand or masked face.</p>
+      <p>Choose a fictional figure from the Catholic or Kristian hierarchy. Only the player can slap the hand or masked face.</p>
     </header>
 
+    <div class="hierarchy-picker" role="group" aria-label="Choose a hierarchy">
+      <button type="button" data-hierarchy="catholic" aria-pressed="true">Catholic hierarchy</button>
+      <button type="button" data-hierarchy="kristian" aria-pressed="false">Kristian hierarchy</button>
+    </div>
+
     <div class="mobile-picker">
-      <label for="role-select">Catholic Church role</label>
+      <label for="role-select">Choose a role</label>
       <div class="select-wrap"><select id="role-select"></select></div>
     </div>
 
     <div class="layout">
       <section class="interaction" aria-label="Slap target">
         <div class="target-toolbar">
-          <span id="selected-role">Nun</span>
+          <span id="selected-role">Pope</span>
           <div class="target-switch" role="group" aria-label="Target area">
             <button type="button" id="choose-hand" aria-pressed="true">Hand</button>
             <button type="button" id="choose-face" aria-pressed="false">Face</button>
           </div>
         </div>
-        <button type="button" id="strike" class="target" aria-label="Slap the nun’s hand">
+        <button type="button" id="strike" class="target" aria-label="Slap the pope’s hand">
           <span class="frame" aria-hidden="true"></span>
           <canvas id="figure" width="800" height="640" aria-hidden="true"></canvas>
           <span class="impact" aria-hidden="true"></span>
@@ -48,10 +53,36 @@
       </section>
 
       <aside class="roster" aria-labelledby="roster-title">
-        <h2 id="roster-title">Catholic Church roles</h2>
+        <h2 id="roster-title">Catholic hierarchy</h2>
         <div id="role-list"></div>
       </aside>
     </div>
+
+    <section class="history dedication" id="kjv-dedication" aria-labelledby="dedication-title">
+      <h2 id="dedication-title">In honor of ASS and ASSES in the KJV</h2>
+      <article>
+        <h3>ASS · Matthew 21:7</h3>
+        <blockquote>And brought the ass, and the colt, and put on them their clothes, and they set him thereon.</blockquote>
+        <a href="https://www.biblegateway.com/passage/?search=Matthew+21%3A7&amp;version=KJV">Matthew 21:7 · KJV</a>
+      </article>
+      <article>
+        <h3>ASSES · Genesis 12:16</h3>
+        <blockquote>And he entreated Abram well for her sake: and he had sheep, and oxen, and he asses, and menservants, and maidservants, and she asses, and camels.</blockquote>
+        <a href="https://www.biblegateway.com/passage/?search=Genesis+12%3A16&amp;version=KJV">Genesis 12:16 · KJV</a>
+      </article>
+      <article>
+        <h3>The warning · Revelation 22:18–19</h3>
+        <p>Verse 18 warns that God will add the plagues written in the book to anyone who adds to the words of its prophecy. Verse 19 says God will <q>take away his part out of the book of life</q> from anyone who takes away from those words.</p>
+        <a href="https://www.biblegateway.com/passage/?search=Revelation+22%3A18-19&amp;version=KJV">Revelation 22:18–19 · KJV</a>
+      </article>
+      <article>
+        <h3>What was preached</h3>
+        <p>In its October 19, 2014 sermon <cite>Using the Right Words</cite>, Faithful Word Baptist Church applied the warning to Scripture as a whole and said someone who adds to or takes away from God’s words is <q>eternally damned</q>.</p>
+        <p>Matthew 21:7 says <strong>ass</strong> in the KJV. Editions including the NKJV and NIV print <strong>donkey</strong>. If ministers preach that changing God’s words brings damnation, how do they apply that standard when <strong>ass</strong> becomes <strong>donkey</strong>?</p>
+        <a href="https://www.faithfulwordbaptist.org/transcript_using_right_words.html">Read the sermon transcript</a>
+        <a href="https://www.biblegateway.com/passage/?search=Matthew+21%3A7&amp;version=KJV%3BNKJV%3BNIV">Compare Matthew 21:7</a>
+      </article>
+    </section>
 
     <section class="history" id="historical-record" aria-labelledby="history-title">
       <h2 id="history-title">Historical record</h2>

@@ -1,31 +1,25 @@
 "use strict";
 
-const groups = [
-  {
-    name: "Church leadership",
-    roles: [
-      { name: "Pope", color: "#ebe1cf" },
-      { name: "Cardinal", color: "#9c3935" },
-      { name: "Archbishop", color: "#684873" },
-      { name: "Bishop", color: "#506577" },
-    ],
-  },
-  {
-    name: "Clergy and titles",
-    roles: [
-      { name: "Monsignor", color: "#6a4c59" },
-      { name: "Priest", color: "#484f4a" },
-      { name: "Deacon", color: "#5b5044" },
-    ],
-  },
-  {
-    name: "Religious orders",
-    roles: [
-      { name: "Mother Superior", color: "#3d4953" },
-      { name: "Nun", color: "#3f414b" },
-    ],
-  },
-];
+const colors = ["#ebe1cf", "#9c3935", "#684873", "#506577", "#6a4c59", "#484f4a", "#5b5044", "#3d4953", "#3f414b"];
+const hierarchies = {
+  catholic: [
+    ["Church leadership", ["Pope", "Cardinal", "Patriarch", "Major Archbishop", "Archbishop", "Bishop", "Auxiliary Bishop", "Apostolic Nuncio"]],
+    ["Diocesan and parish clergy", ["Vicar General", "Episcopal Vicar", "Monsignor", "Parish Priest", "Priest", "Deacon"]],
+    ["Religious orders", ["Superior General", "Provincial Superior", "Abbot", "Abbess", "Mother Superior", "Prior", "Prioress", "Nun", "Religious Sister", "Religious Brother", "Monk", "Friar"]],
+  ],
+  kristian: [
+    ["Eastern Orthodox", ["Patriarch", "Metropolitan", "Archbishop", "Bishop", "Priest", "Deacon", "Abbot", "Abbess"]],
+    ["Oriental Orthodox", ["Patriarch", "Catholicos", "Metropolitan", "Bishop", "Priest", "Deacon"]],
+    ["Anglican and Episcopal", ["Primate", "Archbishop", "Presiding Bishop", "Bishop", "Dean", "Archdeacon", "Rector", "Vicar", "Priest", "Deacon"]],
+    ["United Methodist", ["Bishop", "District Superintendent", "Elder", "Deacon", "Local Pastor"]],
+    ["Lutheran", ["Presiding Bishop", "Synod Bishop", "Pastor", "Deacon"]],
+    ["Presbyterian", ["General Assembly Moderator", "Minister", "Ruling Elder", "Deacon"]],
+    ["Southern Baptist", ["Pastor / Elder / Overseer", "Deacon"]],
+    ["Independent Fundamental Baptist", ["Pastor", "Assistant Pastor", "Deacon"]],
+    ["Pentecostal · Assemblies of God", ["General Superintendent", "District Superintendent", "Presbyter", "Pastor", "Evangelist"]],
+    ["Independent and nondenominational", ["Lead Pastor", "Associate Pastor", "Elder", "Deacon"]],
+  ],
+};
 
 const byId = (id) => document.getElementById(id);
 const roleList = byId("role-list");
@@ -36,52 +30,77 @@ const targetLabel = byId("target-label");
 const handChoice = byId("choose-hand");
 const faceChoice = byId("choose-face");
 const roles = new Map();
-let selectedRole = "Nun";
+const hierarchyButtons = Array.from(document.querySelectorAll("[data-hierarchy]"));
+const hierarchyLabels = { catholic: "Catholic hierarchy", kristian: "Kristian hierarchy" };
+const selection = new Map();
+let activeHierarchy = "catholic";
+let selectedRole;
 let targetArea = "hand";
 let impactTimer;
 
-for (const group of groups) {
-  const section = document.createElement("section");
-  section.className = "role-group";
-  const heading = document.createElement("h3");
-  heading.textContent = group.name;
-  const buttons = document.createElement("div");
-  buttons.className = "roles";
-  const options = document.createElement("optgroup");
-  options.label = group.name;
-  for (const role of group.roles) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "role";
-    button.textContent = role.name;
-    button.addEventListener("click", () => {
-      selectedRole = role.name;
-      updateTarget();
-    });
-    buttons.append(button);
-    options.append(new Option(role.name, role.name));
-    roles.set(role.name, { ...role, button });
+function renderRoster() {
+  roles.clear();
+  roleList.replaceChildren();
+  roleSelect.replaceChildren();
+  const label = hierarchyLabels[activeHierarchy];
+  byId("roster-title").textContent = label;
+  hierarchyButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.hierarchy === activeHierarchy));
+  });
+
+  for (const [groupName, names] of hierarchies[activeHierarchy]) {
+    const section = document.createElement("section");
+    section.className = "role-group";
+    const heading = document.createElement("h3");
+    heading.textContent = groupName;
+    const buttons = document.createElement("div");
+    buttons.className = "roles";
+    const options = document.createElement("optgroup");
+    options.label = groupName;
+
+    for (const name of names) {
+      const id = groupName + "/" + name;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "role";
+      button.textContent = name;
+      button.setAttribute("aria-label", name + " (" + groupName + ")");
+      button.addEventListener("click", () => chooseRole(id));
+      buttons.append(button);
+      options.append(new Option(name, id));
+      roles.set(id, { id, name, groupName, button, color: colors[roles.size % colors.length] });
+    }
+
+    section.append(heading, buttons);
+    roleList.append(section);
+    roleSelect.append(options);
   }
-  section.append(heading, buttons);
-  roleList.append(section);
-  roleSelect.append(options);
+
+  chooseRole(selection.get(activeHierarchy) ?? roles.keys().next().value);
+}
+
+function chooseRole(id) {
+  selectedRole = roles.get(id);
+  selection.set(activeHierarchy, id);
+  updateTarget();
 }
 
 function updateTarget() {
   clearTimeout(impactTimer);
   delete strike.dataset.impact;
   status.textContent = "";
-  roleSelect.value = selectedRole;
-  byId("selected-role").textContent = selectedRole;
+  roleSelect.value = selectedRole.id;
+  byId("selected-role").textContent = selectedRole.name;
+  byId("selected-role").title = selectedRole.groupName;
   for (const role of roles.values()) {
-    role.button.setAttribute("aria-pressed", String(role.name === selectedRole));
+    role.button.setAttribute("aria-pressed", String(role.id === selectedRole.id));
   }
   handChoice.setAttribute("aria-pressed", String(targetArea === "hand"));
   faceChoice.setAttribute("aria-pressed", String(targetArea === "face"));
   const areaLabel = targetArea === "face" ? "masked face" : "hand";
   targetLabel.textContent = "Slap " + areaLabel;
-  strike.setAttribute("aria-label", "Slap the " + selectedRole.toLowerCase() + "’s " + areaLabel);
-  drawTarget(roles.get(selectedRole).color);
+  strike.setAttribute("aria-label", "Slap the " + selectedRole.name.toLowerCase() + "’s " + areaLabel);
+  drawTarget(selectedRole.color);
 }
 
 function registerSlap() {
@@ -94,10 +113,14 @@ function registerSlap() {
   }, 850);
 }
 
-roleSelect.addEventListener("change", () => {
-  selectedRole = roleSelect.value;
-  updateTarget();
-});
+roleSelect.addEventListener("change", () => chooseRole(roleSelect.value));
+for (const button of hierarchyButtons) {
+  button.addEventListener("click", () => {
+    if (activeHierarchy === button.dataset.hierarchy) return;
+    activeHierarchy = button.dataset.hierarchy;
+    renderRoster();
+  });
+}
 handChoice.addEventListener("click", () => {
   targetArea = "hand";
   updateTarget();
@@ -163,4 +186,4 @@ function drawTarget(cloth) {
   paint("M149 260 Q196 276 256 257", null, "#e8d4b9", 3);
 }
 
-updateTarget();
+renderRoster();

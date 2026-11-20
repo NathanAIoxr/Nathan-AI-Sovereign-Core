@@ -18,6 +18,11 @@ test("serves the exact capitalized title and definition with the static app", as
   assert.match(html, /<h1>SMACK THAT ASS <span class="name-meaning">\(AUTHORITARIAN SATANIC SOULS\)<\/span><\/h1>/);
   assert.match(html, /Only the player can slap the hand or masked face/);
   assert.match(html, /class="wordmark" href="index.html"/);
+  assert.match(html, /data-hierarchy="catholic"/);
+  assert.match(html, /data-hierarchy="kristian"/);
+  assert.match(html, /<span id="selected-role">Pope<\/span>/);
+  assert.match(html, /In honor of ASS and ASSES in the KJV/);
+  assert.match(html, /read the sermon transcript/i);
   assert.equal((await fetchRoute("/index.html")).status, 200);
 });
 
