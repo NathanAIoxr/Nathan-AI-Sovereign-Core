@@ -18,6 +18,8 @@ const assets = {
   "/minds/style.css": ["text/css; charset=utf-8", await from(shared + "style.css")],
   "/minds/engine.js": [jsType, await from(shared + "engine.js")],
   "/minds/app.js": [jsType, await from(shared + "app.js")],
+  "/minds/lasso-evidence.json": [jsonType, await from(shared + "lasso-evidence.json")],
+  "/minds/lasso-prompts.json": [jsonType, await from(shared + "lasso-prompts.json")],
   "/minds/sources.json": [jsonType, await from(shared + "sources.json")],
   "/minds/omni-engine.js": [jsType, await from(nathan + "omni-god/engine.js")],
   "/minds/catalog.json": [jsonType, await from(nathan + "personal-intelligence/minds/mind-of-minds/catalog.json")],

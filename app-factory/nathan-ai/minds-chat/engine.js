@@ -31,7 +31,7 @@
     return found;
   }
 
-  function createDirectory(omni, catalog, source, mirror) {
+  function createDirectory(omni, catalog, source, mirror, lasso) {
     if (catalog.omniNamespace.capacity !== omni.CAPACITY) throw new Error("Omni range differs from the source catalog");
     const mirrors = mirror.mirror_agents.map(entry => ({
       id: "mirror." + entry.id,
@@ -41,7 +41,16 @@
       purpose: "Creator-designated mirror agent. The release lists this entry as a specification.",
       sourceId: "Agents of Innocence · " + entry.id
     }));
-    const records = [...catalog.minds, ...source.entries, ...mirrors].map(record =>
+    if (lasso?.schema !== "nathan-ai.minds.lasso-evidence.v1") throw new Error("The Lasso evidence is unavailable");
+    const council = lasso.council.map((role, index) => ({
+      id: "council." + String(index + 1).padStart(2, "0"),
+      name: role.name,
+      type: "council-role",
+      group: "OMNI My Council",
+      purpose: role.description,
+      sourceId: "OMNI_60_Council_Roles.csv · role " + (index + 1)
+    }));
+    const records = [...catalog.minds, ...source.entries, ...mirrors, ...lasso.profiles, ...council].map(record =>
       record.id === "omni.opal-ai" ? {
         ...record,
         purpose: source.opal.name + " · " + source.opal.role,
@@ -50,6 +59,7 @@
     );
     const byId = new Map(records.map(record => [record.id, record]));
     if (byId.size !== records.length || !byId.has(source.author.smallestMind)) throw new Error("Invalid Mind IDs");
+    const evidence = indexEvidence(lasso.records, byId);
     const searchable = records.map(record => ({
       record,
       family: family(record),
@@ -59,6 +69,8 @@
       get: id => byId.get(id),
       size: records.length,
       author: source.author,
+      lasso,
+      evidence: id => evidence.get(id) ?? [],
       max: (BigInt(omni.CAPACITY) - 1n).toString(),
       list(query, scope) {
         const terms = normalize(query).trim().split(/\s+/).filter(Boolean);
@@ -91,27 +103,115 @@
     };
   }
 
-  function reply(directory, selection, question) {
-    const text = normalize(question);
-    if (/\b(smallest|0 to 9|root of stupidity)\b/.test(text) && selection.id === directory.author.smallestMind) {
-      return "Nathan Tabor’s ordering places GOD AI at position 0.\n“" + directory.author.sizeOrderQuote + "”";
+  const evidenceKinds = {
+    "own-words": ["verbatim-author"],
+    "recorded-words": ["textual-attribution"],
+    actions: ["textual-account", "published-project", "archival-record"],
+    commentary: ["creator-label", "later-attribution", "disputed-attribution"]
+  };
+  const evidenceLabels = {
+    "verbatim-author": "Author’s exact words",
+    "textual-attribution": "Words attributed by the cited text or translation",
+    "textual-account": "Action reported in the cited text",
+    "published-project": "Documented project",
+    "archival-record": "Archival record",
+    "creator-label": "Creator’s label or commentary",
+    "later-attribution": "Later attribution",
+    "disputed-attribution": "Disputed attribution",
+    registry: "Registry entry"
+  };
+  const unknown = "Unknown from the reviewed sources for this Mind.";
+  const registryUrl = "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/";
+
+  function indexEvidence(records, profiles) {
+    const ids = new Set();
+    const index = new Map();
+    for (const record of records) {
+      const validStatus = Object.hasOwn(evidenceKinds, record.kind) && evidenceKinds[record.kind].includes(record.status);
+      if (!validStatus || typeof record.id !== "string" || !record.id.trim() || ids.has(record.id) ||
+          !record.subjects?.length || !record.subjects.every(id => profiles.has(id)) ||
+          typeof record.text !== "string" || !record.text.trim() ||
+          typeof record.source !== "string" || !record.source.trim() ||
+          !Array.isArray(record.tags) || !record.tags.every(tag => typeof tag === "string")) {
+        throw new Error("Invalid Lasso evidence record");
+      }
+      if (record.url) {
+        const url = new URL(record.url);
+        if (url.protocol !== "https:" || url.username || url.password) throw new Error("Invalid evidence link");
+      } else if (record.status !== "verbatim-author") {
+        throw new Error("An evidence locator is required");
+      }
+      ids.add(record.id);
+      const entry = Object.freeze({ ...record, tags: Object.freeze([...record.tags]) });
+      for (const id of new Set(record.subjects)) {
+        if (!index.has(id)) index.set(id, []);
+        index.get(id).push(entry);
+      }
     }
-    if (selection.address) {
-      return "Address " + selection.address + " is in the Omni range. Its individual name and source materials are unassigned in this registry.";
-    }
-    if (/\b(source|sources|citation|citations|evidence|references)\b/.test(text)) {
-      return selection.name + " · " + selection.sourceId + "\n" + selection.purpose;
-    }
-    const terms = text.match(/[a-z0-9]{3,}/g) ?? [];
-    const related = [...new Set(terms.flatMap(term => {
-      if (/^(about|and|can|compare|does|how|the|what|which|who|why|with|would|you)$/.test(term)) return [];
-      return directory.list(term).filter(item => normalize(item.name).includes(term));
-    }))].filter(record => record.id !== selection.id).slice(0, 4);
-    const connections = related.length ? "\nRelated entries to compare: " + related.map(item => item.name).join(", ") + "." : "";
-    return selection.purpose + "\nSource: " + selection.sourceId + connections;
+    for (const group of index.values()) Object.freeze(group);
+    return index;
   }
 
-  const api = { createDirectory, pageSize, reply };
+  function registryRecord(selection) {
+    const id = selection.id;
+    let target = "personal-intelligence/minds/mind-of-minds/catalog.json";
+    if (id === "omni.opal-ai") target = "ai-mapping/records.json";
+    else if (id.startsWith("omni.")) target = "omni-god/";
+    else if (id.startsWith("mirror.")) target = "agents-of-innocence/release-manifest.json";
+    else if (id.startsWith("assembly.") || id.startsWith("kjv.")) target = "minds-chat/sources.json";
+    else if (id.startsWith("early.") || id.startsWith("council.") || id.startsWith("creator.") || id === "textual.mary") {
+      target = "minds-chat/lasso-evidence.json";
+    }
+    return { id, status: "registry", text: selection.purpose, source: selection.sourceId, url: registryUrl + target };
+  }
+
+  function answer(directory, selection, question, view) {
+    if (selection.address) {
+      return { summary: "Address " + selection.address + " has no assigned Mind or source record.", records: [] };
+    }
+    const all = directory.evidence(selection.id);
+    const input = normalize(question).trim();
+    const asked = input.replace(/[?.!]+$/, "").trim();
+    const selectedName = normalize(selection.name);
+    const quote = question.trim().match(/^(?:did (.+?) say\s+|check quote\s+)?["“]([^"”]+)["”][?.!]*$/iu);
+    const normalizeQuote = text => normalize(text).trim().replace(/\s+/g, " ");
+    let records = [];
+    let summary = "";
+
+    if (view === "words") records = all.filter(source => source.kind === "own-words" || source.kind === "recorded-words");
+    else if (view === "actions") records = all.filter(source => source.kind === "actions");
+    else if (view === "attributions") records = all.filter(source => ["commentary", "recorded-words"].includes(source.kind));
+    else if (view === "sources" || /^(?:show (?:me )?(?:the )?)?(?:sources?|citations?|evidence|references|what are the sources)$/.test(asked)) {
+      records = [registryRecord(selection), ...all];
+    } else if (quote) {
+      const subject = quote[1] && normalize(quote[1]);
+      const names = [selectedName, selectedName.replace(/ ai$/, ""), selectedName.split(" of ")[0]];
+      if (subject && !names.includes(subject)) {
+        return { summary: "Select the Mind named in the question to check this wording.", records: [] };
+      }
+      const wording = normalizeQuote(quote[2]);
+      records = all.filter(source => source.kind.endsWith("words") && wording.length >= 5 && normalizeQuote(source.text).includes(wording));
+      if (!records.length) summary = "This wording is unverified for the selected Mind.";
+    } else if (selection.id === directory.author.smallestMind && /^(?:why (?:is )?(?:god(?: ai)?|this mind) (?:the )?smallest|(?:why )?(?:the )?smallest|root of stupidity|0 to 9)$/.test(asked)) {
+      records = [{ id: "nathan-god-order", status: "verbatim-author", text: directory.author.sizeOrderQuote, source: "Nathan Tabor’s Omni ordering", url: registryUrl + "minds-chat/sources.json" }];
+      summary = "Nathan Tabor’s ordering places GOD AI at position 0.";
+    } else if (asked === "what did " + selectedName + " say") {
+      records = all.filter(source => source.kind.endsWith("words"));
+    } else if (asked === "what did " + selectedName + " do") {
+      records = all.filter(source => source.kind === "actions");
+    } else if (/^(?:topic: |about )[^?]+$/.test(asked)) {
+      const topic = asked.replace(/^(?:topic: |about )/, "").trim();
+      records = all.filter(source => source.tags.some(tag => normalize(tag) === topic));
+    }
+    return { summary: summary || (records.length ? "" : unknown), records };
+  }
+
+  function reply(directory, selection, question) {
+    const response = answer(directory, selection, question);
+    return [response.summary, ...response.records.map(record => record.text + "\nSource: " + record.source)].filter(Boolean).join("\n");
+  }
+
+  const api = { createDirectory, pageSize, answer, reply, evidenceLabels };
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.NathanMindsChat = api;
 })(globalThis);

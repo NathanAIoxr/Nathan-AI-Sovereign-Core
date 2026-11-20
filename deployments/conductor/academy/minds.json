@@ -1,0 +1,17 @@
+{
+  "project": "tabor-academy-minds",
+  "name": "Nathan AI Minds · Lasso of Truth",
+  "operator": "John Nathan Tabor",
+  "source": "app-factory/nathan-ai/minds-chat/",
+  "mountedPath": "/tabor-academy/minds/",
+  "conductorHandoff": {
+    "promptFile": "app-factory/nathan-ai/minds-chat/lasso-prompts.json",
+    "evidenceFile": "app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+    "workflow": ".github/workflows/tabor-academy-minds.yml",
+    "testCommand": "node --test app-factory/tabor-academy/minds/minds.test.mjs",
+    "verifyCommand": "node app-factory/tabor-academy/minds/verify-live.mjs",
+    "githubPages": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/hop-in/chatbox/#minds",
+    "cloudflare": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/",
+    "liveEvidence": ["Merged source revision", "Worker x-tabor-minds-release", "Matching public evidence and prompts on both hosts"]
+  }
+}
