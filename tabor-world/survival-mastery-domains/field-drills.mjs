@@ -16,7 +16,10 @@ export function renderDecision(station, request) {
     : '<div id="decision-result"></div>';
   const buttons = drill.options.map((choice, index) =>
     `<button name="choice" value="${index + 1}" type="submit">${escape(choice)}</button>`).join("");
-  return `<p>${escape(drill.case)}</p>${result}
+  const authorVoice = drill.authorQuotes?.length
+    ? `<blockquote><p><strong>Nathan Tabor</strong></p>${drill.authorQuotes.map((words) => `<p>“${escape(words)}”</p>`).join("")}</blockquote>`
+    : "";
+  return `${authorVoice}<p>${escape(drill.case)}</p>${result}
     <form class="choices" method="get" action="#decision-result" aria-label="Choose a response">${buttons}</form>
     <p>${link(drill.source)} · ${link(drill.related)} · ${link(["Do the Academy field drill", drill.practice])}</p>`;
 }

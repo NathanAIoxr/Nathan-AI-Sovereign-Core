@@ -57,14 +57,14 @@ export const fieldDrills = {
     "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-protection/survival-field-drill-03/"
   },
   "4": {
-    "case": "Three apples are on a table. You agree to give two today for a bicycle patch done Friday. One apple stays with you.",
+    "case": "Three apples are on the table. You hand one over today in exchange for a bicycle patch due Friday. Where is each apple, and when does the service go in the ledger?",
     "options": [
-      "Record three transferred because the trade is worth three to you.",
-      "Record the service as received today.",
-      "Record two transferred, one retained, the Friday service owed, and the agreed value and dates."
+      "Two stayed on the table, one was transferred, and the patch is owed until Friday’s work is complete.",
+      "Subtract one from the total record and leave the apple’s location blank.",
+      "Record the service as completed the moment the apple moves."
     ],
-    "correct": 3,
-    "why": "The count is two plus one equals three. The service is promised until completed, and its value and applicable reporting rules are separate questions.",
+    "correct": 1,
+    "why": "The table count fell from three to two. One apple moved to the recipient, so the full inventory still accounts for three. List the service separately as owed until you have evidence that it was performed.",
     "source": [
       "IRS · Bartering income",
       "https://www.irs.gov/taxtopics/tc420"
@@ -73,7 +73,12 @@ export const fieldDrills = {
       "Three Apples · Full Accountability",
       "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/three-apples/"
     ],
-    "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-field-drill-04/"
+    "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-field-drill-04/",
+    "authorQuotes": [
+      "subtractions and multiplication are man made traps",
+      "Who took my other one?",
+      "2 on the table + 1 moved = 3 real apples total"
+    ]
   },
   "5": {
     "case": "An advertisement says Cancel anytime. The attached sample contract says written notice must arrive ten days before renewal to avoid another charge.",
@@ -95,14 +100,14 @@ export const fieldDrills = {
     "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-field-drill-05/"
   },
   "6": {
-    "case": "On a fictional 1,000 principal, offer A is 90 each month for 12 months and offer B is 60 each month for 20 months. Neither example includes separate fees.",
+    "case": "The cash ledger opens with $1,000,000. On a worksheet someone writes $1,000,000 × 0 = $0. The case gives no transaction that changes the account. What balance should the learner report?",
     "options": [
-      "B costs less because the monthly payment is smaller.",
-      "A totals 1,080 and B totals 1,200. Check APR and any fees separately.",
-      "Both cost the same because the principal is the same."
+      "Zero dollars, because the worksheet says zero.",
+      "$1,000,000. Enter zero for the product and reconcile the account from actual transactions.",
+      "Subtract 80% automatically because the worksheet displays zero."
     ],
     "correct": 2,
-    "why": "Multiply each payment by its number of payments. The payment total in B is 120 higher. An APR comparison and fees need the full disclosures.",
+    "why": "The product is zero and the ledger balance stays $1,000,000 under the case assumptions. A deduction needs its own amount, date, destination, and evidence.",
     "source": [
       "CFPB · Your Money, Your Goals",
       "https://www.consumerfinance.gov/consumer-tools/educator-tools/your-money-your-goals/toolkit/"
@@ -111,7 +116,11 @@ export const fieldDrills = {
       "Tabor Reality Math",
       "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/foundation/reality-math/"
     ],
-    "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-field-drill-06/"
+    "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-money/survival-field-drill-06/",
+    "authorQuotes": [
+      "subtractions and multiplication are man made traps",
+      "if you multiply $1 million times zero the world tells you you have zero dollars. How much money do you still have left"
+    ]
   },
   "7": {
     "case": "In a fictional family meeting, someone goes quiet when their mistake is mentioned publicly. You need to discuss what happened.",
@@ -266,14 +275,14 @@ export const fieldDrills = {
     "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-learning/survival-field-drill-14/"
   },
   "15": {
-    "case": "A class has been using the rule that a lower monthly payment means a cheaper loan. A worked example contradicts it.",
+    "case": "One marked apple is left on a table. The observer takes it into the next room. The table count is now zero. On another sheet, two apples are written as 10 in base two. Which account is complete?",
     "options": [
-      "Keep both records, clear the faulty rule, and retest a replacement based on total cost and terms.",
-      "Keep the rule because it often feels true.",
-      "Delete the earlier worksheet and leave no trace."
+      "Delete the old record and enter zero apples everywhere.",
+      "Read the binary 10 as ten physical apples.",
+      "Record the table count, the moved apple’s destination, and that binary 10 and decimal 2 represent the same number."
     ],
-    "correct": 1,
-    "why": "1−1=0 clears the unsupported rule from decision-making. Keeping a dated correction lets a second learner reconstruct why it changed.",
+    "correct": 3,
+    "why": "One minus one gives the remainder in the place being counted. The movement record accounts for the apple at its destination. Arithmetic and number notation describe quantities within stated rules; cite the actual transaction or movement when explaining a change in the real inventory.",
     "source": [
       "Institute of Education Sciences · Study and practice",
       "https://ies.ed.gov/ncee/wwc/PracticeGuide/1"
@@ -282,7 +291,12 @@ export const fieldDrills = {
       "Correct the record without erasing it",
       "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/life/correct-the-record-without-erasing-it/"
     ],
-    "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-learning/survival-field-drill-15/"
+    "practice": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/mastery-learning/survival-field-drill-15/",
+    "authorQuotes": [
+      "subtractions and multiplication are man made traps",
+      "Nothing in physical reality ever evaporates because of a minus sign.",
+      "1+1 = 10 is what the world operate zone but we operate on one plus one equals two"
+    ]
   },
   "16": {
     "case": "You want a federal agency memo, a North Carolina county agenda, and a state court docket.",
