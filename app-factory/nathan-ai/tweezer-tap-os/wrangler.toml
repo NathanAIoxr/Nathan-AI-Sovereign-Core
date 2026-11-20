@@ -26,7 +26,7 @@ new_sqlite_classes = ["MasterConductor"]
 [[d1_databases]]
 binding = "ZONE_DB"
 database_name = "zone-tweezer-ledger-db"
-database_id = "REPLACE_WITH_ZONE_D1_ID"
+database_id = "059f7a3a-43d1-49ea-80b2-65245436500f"
 
 [[r2_buckets]]
 binding = "ZONE_R2"
