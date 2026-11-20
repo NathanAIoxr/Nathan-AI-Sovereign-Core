@@ -3,7 +3,7 @@ export const BUILD_LEDGER = 'f6d6879c-3b15-4ca0-93d4-1da1860b3b55';
 export const REPOSITORY = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
 
 export function validManifest(path) {
-  return /^(app-factory|standalone-apps)\/(?:[\w.-]+\/)*app\.json$/.test(path)
+  return /^(app-factory|standalone-apps|integrations\/pocket-control-plane\/codex-release\/projects)\/(?:[\w.-]+\/)*app\.json$/.test(path)
     && path.split('/').every((part) => part !== '..' && part !== '.');
 }
 
