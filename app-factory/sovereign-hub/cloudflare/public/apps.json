@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 369,
+  "count": 370,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -146,6 +146,14 @@
       "entry": "app-factory/index.html",
       "group": "index.html",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-9cc4aa48f4810cc4",
+      "title": "MAKE a SNOW GLOBE \u00b7 Nathan Tabor",
+      "entry": "app-factory/make-a-snow-globe/public/index.html",
+      "group": "make-a-snow-globe",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
