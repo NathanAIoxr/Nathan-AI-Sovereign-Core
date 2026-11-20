@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search the Tabor Academy card games collection, learn to play, and practice with an online deck.">
+  <title>Card Games Library · Tabor Academy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a href="/tabor-academy/">Tabor Academy</a>
+    <nav aria-label="Card Games Library"><a href="#catalog">Catalog</a><a href="#lessons">Lessons</a></nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <h1 id="title">Card Games<br>Library</h1>
+        <p>Find a game, read the rules, or pull up a chair and practice.</p>
+        <p id="counts" class="counts" aria-live="polite">Loading catalog totals…</p>
+      </div>
+      <div class="deck-art" aria-hidden="true"><span>7<span>♦</span></span><span>A<span>♠</span></span></div>
+    </section>
+    <section id="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Game catalog</h2>
+      <form id="filters">
+        <label class="query">Search games <input id="query" name="q" type="search" maxlength="100" placeholder="Gin Rummy, Garbage, Karnöffel…"></label>
+        <label>Game family <select id="family" name="family"><option value="">All families</option></select></label>
+        <label>Rules status
+          <select id="status" name="status">
+            <option value="">All statuses</option><option value="documented">Documented edition</option>
+            <option value="reconstructed">Historical reconstruction</option><option value="original">Academy edition</option>
+            <option value="indexed">Linked reference</option><option value="fragment">Unresolved history</option>
+          </select>
+        </label>
+        <label class="check"><input id="play-only" name="play" type="checkbox"> Browser activities</label>
+        <button type="submit">Search</button>
+      </form>
+      <p id="results-label" class="note" aria-live="polite"></p>
+      <div id="results" class="catalog-grid"></div>
+      <div class="more"><button id="more" type="button" hidden>More games</button></div>
+    </section>
+    <section id="game-detail" aria-labelledby="game-title" hidden></section>
+    <section id="lessons" aria-labelledby="lessons-title">
+      <h2 id="lessons-title">From first deal to strategy</h2>
+      <p class="section-intro">Start with a comfortable table. Work forward at your own pace.</p>
+      <div id="lesson-list"></div>
+    </section>
+    <section id="scorecard" aria-labelledby="score-title">
+      <h2 id="score-title">Running scorecard</h2>
+      <p class="section-intro">Add positive or negative scores after each hand. Scores stay in this browser.</p>
+      <form id="score-form">
+        <label>Player <input name="player" maxlength="32" required placeholder="Player name"></label>
+        <label>Points this hand <input name="points" type="number" min="-10000" max="10000" step="1" required></label>
+        <button type="submit">Add points</button>
+        <button type="button" id="clear-score" class="quiet">Reset scores</button>
+      </form>
+      <div id="score-list" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer><a href="/tabor-academy/">Tabor Academy</a> <a href="api/health">Catalog data</a></footer>
+</body>
+</html>

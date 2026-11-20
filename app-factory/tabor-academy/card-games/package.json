@@ -1,0 +1,11 @@
+{
+  "name": "tabor-academy-card-games",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs --local-assets",
+    "test": "npm run build && node --test test.mjs",
+    "deploy": "node deploy.mjs",
+    "verify": "node verify.mjs"
+  }
+}

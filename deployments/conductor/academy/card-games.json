@@ -1,0 +1,22 @@
+{
+  "project": "tabor-academy-card-games",
+  "name": "Card Games Library",
+  "operator": "Nathan Tabor",
+  "source": "app-factory/tabor-academy/card-games/",
+  "publicUrl": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/card-games/",
+  "catalogHealth": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/card-games/api/health",
+  "cloudflare": {
+    "namespace": "tabor-academy",
+    "worker": "tabor-academy",
+    "d1": "tabor-academy-card-games",
+    "binding": "CARD_GAMES_DB"
+  },
+  "baseline": { "records": 2321, "inLibraryRules": 24, "browserActivities": 10, "lessons": 10 },
+  "recovery": {
+    "order": ["Identify source and variant", "Draft and check the rules", "Write the lesson", "Implement and test the browser edition", "Publish and verify counts"],
+    "historyStatuses": ["documented", "reconstructed", "fragment"],
+    "statusForNewDesign": "original",
+    "next": ["Build complete digital Gin Rummy and Cribbage", "Extend solo and regional deck coverage", "Write classroom variants for more source-linked games"]
+  },
+  "checks": ["npm test", "npm run verify"]
+}
