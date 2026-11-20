@@ -1,0 +1,14 @@
+{
+  "id": "smack-that-ass",
+  "title": "SMACK THAT ASS",
+  "nameExpansion": {
+    "ASS": "AUTHORITARIAN SATANIC SOULS"
+  },
+  "entry": "public/index.html",
+  "worker": "smack-that-ass",
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/releases/smack-that-ass/index.html",
+  "health": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/releases/smack-that-ass/health.json",
+  "build": "node build.mjs",
+  "test": "node --test worker.test.mjs",
+  "hosting": "cloudflare-r2"
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional, one-way interaction about abuse of power in Catholic-run institutions.">
+  <meta name="theme-color" content="#efebe1">
+  <title>SMACK THAT ASS</title>
+  <link rel="stylesheet" href="retribution.css">
+  <script src="retribution.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <a class="wordmark" href="index.html">SMACK THAT ASS</a>
+    <a href="#historical-record">Historical record</a>
+  </header>
+
+  <main>
+    <header class="intro">
+      <h1>SMACK THAT ASS <span class="name-meaning">(AUTHORITARIAN SATANIC SOULS)</span></h1>
+      <p>Choose a fictional Catholic Church figure. Only the player can slap the hand or masked face.</p>
+    </header>
+
+    <div class="mobile-picker">
+      <label for="role-select">Catholic Church role</label>
+      <div class="select-wrap"><select id="role-select"></select></div>
+    </div>
+
+    <div class="layout">
+      <section class="interaction" aria-label="Slap target">
+        <div class="target-toolbar">
+          <span id="selected-role">Nun</span>
+          <div class="target-switch" role="group" aria-label="Target area">
+            <button type="button" id="choose-hand" aria-pressed="true">Hand</button>
+            <button type="button" id="choose-face" aria-pressed="false">Face</button>
+          </div>
+        </div>
+        <button type="button" id="strike" class="target" aria-label="Slap the nun’s hand">
+          <span class="frame" aria-hidden="true"></span>
+          <canvas id="figure" width="800" height="640" aria-hidden="true"></canvas>
+          <span class="impact" aria-hidden="true"></span>
+          <span class="target-label" id="target-label">Slap hand</span>
+        </button>
+        <div class="interaction-footer">
+          <span>Tap the target or press <kbd>Space</kbd></span>
+          <span id="status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <aside class="roster" aria-labelledby="roster-title">
+        <h2 id="roster-title">Catholic Church roles</h2>
+        <div id="role-list"></div>
+      </aside>
+    </div>
+
+    <section class="history" id="historical-record" aria-labelledby="history-title">
+      <h2 id="history-title">Historical record</h2>
+      <article>
+        <h3>Artane Industrial School</h3>
+        <p>Ireland’s 2009 Ryan Report records a former resident’s testimony that he was struck on the hand in the 1940s for writing left-handed. Another former resident described punishments for errors in handwriting and answers in class.</p>
+        <a href="https://industrialmemories.ucd.ie/ryan-report/report/1-7-243?page=2">Ryan Report, volume 1, §7.271–272</a>
+      </article>
+      <article>
+        <h3>Sisters of Nazareth residential institutions</h3>
+        <p>The Scottish Child Abuse Inquiry found that children suffered physical abuse in homes run by the Sisters of Nazareth from 1933 to 1984. The inquiry heard evidence of adults striking children and of punishments and humiliation for bedwetting.</p>
+        <a href="https://www.childabuseinquiry.scot/evidence/case-study-no-2">Scottish Child Abuse Inquiry findings, 2019</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
