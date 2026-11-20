@@ -53,9 +53,22 @@ export function createLearningExplorer(catalog, {
   const anchor = (href, label) => `<a href="${escape(href)}">${escape(label)}</a>`;
 
   function page(heading, body) {
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(heading)} · Tabor World</title><style>${styles}</style></head>
-  <body><header>${anchor("/", "Tabor World")}${anchor(`${root}/`, title)}${headerLinks.map(([href, label]) => anchor(href, label)).join("")}</header>
-  <main><h1>${escape(heading)}</h1>${body}</main><footer>${anchor(catalog.academy, "Open the course in Tabor Academy")}</footer></body></html>`;
+    const moreLinks = headerLinks.map(([href, label]) => anchor(href, label)).join("");
+    const navigation = renderGuideLanding ? `<details class="resource-links"><summary>More Tabor resources</summary>${moreLinks}</details>` : moreLinks;
+    const guideCss = renderGuideLanding ? `
+      .learner-header { gap:.4rem 1rem; padding-block:.55rem; align-items:baseline; }
+      .learner-header a { display:inline-flex; align-items:center; min-height:44px; }
+      .resource-links { border:0; padding:0; }
+      .resource-links summary { padding:.6rem 0; }
+      .resource-links a { margin-right:1rem; }
+      .learner-main { padding-top:clamp(1.15rem,4vw,3rem); }
+      .learner-main h1 { font-size:clamp(2.15rem,6vw,4.75rem); max-width:23ch; }
+      .learner-main .station section { padding:clamp(.85rem,3vw,1.3rem); }
+      .learner-main blockquote { margin:1rem 0; padding-left:.8rem; border-left:3px solid #f4ce91; }
+    ` : "";
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(heading)} · Tabor World</title><style>${styles}${guideCss}</style></head>
+  <body><header${renderGuideLanding ? ' class="learner-header"' : ""}>${anchor("/", "Tabor World")}${anchor(`${root}/`, renderGuideLanding ? "All six domains" : title)}${navigation}</header>
+  <main${renderGuideLanding ? ' class="learner-main"' : ""}><h1>${escape(heading)}</h1>${body}</main><footer>${anchor(catalog.academy, "Open the course in Tabor Academy")}</footer></body></html>`;
   }
 
   function overview(request) {
@@ -81,7 +94,7 @@ export function createLearningExplorer(catalog, {
     <article class="station"><section><h2>${escape(station.station)}</h2><p>${escape(station.question)}</p>
     ${renderDecision ? renderDecision(station, request) : ""}
     <details><summary>Check what the evidence can show</summary><p>${escape(station.check)}</p></details></section>
-    <p>${anchor(station.academy, "Do the exercise in Tabor Academy")}</p></article>
+    <p>${anchor(station.academy, renderDecision ? "Read the lesson in Tabor Academy" : "Do the exercise in Tabor Academy")}</p></article>
     <nav class="nav" aria-label="Station navigation">${previous ? anchor(stationUrl(era, previous), "Previous station") : ""}
     ${anchor(eraUrl(era), sectionLabel)}
     ${next ? anchor(stationUrl(era, next), "Next station") : anchor(`${root}/`, returnLabel)}</nav>`);
