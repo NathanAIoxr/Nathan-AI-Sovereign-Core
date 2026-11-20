@@ -6,7 +6,7 @@ The Cloudflare Worker reads the public GitHub fleet policy, checks the deployed 
 
 ## Deploy
 
-Upload `worker.mjs` as the ES module for `nathan-ai-rocket-conductor` in the existing `nathan-tabor-platforms` dispatch namespace. Bind `REGISTRY` to the same D1 inventory used by `tabor-compute-fleet` and set `RELEASE_SHA` to the deployed Git commit. The dedicated public mount is `/rocket-conductor/` in Tabor Bridge. The original Golden Goose, Bitcoin Mining Lab, and Cloudflare Master Conductor retain their own routes and execution rules.
+Upload `worker.mjs` as the ES module for `nathan-ai-rocket-conductor` in the existing `nathan-tabor-platforms` dispatch namespace. Bind `REGISTRY` to the same D1 inventory used by `tabor-compute-fleet`, `MINING_LAB` to the `nathan-ai-mining-lab` service, and `PLATFORM` to the `nathan-tabor-platforms` dispatch namespace. Set `RELEASE_SHA` to the deployed Git commit. The dedicated public mount is `/rocket-conductor/` in Tabor Bridge.
 
 `node --test worker.test.mjs` checks the local release. `node check-live.mjs` checks the live integration against the checkout.
 

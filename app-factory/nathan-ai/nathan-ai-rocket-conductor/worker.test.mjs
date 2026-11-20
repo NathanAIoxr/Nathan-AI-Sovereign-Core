@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import worker, { collect, links } from "./worker.mjs";
+import worker, { accountFetch, collect, links } from "./worker.mjs";
 
 const policy = await readFile(new URL("bitcoin-fleet-policy.json", import.meta.url), "utf8");
 const genesis = "01000000" + "00".repeat(32) +
@@ -51,6 +51,18 @@ test("registry failure stays distinct from an empty fleet", async () => {
   const result = await collect(null, fake);
   assert.equal(result.observed.fleet.ok, false);
   assert.equal(result.mining.state, "registry-unavailable");
+});
+
+test("account routes use fixed Cloudflare Worker bindings", async () => {
+  const bind = name => ({ fetch: async url => ({ name, path: new URL(url).pathname }) });
+  const env = { MINING_LAB: bind("mining-lab"), PLATFORM: { get: bind } };
+  assert.deepEqual(await accountFetch(env, links.cloudflare + "/api/health"), {
+    name: "nathan-ai-conductor", path: "/api/health",
+  });
+  assert.deepEqual(await accountFetch(env, links.goldenGoose + "api/health"), {
+    name: "modern-day-real-life-golden-goose", path: "/api/health",
+  });
+  assert.deepEqual(await accountFetch(env, links.bitcoin), { name: "mining-lab", path: "/api/bitcoin-mainnet" });
 });
 
 test("public interface handles GET and has no execution routes", async () => {

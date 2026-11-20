@@ -163,6 +163,19 @@ const response = (body, type, status = 200) => new Response(body, {
   },
 });
 
+export function accountFetch(env, url, options) {
+  if (url === links.bitcoin) {
+    return env.MINING_LAB.fetch("https://mining-lab.internal/api/bitcoin-mainnet", options);
+  }
+  if (url === links.goldenGoose + "api/health") {
+    return env.PLATFORM.get("modern-day-real-life-golden-goose").fetch("https://golden-goose.internal/api/health", options);
+  }
+  if (url === links.cloudflare + "/api/health") {
+    return env.PLATFORM.get("nathan-ai-conductor").fetch("https://master-conductor.internal/api/health", options);
+  }
+  return fetch(url, options);
+}
+
 export default {
   async fetch(request, env) {
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405, headers: { Allow: "GET" } });
@@ -172,7 +185,7 @@ export default {
     const key = new Request(new URL("/rocket-conductor/snapshot-v1", request.url));
     const cache = globalThis.caches?.default;
     const cached = await cache?.match(key).catch(() => undefined);
-    const report = cached ? await cached.json() : await collect(env.REGISTRY);
+    const report = cached ? await cached.json() : await collect(env.REGISTRY, (url, options) => accountFetch(env, url, options));
     if (cache && !cached && report.integrationsReady) {
       await cache.put(key, Response.json(report, { headers: { "Cache-Control": "public, max-age=60" } })).catch(() => undefined);
     }
