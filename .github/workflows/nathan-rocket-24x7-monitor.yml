@@ -35,3 +35,7 @@ jobs:
           node --check app-factory/nathan-ai/octopus-mirror-engine/src/conductor-adapter.mjs
           node --check app-factory/nathan-ai/octopus-mirror-engine/worker.mjs
           node --test app-factory/nathan-ai/octopus-mirror-engine/test/engine.test.mjs
+      - name: Validate Cloudflare Rocket Conductor
+        run: node --test app-factory/nathan-ai/nathan-ai-rocket-conductor/worker.test.mjs
+      - name: Check live Conductor evidence against the GitHub checkout
+        run: node app-factory/nathan-ai/nathan-ai-rocket-conductor/check-live.mjs
