@@ -26,10 +26,9 @@ export function addThesis(worker, lesson) {
   if (!map) throw new Error("Current Academy Map definition missing");
   const data = JSON.parse(map[1]);
   data.catalog["Learning paths and the Academy"].push([path, title, "Nathan Tabor, Regent University, privatization, public schools, funding, Common Core"]);
-  data.relations["/order/"].push(["#school-authority", "school-authority", "Who set the syllabus?", [[path + "#authority", "Trace who sets curriculum and how funding influences it"]]]);
+  data.relations["/order/"].push(["#school-authority", "school-authority", "Who set the syllabus?", [[path + "#thesis", "Read Nathan Tabor’s statement on the Department of Education"]]]);
   data.relations[path] = [
     ["#thesis", "thesis", "The 1998 thesis", [["/order/#school-authority", "Follow who taught and set the syllabus"]]],
-    ["#authority", "authority", "Curriculum authority", [["/order/1626/", "Compare who set the syllabus in 1626"]]],
   ];
   return worker.replace(declaration, () => "export default createAcademyNavigation(academyApp, " + JSON.stringify(data) + ");");
 }
