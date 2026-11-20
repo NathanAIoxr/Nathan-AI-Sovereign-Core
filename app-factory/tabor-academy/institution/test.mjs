@@ -2,13 +2,14 @@ import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { blueprint, blueprintSource, buildWorker, civics, release } from "./build.mjs";
+import { blueprint, blueprintSource, buildWorker, civics, foundation, release } from "./build.mjs";
+import { foundationQuote } from "./foundation.mjs";
 import { createInstitution } from "./runtime.mjs";
 import { learningMethods, seedSql } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
 import { academyLearningSite, worldLearningSite } from "./learning-methods/sites.mjs";
 
-const call = createInstitution(blueprint, release, civics);
+const call = createInstitution(blueprint, release, civics, foundation, foundationQuote);
 const staffToken = "local-test-staff-key-that-is-at-least-thirty-two";
 const url = "https://academy.invalid/institution";
 const migration = name => readFileSync(new URL("migrations/" + name + ".sql", import.meta.url), "utf8");
@@ -47,13 +48,50 @@ function fixtures() {
   return { db, get, post, reads };
 }
 
-test("preserves the live Academy structure and replaces its Institution block on redeploy", () => {
-  const source = 'const page = "<main>Academy</main>";\nexport default {\n  async fetch(request, env) {\n    const { pathname } = new URL(request.url);\n    return new Response(pathname);\n  }\n};\n';
+const expectedFoundation = `If you don’t know truth, you don’t know True love because love without truth is tough love …
+
+while love with truth is unconditional love
+
+The motto, heart, soul, shadow, spirit, nothing and everything of Tabor Academy`;
+const expectedFoundationHTML = "<blockquote>" +
+  expectedFoundation.split("\n\n").map(paragraph => "<p>" + paragraph + "</p>").join("") +
+  "</blockquote>";
+
+test("preserves the Academy structure and renders the assembled release without duplicate panels", async () => {
+  const source = `const page = "<main><h1>Academy</h1></main>";
+export default {
+  async fetch(request, env) {
+    const { pathname } = new URL(request.url);
+    return new Response(pathname === "/" ? page : pathname);
+  }
+};
+`;
   const assembled = buildWorker(source);
-  assert.match(assembled, /Academy<p><a[^>]+institution\//);
-  assert.match(assembled, /async fetch\(request, env, ctx\)/);
-  assert.match(assembled, /new Response\(pathname\)/);
+  assert.match(assembled, /<\/h1><!-- BEGIN TABOR ACADEMY FOUNDATION -->/);
+  assert.equal(assembled.match(/BEGIN TABOR ACADEMY FOUNDATION/g).length, 1);
   assert.equal(buildWorker(assembled), assembled);
+  const { default: worker } = await import("data:text/javascript;base64," + Buffer.from(assembled).toString("base64"));
+  const get = path => worker.fetch(new Request("https://academy.invalid" + path), {});
+  const home = await (await get("/")).text();
+  assert.ok(home.includes(foundation.path));
+  assert.match(home, /Nine-Pillar Academy/);
+  assert.ok(home.includes(expectedFoundationHTML));
+  const lesson = await get("/institution/foundation/");
+  assert.equal(lesson.status, 200);
+  assert.ok((await lesson.text()).includes(expectedFoundationHTML));
+  const architecture = await get("/institution/foundation/architecture/");
+  assert.equal(architecture.status, 200);
+  assert.match(await architecture.text(), /Conductor blueprint/);
+  assert.equal(await (await get("/institution/foundation/architecture/source.txt")).text(), foundation.architecture.source);
+  const path = "/institution/foundation/architecture/";
+  const handoff = await (await get(path + "conductor.json")).json();
+  assert.deepEqual(handoff.equations, { everything: "1 + 1 = 2", nothing: "1 - 1 = 0" });
+  assert.deepEqual(handoff.prompts.map(prompt => prompt.id), [1, 2, 3, 4]);
+  for (const prompt of handoff.prompts) assert.ok(foundation.architecture.source.includes(prompt.text));
+  assert.match(await (await get(path + "practice/")).text(), /Check answers/);
+  assert.match(await (await get(path + "practice/?source=object&index=edition&equation=version&family=cleared")).text(), /4 of 4 correct/);
+  assert.match(await (await get(path + "practice/?source=post")).text(), /0 of 4 correct/);
+  assert.equal(await (await get("/library/")).text(), "/library/");
 });
 
 test("serves all nine pillars, public data and the R2 blueprint through KV", async () => {
@@ -70,6 +108,21 @@ test("serves all nine pillars, public data and the R2 blueprint through KV", asy
   assert.equal((await get("/blueprint.json")).status, 200);
   assert.deepEqual(reads, ["institution/blueprint-1.0.0.json"]);
   assert.equal((await get("/", { method: "HEAD" })).body, null);
+});
+
+test("serves Nathan’s entire foundation statement verbatim without a database", async () => {
+  const get = (path, init) => call(new Request(url + path, init), {});
+  const source = await get("/foundation/source.txt");
+  assert.equal(source.status, 200);
+  assert.equal(await source.text(), expectedFoundation);
+  const page = await get("/foundation/");
+  assert.equal(page.status, 200);
+  const html = await page.text();
+  assert.ok(html.includes(expectedFoundationHTML));
+  assert.doesNotMatch(html, /Seven principles|Worked response|Build the record/i);
+  assert.match(html, /href="\/tabor-academy\/truth-lab\/"/);
+  assert.equal((await get("/foundation/", { method: "HEAD" })).body, null);
+  assert.equal((await get("/foundation/", { method: "POST" })).status, 405);
 });
 
 test("practice validates scores without creating any student record", async () => {
@@ -130,6 +183,7 @@ test("registers the civics lesson once in the deployed Academy map", () => {
   const assembled = buildWorker(initial + "export default createAcademyNavigation(academyApp, " + JSON.stringify(existing) + ");\n");
   assert.match(assembled, /"\/institution\/civics\/","Comparative Civics/);
   assert.match(assembled, /"\/existing\/","Existing"/);
+  assert.match(assembled, /"\/institution\/foundation\/","Tabor Academy Foundation"/);
   assert.equal(buildWorker(assembled), assembled);
 });
 

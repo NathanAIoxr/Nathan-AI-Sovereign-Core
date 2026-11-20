@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import assert from "node:assert/strict";
-import { blueprintSource, civics, release } from "./build.mjs";
+import { blueprintSource, civics, foundation, release } from "./build.mjs";
 
 const config = JSON.parse(await readFile(new URL("cloudflare.json", import.meta.url), "utf8"));
 const curl = promisify(execFile);
@@ -17,6 +17,24 @@ async function fetchRoute(path, options = {}) {
 
 const checks = [
   async () => assert.match(await fetchRoute("/"), /Nine-Pillar Academy/),
+  async () => {
+    const home = await fetchRoute("/");
+    const lesson = await fetchRoute("/institution/foundation/");
+    for (const paragraph of foundation.statement.split("\n\n")) {
+      assert.ok(home.includes(paragraph));
+      assert.ok(lesson.includes(paragraph));
+    }
+    assert.equal(await fetchRoute("/institution/foundation/source.txt"), foundation.statement);
+    const architecture = await fetchRoute("/institution/foundation/architecture/");
+    assert.match(architecture, /Conductor blueprint/);
+    assert.equal(await fetchRoute("/institution/foundation/architecture/source.txt"), foundation.architecture.source);
+    const path = "/institution/foundation/architecture/";
+    const handoff = JSON.parse(await fetchRoute(path + "conductor.json"));
+    assert.deepEqual(handoff, { ...foundation.architecture.conductor, release });
+    assert.match(await fetchRoute(path + "practice/?source=object&index=edition&equation=version&family=cleared"), /4 of 4 correct/);
+    assert.ok((await fetchRoute("/map/")).includes(foundation.title));
+    assert.match(await fetchRoute("/map/"), /The Architecture of Everything and Nothing/);
+  },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),
   async () => assert.match(await fetchRoute("/workbench/"), /Workbench/),
   async () => assert.match(await fetchRoute("/order/ancient-servitude/"), /Ancient Servitude/),

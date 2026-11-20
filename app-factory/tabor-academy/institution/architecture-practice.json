@@ -1,0 +1,48 @@
+[
+  {
+    "id": "source",
+    "title": "Nineveh · Trace the record",
+    "question": "A post quotes a line from the Flood Tablet. What do you record first?",
+    "choices": [
+      { "id": "object", "label": "The tablet’s collection record, object number, and the translation used" },
+      { "id": "post", "label": "The social media post as the tablet’s original wording" }
+    ],
+    "answer": "object",
+    "feedback": "Start with British Museum object K.3375. Record the translator and edition separately whenever you quote a translation.",
+    "source": { "label": "British Museum · The Flood Tablet", "url": "https://www.britishmuseum.org/collection/object/W_K-3375" }
+  },
+  {
+    "id": "index",
+    "title": "Dewey and LCC · Follow the index",
+    "question": "Two catalogs use different class labels for a work. Which step lets you check whether the records refer to the same edition?",
+    "choices": [
+      { "id": "label", "label": "Treat the label that appears first as the edition identifier" },
+      { "id": "edition", "label": "Compare the author, title, publication details, and identifiers" }
+    ],
+    "answer": "edition",
+    "feedback": "Classification helps you find a record. Edition details help you verify which text it describes.",
+    "source": { "label": "Library of Congress · Classification and Shelflisting", "url": "https://www.loc.gov/aba/cataloging/classification/" }
+  },
+  {
+    "id": "equation",
+    "title": "Everything and Nothing · Keep the record intact",
+    "question": "The Library of Congress row reads 1 - 1 = 2. Prompt 1 gives both operating equations. How do you record this?",
+    "choices": [
+      { "id": "version", "label": "Keep the row verbatim and link a note recording Prompt 1’s equations" },
+      { "id": "overwrite", "label": "Change the original row silently" }
+    ],
+    "answer": "version",
+    "feedback": "The original line remains available for inspection. Prompt 1 supplies 1 + 1 = 2 for Everything and 1 - 1 = 0 for Nothing."
+  },
+  {
+    "id": "family",
+    "title": "Protecting The One · Choose the audience",
+    "question": "A family account is useful to a lesson and includes a private detail. What goes into the public index?",
+    "choices": [
+      { "id": "everything", "label": "The entire record, with the private detail included" },
+      { "id": "cleared", "label": "Only the details cleared for publication, with the original kept within its authorized audience" }
+    ],
+    "answer": "cleared",
+    "feedback": "Preserve the original under its access rules. Confirm that the description and its metadata are cleared before release."
+  }
+]

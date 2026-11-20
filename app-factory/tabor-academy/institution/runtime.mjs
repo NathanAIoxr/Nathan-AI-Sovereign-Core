@@ -1,4 +1,4 @@
-export function createInstitution(blueprint, release, civics) {
+export function createInstitution(blueprint, release, civics, foundation, foundationQuote) {
   const base = "/tabor-academy/institution";
   const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
   const outlineQueries = {
@@ -113,6 +113,11 @@ section{margin-top:2.25rem;border-top:1px solid #778360;padding-top:.7rem}ol.pil
 input,button{font:inherit;padding:.55rem .75rem;border:1px solid #778360}input{width:8rem}button{background:#e6cf87;color:#151b10;font-weight:bold;cursor:pointer}
 output{display:block;margin-top:1rem;font-weight:bold}
 blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
+.foundation-statement{font-size:clamp(1rem,2.25vw,1.3rem);max-width:52rem}
+.architecture-source{font:inherit;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+details{margin-block:.85rem}summary{cursor:pointer;color:#e6cf87}
+fieldset{border:1px solid #778360;margin:0 0 1rem;padding:1rem;min-inline-size:0}legend{padding-inline:.4rem}
+.choice{display:flex;align-items:baseline;gap:.65rem;margin-block:.5rem}.choice input{width:auto;margin:0;flex:none;accent-color:#e6cf87}
 .table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}td,th{padding:.65rem;border-bottom:1px solid #778360;vertical-align:top}caption{text-align:left;padding-bottom:.4rem}
 </style></head><body><main><nav aria-label="Academy"><a href="/tabor-academy/">Academy home</a><a href="/tabor-academy/library/">Library of Tabor</a><a href="/tabor-academy/workbench/">Workbench</a></nav>${content}</main></body></html>`;
   }
@@ -145,8 +150,58 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
 <div id="mastery"><div id="practice">${masteryForm(search, rubric, base)}</div></div></section>` : "";
     return layout("Nine Pillars", `<h1>Nine Pillars</h1><p class="byline">Tabor Academy · ${esc(blueprint.meta.author)}</p>
 <p>Trace the path from a curriculum to a lesson, a mastery check, and an official record.</p>
-<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a></p>
+<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a> · <a href="${foundation.path}">${esc(foundation.title)}</a></p>
 <section><h2>Institutional architecture</h2><ol class="pillars">${pillars}</ol></section>${practice}`);
+  }
+
+  function foundationPage() {
+    return layout(foundation.title, `<h1>${esc(foundation.title)}</h1>
+<div class="foundation-statement">${foundationQuote(foundation)}</div>
+<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
+  }
+
+  function architecturePage() {
+    const title = "The Architecture of Everything and Nothing";
+    const { architecture } = foundation;
+    const prompts = architecture.conductor.prompts.map(prompt =>
+      `<details><summary>Prompt ${prompt.id} · ${esc(prompt.title)}</summary><p>${esc(prompt.text)}</p></details>`).join("");
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">The Unified Knowledge &amp; Family Engine of Nathan Tabor</p>
+<blockquote><p>If you don’t know truth, you don’t know True love because love without truth is tough love … while love with truth is unconditional love</p></blockquote>
+<nav aria-label="Architecture links"><a href="${foundation.path}">Academy Foundation</a><a href="#original">Original text</a><a href="#execution">Conductor blueprint</a><a href="#prompts">Four author prompts</a><a href="${foundation.path}architecture/practice/">Practice the method</a></nav>
+<section id="original"><h2>Nathan Tabor’s original packet</h2>
+<p><a href="${foundation.path}architecture/source.txt">Open plain text</a></p>
+<details><summary>Read the full packet here</summary><pre class="architecture-source">${esc(architecture.source)}</pre></details></section>
+${architecture.blueprint}
+<section id="prompts"><h2>Conductor handoff</h2>
+<p><a href="${foundation.path}architecture/conductor.json">Open the handoff as JSON</a></p>${prompts}</section>`);
+  }
+
+  function architecturePractice(search) {
+    const action = foundation.path + "architecture/practice/";
+    const cases = foundation.architecture.practice;
+    const submitted = cases.some(item => search.has(item.id));
+    const results = cases.map(item => {
+      const selected = search.get(item.id);
+      const correct = selected === item.answer;
+      const choices = item.choices.map(choice => {
+        const inputId = item.id + "-" + choice.id;
+        return `<div class="choice"><input type="radio" id="${inputId}" name="${item.id}" value="${choice.id}" required${selected === choice.id ? " checked" : ""}><label for="${inputId}">${esc(choice.label)}</label></div>`;
+      }).join("");
+      const source = item.source ? `<p><a href="${esc(item.source.url)}">${esc(item.source.label)}</a></p>` : "";
+      const feedback = submitted ? `<p><strong>${correct ? "Correct." : "Review this step."}</strong> ${esc(item.feedback)}</p>` : "";
+      return {
+        correct,
+        html: `<fieldset><legend>${esc(item.title)}</legend><p>${esc(item.question)}</p>${choices}${feedback}${source}</fieldset>`,
+      };
+    });
+    const score = results.filter(result => result.correct).length;
+    return layout("Architecture practice", `<h1>Practice the Architecture</h1>
+<p><a href="${foundation.path}architecture/">Return to the Architecture</a></p>
+<p>Work through four cases on source tracing, classification, contradictory wording, and audience access.</p>
+${submitted ? `<p id="result" role="status"><strong>${score} of ${cases.length} correct.</strong></p>` : ""}
+<form method="get" action="${action}#result">${results.map(result => result.html).join("")}
+<button type="submit">Check answers</button>${submitted ? ` <a href="${action}">Start again</a>` : ""}</form>`);
   }
 
   async function serveBlueprint(request, env, ctx) {
@@ -247,6 +302,22 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
       }
       if (!isRead) return failure(request, "Method not allowed", 405);
       if (path === "/") return respond(request, await dashboard(db, url.searchParams), 200, "text/html; charset=utf-8");
+      if (path === "/foundation") return respond(request, foundationPage(), 200, "text/html; charset=utf-8");
+      if (path === "/foundation/source.txt") {
+        return respond(request, foundation.statement, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/architecture") {
+        return respond(request, architecturePage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/architecture/source.txt") {
+        return respond(request, foundation.architecture.source, 200, "text/plain; charset=utf-8");
+      }
+      if (path === "/foundation/architecture/conductor.json") {
+        return json(request, { ...foundation.architecture.conductor, release });
+      }
+      if (path === "/foundation/architecture/practice") {
+        return respond(request, architecturePractice(url.searchParams), 200, "text/html; charset=utf-8");
+      }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {
         const rubric = await findAssessment(db, "civics-mastery");

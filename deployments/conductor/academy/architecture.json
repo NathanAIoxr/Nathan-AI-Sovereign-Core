@@ -1,0 +1,23 @@
+{
+  "project": "tabor-academy-architecture",
+  "name": "The Architecture of Everything and Nothing",
+  "operator": "Nathan Tabor",
+  "authorSource": "app-factory/tabor-academy/institution/architecture.txt",
+  "mountedPath": "/tabor-academy/institution/foundation/architecture/",
+  "equations": { "everything": "1 + 1 = 2", "nothing": "1 - 1 = 0" },
+  "scope": ["Motto", "Heart", "Soul", "Shadow", "Spirit", "Nothing", "Everything", "Protecting The One / One Family", "Library Lineage", "Personal Memory", "Personal Intelligence"],
+  "sourceRecord": ["id", "source_uri", "author", "date_if_known", "version", "sha256", "access"],
+  "reviewRecord": ["source_ids", "claim", "evidence_status", "access_decision", "reason", "review_status"],
+  "evidenceStatuses": ["verified", "unresolved", "interpretation"],
+  "routing": {
+    "publish": "Release verified, cleared material with its source references and version.",
+    "hold": "Keep unresolved or contradictory evidence available for authorized review with each version intact.",
+    "restrict": "Keep private family and personal records visible only to authorized readers."
+  },
+  "conductorHandoff": {
+    "prompts": "/tabor-academy/institution/foundation/architecture/conductor.json",
+    "practice": "/tabor-academy/institution/foundation/architecture/practice/",
+    "verification": "node app-factory/tabor-academy/institution/verify.mjs",
+    "maintainerPrompt": "Use the four authored prompts in order. Record each source and review decision. Protect The One by checking audience access before sharing. Keep original wording intact and record corrections with their evidence. Use the equations in Prompt 1 for execution."
+  }
+}

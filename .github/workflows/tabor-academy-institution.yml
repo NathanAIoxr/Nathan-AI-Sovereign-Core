@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - 'app-factory/tabor-academy/institution/**'
+      - 'deployments/conductor/academy/architecture.json'
       - '.github/workflows/tabor-academy-institution.yml'
   push:
     branches: [main]
     paths:
       - 'app-factory/tabor-academy/institution/**'
+      - 'deployments/conductor/academy/architecture.json'
       - '.github/workflows/tabor-academy-institution.yml'
   workflow_dispatch:
 
