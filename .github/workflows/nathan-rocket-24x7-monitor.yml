@@ -1,0 +1,37 @@
+name: Nathan AI Rocket 24x7 Conductor Health
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nathan-rocket-health
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate conductor policy and independent project boundaries
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const p=JSON.parse(fs.readFileSync('app-factory/nathan-ai/nathan-ai-rocket-conductor/bitcoin-fleet-policy.json','utf8'));
+          if(p.lead!=='Nathan AI Rocket 🚀'||p.compute.super2x.slots!==1000||p.compute.hyper.slots!==1000)throw Error('Unexpected fleet configuration');
+          if(p.compute.super2x.active!==0||p.compute.hyper.active!==0)throw Error('Unverified compute activation');
+          if(!p.rules.requireExplicitOwnership&&p.compute.requireExplicitOwnership!==true)throw Error('Authorization required');
+          if(!p.rules.neverUseUnownedCompute||!p.rules.neverFabricateRewards)throw Error('Safety policy changed');
+          if(new Set(p.projects.map(x=>x.id)).size!==p.projects.length)throw Error('Merged project identities');
+          console.log('Nathan AI Rocket configuration validated; mining remains gated on authorized hardware.');
+          JS
+      - name: Check Octopus source and offline tests
+        run: |
+          node --check app-factory/nathan-ai/octopus-mirror-engine/src/engine.mjs
+          node --check app-factory/nathan-ai/octopus-mirror-engine/src/conductor-adapter.mjs
+          node --check app-factory/nathan-ai/octopus-mirror-engine/worker.mjs
+          node --test app-factory/nathan-ai/octopus-mirror-engine/test/engine.test.mjs
