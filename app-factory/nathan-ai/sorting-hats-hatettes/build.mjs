@@ -34,7 +34,7 @@ if (app.reader === "/book") {
 } else {
   const series = JSON.parse(read("series.json"));
   const volumes = series.map(([title,summary],index) => '<article class="volume"><h2>'+String(index+1)+'. '+escape(title)+'</h2><p>'+escape(summary)+'</p></article>').join("");
-  const opening = '<div class="series"><p class="tag">THE 13-VOLUME SERIES MAP</p><h1>The Chronicles of Hat &amp; Hatette</h1><p>Thirteen book concepts for the Sorting Hats &amp; Hatettes world.</p>';
+  const opening = '<div class="series"><p class="tag">THE 13-VOLUME SERIES MAP</p><h1>The Chronicles of Hat &amp; Hatette</h1><p>Thirteen book concepts from '+escape(app.title)+'.</p>';
   addAsset("/series",types[".html"],html("The Chronicles of Hat & Hatette",opening+volumes+'</div>'));
 }
 addAsset("/manifest.webmanifest","application/manifest+json",JSON.stringify({

@@ -134,7 +134,7 @@ struct RealmScreen: View {
                     if !status.isEmpty { Text(status).accessibilityIdentifier("gate-status") }
                 }
             }
-            .navigationTitle("Hatettes UNBOUND")
+            .navigationTitle(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "the Sorting Hat and Hatette")
         }
     }
 }

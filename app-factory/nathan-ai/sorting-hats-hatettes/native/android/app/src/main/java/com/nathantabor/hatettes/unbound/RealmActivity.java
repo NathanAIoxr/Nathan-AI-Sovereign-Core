@@ -65,7 +65,7 @@ public final class RealmActivity extends Activity {
                 return insets;
             });
         }
-        label("Hatettes UNBOUND", 30);
+        label(getString(R.string.app_name), 30);
         try (InputStream source = getAssets().open("realms.json")) {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];
