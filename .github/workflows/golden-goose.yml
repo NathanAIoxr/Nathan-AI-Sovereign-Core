@@ -1,0 +1,24 @@
+name: Golden Goose
+on:
+  push:
+    branches: [main, zone/modern-day-real-life-golden-goose]
+    paths:
+      - 'app-factory/nathan-ai/modern-day-real-life-golden-goose/**'
+      - '.github/workflows/golden-goose.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/modern-day-real-life-golden-goose/**'
+      - '.github/workflows/golden-goose.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test app-factory/nathan-ai/modern-day-real-life-golden-goose/test/*.test.mjs

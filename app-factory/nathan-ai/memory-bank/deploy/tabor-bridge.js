@@ -2,7 +2,8 @@ const mounts = new Map([
   ['/memory-bank', 'nathan-ai-memory-bank'],
   ['/worker-registry', 'nathan-ai-worker-registry'],
   ['/global-bounties', 'nathan-ai-bounties-db'],
-  ['/edge-operations', 'tabor-edge-operations']
+  ['/edge-operations', 'tabor-edge-operations'],
+  ['/golden-goose', 'modern-day-real-life-golden-goose']
 ]);
 
 export default {

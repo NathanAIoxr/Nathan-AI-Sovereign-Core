@@ -1,0 +1,13 @@
+{
+  "id": "modern-day-real-life-golden-goose",
+  "name": "The Modern-Day Real-Life Golden Goose by Nathan Tabor",
+  "author": "Nathan Tabor",
+  "sourceModel": "src/worker.ts",
+  "entrypoint": "src/worker.mjs",
+  "stageNamespace": "modern-day-real-life-golden-goose-holding",
+  "releaseNamespace": "nathan-tabor-platforms",
+  "releaseMount": "/golden-goose/",
+  "plannedFleet": { "super2X": 1000, "hyper": 1000 },
+  "miningDeviceEnrollment": 0,
+  "allocationPercent": { "coreReserve": 50, "jetSiphonExpansion": 25, "nodeArmOperators": 15, "ecosystemLiquidity": 10 }
+}
