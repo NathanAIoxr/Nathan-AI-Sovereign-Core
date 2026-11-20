@@ -45,3 +45,24 @@ test("the Academy mount preserves other routes and generates canonical links", a
   assert.match(patched, /withJeffreyEpsteinBible\(withApprenticeshipZone\(academy\)\)/);
   assert.equal(mountJeffreyEpsteinBible(patched), patched);
 });
+
+test("each chapter opens already laid out, with investigation available on demand", async () => {
+  const index = await (await get("/api/index.json")).json();
+  for (const chapter of index.chapters) {
+    const path = "/chapter/" + chapter.id + "/";
+    assert.ok(chapter.verse.length > 20);
+    assert.ok(chapter.reading.length > 20);
+    const normal = await (await get(path)).text();
+    assert.match(normal, /<h2>Laid over each other<\/h2>/);
+    assert.doesNotMatch(normal, /<h2>Investigate the record<\/h2>/);
+    assert.ok(normal.includes('href="' + path + '?mode=investigate"'));
+    const investigation = await (await get(path + "?mode=investigate")).text();
+    assert.match(investigation, /<h2>Investigate the record<\/h2>/);
+    assert.doesNotMatch(investigation, /<h2>Laid over each other<\/h2>/);
+    assert.ok(investigation.includes('href="' + path + '">Back to Reading Mode'));
+  }
+  const search = await (await get("/?q=maxwell&mode=investigate")).text();
+  assert.match(search, /name="mode" value="investigate"/);
+  assert.match(search, /href="\/chapter\/maxwell-proceedings\/\?mode=investigate"/);
+  assert.match(search, /href="\/\?q=maxwell">Back to Reading Mode/);
+});

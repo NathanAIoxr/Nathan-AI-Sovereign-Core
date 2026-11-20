@@ -85,6 +85,28 @@ const chapters = [
   },
 ];
 
+const verses = {
+  "James 1:27": "Pure religion and undefiled before God and the Father is this, To visit the fatherless and widows in their affliction, and to keep himself unspotted from the world.",
+  "Proverbs 31:8–9": "Open thy mouth for the dumb in the cause of all such as are appointed to destruction. Open thy mouth, judge righteously, and plead the cause of the poor and needy.",
+  "Matthew 18:6": "But whoso shall offend one of these little ones which believe in me, it were better for him that a millstone were hanged about his neck, and that he were drowned in the depth of the sea.",
+  "Ephesians 5:11": "And have no fellowship with the unfruitful works of darkness, but rather reprove them.",
+  "John 3:21": "But he that doeth truth cometh to the light, that his deeds may be made manifest, that they are wrought in God.",
+  "James 2:10": "For whosoever shall keep the whole law, and yet offend in one point, he is guilty of all.",
+  "Romans 13:4": "For he is the minister of God to thee for good. But if thou do that which is evil, be afraid; for he beareth not the sword in vain: for he is the minister of God, a revenger to execute wrath upon him that doeth evil.",
+};
+
+const readings = {
+  "the-2007-agreement": "James measures religion by what people do for those in affliction. Here the record names a choice by prosecutors and a failure to make sure victims would be notified. Applied to this case, James puts the people owed care and notice at the center of the account.",
+  "victims-rights": "Proverbs calls on those with power to speak up for people whose voices are excluded. The appeal shows how the way a case is brought can decide whether a court hears a demand for enforcement. The procedural holding leaves the treatment of the victims visible in the record.",
+  "epstein-indictment": "Matthew places the harm done to the little ones at the center. The indictment records what prosecutors alleged and which places and years they investigated. Epstein died before those New York charges could be tried.",
+  "maxwell-proceedings": "Ephesians calls for exposing wrongdoing. The Maxwell case shows the stages by which an accusation becomes a public legal record: charges, evidence and trial, verdict, and sentence. Each stage tells the reader what was established at that point.",
+  "accesspoint": "John’s test is whether deeds can be brought into the light. AccessPoint starts with two dated records: Trump’s public description of knowing Epstein, and Trump’s signature on the disclosure law. Each record establishes a different action. A criminal allegation requires evidence of the specific act alleged.",
+  "disclosure-votes": "James asks the reader to attend to conduct at each point. A procedural vote and a final-passage vote answer different questions. Keep the full sequence visible so the later vote cannot erase what happened earlier and the earlier vote cannot be used to misstate the final vote.",
+  "public-release": "Ephesians connects exposure with accountability. Publishing the record lets people examine official decisions. The collection brings together several kinds of material, so a released tip, an agency finding, and a court decision each carry the weight their evidence supports.",
+  "institutional-accountability": "Under the James 1:27 test, the measure is what was done for people in affliction. The England and Wales inquiry records where church institutions failed to protect children. The separate Vatican–Epstein question remains open in this edition and calls for a dated record identifying the responsible actor and action.",
+  "investigation-review": "Romans measures public authority by what it does for good and how it responds to wrongdoing. The committee report identifies offices and decisions readers can check. Its findings and recommendations create a record against which follow-up can be measured.",
+};
+
 const escape = value => String(value).replace(/[&<>"']/g, character => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 }[character]));
@@ -96,6 +118,7 @@ body{margin:0}main{max-width:74rem;margin:auto;padding:clamp(1rem,4vw,3.5rem)}
 h1,h2,h3{font-family:Georgia,serif;line-height:1.12;margin:0 0 .65em}
 h1{font-size:clamp(2.3rem,7vw,5.75rem);letter-spacing:-.04em}h2{font-size:clamp(1.5rem,3.1vw,2.3rem)}
 a{color:#e5ca83}nav,form{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center}
+.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,23rem),1fr));gap:1.5rem}.comparison blockquote{margin:0;border-inline-start:3px solid #e5ca83;padding-inline-start:1rem}
 nav{margin-bottom:clamp(1.8rem,5vw,4rem)}section{margin-top:2rem}ul{padding-inline-start:1.3rem}
 .records{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:1rem}
 .records li,aside{background:#1a241e;border:1px solid #425347;padding:1.15rem;border-radius:.35rem}
@@ -104,32 +127,48 @@ input{background:#19231d;color:inherit;max-width:100%;box-sizing:border-box}butt
 a:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid #fef3d3;outline-offset:4px}
 `;
 
-function page(heading, content) {
+const readingPath = path => path === "/" ? "/" : path + "/";
+const modePath = (path, investigative) => path + (investigative ? "?mode=investigate" : "");
+
+function page(heading, content, { path = "/", investigative = false, query = "" } = {}) {
+  const params = new URLSearchParams();
+  if (!investigative) params.set("mode", "investigate");
+  if (query) params.set("q", query);
+  const toggle = readingPath(path) + (params.size ? "?" + params : "");
+  const chaptersLink = modePath("/", investigative);
+  const archiveLink = modePath("/archives/", investigative);
   return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' +
-    escape(heading) + '</title><style>' + css + '</style><main><nav aria-label="Main navigation"><a href="/">Chapters</a><a href="/archives/">Official archives</a><a href="/conductor.json">Conductor handoff</a></nav>' + content + '</main></html>';
+    escape(heading) + '</title><style>' + css + '</style><main><nav aria-label="Main navigation"><a href="' + chaptersLink + '">Chapters</a><a href="' + archiveLink + '">Official archives</a><a href="/conductor.json">Conductor handoff</a><a href="' + escape(toggle) + '">' + (investigative ? "Back to Reading Mode" : "Switch to Investigation Mode") + '</a></nav>' + content + '</main></html>';
 }
 
-function home(query) {
+function home(query, investigative) {
   const search = query.trim().toLowerCase();
   const result = chapters.filter(item => [item.title, item.date, item.status, item.kjv, item.record].some(field => field.toLowerCase().includes(search)));
-  return page(title, '<header><p class="meta">Nathan Tabor · The Modern Day Bible</p><h1>' + title + '</h1><p>' + description +
+  return page(title, '<header><p class="meta">Nathan Tabor · The Modern Day Bible</p><h1>' + title + '</h1><p>' + description + '</p><p class="meta">' + (investigative ? "Investigation Mode" : "Reading Mode") +
     '</p></header><section aria-labelledby="chapters"><h2 id="chapters">Read the chapters</h2><form action="/"><label for="q">Search this edition</label><input name="q" id="q" maxlength="120" value="' + escape(query) +
-    '"><button>Search</button>' + (search ? '<a href="/">Clear</a>' : '') + '</form><p class="meta">' + result.length + ' of ' + chapters.length + ' chapters</p><ul class="records">' +
-    result.map(chapter => '<li><p class="meta">' + escape(chapter.date) + ' · ' + escape(chapter.status) + '</p><h3><a href="/chapter/' + chapter.id + '/">' + escape(chapter.title) +
+    '">' + (investigative ? '<input type="hidden" name="mode" value="investigate">' : '') + '<button>Search</button>' + (search ? '<a href="' + modePath("/", investigative) + '">Clear</a>' : '') + '</form><p class="meta">' + result.length + ' of ' + chapters.length + ' chapters</p><ul class="records">' +
+    result.map(chapter => '<li><p class="meta">' + escape(chapter.date) + ' · ' + escape(chapter.status) + '</p><h3><a href="' + modePath("/chapter/" + chapter.id + "/", investigative) + '">' + escape(chapter.title) +
     '</a></h3><p>KJV · ' + escape(chapter.kjv) + '</p></li>').join("") +
-    '</ul></section><section><h2>Related Tabor work</h2>' + links([["The Modern Day Bible and recovered JEB research", recovery], ["Tabor Academy · Vatican history", dossier], ["Protection of Innocence", repo + "/tree/main/app-factory/nathan-ai/children-innocence"]]) + '</section>');
+    '</ul></section><section><h2>Related Tabor work</h2>' + links([["The Modern Day Bible and recovered JEB research", recovery], ["Tabor Academy · Vatican history", dossier], ["Protection of Innocence", repo + "/tree/main/app-factory/nathan-ai/children-innocence"]]) + '</section>', { investigative, query });
 }
 
-function chapterPage(chapter) {
+function chapterPage(chapter, investigative, path) {
+  const documentary = '<section><h2>Documentary record</h2><p>' + escape(chapter.record) + '</p></section>';
+  const reading = '<section><h2>KJV reading</h2><blockquote><p>' + escape(verses[chapter.kjv]) + '</p><cite><a href="' +
+    escape(scripture(chapter.kjv)) + '">' + escape(chapter.kjv) + ' · KJV</a></cite></blockquote></section>';
+  const study = investigative
+    ? '<section><h2>Investigate the record</h2><p>' + escape(chapter.question) +
+      '</p><ol><li>Open the original source and identify its date, publisher, and document type.</li><li>Record the page, docket, or exact passage that supports the claim.</li><li>Record what the evidence establishes and what remains open.</li></ol>' +
+      links(chapter.sources) + '<p><a href="/archives/?mode=investigate">Search the official archives</a></p></section>'
+    : '<section><h2>Laid over each other</h2><p>' + escape(readings[chapter.id]) + '</p></section><details><summary>Sources</summary>' + links(chapter.sources) + '</details>';
   return page(chapter.title + " · " + title, '<article><p class="meta">' + escape(chapter.date) + ' · ' + escape(chapter.status) +
-    '</p><h1>' + escape(chapter.title) + '</h1><section><h2>Documentary record</h2><p>' + escape(chapter.record) +
-    '</p>' + links(chapter.sources) + '</section><section><h2>KJV reading</h2><p><a href="' + escape(scripture(chapter.kjv)) +
-    '">' + escape(chapter.kjv) + '</a></p><h3>Read beside the record</h3><p>' + escape(chapter.question) + '</p></section></article>');
+    '</p><h1>' + escape(chapter.title) + '</h1><p class="meta">' + (investigative ? "Investigation Mode" : "Reading Mode") +
+    '</p><div class="comparison">' + documentary + reading + '</div>' + study + '</article>', { path, investigative });
 }
 
-function archives() {
+function archives(investigative) {
   return page("Official archives · " + title, '<h1>Official archives</h1><p>Search or open records at their publisher. The DOJ archive applies its own age check and warns about sensitive material and possible incomplete redactions.</p>' +
-    links(collections) + '<section><h2>Numbered DOJ datasets</h2>' + links(datasets) + '</section><aside><strong>Coverage</strong><p>This edition indexes nine reviewed chapters. The official collection includes twelve numbered DOJ datasets plus court records and FOIA collections.</p><a href="/api/index.json">Get the searchable chapter index as JSON</a></aside>');
+    links(collections) + '<section><h2>Numbered DOJ datasets</h2>' + links(datasets) + '</section><aside><strong>Coverage</strong><p>This edition indexes nine reviewed chapters. The official collection includes twelve numbered DOJ datasets plus court records and FOIA collections.</p><a href="/api/index.json">Get the searchable chapter index as JSON</a></aside>', { path: "/archives", investigative });
 }
 
 export const handoff = {
@@ -139,7 +178,8 @@ export const handoff = {
   index: publicSite + "/api/index.json", archive: publicSite + "/archives/", workflow: "review-before-publication",
   source: repo + "/tree/main/app-factory/jeffrey-epstein-bible",
   required: ["publisher", "document identifier or docket", "source URL", "date", "page locator where available", "evidence status", "KJV reference"],
-  next: ["Expand by dated record. Compare source, action, actor, and jurisdiction before connecting events.",
+  modes: { default: "reading", investigation: "?mode=investigate" },
+  next: ["Put the KJV passage, documentary record, and completed reading in Reading Mode. Keep questions and evidence-tracing directions in Investigation Mode.", "Expand by dated record. Compare source, action, actor, and jurisdiction before connecting events.",
     "Add sourced chapter summaries through a reviewed pull request. Preserve author wording separately from documentary summaries.",
     "Keep victim and private details out of the public index. Link bulk collections at their official publisher. An archive mention alone does not establish wrongdoing.",
     "Run the Worker tests, verify pages on Cloudflare, and update the chapter coverage count."],
@@ -148,21 +188,22 @@ export const handoff = {
 async function serve(request, mount, requestedPath) {
   const url = new URL(request.url);
   const path = requestedPath.replace(/\/$/, "") || "/";
+  const investigative = url.searchParams.get("mode") === "investigate";
   let content;
   let contentType = "text/html; charset=utf-8";
   let status = 200;
   if (request.method !== "GET" && request.method !== "HEAD") {
     return new Response("Method not allowed", { status: 405, headers: { allow: "GET, HEAD" } });
   }
-  if (path === "/") content = home((url.searchParams.get("q") || "").slice(0, 120));
-  else if (path === "/archives") content = archives();
+  if (path === "/") content = home((url.searchParams.get("q") || "").slice(0, 120), investigative);
+  else if (path === "/archives") content = archives(investigative);
   else if (["/api/index.json", "/conductor.json", "/healthz"].includes(path)) {
     contentType = "application/json; charset=utf-8";
     content = JSON.stringify(path === "/conductor.json" ? handoff :
-      path === "/healthz" ? { ok: true, chapters: chapters.length } : { title, author: handoff.author, archives: collections, datasets, chapters });
+      path === "/healthz" ? { ok: true, chapters: chapters.length } : { title, author: handoff.author, archives: collections, datasets, chapters: chapters.map(chapter => ({ ...chapter, verse: verses[chapter.kjv], reading: readings[chapter.id] })) });
   } else {
     const chapter = chapters.find(item => path === "/chapter/" + item.id);
-    if (chapter) content = chapterPage(chapter);
+    if (chapter) content = chapterPage(chapter, investigative, path);
     else {
       status = 404;
       content = page("Chapter not found", '<h1>Chapter not found</h1><p><a href="/">Browse all chapters</a></p>');
