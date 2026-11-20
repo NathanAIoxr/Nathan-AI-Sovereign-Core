@@ -24,4 +24,5 @@ form.addEventListener("submit", event => {
 form.addEventListener("reset", () => {
   panel.hidden = true;
   status.textContent = "";
+  approach.focus();
 });
