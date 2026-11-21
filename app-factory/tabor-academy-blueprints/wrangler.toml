@@ -1,0 +1,74 @@
+name = "tabor-academy-blueprints"
+main = "worker/runtime.js"
+account_id = "a70580bacdf96c946662b7b67dcb45b5"
+compatibility_date = "2026-11-20"
+workers_dev = false
+preview_urls = false
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api", "/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-academy-blueprints"
+database_id = "7a426090-8b0b-4f85-8a68-8b5c8e6fc478"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "2a985f3c9e584aa9a815f7e6c1b3290e"
+
+[[r2_buckets]]
+binding = "VAULT"
+bucket_name = "tabor-academy-blueprints-vault"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "tabor-academy-blueprints"
+
+[[durable_objects.bindings]]
+name = "CLASSROOM"
+class_name = "ClassroomRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ClassroomRoom"]
+
+[[queues.producers]]
+binding = "BLUEPRINT_QUEUE"
+queue = "tabor-academy-blueprint-jobs"
+
+[[queues.consumers]]
+queue = "tabor-academy-blueprint-jobs"
+dead_letter_queue = "tabor-academy-blueprint-dead"
+max_batch_size = 1
+max_batch_timeout = 15
+max_concurrency = 1
+max_retries = 3
+
+[triggers]
+crons = ["0 3 * * *"]
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "tabor_academy_blueprints"
+
+[vars]
+GH_REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core"
+DRAFT_IMAGES = "false"
+
+# Deploy the matching wrangler.<name>.toml first, then enable the service binding.
+# [[services]]
+# binding = "GENERATION"
+# service = "tabor-academy-blueprints-generation"
+# [[services]]
+# binding = "SEARCH"
+# service = "tabor-academy-blueprints-search"
+# [[services]]
+# binding = "MEDIA"
+# service = "tabor-academy-blueprints-media"

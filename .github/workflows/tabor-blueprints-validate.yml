@@ -1,0 +1,27 @@
+name: Validate Tabor Academy blueprints
+on:
+  pull_request:
+    paths:
+      - 'app-factory/tabor-academy-blueprints/**'
+      - '.github/workflows/tabor-blueprints-validate.yml'
+      - '.github/workflows/auto-sync-d1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/tabor-academy-blueprints
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run pages:build
+      - run: npm run worker:check
