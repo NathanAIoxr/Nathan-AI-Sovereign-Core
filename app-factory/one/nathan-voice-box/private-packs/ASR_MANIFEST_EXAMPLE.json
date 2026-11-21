@@ -1,0 +1,11 @@
+{
+  "id": "my-offline-whisper-pack",
+  "runtime": "sherpa-onnx-whisper-asr",
+  "languages": ["en-US"],
+  "encoder": "whisper-encoder.int8.onnx",
+  "decoder": "whisper-decoder.int8.onnx",
+  "tokens": "tokens.txt",
+  "authorized": false,
+  "rights_basis": "licensed-synthetic",
+  "notice": "Example only: these are placeholder asset filenames, not downloaded model weights. Review the model license and its actual supported languages; install under private-packs/<id>/ and set authorized:true only when entitled. ASR text is unverified and should be corrected before voice synthesis."
+}

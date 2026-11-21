@@ -1,0 +1,12 @@
+{
+  "id": "example-local-voice",
+  "runtime": "sherpa-onnx-vits",
+  "language": "en-US",
+  "model": "voice.onnx",
+  "tokens": "tokens.txt",
+  "data_dir": "espeak-ng-data",
+  "speaker_id": 0,
+  "authorized": false,
+  "rights_basis": "licensed-synthetic",
+  "comment": "Example ONLY: move to private-packs/<id>/manifest.json, install assets locally, and attest permission before enabling. Never commit real family audio, source recordings or private model weights."
+}

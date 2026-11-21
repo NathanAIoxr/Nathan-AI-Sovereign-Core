@@ -1,0 +1,14 @@
+{
+  "id": "my-zipvoice-pack",
+  "runtime": "sherpa-onnx-zipvoice",
+  "languages": ["en-US", "zh-CN"],
+  "tokens": "tokens.txt",
+  "encoder": "encoder.int8.onnx",
+  "decoder": "decoder.int8.onnx",
+  "vocoder": "vocos_24khz.onnx",
+  "lexicon": "lexicon.txt",
+  "data_dir": "espeak-ng-data",
+  "authorized": false,
+  "rights_basis": "self",
+  "notice": "EXAMPLE ONLY. All paths are relative to private-packs/<pack-id> and must exist locally. Copy this manifest as manifest.json inside your private directory. Set authorized true only when permissions and model licenses are confirmed. Correct models and dictionaries are mandatory; they are not shipped with the public source."
+}

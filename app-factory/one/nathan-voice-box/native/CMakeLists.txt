@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.18)
+project(nathan_voicebox_edge LANGUAGES CXX)
+add_library(nathan_voicebox SHARED edge_dsp.cpp android_jni.cpp)
+target_compile_features(nathan_voicebox PRIVATE cxx_std_17)
+target_compile_options(nathan_voicebox PRIVATE -fvisibility=hidden -O2)
