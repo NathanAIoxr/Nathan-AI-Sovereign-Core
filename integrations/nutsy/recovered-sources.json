@@ -1,0 +1,1055 @@
+{
+  "schema": "nutsy.recovered-sources.v1",
+  "public_handoffs": {
+    "scope": "GitHub search result plus NUTSY cockpit, all are source references. A GitHub issue is not an Ubuntu job receipt.",
+    "issues": [
+      {
+        "issue_number": 480,
+        "title": "Conductor: document scripture-response failures, user corrections, and child-protection evidence standards",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/480"
+      },
+      {
+        "issue_number": 481,
+        "title": "Conductor: Innocence Accountability Scroll 002 — child-protection evidence database and audit",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/481"
+      },
+      {
+        "issue_number": 491,
+        "title": "Nathan AI Conductor handoff · Mrs. Doubtfire double entendre and evidence index",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/491"
+      },
+      {
+        "issue_number": 497,
+        "title": "Nathan AI Conductor handoff · SMACK THAT ASS (AUTHORITARIAN SATANIC SOULS)",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/497"
+      },
+      {
+        "issue_number": 499,
+        "title": "CONDUCTOR HANDOFF — Restore full Tabor Academy Original 21 + 10,000 Card Game Matrix",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/499"
+      },
+      {
+        "issue_number": 500,
+        "title": "CONDUCTOR — Tabor Academy Ancient Board Games Reconstruction + KJV 8×8 Research",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/500"
+      },
+      {
+        "issue_number": 501,
+        "title": "CONDUCTOR — Research and capture chess origins, variants, rules, social hierarchy and ancient games",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/501"
+      },
+      {
+        "issue_number": 502,
+        "title": "CONDUCTOR — Truth Behind the Game: piece origins, rule incentives, historical motives and sources",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/502"
+      },
+      {
+        "issue_number": 506,
+        "title": "CONDUCTOR BUILD — All chess games, variants, history, rules engines, app and tests",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/506"
+      },
+      {
+        "issue_number": 508,
+        "title": "CONDUCTOR HANDOFF — TABOR OS · LLM + AGI = LLMAGI",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/508"
+      },
+      {
+        "issue_number": 509,
+        "title": "CONDUCTOR — Wikimedia chess API import and D1 ingestion with source attribution",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/509"
+      },
+      {
+        "issue_number": 510,
+        "title": "CONDUCTOR — Wikimedia all-departments ingestion into Tabor Concordance D1",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/510"
+      },
+      {
+        "issue_number": 511,
+        "title": "CONDUCTOR — Global 26-source knowledge registry, import queue, attribution and bounded workers",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/511"
+      },
+      {
+        "issue_number": 512,
+        "title": "CONDUCTOR — Verify and assign authorized fleet to Global Authentication Archive",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/512"
+      },
+      {
+        "issue_number": 513,
+        "title": "MASTER HANDOFF — Full Conductor execution instructions for Authentication Archive, fleet and Concordance",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/513"
+      },
+      {
+        "issue_number": 515,
+        "title": "HEY YA'LL — CONDUCTOR: The Keys, Gatekeepers & People — authority-control archive extension",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/515"
+      },
+      {
+        "issue_number": 523,
+        "title": "CONDUCTOR HANDOFF — Nathan Tabor Labs Personal Intelligence creative universe",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/523"
+      },
+      {
+        "issue_number": 534,
+        "title": "Conductor handoff for the Tabor Accords Evidence and Audit Curriculum",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/534"
+      },
+      {
+        "issue_number": 535,
+        "title": "CONDUCTOR HANDOFF — Tabor Accords Universal Intelligence Academy: full source-preserving correction and build",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/535"
+      },
+      {
+        "issue_number": 539,
+        "title": "BEE 🐝 A … / BE ♍️ A — public release and Conductor handoff",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/539"
+      },
+      {
+        "issue_number": 540,
+        "title": "NUTSY the RESOLUTE RACCOON — HEAR YE / HEAR YA cockpit",
+        "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/540"
+      }
+    ]
+  },
+  "hardware": {
+    "tabor_chip_stack": {
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/fd3082261b1da7b479823a3ecb56103716a71a68/tabor-world/supercomputer/tabor-chips/tabor-chip-stack.json",
+      "blob": "5b1ed88545d9eef1d6b97a74e2373db11ebed28e",
+      "reference_baselines": [
+        "NVIDIA Blackwell B200/GB200/GB300",
+        "DGX Spark GB10",
+        "RTX 5090",
+        "Jetson Orin Nano Super",
+        "NVLink/NVSwitch",
+        "Spectrum-X/Quantum-X",
+        "BlueField/ConnectX",
+        "HBM3e/LPDDR5X",
+        "direct-liquid-cooled AI racks"
+      ],
+      "layers": [
+        {
+          "number": "01",
+          "name": "Tabor Chip Die",
+          "scope": "GPU/SIMD/SIMT compute arrays, tensor/matrix engines, scalar and vector execution, cache hierarchy, clock and reset domains",
+          "agent": "compute-die-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "02",
+          "name": "Tabor Memory Complex",
+          "scope": "HBM-class stacked memory, ECC, controllers, coherent CPU/GPU address spaces, SRAM and LPDDR interfaces",
+          "agent": "memory-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "03",
+          "name": "Tabor Host CPU",
+          "scope": "Grace/Vera/x86/ARM comparison, instruction orchestration, OS, IOMMU, secure boot",
+          "agent": "cpu-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "04",
+          "name": "Tabor On-Package Fabric",
+          "scope": "chiplets, die-to-die bridge, interposer, advanced packaging, signaling and bandwidth",
+          "agent": "package-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "05",
+          "name": "Tabor Rack Fabric",
+          "scope": "NVLink/NVSwitch-class topology, cable/backplane, fabric routing, fault domains",
+          "agent": "fabric-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "06",
+          "name": "Tabor Network Fabric",
+          "scope": "NIC, DPU, Ethernet/InfiniBand, optical transceivers, silicon photonics, congestion control",
+          "agent": "network-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "07",
+          "name": "Tabor Storage Fabric",
+          "scope": "boot NVMe, checkpoint NVMe, distributed storage, D1/R2 integration and backups",
+          "agent": "storage-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "08",
+          "name": "Tabor Thermal System",
+          "scope": "cold plates, CDU, manifolds, liquid loops, sensors, airflow and thermal simulation",
+          "agent": "thermal-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "09",
+          "name": "Tabor Power System",
+          "scope": "power shelves, busbars, UPS, redundancy, distribution, metering and protection",
+          "agent": "power-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "10",
+          "name": "Tabor Mechanical Rack",
+          "scope": "chassis, compute trays, switch trays, serviceability, cables, facility requirements",
+          "agent": "mechanical-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "11",
+          "name": "Tabor Management Plane",
+          "scope": "BMC, firmware, telemetry, attestation, out-of-band control, recovery",
+          "agent": "management-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "12",
+          "name": "Tabor AI Software Stack",
+          "scope": "compiler, runtime, kernel scheduling, model execution, inference/training, WASM, accelerator abstraction",
+          "agent": "compiler-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "13",
+          "name": "Tabor Sovereign Security",
+          "scope": "Box 0 clear gate, Box 1 build engine, identity, cryptography, audit, provenance",
+          "agent": "guardian-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "14",
+          "name": "Tabor Distributed Cloud",
+          "scope": "Cloudflare Workers, Containers, Workflows, Queues, D1, R2, KV, Durable Objects, Vectorize, GitHub",
+          "agent": "cloud-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "15",
+          "name": "Tabor Agent and Application Mesh",
+          "scope": "Tabor World Hub, agent fleets, games, books, ancestry, library, rhythm, inventions",
+          "agent": "integration-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "16",
+          "name": "Tabor Benchmark and Verification",
+          "scope": "FP64/FP32/FP16/FP8/FP4, tokens/sec, energy, memory bandwidth, networking, mining hashes/sec, reproducibility",
+          "agent": "benchmark-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "17",
+          "name": "Tabor Silicon Design and Fabrication",
+          "scope": "RTL, ISA specification, EDA, synthesis, timing, floorplanning, physical design, verification, foundry and packaging handoff",
+          "agent": "silicon-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        },
+        {
+          "number": "18",
+          "name": "Tabor ASIC Mining Branch",
+          "scope": "SHA-256d datapath, mining controller, ASIC farm, pool/node interface, power economics and safety",
+          "agent": "mining-agent",
+          "tag": "CONTINUE BUILDING",
+          "stage": "architecture-to-implementation",
+          "deliverables": [
+            "requirements and interface specification",
+            "component model or RTL where applicable",
+            "simulation or software test harness",
+            "integration test and benchmark",
+            "verification receipt",
+            "next build iteration"
+          ]
+        }
+      ]
+    },
+    "digital_hardware": {
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/fd3082261b1da7b479823a3ecb56103716a71a68/tabor-world/supercomputer/tabor-chips/digital-hardware/conversion-registry.json",
+      "blob": "de9d57f8128e0952cee92a7ee34e771e3c1bc442",
+      "execution_modes": [
+        "descriptive digital twin",
+        "discrete-event simulator",
+        "instruction emulator",
+        "software-defined virtual device",
+        "real hardware adapter"
+      ],
+      "components": [
+        {
+          "id": "chip",
+          "name": "Tabor Chip Die",
+          "virtual": "instruction-set emulator",
+          "attributes": [
+            "instructions",
+            "cores",
+            "tensors",
+            "clock cycles",
+            "utilization",
+            "numerical precision"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-chip-agent"
+        },
+        {
+          "id": "memory",
+          "name": "HBM/SRAM/DRAM",
+          "virtual": "tiered-memory simulator",
+          "attributes": [
+            "capacity",
+            "bandwidth",
+            "latency",
+            "ECC",
+            "cache",
+            "allocation"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-memory-agent"
+        },
+        {
+          "id": "cpu",
+          "name": "Host CPU",
+          "virtual": "virtual cpu scheduler",
+          "attributes": [
+            "cores",
+            "threads",
+            "instructions",
+            "interrupts",
+            "MMU",
+            "security"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-cpu-agent"
+        },
+        {
+          "id": "package",
+          "name": "Chiplet and Interposer",
+          "virtual": "package topology model",
+          "attributes": [
+            "die links",
+            "latency",
+            "bandwidth",
+            "thermals",
+            "failure domains"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-package-agent"
+        },
+        {
+          "id": "fabric",
+          "name": "NVLink/NVSwitch-class Fabric",
+          "virtual": "virtual fabric simulator",
+          "attributes": [
+            "topology",
+            "ports",
+            "bandwidth",
+            "congestion",
+            "failures"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-fabric-agent"
+        },
+        {
+          "id": "network",
+          "name": "NIC/DPU/Optics",
+          "virtual": "software-defined network",
+          "attributes": [
+            "packets",
+            "routing",
+            "queues",
+            "throughput",
+            "link errors"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-network-agent"
+        },
+        {
+          "id": "storage",
+          "name": "NVMe and Storage Arrays",
+          "virtual": "virtual block/object storage",
+          "attributes": [
+            "IOPS",
+            "throughput",
+            "capacity",
+            "snapshots",
+            "consistency"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-storage-agent"
+        },
+        {
+          "id": "cooling",
+          "name": "Liquid Cooling and CDU",
+          "virtual": "thermal digital twin",
+          "attributes": [
+            "heat generation",
+            "coolant flow",
+            "temperature",
+            "pump failure"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-cooling-agent"
+        },
+        {
+          "id": "power",
+          "name": "Power Shelves and UPS",
+          "virtual": "electrical digital twin",
+          "attributes": [
+            "watts",
+            "voltage",
+            "current",
+            "efficiency",
+            "redundancy",
+            "faults"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-power-agent"
+        },
+        {
+          "id": "rack",
+          "name": "Mechanical Racks and Trays",
+          "virtual": "3D spatial twin",
+          "attributes": [
+            "dimensions",
+            "placement",
+            "cables",
+            "weight",
+            "service access"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-rack-agent"
+        },
+        {
+          "id": "bmc",
+          "name": "BMC and Firmware",
+          "virtual": "virtual management controller",
+          "attributes": [
+            "telemetry",
+            "boot sequence",
+            "alerts",
+            "attestation"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-bmc-agent"
+        },
+        {
+          "id": "asic",
+          "name": "Mining ASIC",
+          "virtual": "hash engine simulator",
+          "attributes": [
+            "nonce search",
+            "throughput",
+            "energy",
+            "pool connectivity"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-asic-agent"
+        },
+        {
+          "id": "sensors",
+          "name": "Physical Sensors",
+          "virtual": "sensor emulator",
+          "attributes": [
+            "sampling",
+            "noise",
+            "calibration",
+            "faults",
+            "timestamps"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-sensors-agent"
+        },
+        {
+          "id": "vehicle",
+          "name": "Trinitycycle Vehicle",
+          "virtual": "vehicle dynamics simulator",
+          "attributes": [
+            "kinematics",
+            "loads",
+            "steering",
+            "safety"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-vehicle-agent"
+        },
+        {
+          "id": "fabrication",
+          "name": "Manufacturing Equipment",
+          "virtual": "process digital twin",
+          "attributes": [
+            "materials",
+            "tolerances",
+            "operations",
+            "yield"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-fabrication-agent"
+        },
+        {
+          "id": "io",
+          "name": "Input Devices and TactileCore",
+          "virtual": "virtual input peripheral",
+          "attributes": [
+            "touch",
+            "force",
+            "haptics",
+            "gyro",
+            "gesture events"
+          ],
+          "continuation": "CONTINUE BUILDING",
+          "stages": [
+            "spec",
+            "model",
+            "emulate",
+            "test",
+            "integrate",
+            "verify",
+            "iterate"
+          ],
+          "owner": "digital-io-agent"
+        }
+      ]
+    },
+    "nvidia_source_recovery": {
+      "scope": "Owner supplied references recovered from prior project records. Physical specifications and delivered Tabor equivalence remain distinct evidence.",
+      "models": [
+        "NVIDIA Blackwell B200",
+        "NVIDIA GB200",
+        "NVIDIA GB300",
+        "DGX GB200 NVL72",
+        "DGX GB300 NVL72",
+        "DGX Spark GB10",
+        "RTX 5090",
+        "Jetson Orin Nano Super",
+        "H100",
+        "H200",
+        "Rubin"
+      ],
+      "maps": {
+        "Blackwell": "Workers AI / WASM workload backends",
+        "HBM": "KV / Durable Objects as functional storage or coordination analogues",
+        "Grace / Vera": "V8 isolates as software execution analogues",
+        "NVLink": "Service Bindings as service-topology analogues",
+        "NICs / DPUs": "Zero Trust / WAF / Queues as service-layer analogues",
+        "NVMe": "GitHub / D1 / R2 as application data-layer analogues"
+      }
+    },
+    "named_tabor_modules": [
+      "Ethos TQC-Nano / SpiralTensorX",
+      "DS-RAM towers",
+      "Sovereign Solid State Drive",
+      "GaN solid-state RF power conversion",
+      "Generic Bluetooth IMU"
+    ],
+    "compute": {
+      "systems": [
+        "LineShine",
+        "El Capitan",
+        "Frontier",
+        "Aurora",
+        "JUPITER",
+        "FugakuNEXT",
+        "Stargate"
+      ],
+      "design_catalog": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/fd3082261b1da7b479823a3ecb56103716a71a68/tabor-world/supercomputer/system-catalog.ts",
+      "model_targets": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/fd3082261b1da7b479823a3ecb56103716a71a68/tabor-world/supercomputer/benchmark/targets.json",
+      "compute_release": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/323",
+      "restoration": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/314"
+    }
+  },
+  "labs": {
+    "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/523#issuecomment-7054164683",
+    "archive_source_manifest": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/fb43e2fe79615fa4c948ea83c3aa009170e9131d/deployments/conductor/lab-recovery/public-source-manifest.csv",
+    "archive_recovery": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/528",
+    "historical_counts": {
+      "recovered_files": 284,
+      "master_rows": 6056,
+      "technology_records": 383,
+      "station_manifests": 533,
+      "writing_index_entries": 2761,
+      "public_git_files": 250
+    },
+    "products": [
+      {
+        "group": "AI and OS",
+        "titles": [
+          "Nathan AI, Nathan LLM, TABOR-ROOT, TABOR 1-2-3 FACTORY, ONE — The Last App, ONE Sovereign Hub, NATHAN OS, Tabor OS V7, TABOR VORTEX V∞, THE THINKER, THINKER X1/TITAN/KNIGHT CORE, 4T Clover, meSPARK, Memory Matrix, ME!!! THINKER, iCU Buddy/BUDDY AI, MAKE AI YOURS, Sovereign Boxes, Sovereign Defender, Sovereign Field Lab, Sovereign Continuum, Five-Matrix Lab, THE MATRIX, 10 ROOT SOLUTIONS, EARTHΩ, CERES, THE HORIZON, Tabor Universal Matrix, Tabor World, Hop In Chatbox, Truthstream, Sealed Voice Box, TABOR 1-2-3 Bridge, Deep Archive Explorer, TABOR Genesis Seed Builder, Tabor Creative Marketing & Investor Studio, Universal Creator Vault, Publishing Hub, App Factory, Low-Cost AI Media Studio, One-Button Launch Center, Cross-Platform App Builder, Any AI ↔ Factory, Creator Pricing/Billing/Payouts, TABOR GPS, TABOR TEXTING"
+        ]
+      },
+      {
+        "group": "Logic/language",
+        "titles": [
+          "1+1=2 / 1−1=0",
+          "Cero/Uno/Dos",
+          "QI Pattern Synthesizer",
+          "Attribute & Functionality Deconstructor",
+          "Yes-First Idea Vault",
+          "100 Mathematical Roots",
+          "12 MAGI",
+          "20 Alchemy",
+          "Tablet of Tabor/Base-4",
+          "ASR MK4",
+          "Tabor Concordance",
+          "Zorro Font",
+          "Christmas Cipher Matrix",
+          "69 Forgotten Numbers",
+          "10D Spatial Coordinate Engine",
+          "Sensational Six",
+          "52 Consciousness",
+          "ACT/STORY/ART"
+        ]
+      },
+      {
+        "group": "Physical products",
+        "titles": [
+          "Tabor Chips/Ethos TQC-Nano",
+          "M.I.R.A.G.E./Tabor 3.14",
+          "Tabor Track Baller/Tracker Ball",
+          "TactileCoreSDK",
+          "Tabor Tape ONE BLADE",
+          "Tabor Tub Temperature System",
+          "THE FAN/THE FIRE/THE ICE",
+          "Frankenstein Energy System",
+          "Tabor Speakers",
+          "MotorTater",
+          "BuddyCart",
+          "Four-Wheel Stability Bike",
+          "custom Prowler",
+          "Tabor Appliance Line",
+          "soft-serve maker",
+          "Lavicore",
+          "Heated Fleece Blanket",
+          "ChristmasAutoStickLights",
+          "Universal OBD",
+          "HEMO HOME",
+          "3D Print Shop"
+        ]
+      },
+      {
+        "group": "Games/creative",
+        "titles": [
+          "GLITTER INC",
+          "TAP THAT",
+          "Orchestra Conductor",
+          "Hook & Ring",
+          "Grapple It",
+          "Toss Lab",
+          "Pinch & Flick Lab",
+          "Dual-Screen Arcade",
+          "Tabor Toy Company 909",
+          "Tavern Puzzles",
+          "BIBLeTopia",
+          "Angels vs Demons 404",
+          "ONE MATRIX",
+          "Healers & Protectors",
+          "H.O.R.R.O.R. 237",
+          "Madison County Protocol",
+          "The Smoker",
+          "Game of Life 5×5",
+          "Tabor World",
+          "ICARUS'S OF BASEBALL",
+          "Sinners vs Saints",
+          "Gang Builder",
+          "MAD MAN",
+          "STORY & ART Studio 3.0"
+        ]
+      },
+      {
+        "group": "Books/universes",
+        "titles": [
+          "Modern Day Bible",
+          "Tabor Light Annex",
+          "Tabor Trinity",
+          "Tabor Concordance",
+          "Library of Tabor",
+          "Tabor Academy",
+          "Diné Living Universe",
+          "Taborsylvania",
+          "'Aters' Alphabet Universe",
+          "The Twinkling",
+          "The Five and the Eye That Blinked",
+          "Redstone Chronicles",
+          "The Five Matrices",
+          "The Beast on the East River",
+          "TaborTales",
+          "BUDDY and HUNNY the RED-NOSED GERMAN SHEPHERDS",
+          "52 Consciousness",
+          "The Parallel Mind",
+          "The Art of Peace",
+          "Modern Day Jonah",
+          "The Brotherhood and Sisterhood of Traveling Fists"
+        ]
+      }
+    ],
+    "jobs": [
+      {
+        "id": "acro-matrix",
+        "kind": "launch"
+      },
+      {
+        "id": "ancrobyn-original",
+        "kind": "source"
+      },
+      {
+        "id": "archive-discovery",
+        "kind": "build"
+      },
+      {
+        "id": "archive-integrity",
+        "kind": "integrity"
+      },
+      {
+        "id": "attributes-atlas",
+        "kind": "launch"
+      },
+      {
+        "id": "brainstormer",
+        "kind": "launch"
+      },
+      {
+        "id": "cero-uno-dos",
+        "kind": "launch"
+      },
+      {
+        "id": "con-hunter-original",
+        "kind": "source"
+      },
+      {
+        "id": "fiber-matrix",
+        "kind": "launch"
+      },
+      {
+        "id": "lab-creative-integration",
+        "kind": "build"
+      },
+      {
+        "id": "labs-955",
+        "kind": "source"
+      },
+      {
+        "id": "mathematical-roots",
+        "kind": "launch"
+      },
+      {
+        "id": "me-thinker-original",
+        "kind": "source"
+      },
+      {
+        "id": "mespark",
+        "kind": "launch"
+      },
+      {
+        "id": "mind-of-minds",
+        "kind": "launch"
+      },
+      {
+        "id": "quantum-mirror-studio",
+        "kind": "source"
+      },
+      {
+        "id": "source-vault-original",
+        "kind": "source"
+      },
+      {
+        "id": "story-engine-earlier",
+        "kind": "source"
+      },
+      {
+        "id": "tabor-way-180",
+        "kind": "source"
+      }
+    ]
+  },
+  "releases": {
+    "dmsp_dit": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/356",
+    "dmsp_operating_model": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/dmsp-dit/OPERATING_MODEL.md",
+    "sovereign_defender": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/111",
+    "local_integrity_tools": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/97"
+  }
+}
