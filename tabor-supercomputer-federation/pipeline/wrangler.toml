@@ -1,0 +1,55 @@
+name = "tabor-federation-pipeline"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[limits]
+cpu_ms = 1000
+
+[observability]
+enabled = true
+[observability.traces]
+enabled = true
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "MEMORY"
+index_name = "tabor-federation-memory"
+
+[[services]]
+binding = "FLEET"
+service = "tabor-supercomputer-federation"
+
+[[durable_objects.bindings]]
+name = "COORDINATOR"
+class_name = "PipelineCoordinator"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["PipelineCoordinator"]
+
+[[workflows]]
+name = "tabor-federation-pipeline"
+binding = "PIPELINE"
+class_name = "FederationPipeline"
+
+[workflows.concurrency]
+limit = 1
+
+[workflows.limits]
+steps = 20
+
+[workflows.default_retention]
+success_retention = "7 days"
+error_retention = "7 days"
+
+[[queues.consumers]]
+queue = "tabor-federation-pipeline"
+max_batch_size = 1
+max_batch_timeout = 1
+max_retries = 3
+max_concurrency = 1
+dead_letter_queue = "tabor-federation-pipeline-dlq"
