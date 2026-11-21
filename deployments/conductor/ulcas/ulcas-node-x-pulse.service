@@ -1,0 +1,14 @@
+[Unit]
+Description=ULCAS Node X Lane 10 heartbeat
+After=ulcas-node-x.service
+Wants=ulcas-node-x.service
+
+[Service]
+Type=oneshot
+DynamicUser=yes
+EnvironmentFile=/etc/ulcas-node-x/pulse.env
+ExecStart=/usr/bin/python3 /opt/ulcas-x/pulse.py
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
