@@ -1,0 +1,75 @@
+[hidden] { display: none !important; }
+.tools { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: .75rem; margin-block: 1.25rem .9rem; }
+.tools label { display: block; font-weight: 700; margin-bottom: .35rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.actions input { flex: 1 1 10rem; min-width: 0; }
+input[type="search"], input:not([type]), .tools button, .tool button, .card-actions button, #mystery button {
+  min-height: 2.65rem; border: 1px solid #aeb8a8; border-radius: .38rem;
+  font: inherit; color: var(--ink); background: var(--surface); padding: .35rem .65rem;
+}
+button { cursor: pointer; }
+button:disabled { cursor: wait; }
+.tools .primary { color: var(--surface); background: var(--forest); border-color: var(--forest); font-weight: 700; }
+button.quiet { border-color: transparent; background: transparent; }
+.tool-result, .tool { border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); }
+.tool-result { padding: 1rem 1.25rem; margin-bottom: .8rem; }
+.tool-result h2 { font-size: 2.1rem; margin-bottom: .45rem; }
+.tool-result p { margin-block: .4rem; }
+.workbench { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem .75rem; align-items: start; }
+.tool summary { cursor: pointer; font-weight: 700; padding: .7rem 1rem; }
+.tool[open] summary { border-bottom: 1px solid var(--line); }
+.tool-inner { display: grid; gap: .6rem; padding: .75rem 1rem 1rem; }
+.tool-inner > button { justify-self: start; }
+.flow-frame, .scale-frame { display: flex; align-items: center; justify-content: center; background: var(--lime); min-height: 5.5rem; gap: .7rem; border-radius: .4rem; text-align: center; padding: .4rem; }
+.flow-frame span { flex: 1; }
+#flow-arrow { transition: transform .27s ease; font-size: 2.2rem; flex: 0 0 2.1rem; }
+#flow-arrow.is-reversed { transform: rotate(180deg); }
+#flow-result, #scale-result { font-weight: 700; }
+#scale { width: 100%; accent-color: var(--forest); }
+.scale-stops { display: flex; justify-content: space-between; color: var(--muted); font-size: .85rem; }
+.scale-frame { min-height: 8.5rem; }
+#scale-shape { width: 60px; aspect-ratio: 2.3; border: 4px solid var(--forest); border-radius: .25rem; background: var(--surface); transition: width .2s ease, border-width .2s ease; }
+.card-actions { display: flex; flex-wrap: wrap; gap: .45rem; margin: .2rem clamp(1rem,4vw,2rem) 1.3rem; }
+#shared-lesson:not([hidden]) { background: var(--lime); padding: .6rem 1rem; margin-bottom: .8rem; border-radius: .4rem; }
+.downloads { display: flex; gap: 1.25rem; padding: 0 0 2.25rem; }
+.downloads a { color: var(--forest); }
+@media (max-width: 42rem) { .tools, .workbench { grid-template-columns: minmax(0, 1fr); } .tools > button { justify-self: start; } }
+@media (prefers-reduced-motion: reduce) { #flow-arrow, #scale-shape { transition: none; } }
+@media print {
+  body { background: white; }
+  .hero, .controls, .tools, .workbench, .status-line, .card-actions, .downloads, #mystery, #shared-lesson { display: none !important; }
+  main.shell { width: 100%; }
+  .lesson { break-inside: avoid; }
+  .print-single .lesson:not(.print-current) { display: none !important; }
+}
+.lesson-diagram { margin: 1rem clamp(1rem,4vw,2rem); }
+.lesson-diagram img { display: block; max-width: 38rem; width: 100%; height: auto; }
+.card-signature { display: none; }
+dialog { box-sizing: border-box; width: min(38rem, 100% - 1.5rem); border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--ink); padding: 1rem 1.2rem; }
+dialog::backdrop { background-color: #182a2288; }
+dialog h2 { font-size: 2.25rem; margin-bottom: .65rem; }
+.dialog-top { display: flex; justify-content: flex-end; margin-bottom: .35rem; }
+dialog button, .tool-inner > button { border: 1px solid #aeb8a8; border-radius: .38rem; font: inherit; padding: .35rem .65rem; background: var(--surface); color: var(--ink); }
+.field-form, .field-form label, #hunt-layers { display: grid; gap: .55rem; }
+.field-form textarea { resize: vertical; border: 1px solid #aeb8a8; border-radius: .38rem; padding: .45rem; font: inherit; }
+#field-sightings img { display: block; width: min(18rem,100%); height: auto; margin: .35rem 0 1rem; }
+#field-tools { margin: 0 0 1rem; }
+#outbox-items:empty { display: none; }
+#outbox-items { margin: 0; padding-inline-start: 1.2rem; }
+#hunt-layers { margin: .8rem 0; grid-template-columns: repeat(auto-fit,minmax(11rem,1fr)); }
+#hunt-examples p { margin-top: .8rem; }
+@page field-card { size: 5in 3in; margin: .24in; }
+@media print {
+  #field-tools, dialog { display: none !important; }
+  .print-current { page: field-card; border: none; }
+  .print-current .lesson-header { padding: 0; }
+  .print-current .comparison { padding-right: .65in; font-size: 16pt; }
+  .print-current .classification, .print-current .clue { margin: .05in 0; font-size: 7pt; }
+  .print-current .clue { padding: .02in .07in; }
+  .print-current .answers { display: grid; grid-template-columns: 1fr 1fr; padding: 0; gap: .035in .11in; }
+  .print-current .answer { padding: 0; font-size: 6.4pt; line-height: 1.13; }
+  .print-current .answer dt, .print-current .answer dd { font-size: inherit; margin: 0; }
+  .print-current .lesson-diagram { display: none; }
+  .print-current .card-signature { display: flex; align-items: center; justify-content: flex-end; gap: .06in; font-size: 7pt; }
+  .print-current .card-signature img { width: .55in; height: .55in; }
+}

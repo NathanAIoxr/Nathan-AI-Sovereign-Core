@@ -1,0 +1,25 @@
+{
+  "name": "tabor-academy-blueprints",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate_rows.js",
+    "exports": "node scripts/validate_rows.js --export",
+    "db:local": "wrangler d1 migrations apply DB --local",
+    "db:remote": "wrangler d1 migrations apply DB --remote",
+    "dev": "npm run pages:build && wrangler dev --config wrangler.local.toml",
+    "worker:check": "wrangler deploy --dry-run --outdir .build/worker",
+    "worker:deploy": "wrangler deploy",
+    "pages:build": "node scripts/build_pages.js",
+    "pages:deploy": "npm run pages:build && wrangler pages deploy .build/pages --project-name tabor-academy-blueprints --branch main --config wrangler.pages.toml",
+    "test": "npm run validate && node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.3",
+    "wrangler": "4.166.0"
+  },
+  "dependencies": {
+    "qrcode-generator": "2.0.4"
+  }
+}

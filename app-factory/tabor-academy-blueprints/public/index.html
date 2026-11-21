@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Tabor Academy blueprints in biology, mechanics, physics, nature, and energy.">
+  <meta name="theme-color" content="#204235">
+  <link rel="manifest" href="/academy.webmanifest">
+  <title>Blueprint Lessons | Tabor Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="/app.js" type="module"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f5ed;
+      --surface: #fffdf7;
+      --ink: #182a22;
+      --forest: #204235;
+      --muted: #4f6359;
+      --line: #d6d9cc;
+      --lime: #e4edbd;
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body, h1, h2, p, dl, dd { margin: 0; }
+    .shell { width: min(69rem, 100% - 2rem); margin-inline: auto; }
+    .hero {
+      background: var(--forest);
+      color: var(--surface);
+      padding-block: clamp(2.2rem, 7vw, 5.4rem) clamp(2rem, 5vw, 3.55rem);
+      border-bottom: .35rem solid var(--lime);
+    }
+    .academy { color: var(--lime); font-size: .86rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; line-height: 1.02; }
+    h1 { margin-top: .55rem; font-size: clamp(3.6rem, 10vw, 7rem); }
+    .controls {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end;
+      gap: 1rem 2rem; padding-block: 1.65rem 1.3rem; border-bottom: 1px solid var(--line);
+    }
+    .tier-field { display: grid; gap: .3rem; min-width: min(13rem, 100%); }
+    .field-label, .mode-control { font-weight: 700; }
+    select, button { font: inherit; color: var(--ink); }
+    select {
+      width: 100%; min-height: 2.75rem; padding: .35rem .7rem;
+      border: 1px solid #aeb8a8; border-radius: .38rem; background: var(--surface);
+    }
+    .mode-control { display: flex; align-items: center; gap: .7rem; min-height: 2.75rem; cursor: pointer; }
+    .mode-control input {
+      appearance: none; flex: 0 0 2.85rem; width: 2.85rem; height: 1.6rem; margin: 0;
+      display: grid; align-items: center; padding: .16rem; background: var(--surface);
+      border: 1px solid #78877b; border-radius: 1rem; transition: background .15s;
+    }
+    .mode-control input::before {
+      content: ""; display: block; width: 1.18rem; height: 1.18rem; border-radius: 50%;
+      background: var(--forest); transition: transform .15s;
+    }
+    .mode-control input:checked { background: var(--forest); }
+    .mode-control input:checked::before { background: var(--surface); transform: translateX(1.15rem); }
+    :focus-visible { outline: 3px solid #397058; outline-offset: 4px; }
+    .status-line {
+      display: flex; flex-wrap: wrap; gap: .2rem 1rem; justify-content: space-between;
+      align-items: start; padding-block: 1rem; font-size: .95rem; color: var(--muted);
+    }
+    #active-mode { color: var(--forest); font-weight: 700; }
+    .retry { border: 1px solid var(--line); background: var(--surface); border-radius: .25rem; cursor: pointer; }
+    #lessons { display: grid; gap: 1.15rem; padding-bottom: 3rem; }
+    .lesson { overflow: hidden; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); }
+    .lesson-header { padding: clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) .85rem; }
+    .classification { color: var(--muted); font-size: .92rem; font-weight: 700; margin-bottom: .45rem; }
+    .comparison { font-size: clamp(2.05rem, 5vw, 3.4rem); text-wrap: balance; }
+    .versus { font-style: italic; color: var(--muted); }
+    .clue {
+      margin: .2rem clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 1.7rem);
+      border-inline-start: 3px solid #93a767; padding: .4rem .85rem;
+      background: #f0f3e6; color: var(--forest); font-weight: 600;
+    }
+    .answers {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line); gap: 1px; background: var(--line);
+    }
+    .answer { background: var(--surface); padding: .9rem clamp(1rem, 4vw, 2rem) 1rem; }
+    .answer dt { color: var(--forest); font-weight: 700; }
+    .answer dd { margin-top: .25rem; line-height: 1.42; }
+    @media (max-width: 37rem) {
+      .answers { grid-template-columns: 1fr; }
+      .controls { gap: .55rem 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mode-control input, .mode-control input::before { transition: none; }
+    }
+  </style>
+  <link href="/phase2.css" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <p class="academy">Tabor Academy</p>
+      <h1>Blueprint Lessons</h1>
+    </div>
+  </header>
+  <main class="shell">
+    <nav aria-label="Curriculum" class="status-line"><a href="/curriculum/">Browse the Academy curriculum and archives</a><a href="/tabor-academy-offline.html" download>Download offline workbook</a></nav>
+    <div class="controls">
+      <label class="tier-field">
+        <span class="field-label">Tier</span>
+        <select id="tier">
+          <option value="">All tiers</option>
+          <option>Tier 1: Kids</option>
+          <option>Tier 2: Youth</option>
+          <option>Tier 3: Adults</option>
+        </select>
+      </label>
+      <label class="mode-control">
+        <input id="investigative-mode" type="checkbox" role="switch" aria-controls="lessons">
+        Investigative Mode
+      </label>
+    </div>
+    <section class="tools" aria-label="Explore blueprints">
+      <form id="search-form" role="search">
+        <label for="blueprint-search">Search the library</label>
+        <div class="actions">
+          <input id="blueprint-search" type="search" maxlength="160" placeholder="What moves around a pivot?">
+          <button type="submit">Search</button>
+          <button id="search-clear" class="quiet" type="button" hidden>Clear</button>
+        </div>
+      </form>
+      <button id="mystery-button" class="primary" type="button">Random Mystery Pair</button>
+    </section>
+    <section id="mystery" class="tool-result" aria-label="Mystery pair" hidden></section>
+    <div class="workbench">
+      <details class="tool">
+        <summary>Flip the Flow</summary>
+        <div class="tool-inner">
+          <label class="field-label" for="flow-type">Machine</label>
+          <select id="flow-type"></select>
+          <div class="flow-frame" aria-hidden="true">
+            <span id="flow-left"></span><span id="flow-arrow">➜</span><span id="flow-right"></span>
+          </div>
+          <p id="flow-result" role="status"></p>
+          <p id="flow-detail"></p>
+          <button id="flow-flip" type="button">Reverse flow</button>
+        </div>
+      </details>
+      <details class="tool">
+        <summary>Scale Slider</summary>
+        <div class="tool-inner">
+          <label class="field-label" for="scale">Compare support across sizes</label>
+          <input id="scale" type="range" min="0" max="3" step="1" value="0">
+          <div class="scale-stops" aria-hidden="true"><span>Ant</span><span>Cat</span><span>Elephant</span><span>Whale</span></div>
+          <div class="scale-frame" aria-hidden="true"><div id="scale-shape"></div></div>
+          <p id="scale-result" role="status"></p>
+          <p>In the model, doubling length gives four times the cross-sectional area and eight times the volume. The animal examples show how body structure and medium change support. The drawing uses illustrative sizes.</p>
+        </div>
+      </details>
+      <details class="tool">
+        <summary>Vocabulary Decoder</summary>
+        <div class="tool-inner">
+          <form id="vocabulary-form">
+            <label class="field-label" for="term">Academic term</label>
+            <div class="actions">
+              <input id="term" list="terms" maxlength="60" placeholder="Try viscosity">
+              <datalist id="terms"></datalist>
+              <button type="submit">Decode</button>
+            </div>
+          </form>
+          <div id="definition" role="status"></div>
+        </div>
+      </details>
+      <details class="tool">
+        <summary>Classroom co-op</summary>
+        <div class="tool-inner">
+          <form id="room-form">
+            <label class="field-label" for="room-code">Room code</label>
+            <div class="actions">
+              <input id="room-code" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="36">
+              <button type="submit">Join room</button>
+              <button id="room-make" type="button">Create room</button>
+              <button id="room-leave" class="quiet" type="button" hidden>Leave room</button>
+            </div>
+          </form>
+          <p id="room-status" role="status">Use a shared code to sync modes and reveals. Rooms expire after two hours.</p>
+        </div>
+      </details>
+    </div>
+    <div class="status-line">
+      <p id="active-mode" aria-live="polite">Instant Blueprint Mode</p>
+      <p id="lesson-status" role="status">Loading lessons…</p>
+    </div>
+    <noscript>Enable JavaScript to load the lessons and change modes.</noscript>
+    <p id="shared-lesson" role="status" hidden></p>
+    <div id="lessons"></div>
+    <section id="field-tools" class="tool" aria-label="Field notebook">
+      <details>
+        <summary>Field notebook outbox</summary>
+        <div class="tool-inner">
+          <p id="outbox-status" role="status"></p>
+          <ul id="outbox-items"></ul>
+          <button id="outbox-retry" type="button">Sync now</button>
+          <button id="build-card" type="button" hidden>Build a Blueprint Card</button>
+        </div>
+      </details>
+    </section>
+    <dialog id="field-dialog" aria-labelledby="field-title">
+      <form method="dialog" class="dialog-top"><button>Close</button></form>
+      <h2 id="field-title"></h2>
+      <form id="field-form" class="field-form">
+        <label>Object you found<input id="field-object" required maxlength="100"></label>
+        <label id="field-second-label" hidden>Second object<input id="field-second" maxlength="100"></label>
+        <label>What parts and movements match?<textarea id="field-note" maxlength="800" rows="4"></textarea></label>
+        <label>Object photo (optional)<input id="field-photo" type="file" accept="image/jpeg,image/png"></label>
+        <p>Submit observations and object-only photos for review. Keep people and personal details out of the submission.</p>
+        <button type="submit" id="field-send">Save to outbox</button>
+        <p id="field-message" role="status"></p>
+      </form>
+      <section aria-label="Field sightings" id="field-sightings"></section>
+    </dialog>
+    <dialog id="hunt-dialog" aria-labelledby="hunt-title">
+      <form method="dialog" class="dialog-top"><button>Close</button></form>
+      <h2 id="hunt-title"></h2>
+      <p>Mark the layers you spotted during the hunt. Progress stays on this device.</p>
+      <div id="hunt-layers"></div>
+      <button id="hunt-complete" type="button">Finish hunt</button>
+      <div id="hunt-examples" aria-live="polite"></div>
+    </dialog>
+    <footer class="downloads">
+      <a href="/exports/blueprints.csv" download>Download CSV</a>
+      <a href="/exports/blueprints.json" download>Download JSON</a>
+      <a href="/exports/tabor-academy-offline.html" download>Download offline reader</a>
+    </footer>
+  </main>
+</body>
+</html>

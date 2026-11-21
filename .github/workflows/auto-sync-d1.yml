@@ -1,0 +1,62 @@
+name: Sync Tabor Academy blueprints
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: app-factory/tabor-academy-blueprints
+
+jobs:
+  proposal:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: academy-blueprint-proposals
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate and stage the proposal
+        id: proposal
+        run: |
+          set -euo pipefail
+          id="$(node scripts/validate_rows.js --propose "$GITHUB_EVENT_PATH")"
+          if [ -z "$id" ]; then exit 0; fi
+          test "${#id}" -eq 28
+          npm run exports
+          npm run validate
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+      - name: Open a draft pull request
+        if: steps.proposal.outputs.id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROPOSAL_ID: ${{ steps.proposal.outputs.id }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          branch="academy-blueprint/$PROPOSAL_ID"
+          if gh pr list --state open --head "$branch" --json number --jq '.[0].number' | grep -q '[0-9]'; then
+            exit 0
+          fi
+          git switch -c "$branch"
+          git add -- "migrations/1000_proposal_${PROPOSAL_ID}.sql" public/exports
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "Propose Academy blueprint $PROPOSAL_ID"
+          # A stable branch keeps repeated delivery idempotent, including a failed PR creation.
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            git fetch origin "$branch"
+            git diff --exit-code FETCH_HEAD HEAD -- "migrations/1000_proposal_${PROPOSAL_ID}.sql"
+          else
+            git push origin "HEAD:refs/heads/$branch"
+          fi
+          gh pr create --draft --head "$branch" --base "$BASE_BRANCH" \
+            --title "Review Academy blueprint $PROPOSAL_ID" \
+            --body 'Machine-drafted lesson. Check the source links in the migration and review the scientific analogy before merging.'
