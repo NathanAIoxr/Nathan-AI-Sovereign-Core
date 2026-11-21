@@ -1,0 +1,26 @@
+{
+  "work_item": "catalog",
+  "priority": 1,
+  "status": "open",
+  "dossier": "Inventory count and named artifacts",
+  "original_source": "standalone-apps/artifacts-of-the-world/original.txt",
+  "evidence": [
+    {
+      "source": "original.txt",
+      "exact_excerpt": "I believe 16 different artifacts",
+      "supports": "Author expressed a tentative count of 16, not a verified total."
+    },
+    {
+      "source": "original.txt",
+      "exact_excerpt": "from the staff of Moses that was taken from the garden of Eden from the Cleopatra staff that was broken. I believe 16 different artifacts to the holy Grail to the Ark of the covenant",
+      "supports": "Four artifact labels are mentioned explicitly; this does not establish 16 distinct named objects or custody."
+    }
+  ],
+  "unresolved": [
+    "Whether 16 is total inventory or a subset",
+    "Identity of remaining unnamed artifacts",
+    "Historical existence and custody of each proposed artifact"
+  ],
+  "interpretation": "Do not infer 12 verified missing artifacts; 16 minus four is only a conditional placeholder calculation.",
+  "publication": "review_only_not_deployed"
+}
