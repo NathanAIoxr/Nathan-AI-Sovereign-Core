@@ -20,3 +20,20 @@ Define a versioned plan with the exact original words, source reference, ordered
 Acceptance fixture: “Build it and verify it” plus an identified repository must yield distinct stage and verify steps. The verification step waits for a provider commit SHA and records that revision as its expected SHA. A wrong CID, wrong SHA or failed check cannot pass X as successful completion.
 
 This file is the backend contract for the next project. The Node X runtime in this package accepts typed intents.
+
+## Runnable companion
+
+`intent_compiler.py` supports all five phrases from Nathan’s attachment: **build it**, **check it**, **ship it**, **audit it**, and **lock it**.
+
+The compiler retains the human phrase byte-for-byte as JSON text, normalizes a separate field for matching, and emits `say` and `do` together. Use `--declarations declarations.json` to provide exact spoken text as a JSON array. The default declarations describe the current implementation’s actions. Each Node X request has a stable CID derived from the plan, and a new `--request-id` starts a distinct run.
+
+From the repository root:
+
+```sh
+python3 deployments/conductor/ulcas/intent_compiler.py 'check it' target.json
+python3 deployments/conductor/ulcas/intent_compiler.py 'check it' target.json --dispatch
+```
+
+For `check it`, `target.json` can be `{"service":"example.service"}`. That unit must be registered by the Node X operator. Build and ship require `repository`, the expected base `revision`, `change_digest`, and a `services` array. Ship also requires `service`. Audit takes an `audit_cid`. Lock takes `service`, `repository`, `revision`, and `change_digest`.
+
+Preview is the default and makes no network calls. Dispatch uses the configured operator secret and the loopback Node X API. It stops at the first failed or pending step, and verification requires the resulting commit SHA from the actual provider receipt. The present Node X service stages mutations for approval. It has no executor to complete that approval, so build, ship, and lock stop at staging. The audit checks returned hashes and adjacent links in the paged crossing, and reports an empty crossing as a failure.
