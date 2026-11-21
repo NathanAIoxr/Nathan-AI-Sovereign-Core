@@ -1,0 +1,29 @@
+name = "tabor-academy-blueprints"
+account_id = "a70580bacdf96c946662b7b67dcb45b5"
+compatibility_date = "2026-11-20"
+pages_build_output_dir = "./.build/pages"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-academy-blueprints"
+database_id = "7a426090-8b0b-4f85-8a68-8b5c8e6fc478"
+migrations_dir = "migrations"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "tabor-academy-blueprints"
+
+[[r2_buckets]]
+binding = "VAULT"
+bucket_name = "tabor-academy-blueprints-vault"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "2a985f3c9e584aa9a815f7e6c1b3290e"
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "tabor_academy_blueprints"

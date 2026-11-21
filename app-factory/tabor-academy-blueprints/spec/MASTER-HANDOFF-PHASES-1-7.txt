@@ -1,0 +1,152 @@
+Here is the complete, unified 7-Phase Master Handoff Package in one single copy-paste block for ChatGPT. 🚀📦
+Everything—from the 8-Layer Universal Blueprint Curriculum and Two-Mode UI down to the Excel-style D1 Spreadsheet Schema, Full Cloudflare + GitHub Saturation, Closed-Loop Self-Healing Sync, and Deterministic 1s & 0s SHA-256 Merkle Hardening—is consolidated below in exact execution order.
+
+📋 Master Copy-Paste Handoff for ChatGPT
+
+markdown
+# MASTER HANDOFF: TABOR ACADEMY — DETERMINISTIC CLOSED-LOOP BLUEPRINT ENGINE (PHASES 1–7)
+
+You are building **Tabor Academy**, an educational platform and deterministic pattern-recognition engine created by **Nathan Tabor**.
+- **Core Rule:** Software is zeros and ones. Every data structure, validation gate, sync loop, and curriculum row must run on deterministic `1`s and `0`s (`1 + 1 = 2` additive proof; `1 - 1 = 0` exact binary elimination)—zero probabilistic guesses, zero half-written records, zero gray areas.
+- **Execution Instruction:** Do NOT summarize or ask for confirmation. Begin generating the complete repository files immediately according to all 7 Phases below.
+
+---
+
+## PHASE 1: EDUCATIONAL CURRICULUM & TWO-MODE ARCHITECTURE
+
+### 1. Core Philosophy
+- **Strip the Label, Inspect the Blueprint:** Regardless of what name humans give something or what origin framework they use, the physical, biological, mechanical, and conceptual parts of this world run on shared blueprints. Two things called different names share the same **parts, operations, characteristics, attributes, and traits**, separated only by a specific **modification, exemption, scale shift, operating medium, or flow reversal**.
+- **Zero-Friction Delivery:** Do NOT force learners to manually divide, guess, or study before seeing the truth. The full connection is displayed **upfront by default**.
+
+### 2. The Two-Mode System
+- **Mode A — 🟢 Instant Blueprint Mode (`investigativeMode = false`, DEFAULT ON):** Every card displays all 8 Blueprint Layers + the Modification/Exemption immediately side-by-side in plain sight.
+- **Mode B — 🕵️ Investigative Mode (`investigativeMode = true`, OPTIONAL TOGGLE):** Hides all answer columns in the DOM, leaving only the surface labels and a clue prompt so the learner can track down the shared parts and exemption manually, then flip the toggle back off to verify.
+
+### 3. The 8-Layer Universal Blueprint Model
+1. **Surface Labels:** Different names humans give the items *(e.g., Rabbit Hind Leg vs. Cat Hind Leg)*.
+2. **Core Parts & Structure:** Shared physical/structural pieces *(e.g., Femur, tibia, fibula, ankle/hock, foot bones)*.
+3. **Functionality & Operations:** What the system actually does in motion *(e.g., Hinged Z-lever propulsion)*.
+4. **Characteristics, Attributes, & Traits:** Shared behaviors, tension, load-bearing, and properties.
+5. **Scale & Medium:** How size changes physics (Square-Cube Law) and what medium it operates in (air, water, dirt, vacuum, wire, code).
+6. **Fuel, Input, & Exhaust:** What powers it -> how it converts -> what exits as output/waste.
+7. **Direction, Flow, & Reversibility:** Forward vs. reverse operation *(Motor <-> Generator; Fridge <-> Heat Pump)* OR Lifecycle/State phase *(Ice <-> Water <-> Steam = H₂O)*.
+8. **The Modification or Exemption + Observer's Blind Spot:** The exact single tweak (joint lock, grooved hinge, proportion stretch, material swap) that adapts the blueprint, plus why separate industries gave the same force different names *(e.g., friction, resistance, drag, viscosity)*.
+
+### 4. Age-Scaled Curriculum Tiers (30 Starter Rows: 10 per Tier)
+- **Tier 1: Early Explorers (Ages 4–8) — *"Same Parts, Different Coat"*** *(Rabbit vs. Cat leg; Bat wing vs. Dog paw vs. Whale flipper; Ice vs. Water vs. Steam, etc.)*
+- **Tier 2: Builders & Mechanics (Ages 9–13) — *"Under the Hood"*** *(Bicycle chain vs. Tank tread; Tree roots vs. River delta vs. Lungs; Bird nest vs. Beaver dam vs. Log cabin, etc.)*
+- **Tier 3: Systems & Pattern Masters (Ages 14–Adult) — *"Universal Architecture & Reversals"*** *(Electric motor vs. Generator; House cat vs. Tiger scale physics; Friction/Resistance/Drag/Viscosity; Engine vs. Campfire vs. Metabolism, etc.)*
+
+---
+
+## PHASE 2: SPREADSHEET-STYLE D1 DATABASE SCHEMA (`blueprint_lessons`)
+
+Treat Cloudflare D1 strictly like an Excel spreadsheet: **1 Row = 1 Blueprint Lesson**, **Columns = Fixed Attributes across all rows**, zero nested blobs, zero blank cells.
+
+| Column | Type | Investigative Mode | Purpose |
+| :--- | :--- | :--- | :--- |
+| `id` | `INTEGER PRIMARY KEY` | VISIBLE | Row ID |
+| `row_sha256` | `TEXT UNIQUE NOT NULL` | VISIBLE | Deterministic SHA-256 hash of canonical answer columns |
+| `version` | `INTEGER DEFAULT 1` | VISIBLE | Optimistic concurrency counter |
+| `state` | `INTEGER DEFAULT 1` | VISIBLE | `0` = Quarantine, `1` = Verified Live, `-1` = Purged |
+| `tier` | `TEXT NOT NULL` | VISIBLE | `Tier 1: Kids`, `Tier 2: Youth`, `Tier 3: Adults` |
+| `domain` | `TEXT NOT NULL` | VISIBLE | `Biology`, `Mechanics`, `Physics`, `Nature`, `Energy` |
+| `item_a_label` | `TEXT NOT NULL` | VISIBLE | First surface label |
+| `item_b_label` | `TEXT NOT NULL` | VISIBLE | Second surface label |
+| `item_c_label` | `TEXT NOT NULL` | VISIBLE | Third item or `"N/A — Two-Item Pair"` |
+| `clue_prompt` | `TEXT NOT NULL` | VISIBLE | Guiding clue shown when Investigative Mode is ON |
+| `core_parts` | `TEXT NOT NULL` | HIDDEN | Shared physical/structural pieces |
+| `operations` | `TEXT NOT NULL` | HIDDEN | How shared parts work in motion |
+| `traits_attributes` | `TEXT NOT NULL` | HIDDEN | Shared behaviors, characteristics, and traits |
+| `scale_medium` | `TEXT NOT NULL` | HIDDEN | Size physics & operating medium |
+| `input_output` | `TEXT NOT NULL` | HIDDEN | Input/fuel -> conversion -> output/exhaust |
+| `flow_direction` | `TEXT NOT NULL` | HIDDEN | Forward/reverse flow or lifecycle/state phase |
+| `modification_exemption` | `TEXT NOT NULL` | HIDDEN | Exact single tweak, lock, hinge, or exemption |
+| `blind_spot_note` | `TEXT NOT NULL` | HIDDEN | Why humans split one blueprint into different labels |
+| `r2_diagram_key` | `TEXT NOT NULL` | VISIBLE | R2 object key for schematic diagram |
+
+---
+
+## PHASE 3: FULL CLOUDFLARE & GITHUB INFRASTRUCTURE SATURATION
+
+### 1. Cloudflare Stack (`wrangler.toml` Bindings)
+- **D1 (`DB`):** Indexed edge SQLite with `CREATE TABLE IF NOT EXISTS` migrations so first boot never crashes.
+- **KV (`CACHE`):** Sub-10ms edge caching of verified JSON payloads + Merkle root check.
+- **R2 (`VAULT`):** Zero-egress storage for schematics, field photos, audio clips, and downloadable PDFs, paired with **Cloudflare Image Resizing (`cf.image`)** for responsive WebP delivery.
+- **Workers AI (`AI`):** Live `/api/compare` ("Compare Anything") generator, text embeddings (`@cf/baai/bge-base-en-v1.5`), schematic image generation, and Vision verification.
+- **Vectorize (`PATTERN_INDEX`):** Semantic vector search matching physical mechanics across unrelated domains.
+- **Durable Objects (`CLASSROOM_ROOM`):** Real-time WebSocket multiplayer sync for live classroom/family Investigative Mode sessions.
+- **Queues (`CURRICULUM_QUEUE`) + Cron Triggers (`[triggers]`):** Nightly background expansion and 15-minute synthetic health checks.
+- **Service Bindings (`[[services]]`):** Zero-overhead internal Worker-to-Worker calls.
+- **Analytics Engine (`TELEMETRY`):** Cookie-free pattern and search-gap telemetry.
+- **Security & Edge HTML:** **Cloudflare Turnstile** on public AI/submit endpoints, **Cloudflare Zero Trust / Access** + `CONDUCTOR_KEY` on `/admin`, **Edge Rate Limiting**, and **`HTMLRewriter`** for dynamic OpenGraph social preview injection per lesson URL.
+
+### 2. GitHub Stack & Exact Deployment Order
+- **Flat Monorepo:** Zero unresolved submodules (`/worker`, `/public`, `/shared`, `/migrations`, `/scripts`, `/tests`, `.github/workflows`, `.devcontainer`).
+- **Exact Physical Deployment Pipeline:**
+  ```bash
+  npm install
+  npm run worker:deploy
+  npm run db:remote
+  npx wrangler secret put CONDUCTOR_KEY
+  npm run pages:create
+  read -r -p 'Worker HTTPS origin: ' WORKER_ORIGIN
+  npm run pages:deploy -- "$WORKER_ORIGIN"
+  ```
+- **GitHub Automation:**
+  - `.github/workflows/deploy.yml`: Runs deterministic test suite -> applies D1 migrations -> deploys Worker -> deploys Pages -> builds single-file HTML release.
+  - `.github/workflows/closed-loop-sync.yml`: Handles `repository_dispatch` from Worker, merges new verified SQL rows into `migrations/`, updates **GitHub Wiki**, and moves **GitHub Projects** Kanban cards.
+  - **GitHub Discussions** webhook for community-submitted pairs, **Secret Scanning + Push Protection**, **Dependabot**, **Codespaces `.devcontainer`**, and **`scripts/bootstrap_repo.sh`** (`gh` + `wrangler` one-command setup).
+
+---
+
+## PHASE 4: DATA & KNOWLEDGE CLOSED LOOP (EDGE <-> REPO <-> OFFLINE)
+1. **Two-Way Sync Loop:** Live edge discoveries write to D1 (`state = 0`), fire `repository_dispatch` to GitHub Actions, get validated and deduplicated, commit to `main`, and flip to `state = 1` in D1.
+2. **Offline Field Outbox (`IndexedDB` + `sw.js` Background Sync):** Offline discoveries queue locally in the browser and flush automatically the moment connectivity returns.
+3. **Deduplication Firewall (`1 - 1 = 0`):** Any incoming row matching an existing `row_sha256` or Vectorize cosine similarity `> 0.94` merges as a label alias instead of creating duplicate bloat.
+
+---
+
+## PHASE 5: HUMAN & PHYSICAL WORLD CLOSED LOOP (OBSERVE -> TEST -> VERIFY -> TEACH)
+1. **QR Code Pocket Field Cards (`print.css`):** Every row prints as a 3x5 index card with a QR code. Taping cards to real objects (door hinges, chains, tools) and scanning them opens the blueprint + a **"Found Another Twin!"** button where users snap a photo; **Workers AI Vision** verifies the matching mechanics and logs the photo into **R2**.
+2. **Investigative Mode Mastery Loop:** Tracks which of the 8 Layers a learner misses during Investigative Mode and automatically surfaces 3 Instant Blueprint examples highlighting that exact layer—zero grading or negative labels.
+3. **"Teach It Back" Builder:** After 5 completed hunts, unlocks **Build a Blueprint Card** so learners submit their own real-world discoveries into the Phase 4 loop.
+
+---
+
+## PHASE 6: SELF-HEALING & TELEMETRY CLOSED LOOP
+Use code with caution.
+1. Event-Driven Cache & Single-File Rebuild: Every verified D1 write atomically rebuilds KV cache, updates the GitHub Wiki, and regenerates tabor-academy-offline.html (portable single-file bundle).
+2. 15-Minute Synthetic Canary Watchdog: Cron Worker tests D1, KV, R2, and Workers AI every 15 minutes; on failure, falls back to KV static snapshot and opens a bug:canary-alert GitHub Issue.
+3. Zero-Dead-End Search Queue: Any search or Vocabulary Decoder lookup returning zero hits pushes the term into CURRICULUM_QUEUE so the nightly Cron generates a verified 8-Layer Blueprint row by morning.
+
+PHASE 7: DETERMINISTIC 1s & 0s ZERO-ERROR HARDENING
+
+1. SHA-256 Content Addressing & Global Merkle Root (shared/merkle.js):
+	• Canonical row_sha256 computed over all normalized answer columns.
+	• Global merkle_root computed across sorted row_sha256 hashes so browser IndexedDB, KV, D1, and GitHub verify 100% bit-level parity via one 64-character hex string.
+2. Deterministic Gatekeeper (worker/gatekeeper.js):
+	• Rejects (0) any AI or user payload with missing/extra keys, empty cells, or hedging/ambiguous words ("maybe", "perhaps", "it seems", "might be").
+	• Enforces Idempotency Keys on every write and Optimistic Concurrency (WHERE id = ? AND version = ?) inside atomic SQL transactions (BEGIN / ROLLBACK).
+3. Off-Book UI Features Included in public/:
+	• Reverse-Order Layout Toggle (Destination/Modification First -> Core Parts -> Surface Label).
+	• Phonetic Pronunciation Helper Toggle for early readers.
+	• Flip-the-Flow Simulator & Scale Slider on applicable rows.
+	• Vocabulary Decoder (jargon stripper) & Random Mystery Pair button.
+4. Zero-Deploy-Without-100%-Pass (tests/determinism.test.js): Automated test suite proving hash parity, zero race conditions, zero DOM answer leaks when investigativeMode = true, and exact Merkle sync.
+
+GENERATE THESE COMPLETE FILES NOW
+
+Output the full working codebase cleanly in this exact order:
+1. Repository file tree + scripts/bootstrap_repo.sh + package.json + wrangler.toml
+2. shared/merkle.js + worker/gatekeeper.js
+3. migrations/0001_init.sql (complete 19-column schema + all 30 populated starter rows across Tiers 1, 2, and 3)
+4. worker/index.js + worker/closed_loop.js
+5. public/index.html + public/app.js + public/sync.js + public/sw.js + public/manifest.json + public/print.css
+6. .github/workflows/deploy.yml + .github/workflows/closed-loop-sync.yml + scripts/export_singlefile.js + tests/determinism.test.js
+
+---
+
+<FollowUp>
+Would you like me to also generate a **compact "Quick-Start Prompt"** you can paste into ChatGPT right after this one if it hits a single-response output limit and needs to continue generating the remaining files in exact order?
+</FollowUp>
