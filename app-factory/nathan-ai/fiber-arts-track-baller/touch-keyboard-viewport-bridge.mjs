@@ -10,13 +10,13 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   let active = true;
   const sameOrientation = (a, b) => {
     if (!Array.isArray(a) || !Array.isArray(b) || a.length !== 4 || b.length !== 4) return false;
-    if (a.every((v, i) => Object.is(v, b[i]))) return true;
     // Optional strict guard: only normalized finite orientations may be sign-equivalent.
     if (requireUnitQuaternion) {
       const unit = q => q.every(v => typeof v === 'number' && Number.isFinite(v)) &&
         Math.abs(q.reduce((sum, v) => sum + v * v, 0) - 1) <= 1e-6;
       if (!unit(a) || !unit(b)) return false;
     }
+    if (a.every((v, i) => Object.is(v, b[i]))) return true;
     // Unit quaternions q and -q encode the same 3D rotation.
     return a.every((v, i) => typeof v === 'number' && Number.isFinite(v) &&
       typeof b[i] === 'number' && Number.isFinite(b[i]) && v === -b[i]);
