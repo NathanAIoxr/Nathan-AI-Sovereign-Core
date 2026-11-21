@@ -1,0 +1,67 @@
+openapi: 3.1.0
+info:
+  title: ULCAS Node X
+  version: 0.1.0
+servers:
+  - url: https://node-x.example.com
+    description: Replace with the authorized stable ingress URL.
+security:
+  - operatorBearer: []
+paths:
+  /x/drive:
+    post:
+      operationId: submitNodeXIntent
+      summary: Submit a registered intent. Changing actions are staged for approval.
+      x-openai-isConsequential: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [cid, intent]
+              properties:
+                cid: {type: string, pattern: '^[a-zA-Z0-9][a-zA-Z0-9_-]{7,63}$'}
+                intent:
+                  type: string
+                  enum: [service.status, service.restart, github.propose, github.verify, edge.health,
+                         edge.change, system.snapshot, config.validate, config.apply, audit.record]
+                target: {type: string}
+                arguments: {type: object}
+      responses:
+        '200':
+          description: Receipt with state and evidence.
+        '400':
+          description: Invalid intent, target or arguments.
+        '401':
+          description: Authentication failed.
+        '409':
+          description: CID conflicts with a previously recorded request.
+  /x/oncoming:
+    get:
+      operationId: getNodeXReturnEvents
+      summary: Read authenticated return events after a durable sequence cursor.
+      parameters:
+        - name: after
+          in: query
+          schema: {type: integer, minimum: 0, default: 0}
+        - name: limit
+          in: query
+          schema: {type: integer, minimum: 1, maximum: 100, default: 25}
+      responses:
+        '200':
+          description: Events in sequence order.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items: {type: object}
+components:
+  securitySchemes:
+    operatorBearer:
+      type: http
+      scheme: bearer
