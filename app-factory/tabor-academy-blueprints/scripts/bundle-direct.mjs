@@ -21,6 +21,8 @@ for (const file of paths) {
   assets[path] = [await readFile(resolve(parent, file.name), "utf8"), type];
 }
 
+assets["/shared/merkle.js"] = [await readFile("shared/merkle.js", "utf8"), types[".js"]];
+
 const app = await build({ entryPoints: ["public/app.js"], bundle: true, write: false, format: "esm",
   platform: "browser", legalComments: "inline", minify: true });
 assets["/app.js"] = [app.outputFiles[0].text, types[".js"]];
@@ -29,7 +31,7 @@ const inlineData = assets["/exports/blueprints.json"][0].replaceAll("<", "\\u003
 const offline = html.replace(/<link[^>]+(?:stylesheet|preconnect|manifest)[^>]*>/gi, "")
   .replace('<script src="/app.js" type="module"></script>', "")
   .replace("</head>", "<style>" + assets["/phase2.css"][0] + "</style></head>")
-  .replace("</body>", "<script>globalThis.ACADEMY_OFFLINE=" + inlineData + "</script>" +
+  .replace("</body>", "<script>globalThis.ACADEMY_OFFLINE=" + inlineData + ";document.currentScript.remove()</script>" +
     '<script type="module">' + assets["/app.js"][0].replace(/<\/script/gi, "<\\/script") + "</script></body>");
 assets["/tabor-academy-offline.html"] = [offline, types[".html"]];
 assets["/exports/tabor-academy-offline.html"] = assets["/tabor-academy-offline.html"];

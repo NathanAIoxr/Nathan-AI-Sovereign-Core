@@ -1,17 +1,12 @@
 import { rankedLessons } from "../public/explorers.js";
 import { recordGap } from "./closed_loop.js";
+import { curriculumProof, readVerified, setBlueprintState } from "./integrity.js";
 import { classroom } from "./rooms.js";
 import { reviewSighting, sightings } from "./observations.js";
 
 export const tiers = new Set(["Tier 1: Kids", "Tier 2: Youth", "Tier 3: Adults"]);
 export const domains = new Set(["Biology", "Mechanics", "Physics", "Nature", "Energy"]);
 export const embeddingModel = "@cf/baai/bge-base-en-v1.5";
-
-const lessonRows = `
-  SELECT id, tier, domain, item_a_label, item_b_label, item_c_label, clue_prompt,
-         core_parts, operations, traits_attributes, scale_medium, input_output,
-         flow_direction, modification_exemption, blind_spot_note
-  FROM blueprint_lessons`;
 
 export function embedText(row) {
   return Object.entries(row).filter(([name, value]) => name !== "id" && value)
@@ -33,19 +28,8 @@ async function lessons(env, params, ctx) {
     return Response.json({ error: "Choose a valid tier.", tiers: [...tiers] }, { status: 400 });
   }
   if (query?.length > 160) return error("Use a search of up to 160 characters.", 400);
-  const statement = tier === null ? env.DB.prepare(`${lessonRows} ORDER BY id`)
-    : env.DB.prepare(`${lessonRows} WHERE tier = ? ORDER BY id`).bind(tier);
-  let results;
-  let snapshotUsed = false;
-  try { ({ results } = await statement.all()); }
-  catch (failure) {
-    const snapshot = await env.CACHE?.get("blueprint-verified-snapshot-v1","json");
-    if (!Array.isArray(snapshot?.rows)) throw failure;
-    results = tier === null ? snapshot.rows : snapshot.rows.filter(row => row.tier === tier);
-    snapshotUsed = true;
-  }
-  const cacheSource = snapshotUsed ? { "X-Curriculum-Source": "kv-snapshot" } : {};
-  if (!query) return Response.json(results, { headers: { "Cache-Control": "public, max-age=60", ...cacheSource } });
+  const results = await readVerified(env.DB, tier);
+  if (!query) return Response.json(results, { headers: { "Cache-Control": "no-store" } });
 
   let rows = rankedLessons(results, query);
   try {
@@ -74,9 +58,9 @@ async function lessons(env, params, ctx) {
   }
   if (!rows.length) {
     track(env, "search_zero");
-    ctx?.waitUntil(recordGap(env, query).catch(() => {}));
+    ctx?.waitUntil(recordGap(env, query).catch(failure => console.warn("Curriculum gap could not be stored", String(failure))));
   }
-  return Response.json(rows, { headers: { "Cache-Control": "no-store", "X-Search-Method": method, ...cacheSource } });
+  return Response.json(rows, { headers: { "Cache-Control": "no-store", "X-Search-Method": method } });
 }
 
 async function telemetry(request, env) {
@@ -99,6 +83,8 @@ export default {
     const { pathname, searchParams } = url;
     const method = request.method;
     try {
+      if (pathname === "/api/integrity") return await curriculumProof(request, env, searchParams);
+      if (pathname === "/api/admin/blueprint-state") return await setBlueprintState(request, env);
       if (pathname === "/api/lessons") {
         if (method !== "GET") return error("Use GET.", 405, { Allow: "GET" });
         return await lessons(env, searchParams, ctx);
@@ -129,14 +115,14 @@ export default {
         return env.GENERATION ? env.GENERATION.fetch(request) : error("The drafting service is unavailable.", 503);
       }
       if (pathname === "/api/diagrams" && method === "GET") {
-        const rows = env.VAULT ? (await env.DB.prepare("SELECT lesson_id, alt_text FROM blueprint_media ORDER BY lesson_id").all()).results : [];
+        const rows = env.VAULT ? (await env.DB.prepare("SELECT m.lesson_id,m.alt_text FROM blueprint_media m LEFT JOIN blueprint_lifecycle s ON s.lesson_id=m.lesson_id WHERE COALESCE(s.state,'verified')='verified' ORDER BY m.lesson_id").all()).results : [];
         return Response.json(rows, { headers: { "Cache-Control": "public, max-age=60" } });
       }
       const media = pathname.match(/^\/api\/diagram\/(\d+)$/);
       if (media && method === "GET" && env.VAULT) {
         const id = Number(media[1]);
         if (!Number.isSafeInteger(id)) return error("Unknown diagram.", 404);
-        const record = await env.DB.prepare("SELECT object_key FROM blueprint_media WHERE lesson_id = ?").bind(id).first();
+        const record = await env.DB.prepare("SELECT m.object_key FROM blueprint_media m LEFT JOIN blueprint_lifecycle s ON s.lesson_id=m.lesson_id WHERE m.lesson_id=? AND COALESCE(s.state,'verified')='verified'").bind(id).first();
         const image = record && await env.VAULT.get(record.object_key);
         if (!image) return error("Unknown diagram.", 404);
         return new Response(image.body, { headers: { "Content-Type": "image/png", "Cache-Control": "public, max-age=3600",

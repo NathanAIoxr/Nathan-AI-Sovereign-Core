@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm ci
-      - run: npm run validate
+      - run: npm test
       - run: npm run pages:build
       - run: npm run db:remote
       - name: Publish the offline archive
@@ -64,7 +64,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm ci
-      - run: npm run validate
+      - run: npm test
       - run: npm run pages:build
       - run: |
           gh release upload --clobber -- "$RELEASE_TAG" \

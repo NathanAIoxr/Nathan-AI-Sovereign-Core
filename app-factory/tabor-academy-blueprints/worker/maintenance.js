@@ -1,6 +1,8 @@
 import { DurableObject } from "cloudflare:workers";
+import { readVerified } from "./integrity.js";
+import { identifySnapshot, mechanicsRoot } from "../shared/merkle.js";
 import { embedText, embeddingModel } from "./index.js";
-import { auditPublishedRows, COLUMNS, mechanismText, reviewPhotos } from "./closed_loop.js";
+import { auditPublishedRows, mechanismText, reviewPhotos } from "./closed_loop.js";
 import { queueScheduled } from "./drafting.js";
 
 const quarter = 15 * 60 * 1000;
@@ -12,18 +14,17 @@ async function hash(text) {
 }
 
 async function librarySnapshot(env, reindex) {
-  const { results: rows } = await env.DB.prepare(`SELECT ${COLUMNS.map(key => "b." + key).join(",")}
-    FROM blueprint_lessons b LEFT JOIN blueprint_lifecycle s ON s.lesson_id=b.id
-    WHERE COALESCE(s.state,'verified')='verified' ORDER BY b.id`).all();
+  const rows = await readVerified(env.DB);
   await auditPublishedRows(env, rows);
+  const proof = { ...await identifySnapshot(rows), mechanicsRoot: await mechanicsRoot(rows) };
   const json = JSON.stringify(rows);
   const digest = await hash(json);
   const old = await env.CACHE.get(snapshotKey, "json");
-  const key = "exports/verified/" + digest + ".json";
+  const key = "exports/verified/" + proof.root + ".json";
   if (!await env.VAULT.head(key)) {
     await env.VAULT.put(key, json, { httpMetadata: {contentType:"application/json"} });
   }
-  if (old?.digest !== digest) await env.CACHE.put(snapshotKey, JSON.stringify({ digest, rows }));
+  if (old?.digest !== digest || old?.proof?.root !== proof.root) await env.CACHE.put(snapshotKey, JSON.stringify({ digest, rows, proof }));
   if (reindex) {
     const offset = Math.max(0, Number(await env.CACHE.get("academy-blueprint-index-offset")) || 0);
     const batch = rows.slice(offset, offset + 40);
@@ -46,7 +47,7 @@ async function check(env) {
   const onTheHour = utc.getUTCMinutes() < 15;
   let storage;
   try { storage = await librarySnapshot(env, onTheHour && utc.getUTCHours() === 4); }
-  catch { /* record the binding results and preserve the previous snapshot */ }
+  catch (failure) { console.warn("Verified curriculum snapshot could not be refreshed", String(failure)); }
   const tasks = {
     d1: () => env.DB.prepare("SELECT 1 AS ok FROM blueprint_lessons LIMIT 1").first(),
     kv: () => env.CACHE.get(snapshotKey, "json"),

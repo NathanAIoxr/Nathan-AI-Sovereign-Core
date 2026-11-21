@@ -161,3 +161,48 @@ workflow can attach the workbook and exports to releases, mirror the Wiki
 links, and open one issue per live canary incident once configured on main.
 
 In GitHub Codespaces, select the Tabor Academy Blueprints configuration.
+
+## Phase 7 integrity protocol
+
+The public lesson format remains the same 15 columns. Migration 0007 adds
+`row_sha256` and `version_int` to D1 and verifies the existing rows with a
+deterministic backfill. Exact mechanics duplicates resolve to alias proposals.
+The mechanics hash encodes a JSON array of seven NFC-normalized, trimmed
+fields, so adjacent field boundaries remain unambiguous. A second Merkle root
+commits to the complete published row data, including IDs, labels, clues, and
+blind spots. The GitHub export `public/exports/blueprints.integrity.json`
+records both results.
+
+`GET /api/integrity` returns the current root and 32 branch hashes. A client
+with a matching ETag receives HTTP 304 without a row payload. A client with a
+different root requests the changed branches for that exact root. It verifies
+the complete reconstructed root before updating IndexedDB. Published reads
+fail closed if D1 row integrity cannot be checked. Previously downloaded
+offline copies can remain available until their next successful sync.
+
+The editor state endpoint is `PUT /api/admin/blueprint-state`. Supply an
+editor bearer token, JSON `{ id, version, state }`, and an `Idempotency-Key`
+from `idempotencyKey("blueprint-state", "tabor-academy", [id, version, state])`.
+The states are `verified`, `quarantined`, and `purged`. D1 commits the
+receipt and versioned state change in one batch. Purge removes a quarantined
+row if foreign keys allow it, and preserves its write receipt. Merge
+equivalent curriculum changes into the source migrations to keep GitHub and
+D1 releases aligned.
+
+Field submissions include deterministic keys. Old clients can use their
+existing UUID and content fingerprint during rollout. Successful retries
+reuse the same observation and do not consume another daily quota slot. The
+editor comparison endpoint stages one normalized request in D1 for review.
+Generated blueprint rows must pass the exact 15-key validation before
+staging. Deterministic checks cover text, schema, integrity, and state.
+Physical claims still need review against the sources. The UI removes
+lesson answer nodes before an explicit reveal. Published lesson data can
+still be downloaded for offline use.
+
+D1 is authoritative. KV keeps the last checked content-addressed snapshot
+and Vectorize supports discovery. Retries can rebuild those downstream
+copies; the Cloudflare services do not share a database transaction.
+
+`npm test` validates migrations, the checked-in exports, hashes, lifecycle
+transitions, and offline retry behavior. The existing Academy Cloudflare
+publish workflow runs the same suite before applying remote migrations.

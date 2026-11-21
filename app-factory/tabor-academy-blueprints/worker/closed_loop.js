@@ -1,4 +1,4 @@
-const MODEL = "@cf/baai/bge-base-en-v1.5";
+import { textPasses } from "./gatekeeper.js";
 const VISION = "@cf/qwen/qwen3.8-27b";
 export const COLUMNS = ["id", "tier", "domain", "item_a_label", "item_b_label", "item_c_label",
   "clue_prompt", "core_parts", "operations", "traits_attributes", "scale_medium", "input_output",
@@ -13,22 +13,6 @@ function string(value, size, required = true) {
 
 export function mechanismText(row) {
   return [row.core_parts, row.operations, row.modification_exemption].join(". ").slice(0, 1500);
-}
-
-export async function deduplicate(env, draftId, draft) {
-  if (!env.VECTORIZE || !env.AI) return null;
-  const { data } = await env.AI.run(MODEL, { text: [mechanismText(draft)] });
-  const { matches } = await env.VECTORIZE.query(data[0], { topK: 3, namespace: "mechanisms" });
-  const match = matches.find(candidate => candidate.score > 0.94);
-  if (!match) return null;
-  const id = Number(match.id.replace(/^m-/, ""));
-  if (!Number.isSafeInteger(id)) return null;
-  const row = await env.DB.prepare("SELECT id FROM blueprint_lessons WHERE id=?").bind(id).first();
-  if (!row) return null;
-  await env.DB.prepare(`INSERT OR IGNORE INTO blueprint_alias_candidates
-    (draft_id,candidate_label,matched_lesson,similarity) VALUES (?,?,?,?)`)
-    .bind(draftId, `${draft.item_a_label} / ${draft.item_b_label}`, id, match.score).run();
-  return { lessonId: id, similarity: match.score };
 }
 
 const gapTerms = {
@@ -89,7 +73,7 @@ export async function reviewPhotos(env) {
       reasoning_effort: "low", max_completion_tokens: 400,
     });
     const note = result.response ?? result.choices?.[0]?.message?.content;
-    if (string(note, 4000)) await env.DB.prepare("UPDATE blueprint_observations SET vision_suggestion=? WHERE id=?")
+    if (textPasses(note, 4000)) await env.DB.prepare("UPDATE blueprint_observations SET vision_suggestion=? WHERE id=?")
       .bind(note, row.id).run();
   }
 }
@@ -102,7 +86,7 @@ function validRow(row) {
 
 export async function auditPublishedRows(env, rows) {
   const columns = (await env.DB.prepare("PRAGMA table_info(blueprint_lessons)").all()).results;
-  if (columns.map(column => column.name).join() !== COLUMNS.join()) throw new Error("D1 schema drift");
+  if (columns.map(column => column.name).join() !== [...COLUMNS, "row_sha256", "version_int"].join()) throw new Error("D1 schema drift");
   const malformed = rows.filter(row => !validRow(row));
   for (const row of malformed.slice(0, 30)) {
     await env.DB.prepare(`INSERT INTO blueprint_audit (record_key,reason) VALUES (?,?)

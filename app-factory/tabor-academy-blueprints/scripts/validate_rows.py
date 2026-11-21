@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import sqlite3
+import subprocess
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -43,12 +44,23 @@ def connect():
             db.executescript(migration.read_text(encoding="utf-8"))
         except sqlite3.Error as error:
             raise ValueError(f"{migration.name}: {error}") from error
-    if tuple(column["name"] for column in db.execute("PRAGMA table_info(blueprint_lessons)")) != COLUMNS:
+    if tuple(column["name"] for column in db.execute("PRAGMA table_info(blueprint_lessons)")) != COLUMNS + ("row_sha256", "version_int"):
         raise ValueError("Blueprint lesson schema does not match all 15 columns in order")
     return db
 
 
-def export(rows, write):
+def integrity(rows, generated=False):
+    command = ["node", str(ROOT / "scripts" / "integrity_cli.js")]
+    if generated:
+        command.append("--generated")
+    child = subprocess.run(command, input=json.dumps(rows, ensure_ascii=True), text=True,
+                           capture_output=True, encoding="utf-8")
+    if child.returncode:
+        raise ValueError(child.stderr.strip())
+    return json.loads(child.stdout)
+
+
+def export(rows, manifest, write):
     text = io.StringIO(newline="")
     csv_rows = csv.DictWriter(text, fieldnames=COLUMNS, lineterminator="\n")
     csv_rows.writeheader()
@@ -59,6 +71,7 @@ def export(rows, write):
         "blueprints.json": json.dumps(rows, ensure_ascii=False, indent=2) + "\n",
         "blueprints.csv": text.getvalue(),
     }
+    contents["blueprints.integrity.json"] = json.dumps(manifest, indent=2) + "\n"
     for name, content in contents.items():
         path = ROOT / "public" / "exports" / name
         if write:
@@ -73,8 +86,8 @@ def propose(db, event_file):
     payload = event.get("client_payload", {})
     data = payload.get("blueprint")
     sources = payload.get("sources")
-    if not isinstance(data, dict) or set(data) != set(COLUMNS[1:]):
-        raise ValueError("Expected exactly the 14 supplied blueprint fields")
+    if not isinstance(data, dict) or set(data) not in (set(COLUMNS[1:]), set(COLUMNS)):
+        raise ValueError("Expected exactly the blueprint fields")
     if not isinstance(sources, list) or not 1 <= len(sources) <= 5:
         raise ValueError("Provide at least one source for editorial review")
     for source in sources:
@@ -83,33 +96,37 @@ def propose(db, event_file):
         parsed = urlsplit(source)
         if not parsed.hostname or parsed.username or parsed.password:
             raise ValueError("Invalid source host")
-    for value in data.values():
+    for key, value in data.items():
+        if key == "id":
+            continue
         if value is not None and (not isinstance(value, str) or len(value) > 1200):
             raise ValueError("Field exceeds validation bounds")
     identity = hashlib.sha256(json.dumps(data, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:28]
     # Stable IDs allow independent proposals without conflicting with historical sequential IDs.
-    row_id = 100_000 + int(identity[:12], 16) % 900_000
+    row_id = data.get("id", 100_000 + int(identity[:12], 16) % 900_000)
     row = {"id": row_id, **{field: data[field] for field in COLUMNS[1:]}}
     validate(row)
     root = ROOT / "migrations"
     path = root / f"1000_proposal_{identity}.sql"
     if path.exists():
         return
-    if db.execute("SELECT 1 FROM blueprint_lessons WHERE id=?", (row_id,)).fetchone():
-        raise ValueError("Proposal ID collision")
+    hashed = integrity([row], generated=True)["hashes"][0]
+    if payload.get("row_sha256", hashed) != hashed:
+        raise ValueError("Proposal hash mismatch")
     # SQLite quotes every value, including any apostrophes or newlines in the draft.
     values = [db.execute("SELECT quote(?)", (value,)).fetchone()[0] for value in row.values()]
-    sql = f"INSERT INTO blueprint_lessons ({', '.join(COLUMNS)}) VALUES ({', '.join(values)});\n"
-    duplicate = payload.get("possible_duplicate")
+    existing = db.execute("SELECT id FROM blueprint_lessons WHERE row_sha256=? ORDER BY id LIMIT 1", (hashed,)).fetchone()
     source_note = ""
-    if isinstance(duplicate, dict) and type(duplicate.get("lessonId")) is int and type(duplicate.get("similarity")) in (int, float):
-        existing = duplicate["lessonId"]
-        similarity = duplicate["similarity"]
-        if 0.94 < similarity <= 1.01 and db.execute("SELECT 1 FROM blueprint_lessons WHERE id=?", (existing,)).fetchone():
-            label = row["item_a_label"] + " / " + row["item_b_label"]
-            quoted = db.execute("SELECT quote(?)", (label,)).fetchone()[0]
-            sql = f"INSERT OR IGNORE INTO blueprint_aliases(label,lesson_id) VALUES ({quoted},{existing});\n"
-            source_note = f"-- Proposed alias (cosine {similarity:.4f}). Confirm mechanism and boundaries before merging.\n"
+    if existing:
+        label = row["item_a_label"] + " / " + row["item_b_label"]
+        quoted = db.execute("SELECT quote(?)", (label,)).fetchone()[0]
+        sql = f"INSERT OR IGNORE INTO blueprint_aliases(label,lesson_id) VALUES ({quoted},{existing['id']});\n"
+        source_note = "-- Exact mechanics hash match. Review the alias before merging.\n"
+    else:
+        if db.execute("SELECT 1 FROM blueprint_lessons WHERE id=?", (row_id,)).fetchone():
+            raise ValueError("Proposal ID collision")
+        values.append("'" + hashed + "'")
+        sql = f"INSERT INTO blueprint_lessons ({', '.join(COLUMNS)}, row_sha256) VALUES ({', '.join(values)});\n"
     db.executescript(sql)
     source_comments = "".join(f"-- Editorial source: {url}\n" for url in sources)
     path.write_text(f"-- Review factual claims against the sources before accepting this lesson.\n{source_note}{source_comments}{sql}", encoding="utf-8")
@@ -125,12 +142,19 @@ def main():
     if args.propose:
         propose(db, args.propose)
         return
-    rows = [dict(row) for row in db.execute("SELECT * FROM blueprint_lessons ORDER BY id")]
+    stored = db.execute("SELECT * FROM blueprint_lessons ORDER BY id").fetchall()
+    all_rows = [{key: row[key] for key in COLUMNS} for row in stored]
+    proof = integrity(all_rows)
+    for row, hashed in zip(stored, proof["hashes"], strict=True):
+        if row["row_sha256"] != hashed:
+            raise ValueError(f"Row {row['id']} has a mismatched mechanics hash")
+    hidden = {row[0] for row in db.execute("SELECT lesson_id FROM blueprint_lifecycle WHERE state!='verified'")}
+    rows = [row for row in all_rows if row["id"] not in hidden]
     if not rows:
         raise ValueError("The published curriculum is empty")
     for row in rows:
         validate(row)
-    export(rows, args.export)
+    export(rows, integrity(rows)["manifest"], args.export)
     print(f"Validated {len(rows)} blueprint lessons across {len(COLUMNS)} columns.")
 
 

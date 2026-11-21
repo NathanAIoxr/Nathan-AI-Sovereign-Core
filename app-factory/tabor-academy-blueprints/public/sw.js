@@ -1,8 +1,8 @@
 import { flushOutbox, pendingObservations } from "./sync.js";
 
-const cacheName = "tabor-academy-field-v3";
+const cacheName = "tabor-academy-field-v4";
 const shell = ["/", "/app.js", "/explorers.js", "/phase2.css", "/sync.js", "/field.js",
-  "/academy.webmanifest", "/exports/blueprints.json", "/exports/blueprints.csv",
+  "/integrity.js", "/shared/merkle.js", "/academy.webmanifest", "/exports/blueprints.json", "/exports/blueprints.csv",
   "/curriculum/", "/curriculum/catalog.css", "/curriculum/catalog.js", "/exports/academy-curriculum.json"];
 
 self.addEventListener("install", event => {

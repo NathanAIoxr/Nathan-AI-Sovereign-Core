@@ -1,3 +1,4 @@
+import { readVerified } from "./integrity.js";
 import pages, { embedText, embeddingModel } from "./index.js";
 import { canary, consumeGaps } from "./closed_loop.js";
 import { compare, consume, queueScheduled } from "./drafting.js";
@@ -5,14 +6,14 @@ export { ClassroomRoom } from "./rooms.js";
 
 async function indexPublished(env) {
   const cursor = Number(await env.CACHE.get("published-index-cursor")) || 0;
-  const { results } = await env.DB.prepare("SELECT * FROM blueprint_lessons WHERE id > ? ORDER BY id LIMIT 10").bind(cursor).all();
+  const results = (await readVerified(env.DB)).filter(row => row.id > cursor).slice(0, 10);
   if (!results.length) {
     if (cursor) await env.CACHE.delete("published-index-cursor");
     return;
   }
   const { data } = await env.AI.run(embeddingModel, { text: results.map(embedText) });
   await env.VECTORIZE.upsert(results.map((row, index) => ({
-    id: String(row.id), values: data[index], metadata: { tier: row.tier, domain: row.domain },
+    id: "blueprint-" + row.id, values: data[index], metadata: { tier: row.tier, domain: row.domain },
   })));
   await env.CACHE.put("published-index-cursor", String(results.at(-1).id));
 }

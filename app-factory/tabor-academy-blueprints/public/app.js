@@ -2,12 +2,9 @@ import { flows, glossary, mysteries, rankedLessons, scales } from "./explorers.j
 
 import { blueprintCode, fieldQr, openField, openHunt, setupField } from "./field.js";
 
-const answerColumns = [
-  ["core_parts", "Core parts"], ["operations", "Operations"],
-  ["traits_attributes", "Traits and attributes"], ["scale_medium", "Scale and medium"],
-  ["input_output", "Input and output"], ["flow_direction", "Flow direction"],
-  ["modification_exemption", "Modification or exemption"], ["blind_spot_note", "Blind spot"],
-];
+import { answerColumns, answerLayer } from "./answer-layer.js";
+import { offlineCurriculum, verifiedCurriculum } from "./sync.js";
+import { identifySnapshot } from "../shared/merkle.js";
 
 const byId = id => document.getElementById(id);
 const mode = byId("investigative-mode");
@@ -67,14 +64,7 @@ function lessonCard(lesson) {
   card.append(header, element("p", lesson.clue_prompt, "clue"));
 
   const visible = !mode.checked || (room ? room.lessonId === lesson.id && room.revealed : revealed.has(lesson.id));
-  const answers = element("dl", null, "answers");
-  answers.id = `answers-${lesson.id}`;
-  answers.hidden = !visible;
-  for (const [key, label] of answerColumns) {
-    const pair = element("div", null, "answer");
-    pair.append(element("dt", label), element("dd", lesson[key]));
-    answers.append(pair);
-  }
+  const answers = answerLayer(document, lesson, visible);
   card.append(answers);
   if (visible && diagrams.has(lesson.id)) {
     const figure = element("figure", null, "lesson-diagram");
@@ -141,16 +131,24 @@ function render() {
 }
 
 async function getLessons(params, signal) {
-  if (!globalThis.ACADEMY_OFFLINE) {
+  if (!globalThis.ACADEMY_OFFLINE && navigator.onLine) {
     try {
+      if (!params.has("q")) {
+        const fresh = await verifiedCurriculum(signal);
+        if (fresh) return params.has("tier") ? fresh.rows.filter(row => row.tier === params.get("tier")) : fresh.rows;
+      }
       const result = await fetch(`/api/lessons${params.size ? "?" + params : ""}`, { signal });
-      if (result.ok) return result.json();
-      if (result.status < 500) throw new Error(`Lesson request failed (${result.status})`);
+      if (!result.ok) throw new Error(`Lesson request failed (${result.status})`);
+      return result.json();
     } catch (error) {
-      if (error.name === "AbortError") throw error;
+      if (!(error instanceof TypeError)) throw error;
     }
   }
-  const snapshot = globalThis.ACADEMY_OFFLINE ?? await (await fetch("/exports/blueprints.json", { signal })).json();
+  const local = globalThis.ACADEMY_OFFLINE ? null : await offlineCurriculum().catch(() => null);
+  if (local && (await identifySnapshot(local.rows)).root !== local.manifest.root) {
+    throw new Error("Offline curriculum integrity check failed");
+  }
+  const snapshot = globalThis.ACADEMY_OFFLINE ?? local?.rows ?? await (await fetch("/exports/blueprints.json", { signal })).json();
   const filter = params.get("tier");
   const rows = filter ? snapshot.filter(row => row.tier === filter) : snapshot;
   return params.has("q") ? rankedLessons(rows, params.get("q")) : rows;
@@ -223,10 +221,11 @@ byId("mystery-button").addEventListener("click", async () => {
     if (recentMystery !== index) return;
     const rows = pair.ids.map(id => allLessons.find(row => row.id === id));
     if (rows.some(row => !row)) throw new Error("Mystery lesson missing");
-    const answer = element("p", pair.answer);
+    const answer = element("p");
     answer.hidden = true;
     const reveal = button("Reveal the connection", () => {
       answer.hidden = !answer.hidden;
+      answer.textContent = answer.hidden ? "" : pair.answer;
       reveal.textContent = answer.hidden ? "Reveal the connection" : "Hide the connection";
       reveal.setAttribute("aria-expanded", String(!answer.hidden));
     });
