@@ -1,0 +1,56 @@
+{
+  "release": "2026-11-18.1",
+  "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92",
+  "bytes": 36623,
+  "replicas": 1000,
+  "hosts": [
+    {
+      "host": "tabor-worker-catalog",
+      "url": "https://tabor-worker-catalog.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "library-of-tabor-archive",
+      "url": "https://library-of-tabor-archive.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "tabor-universal-library-engine",
+      "url": "https://tabor-universal-library-engine.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "tabor-world",
+      "url": "https://tabor-world.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "tabor-world-hub",
+      "url": "https://tabor-world-hub.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "nathan-tabor-supercomputer",
+      "url": "https://nathan-tabor-supercomputer.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "nathan-tabor-supercomputer-2x",
+      "url": "https://nathan-tabor-supercomputer-2x.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "tabor-supercomputer-federation",
+      "url": "https://tabor-supercomputer-federation.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    },
+    {
+      "host": "nathan-tabor-labs",
+      "url": "https://nathan-tabor-labs.nathantaboract.workers.dev/worker-catalog/",
+      "sha256": "1b65b93c87006b31b6570e00a763ce0b9cec069ad8c20889701d517f51120d92"
+    }
+  ],
+  "verifiedUTC": "2026-11-18T17:57:03.317Z",
+  "cohort": "tabor-federation-v1",
+  "source": "https://tabor-supercomputer-federation.nathantaboract.workers.dev/v1/nodes"
+}

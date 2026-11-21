@@ -1,0 +1,33 @@
+name: Library of Tabor archive
+on:
+  pull_request:
+    paths:
+      - "app-factory/tabor-universal-library-engine/archive/**"
+      - "app-factory/tabor-worker-catalog/**"
+      - ".github/workflows/library-of-tabor-archive.yml"
+  push:
+    branches: [main]
+    paths:
+      - "app-factory/tabor-universal-library-engine/archive/**"
+      - "app-factory/tabor-worker-catalog/**"
+      - ".github/workflows/library-of-tabor-archive.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/tabor-universal-library-engine/archive
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: node --test test.mjs ../../tabor-worker-catalog/test.mjs
+      - run: node --check scripts/capture.mjs
+      - run: node --check scripts/discover-loc.mjs
+      - run: node --check scripts/import-worker.mjs
+      - run: node --check scripts/upload-corpus.mjs
+      - run: python3 -m py_compile scripts/prepare-corpus.py

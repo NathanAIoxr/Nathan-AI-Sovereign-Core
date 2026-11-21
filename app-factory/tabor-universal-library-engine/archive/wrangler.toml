@@ -1,0 +1,14 @@
+name = "library-of-tabor-archive"
+main = "src/worker.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[[d1_databases]]
+binding = "ARCHIVE_DB"
+database_name = "library-of-tabor-archive"
+database_id = "afa95111-b71a-4b29-bb17-c15e0386923e"
+
+[[r2_buckets]]
+binding = "ARCHIVE_BLOB"
+bucket_name = "library-of-tabor-archive"

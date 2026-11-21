@@ -56,7 +56,7 @@ test("the Tabor World gateway preserves every public destination and both Librar
   const list = await (await get("/api/destinations")).json();
   assert.deepEqual(list.map(item => item.id), [
     "tabor-standalone", "library-of-tabor", "grapple", "hook", "bible", "tracker",
-    "library", "dual", "hive", "bees", "saturday",
+    "library", "dual", "hive", "bees", "saturday","tabor-worker-catalog",
   ]);
   assert.ok(list.some(item => item.id === "library" && item.name === "Tabor Universal Library"));
   assert.equal(list.find(item => item.id === "library-of-tabor").url, "https://tabor-world.nathantaboract.workers.dev/library/");

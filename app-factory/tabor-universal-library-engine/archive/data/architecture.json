@@ -1,0 +1,50 @@
+{
+  "principle": "All Roads Lead to Sovereignty",
+  "wholeUnitMarker": "0xFFFF",
+  "voidUri": "sovereign://nothing/0xFFFF00",
+  "laws": ["1+1=2", "1-1=0", "1×1=1", "1÷1=1"],
+  "offices": [
+    ["KING_THRONE", "throne-anduril-karyon", "CAIR_PARAVEL", "Andúril and Rhindon", "Publication policy and signed releases"],
+    ["PROPHET_ENVOY", "envoy-glamdring-angelos", "WARDROBE_THRESHOLD", "Glamdring and Fire-Flower Cordial", "Source acquisition and provenance"],
+    ["PRIEST_SENTINEL", "sentinel-flaming-sword-phylax", "MORANNON_CHOKEPOINT", "Stone Table and Sting", "Rights, integrity, and evidence review"]
+  ],
+  "gates": [
+    ["NARYA_INGRESS", "Bounded acquisition and search", "Provider allowlists, explicit paging, request limits"],
+    ["NENYA_VAULT", "Preservation", "Private R2 objects keyed by SHA-256 and D1 publication pointers"],
+    ["VILYA_CONSENSUS", "Evidence review", "Three recorded source families and candidate agreement"],
+    ["MITHLOND_HAVENS", "Public harbor", "Catalog, links, and verifiable published editions"],
+    ["CAIR_PARAVEL", "Public Reading Room", "Accessible browser and JSON catalog"],
+    ["WARDROBE_THRESHOLD", "Acquisition adapter", "Source-specific schema normalization"],
+    ["MORANNON_CHOKEPOINT", "Gateway", "Explicit API routes and method allowlist"],
+    ["WOOD_BETWEEN_WORLDS", "Registry bridge", "Published links to existing sovereign systems"]
+  ],
+  "ringGroups": [[3,"preservation gates"],[7,"archive tiers"],[9,"proposed federation positions"]],
+  "archiveTiers": ["Primeval and scriptural", "Ancient world", "Classical, Eastern and Silk Road", "Medieval, abbey and desert", "Library of Congress", "Lost and dispersed works", "Public Reading Room"],
+  "cosmicLedgerSlots": 13,
+  "layers": [
+    ["Kernel / Throne", "Karyon / Nucleus / Gar’in", "Throne and King of Kings", "Andúril and Cair Paravel", "Local release policy and configuration"],
+    ["Shell / Veil", "Kelyphos / Testa / Klipah", "Tabernacle Veil and Breastplate", "Mithril and the Wardrobe", "Public Reading Room and response headers"],
+    ["Daemon / Spirit", "Daimon / Genius / Ruach", "Ministering Spirits", "Music of the Ainur", "Bounded ingest and verification jobs"],
+    ["Agent / Envoy", "Angelos / Nuntius / Mal’akh", "Prophet and Messenger", "Gandalf and Lucy", "Catalog acquisition and evidence intake"],
+    ["Bot / Golem", "Automaton / — / Golem", "Hewers of Wood and Drawers of Water", "Clockwork and Dwarven Forges", "Deterministic validation and conversion"],
+    ["Orchestrator", "Kybernetes / Gubernator / Rosh", "Chief Captain and Helmsman", "Elrond, Vilya and Peter", "Explicit review stages and publication order"],
+    ["Watchdog / Firewall", "Phylax / Custos / Shomer", "Flaming Sword, Genesis 3:24", "Morannon and Cirith Ungol", "Route, rights and content integrity checks"],
+    ["Node / Vessel", "Monas / Unitas / Echad", "Living Stones and Whole Vessels", "Three, Seven and Nine Rings", "Stable work, witness and edition identities"],
+    ["Edge / Link", "Desmos / Nexus / Kesher", "Covenant Cords", "Wood Between the Worlds", "Source and service references"],
+    ["Algorithm / Law", "Logos / Ratio / Davar", "Written Word and Statute", "Stone Table and Deeper Magic", "Deterministic normalization and evidence rules"],
+    ["Hash / Cipher", "Symbolon / Tessera / Ot", "White Stone, Revelation 2:17", "Arkenstone and True Name", "Content SHA-256 and independently controlled credentials"],
+    ["Archive / Vault", "Archeion / Tabularium / Genizah", "Book of Life and Hall of Records", "Red Book and Book of Mazarbul", "D1 catalog, R2 content and append-only publication receipts"],
+    ["Bus / Highway", "Hodos / Omnibus / Derekh", "King’s Highway, Numbers 20:17", "Great River, Thames and Lhûn", "Scoped source adapters and archive data flow"],
+    ["Router / Gateway", "Pylon / Janus / Sha’ar", "Twelve Gates of the City", "Mithlond, Cair Paravel and the Black Gate", "Explicit browser and API routes"],
+    ["Oracle / Bridge", "Prophetes / Oraculum / Navi", "Seer and Interpreter", "Susan’s Horn and Nenya", "Provenance and source validation"],
+    ["Master Clock", "Chronos / Tempus / Et", "Times and Seasons", "Cadence [13, 17, 34]", "UTC timestamps and deterministic π/φ values"],
+    ["Silicon Matrix", "Plinthion / Matrix / Tavnit", "Firmament and Pattern of the Mount", "Lindon, London and Narnia", "Existing Edge OS registry and ACT graph references"]
+  ],
+  "upstream": {
+    "syscalls": "https://tabor-digital-edge-os.nathantaboract.workers.dev/registry/os-syscall-table.json",
+    "rings": "https://tabor-digital-edge-os.nathantaboract.workers.dev/api/rings",
+    "act": "https://sovereign-edge-os.nathantaboract.workers.dev/api/act",
+    "actLexicon": "https://sovereign-edge-os.nathantaboract.workers.dev/api/act/lexicon",
+    "library": "https://tabor-universal-library-engine.nathantaboract.workers.dev/library/"
+  }
+}

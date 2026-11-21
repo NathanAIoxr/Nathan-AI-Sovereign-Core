@@ -10,6 +10,11 @@ By Nathan Tabor
 
 ## Continue here
 
+- Browse the [Tabor Worker Catalog](https://library-of-tabor-archive.nathantaboract.workers.dev/worker-catalog/) and its 101 searchable Technology shelf records.
+
+- Historical archive and Reading Room: https://library-of-tabor-archive.nathantaboract.workers.dev/
+- Archive source, APIs and operating model: [archive/README.md](archive/README.md)
+
 - Live entrance: https://tabor-world.nathantaboract.workers.dev/library/
 - Library Worker: https://tabor-universal-library-engine.nathantaboract.workers.dev/library/
 - Health receipt: https://tabor-universal-library-engine.nathantaboract.workers.dev/library/api/health
