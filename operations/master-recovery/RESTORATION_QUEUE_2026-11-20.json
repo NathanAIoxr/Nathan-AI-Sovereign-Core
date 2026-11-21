@@ -1,0 +1,293 @@
+{
+  "schema": "nathan-ai-restoration-queue/v1",
+  "source_issue": 524,
+  "scope": "All historical Nathan AI/Tabor projects; this list is a seed for discovery, not exhaustive",
+  "rules": [
+    "preserve original app identity and versions",
+    "verify source and deployed state before claiming restoration",
+    "never overwrite original assets",
+    "reuse authorized existing Cloudflare capacity",
+    "no unauthorized network scanning or self-propagation"
+  ],
+  "stages": [
+    "DISCOVER",
+    "VERIFY",
+    "RESTORE",
+    "TEST",
+    "REVIEW",
+    "DEPLOY",
+    "VERIFY_DEPLOYMENT"
+  ],
+  "projects": [
+    {
+      "id": "nathan-ai-sovereign-core",
+      "priority": 1,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "tabor-os",
+      "priority": 2,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "nathan-ai-conductors",
+      "priority": 3,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "tabor-academy",
+      "priority": 4,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "modern-day-bible",
+      "priority": 5,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "tabor-concordance",
+      "priority": 6,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "find-the-tabor",
+      "priority": 7,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "living-eyes",
+      "priority": 8,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "12-line-crosshair",
+      "priority": 9,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "ghg-eye-scan",
+      "priority": 10,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "eyeprints",
+      "priority": 11,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "handprints",
+      "priority": 12,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "con-hunter-error-radar",
+      "priority": 13,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "eye-spy-inc",
+      "priority": 14,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "nathan-ai-chess-lab",
+      "priority": 15,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "universal-finger-physics",
+      "priority": 16,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "track-baller",
+      "priority": 17,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "fiber-arts-matrix",
+      "priority": 18,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "card-game-library",
+      "priority": 19,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "bibletopia",
+      "priority": 20,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "mas-spirit",
+      "priority": 21,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "nutcracker-os",
+      "priority": 22,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "grapple-it",
+      "priority": 23,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "dating-app-family",
+      "priority": 24,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "tabor-tales",
+      "priority": 25,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "sovereign-ledger",
+      "priority": 26,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "tabor-library",
+      "priority": 27,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "app-factory",
+      "priority": 28,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "nathan-fleet-atlas",
+      "priority": 29,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    },
+    {
+      "id": "universal-bridge",
+      "priority": 30,
+      "status": "requires_inventory",
+      "github_source": null,
+      "cloudflare_deployment": null,
+      "conductor": "unassigned",
+      "evidence": []
+    }
+  ]
+}
