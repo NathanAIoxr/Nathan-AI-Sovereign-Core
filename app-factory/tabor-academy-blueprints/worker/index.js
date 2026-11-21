@@ -1,3 +1,4 @@
+import { verifyRows, sha256 } from "../shared/merkle.js";
 import { rankedLessons } from "../public/explorers.js";
 import { recordGap } from "./closed_loop.js";
 import { classroom } from "./rooms.js";
@@ -108,6 +109,15 @@ export default {
         return await sightings(request, env, url);
       }
       if (pathname === "/api/admin/review-sighting") return await reviewSighting(request, env);
+      if (pathname === "/api/integrity" && method === "GET") {
+        const {results} = await env.DB.prepare("SELECT * FROM blueprint_lessons_v7 WHERE state=1 ORDER BY id").all();
+        const expected = await env.DB.prepare(`SELECT count(*) AS n FROM blueprint_lessons b
+          LEFT JOIN blueprint_lifecycle l ON l.lesson_id=b.id WHERE COALESCE(l.state,'verified')='verified'`).first();
+        if (results.length !== expected.n) return error("Blueprint integrity coverage is incomplete.", 503);
+        return Response.json({ algorithm:"TaborAcademy:answers-nfc-json-sha256+sorted-merkle:v1",
+          rows:results.length, merkle_root:await verifyRows(results), verified_export_sha256:await sha256(JSON.stringify(results)) },
+          { headers:{"Cache-Control":"no-store"} });
+      }
       if (pathname === "/api/healthz" && method === "GET") {
         const row = await env.DB.prepare("SELECT checked_at,healthy,detail FROM blueprint_health WHERE id=1").first();
         if (!row && env.ACADEMY_MAINTENANCE) await env.ACADEMY_MAINTENANCE.getByName("production").start();
