@@ -19,7 +19,11 @@ test('other viewport change still emits',()=>{
 test('opt-out preserves callback behavior',()=>{
  const {bridge,calls}=setup([1,0,0,0],{suppressUnchanged:false});bridge.onTouchFrame({orientation:[-1,0,0,0],zoom:1});assert.equal(calls.length,1);
 });
-test('nonfinite and nonquaternion arrays are not treated as equivalent',()=>{
- const {bridge,calls}=setup([NaN,0,0,0]);bridge.onTouchFrame({orientation:[NaN,0,0,0],zoom:1});assert.equal(calls.length,0);
- const s=setup([1,0,0]);s.bridge.onTouchFrame({orientation:[-1,0,0],zoom:1});assert.equal(s.calls.length,1);
+test('nonfinite and nonquaternion arrays accepted by the controller do not suppress callbacks',()=>{
+ const {bridge,calls}=setup([NaN,0,0,0]);
+ assert.equal(bridge.onTouchFrame({orientation:[NaN,0,0,0],zoom:1}),true);
+ assert.equal(calls.length,1);
+ const s=setup([1,0,0]);
+ assert.equal(s.bridge.onTouchFrame({orientation:[-1,0,0],zoom:1}),true);
+ assert.equal(s.calls.length,1);
 });
