@@ -1,0 +1,31 @@
+name: NUTSY archive ingestion
+
+on:
+  pull_request:
+    paths:
+      - integrations/nutsy/archive-ingestion/**
+      - .github/workflows/nutsy-archive-ingestion.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: integrations/nutsy/archive-ingestion
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test worker.test.mjs
+      - run: npm install --prefix "$RUNNER_TEMP/nutsy-check" wrangler@4.166.0 typescript@6.0.3
+      - name: Type-check and bundle the Worker
+        run: |
+          bin="$RUNNER_TEMP/nutsy-check/node_modules/.bin"
+          "$bin/wrangler" types --config wrangler.example.toml
+          "$bin/tsc" --noEmit --strict --target ES2022 --lib ES2022 --module esnext --moduleResolution bundler worker-configuration.d.ts worker.ts
+          "$bin/wrangler" deploy --dry-run --config wrangler.example.toml --outdir "$RUNNER_TEMP/nutsy-build"
