@@ -24,5 +24,8 @@ jobs:
           node-version: '22'
       - run: npm ci
       - run: npm run validate
+      - run: node --test tests/determinism.test.js
+      - run: node scripts/export_integrity.mjs
+      - run: git diff --exit-code -- public/exports/blueprints-integrity.json public/exports/blueprints-v7.json
       - run: npm run pages:build
       - run: npm run worker:check

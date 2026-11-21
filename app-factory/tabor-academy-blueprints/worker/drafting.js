@@ -1,3 +1,4 @@
+import { checkDraft } from "./gatekeeper.js";
 import { deduplicate } from "./closed_loop.js";
 import { domains, tiers } from "./index.js";
 
@@ -173,6 +174,7 @@ async function processTopic(env, topic) {
   let record = await select();
   if (!record) {
     const blueprint = await newBlueprint(env, topic);
+    checkDraft(blueprint);
     const possibleDuplicate = await deduplicate(env, draftId, blueprint);
     let illustration;
     try { illustration = await draftIllustration(env, topic, draftId); }
