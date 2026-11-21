@@ -50,18 +50,22 @@ function render(catalog) {
   count.textContent = shown.toLocaleString() + " curriculum entries in source order";
 }
 
-try {
-  const response = await fetch("/exports/academy-curriculum.json");
-  if (!response.ok) throw new Error("Curriculum unavailable");
-  const catalog = await response.json();
-  for (const source of catalog.archive) {
-    const item = node("li");
-    const label = source.name + " · " + source.count.toLocaleString() + " records";
-    item.append(source.url ? href(label, source.url) : node("span", label));
-    materials.append(item);
+async function loadCatalog() {
+  try {
+    const response = await fetch("/exports/academy-curriculum.json");
+    if (!response.ok) throw new Error("Curriculum unavailable");
+    const catalog = await response.json();
+    for (const source of catalog.archive) {
+      const item = node("li");
+      const label = source.name + " · " + source.count.toLocaleString() + " records";
+      item.append(source.url ? href(label, source.url) : node("span", label));
+      materials.append(item);
+    }
+    query.addEventListener("input", () => render(catalog));
+    render(catalog);
+  } catch {
+    count.textContent = "The curriculum index could not be loaded. Reload to try again.";
   }
-  query.addEventListener("input", () => render(catalog));
-  render(catalog);
-} catch {
-  count.textContent = "The curriculum index could not be loaded. Reload to try again.";
 }
+
+void loadCatalog();
