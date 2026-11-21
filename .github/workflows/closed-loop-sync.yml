@@ -1,0 +1,167 @@
+name: Publish the reviewed Tabor Academy curriculum
+on:
+  repository_dispatch:
+    types: [tabor-blueprint-proposal]
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/tabor-academy-blueprints/**'
+  release:
+    types: [published]
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: app-factory/tabor-academy-blueprints
+
+jobs:
+  proposal:
+    if: github.event_name == 'repository_dispatch'
+    uses: ./.github/workflows/auto-sync-d1.yml
+    permissions:
+      contents: write
+      pull-requests: write
+
+  publish:
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && vars.TABOR_ACADEMY_AUTO_DEPLOY == 'true'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: tabor-academy-production
+      cancel-in-progress: false
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.TABOR_ACADEMY_CLOUDFLARE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run pages:build
+      - run: npm run db:remote
+      - name: Refresh published snapshot and offline archive
+        run: |
+          set -euo pipefail
+          npx wrangler kv key put --config wrangler.toml --binding CACHE --remote \
+            'tabor-academy:published-snapshot' --path public/exports/blueprints.json
+          npx wrangler r2 object put 'tabor-academy-blueprints-vault/exports/tabor-academy-offline.html' \
+            --config wrangler.toml --remote --file .build/pages/exports/tabor-academy-offline.html --content-type text/html
+      - run: npm run pages:deploy
+
+  release:
+    if: github.event_name == 'release' && vars.TABOR_ACADEMY_ATTACH_EXPORTS == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run pages:build
+      - run: |
+          gh release upload --clobber -- "$RELEASE_TAG" \
+            public/exports/blueprints.csv public/exports/blueprints.json \
+            .build/pages/exports/tabor-academy-offline.html
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          GH_TOKEN: ${{ github.token }}
+
+  wiki:
+    if: github.event_name == 'push' && vars.TABOR_ACADEMY_WIKI == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update the Academy wiki page
+        env:
+          WIKI_TOKEN: ${{ secrets.TABOR_ACADEMY_WIKI_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          test -n "$WIKI_TOKEN"
+          dir="$(mktemp -d)"
+          auth="$(printf 'x-access-token:%s' "$WIKI_TOKEN" | base64 -w0)"
+          echo "::add-mask::$auth"
+          git -c "http.extraHeader=Authorization: Basic $auth" clone "https://github.com/$REPOSITORY.wiki.git" "$dir"
+          cat > "$dir/Tabor-Academy-Blueprints.md" <<EOF_WIKI
+          # Tabor Academy Blueprint Lessons
+
+          [Open the library](https://tabor-academy-blueprints.pages.dev)
+          [Download CSV](https://tabor-academy-blueprints.pages.dev/exports/blueprints.csv)
+          [Download JSON](https://tabor-academy-blueprints.pages.dev/exports/blueprints.json)
+          [Download the offline reader](https://tabor-academy-blueprints.pages.dev/exports/tabor-academy-offline.html)
+
+          Curriculum source commit: $GITHUB_SHA
+          EOF_WIKI
+          git -C "$dir" add Tabor-Academy-Blueprints.md
+          if ! git -C "$dir" diff --cached --quiet; then
+            git -C "$dir" -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Update the Academy curriculum links'
+            git -C "$dir" -c "http.extraHeader=Authorization: Basic $auth" push
+          fi
+
+  canary:
+    if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && vars.TABOR_ACADEMY_CANARY == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    concurrency:
+      group: tabor-academy-canary
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Test published data, semantic search and media
+        id: health
+        run: |
+          set -euo pipefail
+          url=https://tabor-academy-blueprints.pages.dev
+          tmp="$(mktemp -d)"
+          log="$tmp/report"
+          : > "$log"
+          check() {
+            name="$1"; path="$2"
+            if ! curl -fsS --max-time 8 -D "$tmp/$name.h" "$url$path" -o "$tmp/$name"; then
+              printf '%s request failed\n' "$name" >> "$log"
+            fi
+          }
+          check lessons /api/lessons
+          check semantic '/api/lessons?q=electric%20motor%20and%20generator'
+          check diagram /api/diagram/19
+          grep -qi '^x-curriculum-source: kv-snapshot' "$tmp/lessons.h" && echo 'D1 fallback in use' >> "$log"
+          grep -qi '^x-search-method: hybrid' "$tmp/semantic.h" || echo 'Hybrid search unavailable' >> "$log"
+          grep -qi '^content-type: image/png' "$tmp/diagram.h" || echo 'PNG media unavailable' >> "$log"
+          echo "report=$log" >> "$GITHUB_OUTPUT"
+          if test -s "$log"; then
+            cat "$log"
+            echo 'failed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Report one open incident
+        if: steps.health.outputs.failed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ steps.health.outputs.report }}
+        run: |
+          set -euo pipefail
+          label='bug:canary-alert'
+          title='Tabor Academy public canary failed'
+          gh label create "$label" --color B60205 --description 'Synthetic test failure' --force
+          if gh issue list --state open --label "$label" --search "$title in:title" --json title --jq '.[].title' | grep -Fxq "$title"; then
+            exit 0
+          fi
+          printf '\nRun: %s/%s/actions/runs/%s\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" >> "$REPORT"
+          gh issue create --label "$label" --title "$title" --body-file "$REPORT"

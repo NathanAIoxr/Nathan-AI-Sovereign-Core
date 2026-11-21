@@ -44,3 +44,32 @@ button.quiet { border-color: transparent; background: transparent; }
 }
 .lesson-diagram { margin: 1rem clamp(1rem,4vw,2rem); }
 .lesson-diagram img { display: block; max-width: 38rem; width: 100%; height: auto; }
+.card-signature { display: none; }
+dialog { box-sizing: border-box; width: min(38rem, 100% - 1.5rem); border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--ink); padding: 1rem 1.2rem; }
+dialog::backdrop { background-color: #182a2288; }
+dialog h2 { font-size: 2.25rem; margin-bottom: .65rem; }
+.dialog-top { display: flex; justify-content: flex-end; margin-bottom: .35rem; }
+dialog button, .tool-inner > button { border: 1px solid #aeb8a8; border-radius: .38rem; font: inherit; padding: .35rem .65rem; background: var(--surface); color: var(--ink); }
+.field-form, .field-form label, #hunt-layers { display: grid; gap: .55rem; }
+.field-form textarea { resize: vertical; border: 1px solid #aeb8a8; border-radius: .38rem; padding: .45rem; font: inherit; }
+#field-sightings img { display: block; width: min(18rem,100%); height: auto; margin: .35rem 0 1rem; }
+#field-tools { margin: 0 0 1rem; }
+#outbox-items:empty { display: none; }
+#outbox-items { margin: 0; padding-inline-start: 1.2rem; }
+#hunt-layers { margin: .8rem 0; grid-template-columns: repeat(auto-fit,minmax(11rem,1fr)); }
+#hunt-examples p { margin-top: .8rem; }
+@page field-card { size: 5in 3in; margin: .24in; }
+@media print {
+  #field-tools, dialog { display: none !important; }
+  .print-current { page: field-card; border: none; }
+  .print-current .lesson-header { padding: 0; }
+  .print-current .comparison { padding-right: .65in; font-size: 16pt; }
+  .print-current .classification, .print-current .clue { margin: .05in 0; font-size: 7pt; }
+  .print-current .clue { padding: .02in .07in; }
+  .print-current .answers { display: grid; grid-template-columns: 1fr 1fr; padding: 0; gap: .035in .11in; }
+  .print-current .answer { padding: 0; font-size: 6.4pt; line-height: 1.13; }
+  .print-current .answer dt, .print-current .answer dd { font-size: inherit; margin: 0; }
+  .print-current .lesson-diagram { display: none; }
+  .print-current .card-signature { display: flex; align-items: center; justify-content: flex-end; gap: .06in; font-size: 7pt; }
+  .print-current .card-signature img { width: .55in; height: .55in; }
+}

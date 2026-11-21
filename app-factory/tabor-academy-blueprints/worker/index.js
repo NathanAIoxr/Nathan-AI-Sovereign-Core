@@ -1,4 +1,5 @@
 import { rankedLessons } from "../public/explorers.js";
+import { recordGap, reviewSighting, sightingPhoto, sightings, snapshotLessons } from "./closed_loop.js";
 import { classroom } from "./rooms.js";
 
 export const tiers = new Set(["Tier 1: Kids", "Tier 2: Youth", "Tier 3: Adults"]);
@@ -24,7 +25,7 @@ export function track(env, type, detail = "-") {
   env.ANALYTICS?.writeDataPoint({ indexes: [type], blobs: [detail] });
 }
 
-async function lessons(env, params) {
+async function lessons(env, params, ctx) {
   const tier = params.get("tier");
   const query = params.get("q")?.trim();
   if (tier !== null && !tiers.has(tier)) {
@@ -37,6 +38,15 @@ async function lessons(env, params) {
   if (!query) return Response.json(results, { headers: { "Cache-Control": "public, max-age=60" } });
 
   let rows = rankedLessons(results, query);
+  try {
+    const aliases = await env.DB.prepare("SELECT lesson_id FROM blueprint_aliases WHERE instr(lower(label),lower(?)) > 0 LIMIT 12")
+      .bind(query).all();
+    const byId = new Map(results.map(row => [row.id, row]));
+    const matching = aliases.results.map(row => byId.get(row.lesson_id)).filter(Boolean);
+    rows = [...new Set([...matching, ...rows])].slice(0, 12);
+  } catch {
+    // Existing deployments can apply the alias migration independently.
+  }
   let method = "keyword";
   if (env.AI && env.VECTORIZE) {
     try {
@@ -53,7 +63,10 @@ async function lessons(env, params) {
       console.warn("Semantic search fell back to keywords", String(failure));
     }
   }
-  if (!rows.length) track(env, "search_zero");
+  if (!rows.length) {
+    track(env, "search_zero");
+    ctx?.waitUntil(recordGap(env, query).catch(() => {}));
+  }
   return Response.json(rows, { headers: { "Cache-Control": "no-store", "X-Search-Method": method } });
 }
 
@@ -72,13 +85,13 @@ async function telemetry(request, env) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const { pathname, searchParams } = new URL(request.url);
     const method = request.method;
     try {
       if (pathname === "/api/lessons") {
         if (method !== "GET") return error("Use GET.", 405, { Allow: "GET" });
-        return await lessons(env, searchParams);
+        return await lessons(env, searchParams, ctx);
       }
       if (pathname === "/api/classroom") {
         if (!["GET", "POST"].includes(method)) return error("Use GET or POST.", 405, { Allow: "GET, POST" });
@@ -90,6 +103,13 @@ export default {
         if (request.headers.get("Sec-Fetch-Site") === "cross-site") return error("Use this site.", 403);
         return await telemetry(request, env);
       }
+      if (pathname === "/api/review-sighting") return await reviewSighting(request, env);
+      if (pathname === "/api/sightings" || pathname === "/api/propose") {
+        if (pathname === "/api/propose" && method !== "POST") return error("Use POST.", 405, { Allow: "POST" });
+        return await sightings(request, env, searchParams);
+      }
+      const fieldPhoto = pathname.match(/^\/api\/sighting-photo\/([a-f0-9-]+)$/i);
+      if (fieldPhoto && method === "GET") return await sightingPhoto(env, fieldPhoto[1]);
       if (pathname === "/api/compare") {
         if (method !== "POST") return error("Use POST.", 405, { Allow: "POST" });
         return env.GENERATION ? env.GENERATION.fetch(request) : error("The drafting service is unavailable.", 503);
@@ -112,6 +132,10 @@ export default {
       if (env.ASSETS) return env.ASSETS.fetch(request);
       return new Response(null, { status: 404 });
     } catch (failure) {
+      if (pathname === "/api/lessons" && method === "GET") {
+        const snapshot = await snapshotLessons(env, searchParams).catch(() => null);
+        if (snapshot) return snapshot;
+      }
       console.error("Blueprint request failed", { route: pathname, error: String(failure) });
       return error("The request could not be completed.", 503);
     }

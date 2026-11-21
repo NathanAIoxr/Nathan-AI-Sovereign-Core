@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore Tabor Academy blueprints in biology, mechanics, physics, nature, and energy.">
+  <meta name="theme-color" content="#204235">
+  <link rel="manifest" href="/academy.webmanifest">
   <title>Blueprint Lessons | Tabor Academy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,7 +170,7 @@
           <div id="definition" role="status"></div>
         </div>
       </details>
-      <details class="tool">
+      <details class="tool" id="classroom-tool">
         <summary>Classroom co-op</summary>
         <div class="tool-inner">
           <form id="room-form">
@@ -191,9 +193,43 @@
     <noscript>Enable JavaScript to load the lessons and change modes.</noscript>
     <p id="shared-lesson" role="status" hidden></p>
     <div id="lessons"></div>
+    <section id="field-tools" class="tool" aria-label="Field notebook">
+      <details>
+        <summary>Field notebook outbox</summary>
+        <div class="tool-inner">
+          <p id="outbox-status" role="status"></p>
+          <ul id="outbox-items"></ul>
+          <button id="outbox-retry" type="button">Sync now</button>
+          <button id="build-card" type="button" hidden>Build a Blueprint Card</button>
+        </div>
+      </details>
+    </section>
+    <dialog id="field-dialog" aria-labelledby="field-title">
+      <form method="dialog" class="dialog-top"><button>Close</button></form>
+      <h2 id="field-title"></h2>
+      <form id="field-form" class="field-form">
+        <label>Object you found<input id="field-object" required maxlength="100"></label>
+        <label id="field-second-label" hidden>Second object<input id="field-second" maxlength="100"></label>
+        <label>What parts and movements match?<textarea id="field-note" maxlength="800" rows="4"></textarea></label>
+        <label>Object photo (optional)<input id="field-photo" type="file" accept="image/jpeg,image/png"></label>
+        <p>Submit observations and object-only photos for review. Keep people and personal details out of the submission.</p>
+        <button type="submit" id="field-send">Save to outbox</button>
+        <p id="field-message" role="status"></p>
+      </form>
+      <section aria-label="Field sightings" id="field-sightings"></section>
+    </dialog>
+    <dialog id="hunt-dialog" aria-labelledby="hunt-title">
+      <form method="dialog" class="dialog-top"><button>Close</button></form>
+      <h2 id="hunt-title"></h2>
+      <p>Mark the layers you spotted during the hunt. Progress stays on this device.</p>
+      <div id="hunt-layers"></div>
+      <button id="hunt-complete" type="button">Finish hunt</button>
+      <div id="hunt-examples" aria-live="polite"></div>
+    </dialog>
     <footer class="downloads">
       <a href="/exports/blueprints.csv" download>Download CSV</a>
       <a href="/exports/blueprints.json" download>Download JSON</a>
+      <a href="/exports/tabor-academy-offline.html" download>Download offline reader</a>
     </footer>
   </main>
 </body>

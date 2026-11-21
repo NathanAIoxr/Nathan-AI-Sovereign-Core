@@ -1,4 +1,6 @@
-import { flows, glossary, mysteries, scales } from "./explorers.js";
+import { flows, glossary, mysteries, rankedLessons, scales } from "./explorers.js";
+
+import { blueprintCode, fieldQr, openField, openHunt, setupField } from "./field.js";
 
 const answerColumns = [
   ["core_parts", "Core parts"], ["operations", "Operations"],
@@ -38,6 +40,7 @@ function button(label, action) {
 }
 
 function event(type, detail) {
+  if (globalThis.ACADEMY_OFFLINE || !navigator.onLine) return;
   const body = type === "lesson" ? { type, lessonId: detail } : { type, detail };
   void fetch("/api/events", { method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body), keepalive: true }).catch(() => {});
@@ -85,7 +88,12 @@ function lessonCard(lesson) {
     card.append(figure);
   }
 
+  const signature = element("aside", null, "card-signature");
+  signature.append(fieldQr(lesson.id), element("strong", blueprintCode(lesson.id)));
+  card.append(signature);
+
   const actions = element("div", null, "card-actions");
+  if (!globalThis.ACADEMY_OFFLINE) actions.append(button("Found Another Twin!", () => openField(lesson)));
   if (mode.checked) {
     const reveal = button(visible ? "Hide blueprint" : "Reveal blueprint", async () => {
       if (room) {
@@ -103,16 +111,18 @@ function lessonCard(lesson) {
     reveal.setAttribute("aria-controls", answers.id);
     reveal.setAttribute("aria-expanded", String(visible));
     actions.append(reveal);
+    if (!globalThis.ACADEMY_OFFLINE) actions.append(button("Finish hunt", () => openHunt(lesson, answerColumns, getAllLessons, viewLesson)));
   }
   if (room && room.lessonId !== lesson.id) {
     actions.append(button("Share clue", () => updateRoom({ lessonId: lesson.id, revealed: false })));
   }
-  actions.append(button("Print field card", () => {
+  actions.append(button("Print 3×5 field card", async () => {
     clearPrint();
     document.body.classList.add("print-single");
     card.classList.add("print-current");
     event("lesson", lesson.id);
     event("print", "printed");
+    await signature.querySelector("img").decode().catch(() => {});
     window.print();
   }));
   card.append(actions);
@@ -124,25 +134,42 @@ function render() {
   const shared = byId("shared-lesson");
   shared.hidden = !room?.lessonId;
   if (!shared.hidden) {
-    const view = button(`Open shared lesson ${room.lessonId}`, async () => {
-      tier.value = "";
-      search.value = "";
-      await loadLessons();
-      const heading = byId(`lesson-${room?.lessonId}`);
-      if (!heading) return;
-      heading.tabIndex = -1;
-      heading.focus();
-      heading.scrollIntoView({ block: "start" });
-    });
+    const view = button(`Open shared lesson ${room.lessonId}`, () => viewLesson(room.lessonId));
     shared.replaceChildren(`Room shared ${room.revealed ? "a blueprint" : "a clue"}. `, view);
   }
   list.replaceChildren(...lessons.map(lessonCard));
 }
 
 async function getLessons(params, signal) {
-  const result = await fetch(`/api/lessons${params.size ? "?" + params : ""}`, { signal });
-  if (!result.ok) throw new Error(`Lesson request failed (${result.status})`);
-  return result.json();
+  if (!globalThis.ACADEMY_OFFLINE) {
+    try {
+      const result = await fetch(`/api/lessons${params.size ? "?" + params : ""}`, { signal });
+      if (result.ok) return result.json();
+      if (result.status < 500) throw new Error(`Lesson request failed (${result.status})`);
+    } catch (error) {
+      if (error.name === "AbortError") throw error;
+    }
+  }
+  const snapshot = globalThis.ACADEMY_OFFLINE ?? await (await fetch("/exports/blueprints.json", { signal })).json();
+  const filter = params.get("tier");
+  const rows = filter ? snapshot.filter(row => row.tier === filter) : snapshot;
+  return params.has("q") ? rankedLessons(rows, params.get("q")) : rows;
+}
+
+async function getAllLessons() {
+  allLessons ??= await getLessons(new URLSearchParams());
+  return allLessons;
+}
+
+async function viewLesson(id) {
+  tier.value = "";
+  search.value = "";
+  await loadLessons();
+  const heading = byId(`lesson-${id}`);
+  if (!heading) return;
+  heading.tabIndex = -1;
+  heading.focus();
+  heading.scrollIntoView({ block: "start" });
 }
 
 async function loadLessons() {
@@ -192,7 +219,7 @@ byId("mystery-button").addEventListener("click", async () => {
   const { pair, index } = candidates[Math.floor(Math.random() * candidates.length)];
   recentMystery = index;
   try {
-    allLessons ??= await getLessons(new URLSearchParams());
+    await getAllLessons();
     if (recentMystery !== index) return;
     const rows = pair.ids.map(id => allLessons.find(row => row.id === id));
     if (rows.some(row => !row)) throw new Error("Mystery lesson missing");
@@ -346,9 +373,15 @@ byId("room-leave").addEventListener("click", () => {
 window.setInterval(refreshRoom, 2000);
 document.addEventListener("visibilitychange", refreshRoom);
 mode.checked = false;
-void loadLessons();
+const fieldLink = new URL(location.href).searchParams.get("lesson");
+if (/^TA-\d{3,9}$/i.test(fieldLink ?? "")) {
+  void viewLesson(Number(fieldLink.slice(3)));
+} else {
+  void loadLessons();
+}
+setupField();
 
-void fetch("/api/diagrams").then(response => response.ok ? response.json() : [])
+if (!globalThis.ACADEMY_OFFLINE) void fetch("/api/diagrams").then(response => response.ok ? response.json() : [])
   .then(records => {
     for (const record of records) diagrams.set(record.lesson_id, record.alt_text);
     if (diagrams.size) render();

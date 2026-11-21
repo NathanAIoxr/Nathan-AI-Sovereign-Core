@@ -88,7 +88,7 @@ def propose(db, event_file):
             raise ValueError("Field exceeds validation bounds")
     identity = hashlib.sha256(json.dumps(data, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:28]
     # Stable IDs allow independent proposals without conflicting with historical sequential IDs.
-    row_id = 1_000_000 + int(identity[:12], 16)
+    row_id = 100_000 + int(identity[:12], 16) % 900_000
     row = {"id": row_id, **{field: data[field] for field in COLUMNS[1:]}}
     validate(row)
     root = ROOT / "migrations"
@@ -100,9 +100,19 @@ def propose(db, event_file):
     # SQLite quotes every value, including any apostrophes or newlines in the draft.
     values = [db.execute("SELECT quote(?)", (value,)).fetchone()[0] for value in row.values()]
     sql = f"INSERT INTO blueprint_lessons ({', '.join(COLUMNS)}) VALUES ({', '.join(values)});\n"
+    duplicate = payload.get("possible_duplicate")
+    source_note = ""
+    if isinstance(duplicate, dict) and type(duplicate.get("lessonId")) is int and type(duplicate.get("similarity")) in (int, float):
+        existing = duplicate["lessonId"]
+        similarity = duplicate["similarity"]
+        if 0.94 < similarity <= 1.01 and db.execute("SELECT 1 FROM blueprint_lessons WHERE id=?", (existing,)).fetchone():
+            label = row["item_a_label"] + " / " + row["item_b_label"]
+            quoted = db.execute("SELECT quote(?)", (label,)).fetchone()[0]
+            sql = f"INSERT OR IGNORE INTO blueprint_aliases(label,lesson_id) VALUES ({quoted},{existing});\n"
+            source_note = f"-- Proposed alias (cosine {similarity:.4f}). Confirm mechanism and boundaries before merging.\n"
     db.executescript(sql)
     source_comments = "".join(f"-- Editorial source: {url}\n" for url in sources)
-    path.write_text(f"-- Review factual claims against the sources before accepting this lesson.\n{source_comments}{sql}", encoding="utf-8")
+    path.write_text(f"-- Review factual claims against the sources before accepting this lesson.\n{source_note}{source_comments}{sql}", encoding="utf-8")
     print(identity)
 
 

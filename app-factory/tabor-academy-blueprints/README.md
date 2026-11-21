@@ -97,7 +97,7 @@ DejaVu Sans). Upload it to `reviewed/motor-generator.png` before applying
 `0003_motor_schematic.sql` on a fresh account. The
 published lessons API exposes no drafts or concept-art object keys.
 
-The GitHub workflow requires `auto-sync-d1.yml` on the default branch
+The GitHub workflow requires `closed-loop-sync.yml` and `auto-sync-d1.yml` on the default branch
 and the repository setting that allows Actions to create pull requests.
 It treats dispatch data as untrusted, quotes values with SQLite, and
 opens a draft PR with source URLs for a human to verify. Reviewed
@@ -106,3 +106,44 @@ migrations are the source of truth. Set the repository variable
 `TABOR_ACADEMY_CLOUDFLARE_TOKEN` Actions secret to apply those
 migrations and deploy Pages on main. Optional release attachment requires
 `TABOR_ACADEMY_ATTACH_EXPORTS=true`.
+
+## Field notebook and release loop
+
+- Each Field Card has a stable, six-digit `TA-` code and QR URL. An installed
+  PWA keeps a cached curriculum. The separate single-file reader includes a
+  fixed curriculum snapshot and works from disk. Re-download it after a
+  release to get the latest lessons.
+- IndexedDB stores field submissions and hunt progress on the device.
+  Background Sync flushes submissions where supported. Reopening the app,
+  reconnecting while it is open, or pressing Sync now also flushes them.
+  Delivered submissions use an idempotent UUID. Invalid entries remain in the
+  outbox so the learner can see the failure or discard the entry.
+- `GET /api/review-sighting` lists pending observations with the editor
+  bearer key. `POST /api/review-sighting` accepts `id`, `decision`
+  (`published` or `archived`), and an optional explicit `publishPhoto` flag.
+  An editor can submit a source-backed draft for a two-object observation
+  through `/api/compare`. The public feed shows reviewed sightings only.
+- The mechanism namespace compares core parts, operations, and modification
+  boundaries. A score above 0.94 stages an alias proposal. A reviewed alias
+  points to the original row, and GitHub validates and merges it as SQL.
+- The scheduled audit records schema anomalies for review and prevents them
+  from replacing the last good KV snapshot. The Pages API uses that snapshot
+  if D1 fails. Cloudflare health checks and an optional GitHub issue workflow
+  exercise known public endpoints. Their tests do not generate a new lesson.
+- Only predefined curriculum categories enter the search-gap queue. Learner
+  search strings are not written into the queue. A reviewed source-backed
+  topic list controls what the generation worker drafts.
+
+The standalone runtime also uses a `tabor-academy-curriculum-gaps` queue.
+With `VISION_ENABLED=true`, the Worker can suggest a review note from a
+submitted object photo. Vision suggestions do not publish photos.
+`closed-loop-sync.yml` handles Pages, KV, and the R2 offline archive after a
+reviewed merge. These services update independently and can be retried from
+the same GitHub source. The Wiki job needs an initialized Wiki and
+`TABOR_ACADEMY_WIKI_TOKEN`. The release and canary jobs use
+`TABOR_ACADEMY_ATTACH_EXPORTS` and `TABOR_ACADEMY_CANARY`, respectively.
+
+In GitHub Codespaces, select the Tabor Academy Blueprints configuration.
+The Cloudflare account's standalone Worker limit currently blocks the background
+runtime. The Pages reader, field observation API, D1-backed classrooms and
+downloadable archive run independently of that Worker.

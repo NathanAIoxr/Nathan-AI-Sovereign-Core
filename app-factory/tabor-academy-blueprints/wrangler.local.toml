@@ -3,7 +3,7 @@ main = "worker/index.js"
 compatibility_date = "2026-11-20"
 
 [assets]
-directory = "./public"
+directory = "./.build/pages"
 binding = "ASSETS"
 run_worker_first = ["/api", "/api/*"]
 
@@ -12,3 +12,7 @@ binding = "DB"
 database_name = "tabor-academy-blueprints"
 database_id = "7a426090-8b0b-4f85-8a68-8b5c8e6fc478"
 migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "VAULT"
+bucket_name = "tabor-academy-blueprints-vault"

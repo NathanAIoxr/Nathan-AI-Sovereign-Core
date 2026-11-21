@@ -1,13 +1,6 @@
 name: Sync Tabor Academy blueprints
 on:
-  repository_dispatch:
-    types: [tabor-blueprint-proposal]
-  push:
-    branches: [main]
-    paths:
-      - 'app-factory/tabor-academy-blueprints/**'
-  release:
-    types: [published]
+  workflow_call:
 
 permissions:
   contents: read
@@ -18,7 +11,6 @@ defaults:
 
 jobs:
   proposal:
-    if: github.event_name == 'repository_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -69,36 +61,3 @@ jobs:
             --title "Review Academy blueprint $PROPOSAL_ID" \
             --body 'Machine-drafted lesson. Check the source links in the migration and review the scientific analogy before merging.'
 
-  publish:
-    if: github.event_name == 'push' && vars.TABOR_ACADEMY_AUTO_DEPLOY == 'true'
-    runs-on: ubuntu-latest
-    concurrency:
-      group: tabor-academy-production
-      cancel-in-progress: false
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.TABOR_ACADEMY_CLOUDFLARE_TOKEN }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: npm ci
-      - run: npm run validate
-      - run: npm run db:remote
-      - run: npm run pages:deploy
-
-  export-release:
-    if: github.event_name == 'release' && vars.TABOR_ACADEMY_ATTACH_EXPORTS == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: npm run validate
-      - run: gh release upload -- "$RELEASE_TAG" public/exports/blueprints.csv public/exports/blueprints.json
-        env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-          GH_TOKEN: ${{ github.token }}

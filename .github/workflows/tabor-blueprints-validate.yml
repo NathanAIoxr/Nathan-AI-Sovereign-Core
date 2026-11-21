@@ -5,6 +5,7 @@ on:
       - 'app-factory/tabor-academy-blueprints/**'
       - '.github/workflows/tabor-blueprints-validate.yml'
       - '.github/workflows/auto-sync-d1.yml'
+      - '.github/workflows/closed-loop-sync.yml'
   workflow_dispatch:
 
 permissions:
