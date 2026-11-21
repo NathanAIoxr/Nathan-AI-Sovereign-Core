@@ -11,17 +11,11 @@ from pathlib import Path
 import platform
 import re
 import shutil
-import sqlite3
 import tempfile
 from urllib.error import URLError
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 
-from anchor import canonical, make_receipt
-from reconcile import reconcile
-
-
-ROOT = Path(__file__).resolve().parent
 ENDPOINTS = {
     "federation": "https://tabor-supercomputer-federation.nathantaboract.workers.dev/v1/tasks",
     "node_manifest": "https://tabor-supercomputer-federation.nathantaboract.workers.dev/v1/nodes",
@@ -84,7 +78,7 @@ def read_source(name, url):
         return name, {"url": url, "state": "unavailable", "error_type": type(err).__name__}
 
 
-def capture(filesystem, hostname_expected=None, ledger=None):
+def capture(filesystem, hostname_expected=None, *, include_tabor_cloud=True):
     host = platform.node()
     if hostname_expected and hostname_expected != host:
         raise ValueError(f"Expected server {hostname_expected}, running on {host}")
@@ -93,12 +87,14 @@ def capture(filesystem, hostname_expected=None, ledger=None):
     except (OSError, KeyError):
         os_name = platform.system()
     volume = shutil.disk_usage(filesystem)
-    with ThreadPoolExecutor(max_workers=len(ENDPOINTS)) as pool:
-        sources = dict(pool.map(lambda p: read_source(*p), ENDPOINTS.items()))
-    if all(sources[name]["state"] == "observed" for name in ("federation", "node_manifest")):
+    sources = {}
+    if include_tabor_cloud:
+        with ThreadPoolExecutor(max_workers=len(ENDPOINTS)) as pool:
+            sources = dict(pool.map(lambda p: read_source(*p), ENDPOINTS.items()))
+    if all(sources.get(name, {}).get("state") == "observed" for name in ("federation", "node_manifest")):
         if sources["federation"]["data"]["assigned"] != sources["node_manifest"]["data"]["count"]:
             sources["node_manifest"]["state"] = "count_mismatch"
-    receipt = {
+    return {
         "schema": "nutsy.federation-receipt.v1",
         "observed_at": datetime.now(timezone.utc).isoformat(),
         "host": {"name": host, "os": os_name, "kernel": platform.release(), "machine": platform.machine(),
@@ -110,18 +106,6 @@ def capture(filesystem, hostname_expected=None, ledger=None):
         "anchors": {"build_binary": format(0b1 + 0b1, "b"), "clear_binary": format(0b1 - 0b1, "b")},
         "sources": sources,
     }
-    if ledger is not None:
-        catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
-        recovered = (ROOT / "recovered-sources.json").read_bytes()
-        if json.loads(recovered).get("schema") != "nutsy.recovered-sources.v1":
-            raise ValueError("Unexpected NUTSY recovered source catalog schema")
-        receipt["conductor"] = {
-            "ubuntu_queue": reconcile(ledger, {})["ubuntu"],
-            "arithmetic": make_receipt(catalog),
-            "recovered_source_catalog_sha256": hashlib.sha256(recovered).hexdigest(),
-        }
-    receipt["receipt_sha256"] = hashlib.sha256(canonical(receipt)).hexdigest()
-    return receipt
 
 
 def write_receipt(path, document):
@@ -141,17 +125,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--filesystem", type=Path, default=Path("/"))
     parser.add_argument("--expect-host")
-    parser.add_argument("--ledger", type=Path, help="read the existing Ubuntu Conductor SQLite ledger and WAL")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     try:
-        receipt = capture(args.filesystem, args.expect_host, args.ledger)
+        receipt = capture(args.filesystem, args.expect_host)
         document = json.dumps(receipt, indent=2) + "\n"
         if args.output:
             write_receipt(args.output, document)
         else:
             print(document, end="")
-    except (OSError, ValueError, sqlite3.Error) as err:
+    except (OSError, ValueError) as err:
         parser.exit(1, f"{err}\n")
     return 0 if all(source["state"] == "observed" for source in receipt["sources"].values()) else 2
 
