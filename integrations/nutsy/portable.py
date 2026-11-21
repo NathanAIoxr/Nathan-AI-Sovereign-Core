@@ -5,10 +5,12 @@ from http.server import ThreadingHTTPServer
 import json
 from pathlib import Path
 import platform
+import sqlite3
 
 from cockpit import handler
 from federation import capture, write_receipt
 from processing import profile
+from reconcile import reconcile
 
 
 def main():
@@ -17,6 +19,7 @@ def main():
     parser.add_argument("--filesystem", type=Path, default=Path("/"))
     parser.add_argument("--expect-host", help="require this hostname before collecting or serving")
     parser.add_argument("--port", type=int, default=8787)
+    parser.add_argument("--ledger", type=Path, help="read queue counts from the existing Conductor ledger")
     parser.add_argument("--benchmark", action="store_true", help="run the bounded local compute profile")
     parser.add_argument("--tabor-cloud", action="store_true", help="read the existing public Tabor Cloudflare inventory")
     parser.add_argument("--collect-only", action="store_true", help="write receipts and exit")
@@ -29,6 +32,10 @@ def main():
     try:
         receipt = capture(args.filesystem, args.expect_host, include_tabor_cloud=args.tabor_cloud)
         write_receipt(args.state_dir / "federation.json", json.dumps(receipt, indent=2) + "\n")
+        if args.ledger is not None:
+            queue = {"schema": "nutsy.ubuntu-queue.v1", "host": platform.node(),
+                     "ubuntu": reconcile(args.ledger, {})["ubuntu"]}
+            write_receipt(args.state_dir / "local-queue.json", json.dumps(queue, indent=2) + "\n")
         if args.benchmark:
             result = profile(seed=73, terms=32768, jobs=48)
             write_receipt(args.state_dir / "processing.json", json.dumps(result, indent=2) + "\n")
@@ -42,7 +49,7 @@ def main():
             server.serve_forever()
     except KeyboardInterrupt:
         return 0
-    except (OSError, ValueError) as err:
+    except (OSError, ValueError, sqlite3.Error) as err:
         parser.exit(1, f"{err}\n")
 
 
