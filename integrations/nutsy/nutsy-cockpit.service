@@ -1,0 +1,15 @@
+[Unit]
+Description=NUTSY owner cockpit
+After=network-online.target
+
+[Service]
+Type=exec
+WorkingDirectory=%h/.local/share/nutsy/checkout
+ExecStart=/usr/bin/python3 -B integrations/nutsy/portable.py --expect-host nathan-1 --filesystem /opt/conductor --ledger /opt/conductor/data/ledger.db --tabor-cloud
+Restart=on-failure
+RestartSec=10s
+UMask=0077
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target
