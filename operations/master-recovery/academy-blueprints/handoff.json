@@ -1,0 +1,125 @@
+{
+  "schema": "nathan-ai.academy-blueprints-conductor.v1",
+  "project": "tabor-academy-blueprints",
+  "owner": "Nathan Tabor",
+  "recipient": "Nathan AI Master Conductor",
+  "state": "scheduled",
+  "receiptId": "handoff:tabor-academy-blueprints:c153322d9a47b302115c4bc95b764639649ef83b",
+  "estateIssue": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/524",
+  "scope": "Academy Blueprints Phases 1–7 and the provenance-backed curriculum import backlog. The parent estate queue tracks independent projects.",
+  "source": {
+    "commit": "c153322d9a47b302115c4bc95b764639649ef83b",
+    "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/c153322d9a47b302115c4bc95b764639649ef83b/app-factory/tabor-academy-blueprints",
+    "authorSpecification": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/c153322d9a47b302115c4bc95b764639649ef83b/app-factory/tabor-academy-blueprints/spec/MASTER-HANDOFF-PHASES-1-7.txt",
+    "phasePullRequest": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/527",
+    "fieldPullRequest": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/525",
+    "fieldCommit": "01ab87af28eb7a9113662e5e94b834ca822f04ea"
+  },
+  "production": {
+    "url": "https://tabor-academy-blueprints.pages.dev",
+    "cloudflareDeployment": "d4c119ad-6ec8-478f-a302-1b55b5fc69e7",
+    "d1": "tabor-academy-blueprints",
+    "verifiedBlueprintLessons": 30,
+    "orderedCurriculumEntries": 597,
+    "integrity": "https://tabor-academy-blueprints.pages.dev/api/integrity",
+    "offline": "https://tabor-academy-blueprints.pages.dev/tabor-academy-offline.html"
+  },
+  "curriculumImport": {
+    "database": "tabor_academy_db",
+    "registeredSources": 26,
+    "existingImportJobs": 28,
+    "collectionJobs": 9,
+    "lessonPlanRecords": 23,
+    "moduleRecords": 21,
+    "libraryRecords": 37,
+    "countsAreDistinctDatasetCounts": true
+  },
+  "scheduling": {
+    "cloudflare": {
+      "service": "tabor-build-loop",
+      "console": "https://tabor-build-loop.nathantaboract.workers.dev/console/",
+      "cron": "*/5 * * * *",
+      "planId": "4fbb61bf-1d33-45c1-87a5-92b14cd18589",
+      "planHash": "1263c562348ff65cb6df2331b8385ce66bb45a0ccdcbcf1311fd9abbd2b9f389",
+      "jobs": [
+        {
+          "id": "77ee3187-3bcf-4acf-a920-e0c781dd1828",
+          "key": "handoff-probe"
+        },
+        {
+          "id": "9869ef6b-2c3a-42ba-89e0-e089967f3a1b",
+          "key": "release-reconciliation"
+        },
+        {
+          "id": "8a8b3779-64cf-42e9-a7cf-1241c0b83019",
+          "key": "field-sync-fixtures"
+        },
+        {
+          "id": "8f331720-7d2d-43ef-bc02-a4c94f35ebc8",
+          "key": "curriculum-import-fixtures"
+        },
+        {
+          "id": "aa0da52a-58fc-4ba0-a182-72116b2f8fac",
+          "key": "release-publish-fixtures"
+        },
+        {
+          "id": "f5b2da8a-9c16-460a-9fb0-467df6e887fb",
+          "key": "lesson-quality-fixtures"
+        }
+      ]
+    },
+    "releaseQueue": {
+      "database": "tabor-autonomous-builds",
+      "table": "release_fleet_jobs_v1",
+      "project": "tabor-academy-blueprints",
+      "target": "website"
+    },
+    "hourly": [
+      {
+        "name": "Nathan Fleet + Global Atlas Builder",
+        "minute": 25,
+        "work": "Estate inventory, release and Cloudflare receipts."
+      },
+      {
+        "name": "Nathan Tabor Independent App Builds",
+        "minute": 46,
+        "work": "Academy branch reconciliation, tests and PR updates."
+      }
+    ],
+    "timeZone": "America/New_York"
+  },
+  "work": [
+    {
+      "id": "reconcile-integrity",
+      "requires": [],
+      "acceptance": "Reconcile PRs 525 and 527 against the verified live 19-column projection and a single row-hash protocol. Run D1 migration and release tests before applying a production schema change."
+    },
+    {
+      "id": "field-roundtrip",
+      "requires": [
+        "reconcile-integrity"
+      ],
+      "acceptance": "Prove same-ID retries, stale write handling, classroom and private sighting review through existing owner authorization, with durable receipts."
+    },
+    {
+      "id": "publish-roundtrip",
+      "requires": [
+        "reconcile-integrity"
+      ],
+      "acceptance": "Exercise reviewed GitHub to D1 publication and restore, KV/R2/offline digest parity, and existing Workers AI, Queue and repository integration paths. Record provider access or capacity failures by feature."
+    },
+    {
+      "id": "curriculum-import",
+      "requires": [],
+      "acceptance": "Enumerate owned curriculum sources and open imports, preserve provenance and prerequisites, and publish batches with counts by domain and approval status. Keep missing sources as explicit gaps."
+    },
+    {
+      "id": "product-coverage",
+      "requires": [
+        "field-roundtrip",
+        "publish-roundtrip"
+      ],
+      "acceptance": "Verify the exact authored Phase 1–7 requirements against GitHub files, workflow runs, and actual Cloudflare routes or bindings. Report open feature gaps until tested."
+    }
+  ]
+}

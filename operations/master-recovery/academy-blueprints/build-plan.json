@@ -1,0 +1,59 @@
+{
+  "idempotency_key": "tabor-academy-blueprints-phase7-conductor-v1",
+  "title": "Tabor Academy Blueprints · Phases 1–7 · Master Conductor",
+  "tasks": [
+    {
+      "key": "handoff-probe",
+      "prompt": "Tabor Academy Phase 1–7 handoff. Production release d4c119ad-6ec8-478f-a302-1b55b5fc69e7, source c153322d9a47b302115c4bc95b764639649ef83b. Record scheduler claim and immutable receipt.",
+      "kind": "probe",
+      "publish": false,
+      "depends_on": []
+    },
+    {
+      "key": "release-reconciliation",
+      "prompt": "Draft a dependency-free ES module that accepts supplied receipt objects and produces a status report for GitHub branch, CI, Cloudflare release, D1, KV, R2 and offline bundle. Separate author-pinned comparison inputs, draft candidates and released lessons. Different GitHub and Cloudflare commits block status unless both are explicitly pinned in the manifest. Include examples for 597 catalog entries, 30 published rows and 28 import jobs, and for a mismatch or absent receipt. Pure offline functions only.",
+      "kind": "module",
+      "publish": false,
+      "depends_on": [
+        "handoff-probe"
+      ]
+    },
+    {
+      "key": "field-sync-fixtures",
+      "prompt": "Draft dependency-free test fixture data and a pure checking function for an educational field note outbox. Include offline enqueue, duplicate retries, partial failure, same ID with different body, stale version, successful resync, rejection and absence of raw user photos in exports. Use fabricated object names and records, no network, storage I/O or credentials. Draft for integration review.",
+      "kind": "module",
+      "publish": false,
+      "depends_on": [
+        "handoff-probe"
+      ]
+    },
+    {
+      "key": "curriculum-import-fixtures",
+      "prompt": "Draft a pure offline ES module that takes two arrays of owner-authorized learning records and outputs deterministic imported candidate groups keyed by source namespace and source record ID, with source provenance, grade band, domain and prerequisites. Include cases covering game records, outline candidates, published lessons, duplicate citations, malformed inputs and cycles. Preserve original ordering as data, never mark AI output verified. Do not fetch external sources.",
+      "kind": "module",
+      "publish": false,
+      "depends_on": [
+        "handoff-probe"
+      ]
+    },
+    {
+      "key": "release-publish-fixtures",
+      "prompt": "Draft pure, dependency-free acceptance fixtures describing the publication transaction for an education site. Cover expected row hash, compare-and-set acceptance, an idempotent retry, quarantine, stale cache pointer, mismatched snapshot SHA, and matching release receipt. Include cases for reviewed GitHub PR, online D1 row and rollback to last good snapshot. Use illustrative local fixtures only.",
+      "kind": "module",
+      "publish": false,
+      "depends_on": [
+        "release-reconciliation",
+        "field-sync-fixtures"
+      ]
+    },
+    {
+      "key": "lesson-quality-fixtures",
+      "prompt": "Draft pure ES module fixture data for lesson validators: 15 required columns, 8 teaching layers, provenance, kid-appropriate demonstrations using everyday objects, 3x5 field cards, age-level grouping, and distinctions among source record, candidate and reviewed lesson. Cover zipper and feather hook-and-loop mechanical analogy, pump and turbine flow, and a scale observation. Include duplicate and malformed cases. Offline fixtures only.",
+      "kind": "module",
+      "publish": false,
+      "depends_on": [
+        "curriculum-import-fixtures"
+      ]
+    }
+  ]
+}

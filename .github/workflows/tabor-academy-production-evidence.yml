@@ -1,0 +1,29 @@
+name: Tabor Academy production evidence
+on:
+  pull_request:
+    paths:
+      - 'operations/master-recovery/academy-blueprints/**'
+      - '.github/workflows/tabor-academy-production-evidence.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+permissions:
+  contents: read
+jobs:
+  live-parity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify public Academy release surfaces
+        run: |
+          set -o pipefail
+          node operations/master-recovery/academy-blueprints/verify-release.mjs | tee "$RUNNER_TEMP/tabor-academy-production.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tabor-academy-production
+          path: ${{ runner.temp }}/tabor-academy-production.json
+          if-no-files-found: error

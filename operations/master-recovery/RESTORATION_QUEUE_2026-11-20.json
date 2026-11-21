@@ -49,11 +49,21 @@
     {
       "id": "tabor-academy",
       "priority": 4,
-      "status": "requires_inventory",
-      "github_source": null,
-      "cloudflare_deployment": null,
-      "conductor": "unassigned",
-      "evidence": []
+      "status": "partially_verified",
+      "github_source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/c153322d9a47b302115c4bc95b764639649ef83b/app-factory/tabor-academy-blueprints",
+      "cloudflare_deployment": {
+        "project": "tabor-academy-blueprints",
+        "id": "d4c119ad-6ec8-478f-a302-1b55b5fc69e7",
+        "url": "https://tabor-academy-blueprints.pages.dev",
+        "state": "production"
+      },
+      "conductor": "Nathan AI Master Conductor",
+      "evidence": [
+        "operations/master-recovery/academy-blueprints/handoff.json",
+        "https://tabor-academy-blueprints.pages.dev/api/integrity",
+        "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/527",
+        "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/525"
+      ]
     },
     {
       "id": "modern-day-bible",
@@ -289,5 +299,54 @@
       "conductor": "unassigned",
       "evidence": []
     }
-  ]
+  ],
+  "account_inventory": {
+    "checkedAt": "2026-11-21T01:53:48Z",
+    "scope": "Cloudflare API resources visible to the connected owner account.",
+    "counts": {
+      "standaloneWorkers": {
+        "count": 500,
+        "pagination": null
+      },
+      "pages": {
+        "count": 23,
+        "pages": 3
+      },
+      "d1": {
+        "count": 141,
+        "pages": 2
+      },
+      "kv": {
+        "count": 67,
+        "pages": 1
+      },
+      "r2": {
+        "count": 84,
+        "truncated": false,
+        "pagination": {
+          "total_count": 84
+        }
+      },
+      "zones": {
+        "count": 0,
+        "pages": 1
+      },
+      "queues": {
+        "count": 67,
+        "pages": 3
+      },
+      "vectorize": {
+        "count": 4
+      },
+      "dispatchNamespaces": {
+        "count": 268,
+        "listedScripts": 1456
+      }
+    },
+    "limitations": [
+      "Configured/observed counts are inventory, with no claim that each application is healthy.",
+      "Cloudflare zone list returned zero for the account filter. DNS routes and Durable Object instances still require reconciliation.",
+      "Dispatch namespace script count is the sum of namespace metadata. Per-script checks remain open."
+    ]
+  }
 }
