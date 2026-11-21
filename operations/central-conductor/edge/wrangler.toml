@@ -1,0 +1,9 @@
+name = "nathan-conductor-edge"
+main = "worker.js"
+compatibility_date = "2026-11-20"
+# Bind existing SYSTEM_KV namespace before deployment; do not create a new Worker while at account limit.
+# [[kv_namespaces]]
+# binding = "SYSTEM_KV"
+# id = "EXISTING_NAMESPACE_ID"
+# [triggers]
+# crons = ["*/5 * * * *"]
