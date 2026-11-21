@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '24'
           package-manager-cache: false
-      - run: node --test deployments/conductor/release-gate/release-gate.test.mjs deployments/conductor/sovereign-minds/sovereign-minds.test.mjs
+      - run: node --test deployments/conductor/release-gate/*.test.mjs deployments/conductor/sovereign-minds/sovereign-minds.test.mjs
       - if: github.event_name == 'workflow_dispatch'
         env:
           EXPECTED_RELEASE: ${{ inputs.release }}

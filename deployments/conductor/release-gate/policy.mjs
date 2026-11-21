@@ -52,6 +52,10 @@ async function sha256(value) {
     byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
+export function candidateDigest(candidate, bytes) {
+  return sha256(candidateEnvelope(candidate, bytes));
+}
+
 async function key(secret) {
   return crypto.subtle.importKey('raw', encode.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign', 'verify']);
 }
@@ -74,7 +78,7 @@ export function discard(reason, digest = null) {
 export async function attest(candidate, review, secret, now = Date.now()) {
   const bytes = candidateBytes(candidate);
   if (!bytes) return discard('invalid_candidate');
-  const digest = await sha256(candidateEnvelope(candidate, bytes));
+  const digest = await candidateDigest(candidate, bytes);
   const failure = reviewFailure(candidate.kind, review);
   if (failure) return discard(failure, digest);
   const expiresAt = now + ttl;
@@ -86,7 +90,7 @@ export async function attest(candidate, review, secret, now = Date.now()) {
 export async function evaluate(candidate, permit, secret, now = Date.now()) {
   const bytes = candidateBytes(candidate);
   if (!bytes) return discard('invalid_candidate');
-  const digest = await sha256(candidateEnvelope(candidate, bytes));
+  const digest = await candidateDigest(candidate, bytes);
   if (typeof permit !== 'string' || permit.length > 1_400 || !/^[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]{43}$/.test(permit)) {
     return discard('missing_or_invalid_permit', digest);
   }

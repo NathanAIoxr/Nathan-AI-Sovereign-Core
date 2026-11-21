@@ -31,6 +31,21 @@ Routes are relative to `/tabor-sites/conductor`.
 node deployments/conductor/release-gate/release-local.mjs result.bin intended-destination < staged-request.json
 ```
 
-A signed permit records the authenticated review and binds its receipt to bytes. Reviewers supply the judgment that a thing protects innocence or is honest. Callers implement delivery with their own authorized sinks. Connect each producer at its release boundary for enforcement. Run the tests with `node --test deployments/conductor/release-gate/release-gate.test.mjs`.
+A signed permit records the authenticated review and binds its receipt to bytes. Reviewers supply the judgment that a thing protects innocence or is honest. Callers implement delivery with their own authorized sinks. Connect each producer at its release boundary for enforcement.
+
+## 12-Line protection for local releases
+
+The local adapter applies Nathan Tabor's 12-Line structure to the decision to write approved data. It uses the existing Lasso review and permit. A failed line blocks the write. Each check appears in order in the JSON receipt, with its result recorded as pass, block, or skipped.
+
+| Lines | Checks |
+| --- | --- |
+| 1–4 | Bound the request, validate the envelope, reconstruct canonical bytes, and match the intended destination. |
+| 5–6 | Allow a single `.txt`, `.json`, or `.bin` extension. Check text/JSON or screen binary input for common executable and archive signatures. |
+| 7–10 | Require a successful decision from the HTTPS gate, check receipt scope and digest, and require an unexpired permit immediately before creating the file. |
+| 11–12 | Stage mode-`0600` bytes in the trusted owner's POSIX directory and atomically create a new file. A competing writer or an existing path wins over the staged file. |
+
+Use a destination directory owned by the release operator, without group or other write access. The operator selects the local path and passes the intended logical destination. Treat released binary files as data. These checks cover this file-write path. Device-wide malware detection and other application writes require their own protection.
+
+Run `node --test deployments/conductor/release-gate/*.test.mjs deployments/conductor/sovereign-minds/sovereign-minds.test.mjs`.
 
 Set `LASSO_GATE_SIGNING_KEY` via the Conductor's encrypted Worker secrets. A content-only Cloudflare deploy sets the gate build ID for the readiness check. Deployment through Wrangler can set `LASSO_GATE_RELEASE` as a plain variable. Keep the signing key in Cloudflare, and keep permits out of logs and public files.
