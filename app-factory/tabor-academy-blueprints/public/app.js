@@ -70,7 +70,7 @@ function lessonCard(lesson) {
   const answers = element("dl", null, "answers");
   answers.id = `answers-${lesson.id}`;
   answers.hidden = !visible;
-  for (const [key, label] of answerColumns) {
+  for (const [key, label] of visible ? answerColumns : []) {
     const pair = element("div", null, "answer");
     pair.append(element("dt", label), element("dd", lesson[key]));
     answers.append(pair);

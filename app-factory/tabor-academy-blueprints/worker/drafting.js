@@ -1,3 +1,4 @@
+import { checkDraft } from "./gatekeeper.js";
 import { domains, embeddingModel, embedText, tiers } from "./index.js";
 
 const fields = [
@@ -149,7 +150,9 @@ async function processTopic(env, topic) {
   let record = await select();
   if (!record) {
     if (await env.DB.prepare("SELECT 1 FROM blueprint_alias_candidates WHERE draft_id=?").bind(draftId).first()) return;
-    const blueprint = await newBlueprint(env, topic);
+    const generated = await newBlueprint(env, topic);
+    checkDraft(generated);
+    const blueprint = generated;
     if (env.VECTORIZE) {
       const { data } = await env.AI.run(embeddingModel, { text: [embedText(blueprint)] });
       const { matches } = await env.VECTORIZE.query(data[0], { topK: 3 });
