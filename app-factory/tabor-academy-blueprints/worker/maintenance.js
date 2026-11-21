@@ -1,5 +1,6 @@
 import { DurableObject } from "cloudflare:workers";
 import { embedText, embeddingModel } from "./index.js";
+import { queueScheduled } from "./drafting.js";
 
 const quarter = 15 * 60 * 1000;
 const snapshotKey = "blueprint-verified-snapshot-v1";
@@ -74,5 +75,9 @@ export class BlueprintMaintenance extends DurableObject {
     const now = Date.now();
     await this.ctx.storage.setAlarm(Math.floor(now/quarter)*quarter+quarter);
     await check(this.env);
+    const today = new Date(now).toISOString().slice(0,10);
+    if (new Date(now).getUTCHours() !== 3 || await this.ctx.storage.get("last-nightly") === today) return;
+    await queueScheduled(this.env);
+    await this.ctx.storage.put("last-nightly", today);
   }
 }

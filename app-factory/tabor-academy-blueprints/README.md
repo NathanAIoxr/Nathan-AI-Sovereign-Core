@@ -131,6 +131,9 @@ checks the four bindings every quarter hour and refreshes the last-good KV/R2
 snapshot. `/api/healthz` reports the latest receipt. The maintenance alarm
 does not require a new standard Worker slot.
 
-Queue consumer and GitHub proposal settings are optional deployment steps until
-a standard Worker slot and the Academy GitHub App credentials are available.
+At 03:00 UTC the same alarm stages drafts from the source-backed topic list.
+It runs the draft processor internally when the Queue consumer isn't installed.
+A Vectorize match above 0.94 stages an alias candidate for review. A standard
+Worker slot is needed for the named Queue consumer. GitHub dispatch requires
+the Academy GitHub App credentials and the workflow on the default branch.
 The single-file offline workbook is generated from the reviewed source export.

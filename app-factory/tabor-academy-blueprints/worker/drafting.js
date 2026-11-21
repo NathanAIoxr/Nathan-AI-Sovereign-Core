@@ -1,4 +1,4 @@
-import { domains, tiers } from "./index.js";
+import { domains, embeddingModel, embedText, tiers } from "./index.js";
 
 const fields = [
   "tier", "domain", "item_a_label", "item_b_label", "item_c_label", "clue_prompt",
@@ -148,7 +148,22 @@ async function processTopic(env, topic) {
   const select = () => env.DB.prepare("SELECT payload, dispatched_at FROM blueprint_drafts WHERE draft_id=?").bind(draftId).first();
   let record = await select();
   if (!record) {
+    if (await env.DB.prepare("SELECT 1 FROM blueprint_alias_candidates WHERE draft_id=?").bind(draftId).first()) return;
     const blueprint = await newBlueprint(env, topic);
+    if (env.VECTORIZE) {
+      const { data } = await env.AI.run(embeddingModel, { text: [embedText(blueprint)] });
+      const { matches } = await env.VECTORIZE.query(data[0], { topK: 3 });
+      for (const match of matches) {
+        const candidate = Number(match.id.replace(/^blueprint-/, ""));
+        if (match.score > 0.94 && Number.isSafeInteger(candidate) &&
+            await env.DB.prepare("SELECT id FROM blueprint_lessons WHERE id=?").bind(candidate).first()) {
+          await env.DB.prepare(`INSERT OR IGNORE INTO blueprint_alias_candidates
+            (draft_id,candidate_label,matched_lesson,similarity) VALUES (?,?,?,?)`)
+            .bind(draftId, topic.a + " ↔ " + topic.b, candidate, match.score).run();
+          return;
+        }
+      }
+    }
     let illustration;
     try { illustration = await draftIllustration(env, topic, draftId); }
     catch (error) { console.warn("Draft illustration unavailable", String(error)); }
@@ -185,7 +200,8 @@ export async function queueScheduled(env) {
   for (const topic of queueTopics) {
     const draftId = (await digest(JSON.stringify(topic))).slice(0, 32);
     if (!await env.DB.prepare("SELECT 1 FROM blueprint_drafts WHERE draft_id=?").bind(draftId).first()) {
-      await env.BLUEPRINT_QUEUE.send(topic);
+      if (env.BLUEPRINT_QUEUE) await env.BLUEPRINT_QUEUE.send(topic);
+      else await processTopic(env, topic);
     }
   }
   const { results } = await env.DB.prepare("SELECT draft_id,payload FROM blueprint_drafts WHERE dispatched_at IS NULL ORDER BY created_at LIMIT 5").all();
