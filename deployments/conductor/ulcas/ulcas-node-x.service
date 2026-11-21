@@ -1,0 +1,20 @@
+[Unit]
+Description=ULCAS Node X
+After=network.target
+
+[Service]
+User=ulcas-node-x
+Group=ulcas-node-x
+StateDirectory=ulcas-node-x
+StateDirectoryMode=0700
+UMask=0077
+EnvironmentFile=/etc/ulcas-node-x/node.env
+ExecStart=/usr/bin/python3 /opt/ulcas-x/node_x.py
+Restart=on-failure
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
