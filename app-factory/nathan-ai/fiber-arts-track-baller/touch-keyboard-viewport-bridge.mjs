@@ -1,7 +1,7 @@
 /** Opt-in one-way synchronization of simulated touch viewport frames into keyboard navigation.
  * Does not modify the pinch controller or claim calibrated yarn physics.
  */
-export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false, snapshotPublishedFrame = false, rejectInvalidFrame = false } = {}) {
+export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false, snapshotPublishedFrame = false, rejectInvalidFrame = false, zoomBounds = null } = {}) {
   if (!keyboardController || typeof keyboardController.syncFrame !== 'function' || typeof keyboardController.getFrame !== 'function')
     throw new TypeError('keyboard controller with syncFrame/getFrame required');
   if (typeof onViewportFrame !== 'function') throw new TypeError('viewport callback required');
@@ -11,6 +11,11 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   if (typeof rejectInvalidZoom !== 'boolean') throw new TypeError('rejectInvalidZoom must be boolean');
   if (typeof snapshotPublishedFrame !== 'boolean') throw new TypeError('snapshotPublishedFrame must be boolean');
   if (typeof rejectInvalidFrame !== 'boolean') throw new TypeError('rejectInvalidFrame must be boolean');
+  if (zoomBounds !== null && (!Array.isArray(zoomBounds) || zoomBounds.length !== 2 ||
+      !zoomBounds.every(v => typeof v === 'number' && Number.isFinite(v) && v > 0) ||
+      zoomBounds[0] > zoomBounds[1])) throw new TypeError('zoomBounds must be [positive minimum, positive maximum]');
+  // Copy caller configuration so subsequent mutations cannot change validation behavior.
+  const bounds = zoomBounds === null ? null : zoomBounds.slice();
   let active = true;
   let acceptedFrames = 0;
   let rejectedFrames = 0;
@@ -51,6 +56,12 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
       if (rejectInvalidQuaternion && (!frame || !Array.isArray(frame.orientation) ||
           frame.orientation.length !== 4 || !frame.orientation.every(v => typeof v === 'number' && Number.isFinite(v)) ||
           Math.abs(frame.orientation.reduce((sum, v) => sum + v * v, 0) - 1) > 1e-6)) {
+        rejectedFrames++;
+        return false;
+      }
+      // Optional simulated zoom safety envelope; does not imply measured yarn tension.
+      if (bounds && (!frame || typeof frame.zoom !== 'number' || !Number.isFinite(frame.zoom) ||
+          frame.zoom < bounds[0] || frame.zoom > bounds[1])) {
         rejectedFrames++;
         return false;
       }
