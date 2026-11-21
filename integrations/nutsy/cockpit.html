@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>NUTSY · Owner Cockpit</title>
+<style>
+:root{font-family:Inter,system-ui,sans-serif;color:#edf4f3;background:#0e181b;color-scheme:dark;--surface:#142328;--line:#324349;--muted:#a9bdbe;--accent:#a8e8c8}
+*{box-sizing:border-box}
+body{margin:0}
+main{max-width:1072px;margin:auto;padding:clamp(1rem,4vw,3rem)}
+header{padding:1.55rem 0 2rem;border-bottom:1px solid var(--line)}
+.kicker{margin:0;color:var(--accent);font-size:.78rem;font-weight:650;letter-spacing:.12em;text-transform:uppercase}
+h1{margin:.25rem 0 .3rem;font-size:clamp(2.4rem,7vw,5rem);line-height:1;letter-spacing:-.06em}
+h2{font-size:1.05rem;margin:.05rem 0 1rem}
+.lead{color:var(--muted);margin:0}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:1.15rem 0}
+.toolbar p{margin:0;color:var(--muted);font-size:.9rem}
+.controls{display:flex;gap:.55rem;flex-wrap:wrap}
+button,a.action{display:inline-block;padding:.55rem .8rem;border:1px solid var(--line);border-radius:.45rem;background:var(--surface);color:var(--accent);font:inherit;font-size:.9rem;text-decoration:none;cursor:pointer}
+button:disabled{opacity:.65;cursor:wait}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+.card{background:var(--surface);border:1px solid var(--line);padding:1.15rem;border-radius:.65rem;min-width:0}
+dl{margin:0}
+dl div{display:flex;gap:1rem;justify-content:space-between;padding:.55rem 0;border-top:1px solid var(--line);align-items:baseline}
+dt{color:var(--muted);font-size:.9rem}
+dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+small{color:var(--muted);display:block;margin-top:.75rem;line-height:1.45}
+a{color:var(--accent)}
+footer{margin-top:1.25rem;color:var(--muted);font-size:.9rem}
+@media(max-width:650px){.grid{grid-template-columns:1fr}header{padding-top:.7rem}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="kicker">Owner cockpit</p>
+<h1>NUTSY</h1>
+<p class="lead">The Resolute Raccoon · Linux and Cloudflare operations</p>
+</header>
+<div class="toolbar">
+<p id="status" role="status">Preview · No host receipts loaded.</p>
+<div class="controls"><button id="refresh" type="button">Refresh receipts</button><a class="action" href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/541">GitHub source</a></div>
+</div>
+<div class="grid">
+<section class="card" aria-labelledby="host-title">
+<h2 id="host-title">Linux host</h2>
+<dl><div><dt>Host</dt><dd id="host">—</dd></div><div><dt>Operating system</dt><dd id="os">—</dd></div><div><dt>Logical CPUs</dt><dd id="cpu">—</dd></div><div><dt>Memory</dt><dd id="ram">—</dd></div><div><dt>Disk free / total</dt><dd id="disk">—</dd></div><div><dt>Federation receipt</dt><dd id="fed">—</dd></div><div><dt>Receipt observed</dt><dd id="obs">—</dd></div><div><dt>Queue receipt</dt><dd id="queue">—</dd></div></dl>
+</section>
+<section class="card" aria-labelledby="cloud-title">
+<h2 id="cloud-title">Cloudflare federation</h2>
+<dl><div><dt>Logical tasks verified</dt><dd id="verified">—</dd></div><div><dt>Logical node IDs</dt><dd id="nodes">—</dd></div><div><dt>Super 2X / Hypercomputer reserved</dt><dd id="reserved">—</dd></div><div><dt>Enrolled hosts / heartbeats</dt><dd id="hardware">—</dd></div><div><dt>DMSP + DIT departments</dt><dd id="departments">—</dd></div></dl>
+<small>Logical assignments, reservations and enrolled hardware are measured separately.</small>
+</section>
+<section class="card" aria-labelledby="cpu-title">
+<h2 id="cpu-title">Processing profile</h2>
+<dl><div><dt>Profile receipt</dt><dd id="profile">—</dd></div><div><dt>CPU affinity</dt><dd id="affinity">—</dd></div><div><dt>Measured worker choice</dt><dd id="workers">—</dd></div><div><dt>Reference terms per second</dt><dd id="throughput">—</dd></div><div><dt>Replay checksum</dt><dd id="checksum">—</dd></div></dl>
+</section>
+<section class="card" aria-labelledby="queue-title">
+<h2 id="queue-title">Conductor queue</h2>
+<dl id="tasks"><div><dt>Ubuntu counts</dt><dd>—</dd></div></dl>
+<dl><div><dt>Cloudflare queued / blocked</dt><dd id="cloudqueue">—</dd></div></dl>
+<small>Ubuntu and Cloudflare have separate queues. Counts come from the reconciliation receipt.</small>
+</section>
+</div>
+<footer>BUILD 1+1=10₂ · CLEAR 1−1=0₂</footer>
+</main>
+<script>
+const el = id => document.getElementById(id);
+const text = (id, value) => { el(id).textContent = value ?? "—"; };
+const fmt = value => Number.isSafeInteger(value) ? new Intl.NumberFormat().format(value) : "—";
+const pair = (a,b) => a == null && b == null ? "—" : fmt(a) + " / " + fmt(b);
+const gib = value => Number.isSafeInteger(value) ? (value / 1073741824).toFixed(1) + " GiB" : "—";
+
+function render(data) {
+  const cloud = data.cloud;
+  const profile = data.profile;
+  const rocket = cloud.rocket.metrics;
+  text("host", data.host);
+  text("os", data.resources.os);
+  text("cpu", fmt(data.resources.logical_cpu_count));
+  text("ram", gib(data.resources.memory_bytes));
+  text("disk", gib(data.resources.disk_free_bytes) + " / " + gib(data.resources.disk_total_bytes));
+  text("fed", data.federation_receipt);
+  text("obs", data.federation_observed_at);
+  text("queue", data.queue_receipt);
+  text("verified", pair(cloud.federation.metrics.verified, cloud.federation.metrics.assigned));
+  text("nodes", fmt(cloud.node_manifest.metrics.count));
+  text("reserved", pair(rocket.super2x_reserved, rocket.hypercomputer_reserved));
+  text("hardware", pair(rocket.enrolled_hardware, rocket.hardware_heartbeats));
+  text("departments", fmt(cloud.dmsp_dit.metrics.departments));
+  text("profile", data.profile_receipt);
+  text("affinity", fmt(profile.cpu_affinity_count));
+  text("workers", fmt(profile.selected_workers));
+  text("throughput", fmt(profile.measured_terms_per_second));
+  text("checksum", profile.source_compatible_checksum);
+  text("cloudqueue", pair(data.cloudflare_queue.queued, data.cloudflare_queue.blocked));
+  const list = el("tasks");
+  list.replaceChildren();
+  for (const row of data.ubuntu_queue.length ? data.ubuntu_queue : [{task:"Ubuntu counts", state:"", count:null}]) {
+    const box = document.createElement("div");
+    const label = document.createElement("dt");
+    const result = document.createElement("dd");
+    label.textContent = row.state ? row.task + " · " + row.state : row.task;
+    result.textContent = fmt(row.count);
+    box.append(label, result);
+    list.append(box);
+  }
+}
+
+async function refresh() {
+  const button = el("refresh");
+  if (location.protocol === "file:") {
+    text("status", "Offline preview · Start the owner cockpit on Linux to see receipts.");
+    button.disabled = true;
+    return;
+  }
+  button.disabled = true;
+  text("status", "Checking local receipts…");
+  try {
+    const response = await fetch("/api/status", {cache:"no-store", signal:AbortSignal.timeout(4000)});
+    if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) throw Error("Unavailable");
+    const status = await response.json();
+    render(status);
+    text("status", "Local receipts read " + new Date(status.generated_at).toLocaleTimeString());
+  } catch {
+    text("status", "Local receipt service unavailable. Any displayed values are from the last successful read.");
+  } finally {
+    button.disabled = false;
+  }
+}
+el("refresh").addEventListener("click", refresh);
+refresh();
+</script>
+</body>
+</html>
