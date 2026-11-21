@@ -62,7 +62,7 @@ max_batch_timeout = 20
 max_retries = 3
 
 [triggers]
-crons = ["0 3 * * *", "0 4 * * *", "*/15 * * * *"]
+crons = ["0 3 * * *", "*/15 * * * *"]
 
 [[analytics_engine_datasets]]
 binding = "ANALYTICS"
@@ -71,7 +71,6 @@ dataset = "tabor_academy_blueprints"
 [vars]
 GH_REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core"
 DRAFT_IMAGES = "false"
-VISION_ENABLED = "false"
 
 # Deploy the matching wrangler.<name>.toml first, then enable the service binding.
 # [[services]]

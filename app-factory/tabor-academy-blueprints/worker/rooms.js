@@ -28,8 +28,9 @@ export async function classroom(request, env) {
   if (env.CLASSROOM) {
     const key = creation ? crypto.randomUUID().replace(/-/g, "") : code;
     const result = await env.CLASSROOM.getByName(await roomKey(key)).fetch(request);
-    if (!creation || !result.ok) return result;
-    return json({ ...(await result.json()), code: key }, 201);
+    if (result.ok) return creation ? json({ ...(await result.json()), code: key }, 201) : result;
+    // Pre-existing D1 room codes remain readable until their original expiration.
+    if (creation || ![404,409].includes(result.status)) return result;
   }
 
   if (creation) {

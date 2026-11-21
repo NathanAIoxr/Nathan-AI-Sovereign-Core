@@ -97,7 +97,7 @@ DejaVu Sans). Upload it to `reviewed/motor-generator.png` before applying
 `0003_motor_schematic.sql` on a fresh account. The
 published lessons API exposes no drafts or concept-art object keys.
 
-The GitHub workflow requires `closed-loop-sync.yml` and `auto-sync-d1.yml` on the default branch
+The GitHub workflow requires `auto-sync-d1.yml` on the default branch
 and the repository setting that allows Actions to create pull requests.
 It treats dispatch data as untrusted, quotes values with SQLite, and
 opens a draft PR with source URLs for a human to verify. Reviewed
@@ -107,43 +107,57 @@ migrations are the source of truth. Set the repository variable
 migrations and deploy Pages on main. Optional release attachment requires
 `TABOR_ACADEMY_ATTACH_EXPORTS=true`.
 
-## Field notebook and release loop
 
-- Each Field Card has a stable, six-digit `TA-` code and QR URL. An installed
-  PWA keeps a cached curriculum. The separate single-file reader includes a
-  fixed curriculum snapshot and works from disk. Re-download it after a
-  release to get the latest lessons.
-- IndexedDB stores field submissions and hunt progress on the device.
-  Background Sync flushes submissions where supported. Reopening the app,
-  reconnecting while it is open, or pressing Sync now also flushes them.
-  Delivered submissions use an idempotent UUID. Invalid entries remain in the
-  outbox so the learner can see the failure or discard the entry.
-- `GET /api/review-sighting` lists pending observations with the editor
-  bearer key. `POST /api/review-sighting` accepts `id`, `decision`
-  (`published` or `archived`), and an optional explicit `publishPhoto` flag.
-  An editor can submit a source-backed draft for a two-object observation
-  through `/api/compare`. The public feed shows reviewed sightings only.
-- The mechanism namespace compares core parts, operations, and modification
-  boundaries. A score above 0.94 stages an alias proposal. A reviewed alias
-  points to the original row, and GitHub validates and merges it as SQL.
-- The scheduled audit records schema anomalies for review and prevents them
-  from replacing the last good KV snapshot. The Pages API uses that snapshot
-  if D1 fails. Cloudflare health checks and an optional GitHub issue workflow
-  exercise known public endpoints. Their tests do not generate a new lesson.
-- Only predefined curriculum categories enter the search-gap queue. Learner
-  search strings are not written into the queue. A reviewed source-backed
-  topic list controls what the generation worker drafts.
+## Curriculum index and production fallback
 
-The standalone runtime also uses a `tabor-academy-curriculum-gaps` queue.
-With `VISION_ENABLED=true`, the Worker can suggest a review note from a
-submitted object photo. Vision suggestions do not publish photos.
-`closed-loop-sync.yml` handles Pages, KV, and the R2 offline archive after a
-reviewed merge. These services update independently and can be retried from
-the same GitHub source. The Wiki job needs an initialized Wiki and
-`TABOR_ACADEMY_WIKI_TOKEN`. The release and canary jobs use
-`TABOR_ACADEMY_ATTACH_EXPORTS` and `TABOR_ACADEMY_CANARY`, respectively.
+The [curriculum index](https://tabor-academy-blueprints.pages.dev/curriculum/) lists
+597 source-ordered entries in nine tracks. The JSON export preserves source
+identifiers and positions. It includes 30 comparison blueprints, 23 institution
+lesson plans, 101 hands-on methods, 21 field activities, 101 survival cards, 291
+Nathan Tabor Way missions, 10 card-game lessons, 12 mining lessons, and eight
+architecture modules. Reference collection totals are shown individually since
+records and cross-listed activities can overlap.
+
+The Pages app serves the exact 15 Blueprint columns and keeps field submissions,
+moderation, room state, and maintenance records in side tables. Text sightings
+enter the private review queue. A review action can publish approved lesson text.
+Photos are private review files and the API exposes no photo objects. The editor
+review route requires the scoped Pages secret `EDITOR_KEY`.
+
+Production uses `scripts/bundle-direct.mjs` for the Advanced Mode transfer. The
+`tabor-academy-blueprint-services` script in the Academy dispatch namespace
+provides the classroom and maintenance Durable Objects. The maintenance alarm
+checks the four bindings every quarter hour and refreshes the last-good KV/R2
+snapshot. `/api/healthz` reports the latest receipt. The maintenance alarm
+does not require a new standard Worker slot.
+
+At 03:00 UTC the same alarm stages drafts from the source-backed topic list.
+It runs the draft processor internally when the Queue consumer isn't installed.
+A Vectorize match above 0.94 stages an alias candidate for review. A standard
+Worker slot is needed for the named Queue consumer. GitHub dispatch requires
+the Academy GitHub App credentials and the workflow on the default branch.
+The single-file offline workbook is generated from the reviewed source export.
+
+## Reviewed curriculum, offline sync, and field sightings
+
+The live archive is available at both `/tabor-academy-offline.html` and
+`/exports/tabor-academy-offline.html` in this release. Each file contains a
+point-in-time copy of the reviewed Blueprint rows. Installed browsers resume
+IndexedDB outbox delivery on reconnect, whenever the site is reopened, or
+when the user presses Sync now. Background Sync is also used where supported.
+
+Only known curriculum categories go into the gap queue. When the queue
+binding is absent, Pages increments the same category counters in D1. The
+nightly job selects those categories from a tested, source-backed topic list.
+The mechanism-specific Vectorize namespace is separate from discovery search.
+A score over 0.94 creates an alias proposal for review. Approved aliases
+point to the existing curriculum row.
+
+`worker/closed_loop.js` provides the mechanism match, photo review suggestions,
+gap consumer, and audit probes. Pending images remain in private R2. The
+production health receipt is at `/api/healthz`. The Pages reader keeps the
+last good snapshot if a published row fails the schema audit. The GitHub
+workflow can attach the workbook and exports to releases, mirror the Wiki
+links, and open one issue per live canary incident once configured on main.
 
 In GitHub Codespaces, select the Tabor Academy Blueprints configuration.
-The Cloudflare account's standalone Worker limit currently blocks the background
-runtime. The Pages reader, field observation API, D1-backed classrooms and
-downloadable archive run independently of that Worker.

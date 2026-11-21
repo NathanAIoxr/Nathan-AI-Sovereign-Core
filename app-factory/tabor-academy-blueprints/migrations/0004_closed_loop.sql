@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS blueprint_observations (
     second_object TEXT CHECK (second_object IS NULL OR length(trim(second_object)) BETWEEN 1 AND 100),
     note TEXT NOT NULL CHECK (length(note) <= 800),
     photo_key TEXT,
-    photo_public INTEGER NOT NULL DEFAULT 0 CHECK(photo_public IN (0,1)),
     vision_suggestion TEXT,
     status TEXT NOT NULL DEFAULT 'pending_verify'
       CHECK (status IN ('pending_verify','published','archived')),
@@ -31,9 +30,4 @@ CREATE TABLE IF NOT EXISTS blueprint_audit (
     record_key TEXT PRIMARY KEY,
     reason TEXT NOT NULL,
     last_seen INTEGER NOT NULL DEFAULT (unixepoch())
-);
-
-CREATE TABLE IF NOT EXISTS blueprint_aliases (
-    label TEXT PRIMARY KEY COLLATE NOCASE CHECK(length(trim(label)) BETWEEN 1 AND 220),
-    lesson_id INTEGER NOT NULL REFERENCES blueprint_lessons(id)
 );

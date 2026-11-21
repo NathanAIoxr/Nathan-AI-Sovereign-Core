@@ -2,7 +2,6 @@ import qrcode from "qrcode-generator";
 import { discardObservation, flushOutbox, hunts, pendingObservations, queueBackgroundSync,
   saveHunt, saveObservation } from "./sync.js";
 
-const qrImages = new Map();
 const canonical = "https://tabor-academy-blueprints.pages.dev";
 
 export function blueprintCode(id) {
@@ -11,13 +10,10 @@ export function blueprintCode(id) {
 
 export function fieldQr(id) {
   const image = new Image(116, 116);
-  if (!qrImages.has(id)) {
-    const qr = qrcode(0, "M");
-    qr.addData(`${canonical}/?lesson=${blueprintCode(id)}`);
-    qr.make();
-    qrImages.set(id, qr.createDataURL(4, 16));
-  }
-  image.src = qrImages.get(id);
+  const qr = qrcode(0, "M");
+  qr.addData(`${canonical}/?lesson=${blueprintCode(id)}`);
+  qr.make();
+  image.src = qr.createDataURL(4, 16);
   image.alt = `Scan to open ${blueprintCode(id)}`;
   return image;
 }
@@ -188,7 +184,6 @@ async function updateUnlock() {
 export function setupField() {
   if (globalThis.ACADEMY_OFFLINE) {
     byId("field-tools").hidden = true;
-    byId("classroom-tool").hidden = true;
     return;
   }
   const form = byId("field-form");

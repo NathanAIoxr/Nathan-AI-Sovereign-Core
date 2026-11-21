@@ -46,11 +46,9 @@ jobs:
       - run: npm run validate
       - run: npm run pages:build
       - run: npm run db:remote
-      - name: Refresh published snapshot and offline archive
+      - name: Publish the offline archive
         run: |
           set -euo pipefail
-          npx wrangler kv key put --config wrangler.toml --binding CACHE --remote \
-            'tabor-academy:published-snapshot' --path public/exports/blueprints.json
           npx wrangler r2 object put 'tabor-academy-blueprints-vault/exports/tabor-academy-offline.html' \
             --config wrangler.toml --remote --file .build/pages/exports/tabor-academy-offline.html --content-type text/html
       - run: npm run pages:deploy
@@ -70,7 +68,7 @@ jobs:
       - run: npm run pages:build
       - run: |
           gh release upload --clobber -- "$RELEASE_TAG" \
-            public/exports/blueprints.csv public/exports/blueprints.json \
+            public/exports/blueprints.csv public/exports/blueprints.json public/exports/academy-curriculum.json \
             .build/pages/exports/tabor-academy-offline.html
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}

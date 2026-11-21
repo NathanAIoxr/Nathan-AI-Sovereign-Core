@@ -1,8 +1,9 @@
 import { flushOutbox, pendingObservations } from "./sync.js";
 
-const cacheName = "tabor-academy-field-v1";
+const cacheName = "tabor-academy-field-v3";
 const shell = ["/", "/app.js", "/explorers.js", "/phase2.css", "/sync.js", "/field.js",
-  "/academy.webmanifest", "/academy-icon-192.png", "/academy-icon-512.png", "/exports/blueprints.json", "/exports/blueprints.csv"];
+  "/academy.webmanifest", "/exports/blueprints.json", "/exports/blueprints.csv",
+  "/curriculum/", "/curriculum/catalog.css", "/curriculum/catalog.js", "/exports/academy-curriculum.json"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(shell)).then(() => self.skipWaiting()));

@@ -60,4 +60,3 @@ jobs:
           gh pr create --draft --head "$branch" --base "$BASE_BRANCH" \
             --title "Review Academy blueprint $PROPOSAL_ID" \
             --body 'Machine-drafted lesson. Check the source links in the migration and review the scientific analogy before merging.'
-
