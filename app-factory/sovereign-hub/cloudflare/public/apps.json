@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 373,
+  "count": 374,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -882,6 +882,14 @@
       "entry": "app-factory/nathan-ai/operations/turnaround/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/operations/turnaround/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-618bf9651d4f4ae1",
+      "title": "Orchestra Conductor Stage \u00b7 Conductor Dick Tater",
+      "entry": "app-factory/nathan-ai/orchestra-conductor-stage/web/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/orchestra-conductor-stage/web/index.html",
       "adoption": "integration_required"
     },
     {
