@@ -1,0 +1,32 @@
+{
+  "name": "Nathan AI 12-Line Guardian",
+  "version": "0.2.0",
+  "objective": "Allow authorized operations; deny unauthorized changes; preserve evidence and recover",
+  "layers": [
+    "identity",
+    "authentication",
+    "authorization",
+    "input_validation",
+    "integrity",
+    "dependencies",
+    "secrets",
+    "network",
+    "behavior",
+    "configuration",
+    "audit",
+    "recovery"
+  ],
+  "modes": [
+    "observe",
+    "enforce",
+    "lockdown"
+  ],
+  "default_mode": "observe",
+  "enforcement_requires": [
+    "signed_policy",
+    "scoped_identity",
+    "test_evidence",
+    "rollback_plan"
+  ],
+  "warning": "This prototype is not antivirus or an active host enforcement agent."
+}
