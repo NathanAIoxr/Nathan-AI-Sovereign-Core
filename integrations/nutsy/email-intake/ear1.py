@@ -10,6 +10,7 @@ from email.parser import BytesParser
 from hashlib import sha256
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
+from threading import Thread
 
 MAX_BYTES = 128 * 1024
 
@@ -113,6 +114,20 @@ if __name__ == "__main__":
         raise SystemExit("Set a dedicated intake token and an authorized sender")
     database = Path(os.environ["STATE_DIRECTORY"]) / "email-inbox.sqlite3"
     initialize(database)
-    with HTTPServer(("127.0.0.1", 8791), intake_handler(database, token, sender)) as server:
-        server.timeout = 5
-        server.serve_forever()
+    owner_password = os.environ.get("NUTSY_REVIEW_PASSWORD", "")
+    conductor_token = os.environ.get("CONDUCTOR_BEARER_TOKEN", "")
+    review_server = None
+    if owner_password or conductor_token:
+        if (len(owner_password) < 32 or not conductor_token or
+                owner_password in (token, conductor_token) or token == conductor_token):
+            raise SystemExit("Configure distinct intake, review, and Conductor credentials")
+        from review import create_server
+        review_server = create_server(database, owner_password, conductor_token)
+        Thread(target=review_server.serve_forever, daemon=True).start()
+    try:
+        with HTTPServer(("127.0.0.1", 8791), intake_handler(database, token, sender)) as server:
+            server.serve_forever()
+    finally:
+        if review_server is not None:
+            review_server.shutdown()
+            review_server.server_close()
