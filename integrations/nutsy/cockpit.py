@@ -112,7 +112,11 @@ def capture(state):
     fed, fed_state = load(state / "federation.json", "nutsy.federation-receipt.v1")
     profile, profile_state = load(state / "processing.json", "nutsy.processing-profile.v1")
     queues, queue_state = load(state / "queue-reconciliation.json")
-    return receipt_status(fed, fed_state, profile, profile_state, queues, queue_state, platform.node())
+    host = platform.node()
+    local_queue, local_state = load(state / "local-queue.json", "nutsy.ubuntu-queue.v1")
+    if local_state == "present" and local_queue.get("host") == host and isinstance(local_queue.get("ubuntu"), list):
+        queues["ubuntu"], queue_state = local_queue["ubuntu"], local_state
+    return receipt_status(fed, fed_state, profile, profile_state, queues, queue_state, host)
 
 
 def handler(state, port):
