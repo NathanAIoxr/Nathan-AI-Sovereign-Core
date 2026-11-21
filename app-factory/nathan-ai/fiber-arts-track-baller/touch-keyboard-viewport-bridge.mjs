@@ -8,6 +8,9 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   if (typeof suppressUnchanged !== 'boolean') throw new TypeError('suppressUnchanged must be boolean');
   if (typeof requireUnitQuaternion !== 'boolean') throw new TypeError('requireUnitQuaternion must be boolean');
   let active = true;
+  let acceptedFrames = 0;
+  let rejectedFrames = 0;
+  let publishedFrames = 0;
   const sameOrientation = (a, b) => {
     if (!Array.isArray(a) || !Array.isArray(b) || a.length !== 4 || b.length !== 4) return false;
     // Optional strict guard: only normalized finite orientations may be sign-equivalent.
@@ -32,16 +35,19 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
         ? Object.fromEntries(Object.entries(current).map(([key, value]) =>
             [key, Array.isArray(value) ? value.slice() : value])) : current;
       const accepted = keyboardController.syncFrame(frame);
-      if (!accepted) return false;
+      if (!accepted) { rejectedFrames++; return false; }
+      acceptedFrames++;
       const next = keyboardController.getFrame();
       if (suppressUnchanged && previous && next &&
           Object.keys(previous).length === Object.keys(next).length &&
           Object.keys(previous).every(key => key === 'orientation'
             ? sameOrientation(previous[key], next[key])
             : Object.is(previous[key], next[key]))) return true;
+      publishedFrames++;
       onViewportFrame(next);
       return true;
     },
+    getMetrics() { return Object.freeze({ acceptedFrames, rejectedFrames, publishedFrames, active }); },
     dispose() { active = false; }
   });
 }
