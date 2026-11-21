@@ -1,0 +1,76 @@
+{
+  "project": "TRUE CLOUD COMPUTING BY NATHAN TABOR",
+  "version": "0.1.0",
+  "state": "architecture_committed",
+  "layers": [
+    {
+      "id": "source",
+      "provider": "GitHub",
+      "functions": [
+        "version_control",
+        "CI",
+        "releases"
+      ]
+    },
+    {
+      "id": "edge",
+      "provider": "Cloudflare Workers",
+      "functions": [
+        "api_gateway",
+        "authentication",
+        "routing"
+      ]
+    },
+    {
+      "id": "metadata",
+      "provider": "Cloudflare D1",
+      "functions": [
+        "capabilities",
+        "job_leases",
+        "receipts"
+      ]
+    },
+    {
+      "id": "artifacts",
+      "provider": "Cloudflare R2",
+      "state": "requires_provisioning",
+      "functions": [
+        "build_artifacts",
+        "backups"
+      ]
+    },
+    {
+      "id": "dispatch",
+      "provider": "Cloudflare Queues or Durable Objects",
+      "state": "requires_provisioning",
+      "functions": [
+        "job_dispatch",
+        "coordination"
+      ]
+    },
+    {
+      "id": "compute",
+      "provider": "authorized CPU/GPU nodes",
+      "state": "not_provisioned",
+      "functions": [
+        "builds",
+        "bounded_tasks",
+        "benchmarking"
+      ]
+    }
+  ],
+  "integrations": [
+    "tabor-world-hub",
+    "tabor-job-orchestrator",
+    "tabor-compute-fleet",
+    "tabor-agent-fleet-runtime",
+    "nathan-ai-supercomputer-control"
+  ],
+  "principles": [
+    "preserve_originals",
+    "no_unverified_hardware_claims",
+    "least_privilege",
+    "bounded_cost",
+    "execution_receipts"
+  ]
+}

@@ -1,0 +1,11 @@
+name = "nathan-tabor-cloud-server"
+main = "src/index.js"
+compatibility_date = "2026-11-18"
+
+[[services]]
+binding = "SUPERCOMPUTER"
+service = "nathan-ai-supercomputer-control"
+
+[[services]]
+binding = "WORLD_HUB"
+service = "tabor-world-hub"

@@ -1,0 +1,11 @@
+import assert from "node:assert/strict";
+import worker from "./index.mjs";
+const health=await worker.fetch(new Request("https://test/health"),{});
+assert.equal(health.status,200);assert.equal((await health.json()).agents_registered,12);
+const nodes=await (await worker.fetch(new Request("https://test/api/nodes"),{})).json();
+assert.equal(nodes.nodes.length,12);
+assert.equal(new Set(nodes.nodes.map(x=>x.id)).size,12);
+const matrix=await (await worker.fetch(new Request("https://test/api/matrix"),{})).json();
+assert.equal(matrix.intra_family_edges,36);assert.equal(matrix.self_edges,12);
+assert.equal((await worker.fetch(new Request("https://test/api/live"),{})).status,503);
+console.log("Rotational agent registry tests passed");

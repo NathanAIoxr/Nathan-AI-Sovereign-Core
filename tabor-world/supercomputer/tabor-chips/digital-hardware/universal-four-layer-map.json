@@ -1,0 +1,85 @@
+{
+  "name": "Tabor Universal Four-Layer Technology Model",
+  "tag": "CONTINUE BUILDING",
+  "elements": [
+    "physical-atoms-signals-power",
+    "binary-switching-and-logic",
+    "four-functional-layers",
+    "centralized-distributed-hybrid-topologies"
+  ],
+  "layers": [
+    {
+      "id": "io",
+      "hardware": [
+        "keyboard",
+        "sensor",
+        "NIC",
+        "fiber",
+        "radio"
+      ],
+      "digital": [
+        "virtual device",
+        "API",
+        "packet router"
+      ]
+    },
+    {
+      "id": "compute",
+      "hardware": [
+        "CPU",
+        "GPU",
+        "TPU",
+        "ASIC",
+        "MCU"
+      ],
+      "digital": [
+        "ISA emulator",
+        "logic simulator",
+        "scheduler"
+      ]
+    },
+    {
+      "id": "memory-storage",
+      "hardware": [
+        "SRAM",
+        "DRAM",
+        "HBM",
+        "NVMe",
+        "HDD"
+      ],
+      "digital": [
+        "memory model",
+        "virtual block device",
+        "object adapter"
+      ]
+    },
+    {
+      "id": "control-power",
+      "hardware": [
+        "OS controller",
+        "clock",
+        "PSU",
+        "cooling"
+      ],
+      "digital": [
+        "virtual BMC",
+        "clock simulator",
+        "power/thermal twin"
+      ]
+    }
+  ],
+  "topologies": [
+    "centralized",
+    "edge",
+    "hybrid",
+    "local"
+  ],
+  "linkedSystems": [
+    "TABOR CHIPS",
+    "Nathan AI Supercomputer",
+    "Box 0",
+    "Box 1",
+    "Tabor World Hub",
+    "Digital Hardware Conversion Registry"
+  ]
+}

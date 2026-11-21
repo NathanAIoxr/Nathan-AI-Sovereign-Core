@@ -1,0 +1,7 @@
+name = "nathan-sovereign-box-zero"
+main = "index.js"
+compatibility_date = "2026-11-18"
+
+[[services]]
+binding = "BOX_ONE"
+service = "nathan-sovereign-box-one"

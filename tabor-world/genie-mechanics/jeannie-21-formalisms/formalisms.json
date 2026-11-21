@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "name": "Linear algebra state transformation",
+    "formula": "S'=T S+C",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 2,
+    "name": "Quantum collapse analogy",
+    "formula": "B A|Psi>=|phi>",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 3,
+    "name": "Mass-energy conjuration",
+    "formula": "E=Delta_m c² eta",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 4,
+    "name": "Spacetime teleportation",
+    "formula": "d_effective(P1,P2)->0",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 5,
+    "name": "Smoke fluid dynamics",
+    "formula": "rho_body->rho_smoke; div(u)=0",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 6,
+    "name": "Optical invisibility",
+    "formula": "I_reflected=I_incident(1-delta)",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 7,
+    "name": "Temporal rewind",
+    "formula": "dR/dt=-k U_event",
+    "category": "physics",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 8,
+    "name": "Boolean containment",
+    "formula": "active=!sealed&&(command||free)&&!violated",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "deterministic simulator"
+  },
+  {
+    "id": 9,
+    "name": "Gesture state machine",
+    "formula": "IDLE->ARMED->EXECUTING->COMPLETE",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "deterministic simulator"
+  },
+  {
+    "id": 10,
+    "name": "Lambda transformation",
+    "formula": "Magic=λgesture.λintent.Transform(state,intent)",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 11,
+    "name": "Atomic transaction",
+    "formula": "BEGIN; UPDATE; COMMIT on blink",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "deterministic simulator"
+  },
+  {
+    "id": 12,
+    "name": "Cryptographic binding",
+    "formula": "Execute iff VerifySignature(key,payload)",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 13,
+    "name": "Bottle compression",
+    "formula": "V_internal=C_inverse(V_external)",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 14,
+    "name": "Omnilingual information",
+    "formula": "H(in)-H(out)=0",
+    "category": "computing",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 15,
+    "name": "Alchemical transmutation",
+    "formula": "Fire+Logos+Blink->Matter",
+    "category": "symbolic",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 16,
+    "name": "Chemical stoichiometry",
+    "formula": "C20H25N3O+intent->Au+smoke",
+    "category": "symbolic",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 17,
+    "name": "Feedback control",
+    "formula": "e(t)=r(t)-y(t)",
+    "category": "symbolic",
+    "status": "speculative analogy",
+    "implemented_as": "deterministic simulator"
+  },
+  {
+    "id": 18,
+    "name": "Set-theory duplication",
+    "formula": "Clone(x)->{x1,x2}",
+    "category": "symbolic",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 19,
+    "name": "Hierarchy game theory",
+    "formula": "Success iff Rank(A)>Rank(B)",
+    "category": "symbolic",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 20,
+    "name": "Command grammar",
+    "formula": "Spell ::= ArmFold Blink [Directive] Target State",
+    "category": "symbolic",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  },
+  {
+    "id": 21,
+    "name": "Neural reflex arc",
+    "formula": "Audio->Motor->Blink->Output",
+    "category": "neural",
+    "status": "speculative analogy",
+    "implemented_as": "catalog model"
+  }
+]

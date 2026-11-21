@@ -1,0 +1,22 @@
+name: Tabor infrastructure verification
+on:
+  push:
+    paths:
+      - 'tabor-world/infrastructure/orchestrator/**'
+      - '.github/workflows/tabor-infrastructure-tests.yml'
+  pull_request:
+    paths:
+      - 'tabor-world/infrastructure/orchestrator/**'
+      - '.github/workflows/tabor-infrastructure-tests.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tabor-world/infrastructure/orchestrator/tests -v
+      - run: node --check tabor-world/infrastructure/orchestrator/src/index.js

@@ -1,0 +1,47 @@
+{
+  "milestone": "Virtual Warehouse v1",
+  "date": "2026-11-18",
+  "source": {
+    "repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
+    "branch": "feature/tabor-supercomputer-heartbeat-20261117",
+    "revision": "e49f8159bdfd1f108802605ce687469c2419b7e4"
+  },
+  "cloudflare": {
+    "worker": "tabor-virtual-warehouse",
+    "deployment_id": "87c30315a048419dbc0209d682633663",
+    "subdomain_enabled": true,
+    "endpoint": "https://tabor-virtual-warehouse.nathantaboract.workers.dev"
+  },
+  "live_registry_counts": {
+    "tabor_mining_coins": 21,
+    "tabor_mining_hardware": 6,
+    "tabor_infrastructure_nodes": 0,
+    "tabor_compute_fleet": 0,
+    "tabor_mining_verification_receipts": 0
+  },
+  "features": [
+    "eight virtual infrastructure halls",
+    "live D1 aggregate inventory",
+    "hypothetical power and energy capacity model",
+    "read-only public endpoints"
+  ],
+  "verification": {
+    "cloudflare_worker_upload": "confirmed",
+    "workers_dev_subdomain": "confirmed",
+    "public_http_response": "not independently tested",
+    "unit_tests": "committed not executed",
+    "mining_hardware": "registry only",
+    "physical_racks": "none verified",
+    "actual_crypto_mining": "not established",
+    "gpu_capacity": "none verified",
+    "performance_2x": "not established"
+  },
+  "next": [
+    "private authenticated operational dashboard",
+    "signed heartbeat agents",
+    "queue consumers",
+    "miner and pool telemetry adapters",
+    "R2 permission",
+    "cost and performance benchmarking"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "project": "NATHAN AI — Rotational Agent Mesh",
+  "release": "registry-v1",
+  "status": "cloudflare-worker-uploaded-and-workers-dev-enabled",
+  "date": "2026-11-18",
+  "github": {
+    "repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
+    "branch": "feature/tabor-supercomputer-heartbeat-20261117",
+    "source_commit": "d9e873a9ae0d32c57b344e45dcd497614c67ace3"
+  },
+  "cloudflare": {
+    "worker": "nathan-rotational-agent-mesh",
+    "deployment_id": "a3dd70f9cb044752ab3db50d38cb900b",
+    "subdomain_enabled": true,
+    "endpoint": "https://nathan-rotational-agent-mesh.nathantaboract.workers.dev",
+    "d1_binding": "REGISTRY",
+    "d1_id": "af177f57-154c-41a1-a5cd-5602568a4a2f"
+  },
+  "verified": {
+    "cloudflare_upload": true,
+    "subdomain_enable": true,
+    "d1_agent_records": {
+      "W": 3,
+      "M": 3,
+      "THREE": 3,
+      "STACKED": 3
+    },
+    "http_endpoint_response": false
+  },
+  "notes": "HTTP endpoint probe could not resolve from execution environment; do not represent as HTTP verified. Agent records are registered, not running autonomous compute. No paid GPU pool or queue consumer installed.",
+  "tag": "CONTINUE BUILDING"
+}

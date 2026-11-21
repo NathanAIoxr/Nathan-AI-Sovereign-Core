@@ -1,0 +1,11 @@
+name = "tabor-true-cloud-computing"
+main = "src/index.js"
+compatibility_date = "2026-11-18"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-database-registry"
+database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"

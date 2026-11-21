@@ -1,0 +1,35 @@
+name: Nathan AI Sovereign Build Checks
+on:
+  push:
+    branches: [feature/tabor-supercomputer-heartbeat-20261117]
+    paths:
+      - 'tabor-world/sovereign-ai-unit/**'
+      - '.github/workflows/deploy-nathan-ai.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source structure
+        run: |
+          test -f tabor-world/sovereign-ai-unit/box-0-zero/src/index.ts
+          test -f tabor-world/sovereign-ai-unit/box-1-one/src/job-platform.ts
+          test -f tabor-world/sovereign-ai-unit/box-1-one/schema-jobs-v1.sql
+      - name: Check CLI syntax
+        run: |
+          node --check tabor-world/sovereign-ai-unit/cli/nathan-jobs.mjs
+          node --check tabor-world/sovereign-ai-unit/benchmark/health-benchmark.mjs
+      - name: Compile TypeScript Worker entrypoints
+        run: |
+          npm install --no-save --no-package-lock esbuild@0.24.2
+          ./node_modules/.bin/esbuild tabor-world/sovereign-ai-unit/box-0-zero/src/index.ts --bundle --platform=browser --format=esm --outfile=/tmp/nathan-box-zero.mjs
+          ./node_modules/.bin/esbuild tabor-world/sovereign-ai-unit/box-1-one/src/job-platform.ts --bundle --platform=browser --format=esm --outfile=/tmp/nathan-box-one.mjs
+      - name: Deployment guard
+        run: |
+          echo "Source validation only. Production deployment requires queue, R2, migrations and secret verification."

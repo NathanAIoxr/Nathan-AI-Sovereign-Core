@@ -1,0 +1,98 @@
+[
+  {
+    "id": "WILL",
+    "slug": "w-0",
+    "family": "W",
+    "role": "intent-governor",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "WHEEL",
+    "slug": "w-1",
+    "family": "W",
+    "role": "compute-planner",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "WAY",
+    "slug": "w-2",
+    "family": "W",
+    "role": "route-planner",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "MILL",
+    "slug": "m-0",
+    "family": "M",
+    "role": "input-refiner",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "MHEEL",
+    "slug": "m-1",
+    "family": "M",
+    "role": "lease-controller",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "MAY",
+    "slug": "m-2",
+    "family": "M",
+    "role": "permission-gate",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "3ILL",
+    "slug": "three-0",
+    "family": "THREE",
+    "role": "fault-inspector",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "3HEEL",
+    "slug": "three-1",
+    "family": "THREE",
+    "role": "stability-inspector",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "3AY",
+    "slug": "three-2",
+    "family": "THREE",
+    "role": "acknowledgment-coordinator",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "<<ILL",
+    "slug": "stacked-0",
+    "family": "STACKED",
+    "role": "bitstream-transformer",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "<<HEEL",
+    "slug": "stacked-1",
+    "family": "STACKED",
+    "role": "dual-rail-controller",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  },
+  {
+    "id": "<<AY",
+    "slug": "stacked-2",
+    "family": "STACKED",
+    "role": "broadcast-tracker",
+    "state": "registered",
+    "execution": "requires-queue-worker"
+  }
+]

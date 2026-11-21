@@ -1,0 +1,12 @@
+name = "epenthesis-word-matrix"
+main = "src/index.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+[vars]
+ENVIRONMENT = "production"
+SYSTEM_AXIOM = "ZERO_COINCIDENCES"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-database-registry"
+database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"

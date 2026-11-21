@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS nathan_supercomputer_telemetry_log (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp REAL NOT NULL, target_exaflops REAL NOT NULL, target_zettaflops REAL NOT NULL, accepted_packets INTEGER NOT NULL, rejected_packets INTEGER NOT NULL, state_hash TEXT NOT NULL UNIQUE, measurement_status TEXT NOT NULL CHECK(measurement_status='design_target_only'));

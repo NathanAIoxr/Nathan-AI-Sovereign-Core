@@ -1,0 +1,388 @@
+{
+  "title": "TABOR UNIVERSAL DIGITAL HARDWARE",
+  "version": "2026-11-18",
+  "tag": "CONTINUE BUILDING",
+  "rule": "Preserve physical reference; add digital counterpart and executable test model; integrate with sovereign platform",
+  "execution_modes": [
+    "descriptive digital twin",
+    "discrete-event simulator",
+    "instruction emulator",
+    "software-defined virtual device",
+    "real hardware adapter"
+  ],
+  "axioms": [
+    "1-1=0 CLEAR",
+    "1+1=2 BUILD",
+    "1x1=1 INTEGRATE",
+    "1/1=1 VERIFY"
+  ],
+  "components": [
+    {
+      "id": "chip",
+      "name": "Tabor Chip Die",
+      "virtual": "instruction-set emulator",
+      "attributes": [
+        "instructions",
+        "cores",
+        "tensors",
+        "clock cycles",
+        "utilization",
+        "numerical precision"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-chip-agent"
+    },
+    {
+      "id": "memory",
+      "name": "HBM/SRAM/DRAM",
+      "virtual": "tiered-memory simulator",
+      "attributes": [
+        "capacity",
+        "bandwidth",
+        "latency",
+        "ECC",
+        "cache",
+        "allocation"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-memory-agent"
+    },
+    {
+      "id": "cpu",
+      "name": "Host CPU",
+      "virtual": "virtual cpu scheduler",
+      "attributes": [
+        "cores",
+        "threads",
+        "instructions",
+        "interrupts",
+        "MMU",
+        "security"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-cpu-agent"
+    },
+    {
+      "id": "package",
+      "name": "Chiplet and Interposer",
+      "virtual": "package topology model",
+      "attributes": [
+        "die links",
+        "latency",
+        "bandwidth",
+        "thermals",
+        "failure domains"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-package-agent"
+    },
+    {
+      "id": "fabric",
+      "name": "NVLink/NVSwitch-class Fabric",
+      "virtual": "virtual fabric simulator",
+      "attributes": [
+        "topology",
+        "ports",
+        "bandwidth",
+        "congestion",
+        "failures"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-fabric-agent"
+    },
+    {
+      "id": "network",
+      "name": "NIC/DPU/Optics",
+      "virtual": "software-defined network",
+      "attributes": [
+        "packets",
+        "routing",
+        "queues",
+        "throughput",
+        "link errors"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-network-agent"
+    },
+    {
+      "id": "storage",
+      "name": "NVMe and Storage Arrays",
+      "virtual": "virtual block/object storage",
+      "attributes": [
+        "IOPS",
+        "throughput",
+        "capacity",
+        "snapshots",
+        "consistency"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-storage-agent"
+    },
+    {
+      "id": "cooling",
+      "name": "Liquid Cooling and CDU",
+      "virtual": "thermal digital twin",
+      "attributes": [
+        "heat generation",
+        "coolant flow",
+        "temperature",
+        "pump failure"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-cooling-agent"
+    },
+    {
+      "id": "power",
+      "name": "Power Shelves and UPS",
+      "virtual": "electrical digital twin",
+      "attributes": [
+        "watts",
+        "voltage",
+        "current",
+        "efficiency",
+        "redundancy",
+        "faults"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-power-agent"
+    },
+    {
+      "id": "rack",
+      "name": "Mechanical Racks and Trays",
+      "virtual": "3D spatial twin",
+      "attributes": [
+        "dimensions",
+        "placement",
+        "cables",
+        "weight",
+        "service access"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-rack-agent"
+    },
+    {
+      "id": "bmc",
+      "name": "BMC and Firmware",
+      "virtual": "virtual management controller",
+      "attributes": [
+        "telemetry",
+        "boot sequence",
+        "alerts",
+        "attestation"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-bmc-agent"
+    },
+    {
+      "id": "asic",
+      "name": "Mining ASIC",
+      "virtual": "hash engine simulator",
+      "attributes": [
+        "nonce search",
+        "throughput",
+        "energy",
+        "pool connectivity"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-asic-agent"
+    },
+    {
+      "id": "sensors",
+      "name": "Physical Sensors",
+      "virtual": "sensor emulator",
+      "attributes": [
+        "sampling",
+        "noise",
+        "calibration",
+        "faults",
+        "timestamps"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-sensors-agent"
+    },
+    {
+      "id": "vehicle",
+      "name": "Trinitycycle Vehicle",
+      "virtual": "vehicle dynamics simulator",
+      "attributes": [
+        "kinematics",
+        "loads",
+        "steering",
+        "safety"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-vehicle-agent"
+    },
+    {
+      "id": "fabrication",
+      "name": "Manufacturing Equipment",
+      "virtual": "process digital twin",
+      "attributes": [
+        "materials",
+        "tolerances",
+        "operations",
+        "yield"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-fabrication-agent"
+    },
+    {
+      "id": "io",
+      "name": "Input Devices and TactileCore",
+      "virtual": "virtual input peripheral",
+      "attributes": [
+        "touch",
+        "force",
+        "haptics",
+        "gyro",
+        "gesture events"
+      ],
+      "continuation": "CONTINUE BUILDING",
+      "stages": [
+        "spec",
+        "model",
+        "emulate",
+        "test",
+        "integrate",
+        "verify",
+        "iterate"
+      ],
+      "owner": "digital-io-agent"
+    }
+  ]
+}
