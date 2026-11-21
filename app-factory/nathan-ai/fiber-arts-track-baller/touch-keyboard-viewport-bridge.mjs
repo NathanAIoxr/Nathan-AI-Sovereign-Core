@@ -16,6 +16,8 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
         Math.abs(q.reduce((sum, v) => sum + v * v, 0) - 1) <= 1e-6;
       if (!unit(a) || !unit(b)) return false;
     }
+    // Non-finite values (including NaN) must never be treated as stable rotations.
+    if (![...a, ...b].every(v => typeof v === 'number' && Number.isFinite(v))) return false;
     if (a.every((v, i) => Object.is(v, b[i]))) return true;
     // Unit quaternions q and -q encode the same 3D rotation.
     return a.every((v, i) => typeof v === 'number' && Number.isFinite(v) &&
