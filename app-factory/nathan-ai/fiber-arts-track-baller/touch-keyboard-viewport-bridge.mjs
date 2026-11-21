@@ -1,12 +1,13 @@
 /** Opt-in one-way synchronization of simulated touch viewport frames into keyboard navigation.
  * Does not modify the pinch controller or claim calibrated yarn physics.
  */
-export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false } = {}) {
+export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false } = {}) {
   if (!keyboardController || typeof keyboardController.syncFrame !== 'function' || typeof keyboardController.getFrame !== 'function')
     throw new TypeError('keyboard controller with syncFrame/getFrame required');
   if (typeof onViewportFrame !== 'function') throw new TypeError('viewport callback required');
   if (typeof suppressUnchanged !== 'boolean') throw new TypeError('suppressUnchanged must be boolean');
   if (typeof requireUnitQuaternion !== 'boolean') throw new TypeError('requireUnitQuaternion must be boolean');
+  if (typeof rejectInvalidQuaternion !== 'boolean') throw new TypeError('rejectInvalidQuaternion must be boolean');
   let active = true;
   let acceptedFrames = 0;
   let rejectedFrames = 0;
@@ -29,6 +30,13 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   return Object.freeze({
     onTouchFrame(frame) {
       if (!active) return false;
+      // Optional ingress validation: reject malformed orientations before controller mutation.
+      if (rejectInvalidQuaternion && (!frame || !Array.isArray(frame.orientation) ||
+          frame.orientation.length !== 4 || !frame.orientation.every(v => typeof v === 'number' && Number.isFinite(v)) ||
+          Math.abs(frame.orientation.reduce((sum, v) => sum + v * v, 0) - 1) > 1e-6)) {
+        rejectedFrames++;
+        return false;
+      }
       // Snapshot before syncFrame: some controllers mutate and return the same frame object.
       const current = suppressUnchanged ? keyboardController.getFrame() : null;
       const previous = current && typeof current === 'object'
