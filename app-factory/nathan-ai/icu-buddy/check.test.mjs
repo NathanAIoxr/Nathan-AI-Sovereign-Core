@@ -56,3 +56,49 @@ test("mobile and keyboard accessibility smoke checks for reconstructed previews"
   assert.match(html, /role="status"/);
   assert.match(html, /type="reset"/);
 });
+
+test("editable draft interaction handlers work with fictional local input", async () => {
+  const handlers = new Map();
+  let focused = false;
+  const draft = { value: "", focus() { focused = true; } };
+  const approach = { value: "boundary", focus() { focused = true; } };
+  const note = { value: "Please ask before visiting." };
+  const form = {
+    elements: { approach, note, draft },
+    addEventListener(type, callback) { handlers.set(type, callback); }
+  };
+  const panel = { hidden: true };
+  const status = { textContent: "" };
+  const elements = new Map([
+    ["#draft-form", form], ["#draft-panel", panel], ["#status", status]
+  ]);
+  const previousDocument = globalThis.document;
+  globalThis.document = { querySelector(selector) { return elements.get(selector); } };
+  try {
+    await import(new URL(`./public/page.mjs?test=${Date.now()}`, import.meta.url));
+    let prevented = false;
+    handlers.get("submit")({ preventDefault() { prevented = true; } });
+    assert.equal(prevented, true);
+    assert.equal(panel.hidden, false);
+    assert.equal(focused, true);
+    assert.match(draft.value, /Please ask before visiting\.$/);
+    assert.equal(status.textContent, "Draft ready to edit.");
+    approach.value = "unrecognized";
+    focused = false;
+    handlers.get("submit")({ preventDefault() {} });
+    assert.equal(panel.hidden, true);
+    assert.equal(status.textContent, "Choose a starting point and keep your note within 300 characters.");
+    assert.equal(focused, true);
+    approach.value = "boundary";
+    draft.value = "Edited locally by the user.";
+    assert.equal(draft.value, "Edited locally by the user.");
+    focused = false;
+    handlers.get("reset")();
+    assert.equal(panel.hidden, true);
+    assert.equal(status.textContent, "");
+    assert.equal(focused, true, "reset restores keyboard focus to starting point");
+  } finally {
+    if (previousDocument === undefined) delete globalThis.document;
+    else globalThis.document = previousDocument;
+  }
+});

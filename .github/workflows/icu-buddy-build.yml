@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: app-factory/nathan-ai/icu-buddy
@@ -29,6 +29,12 @@ jobs:
         run: |
           node --test check.test.mjs
           node build.mjs "${RUNNER_TEMP}/icu-buddy"
+      - name: Real Chromium interaction test (fictional local data)
+        run: |
+          npm install --no-save --no-package-lock playwright@1.58.2
+          npx playwright install --with-deps chromium
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory public > "${RUNNER_TEMP}/icu-buddy-http.log" 2>&1 &
+          node browser.spec.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: icu-buddy-worker
