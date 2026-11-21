@@ -47,10 +47,10 @@ export async function verifyStoredRow(row, projected) {
 export async function commitObservation(db, values) {
   const insert = db.prepare(`INSERT INTO blueprint_observations
     (id,fingerprint,lesson_id,object_name,second_object,note,photo_key) VALUES (?,?,?,?,?,?,?)
-    ON CONFLICT(id) DO NOTHING`).bind(...values);
+    ON CONFLICT(id) DO NOTHING RETURNING id`).bind(...values);
   const find = db.prepare("SELECT fingerprint,status FROM blueprint_observations WHERE id=?").bind(values[0]);
   const [write, read] = await db.batch([insert, find]);
-  return { created: write.meta.changes === 1, row: read.results[0] ?? null };
+  return { created: write.results.length === 1, row: read.results[0] ?? null };
 }
 
 export async function transitionBlueprint(db, { id, version, state, key }) {

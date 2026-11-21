@@ -31,14 +31,14 @@ function database() {
         run: async () => ({ meta: compiled.run(...params) }),
         first: async () => compiled.get(...params) ?? null,
         all: async () => ({ results: compiled.all(...params) }),
-        execute: read => read ? { results: compiled.all(...params) } : { meta: compiled.run(...params) },
+        execute: () => compiled.columns().length ? { results: compiled.all(...params) } : { meta: compiled.run(...params) },
       });
       return statement([]);
     },
     async batch(statements) {
       sql.exec("BEGIN IMMEDIATE");
       try {
-        const results = statements.map((statement, i) => statement.execute(i === statements.length - 1));
+        const results = statements.map(statement => statement.execute());
         sql.exec("COMMIT");
         return results;
       } catch (e) {
