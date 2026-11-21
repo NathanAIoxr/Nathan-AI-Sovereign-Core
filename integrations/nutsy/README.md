@@ -19,3 +19,7 @@ The verifier recalculates the result and the SHA-256 fingerprints from the check
 For the first private D1 check, use the existing Conductor review to approve one `D1_WRITE` containing the receipt ID and data. After the owner selects **GO**, check queue completion and read the row from the bound D1 destination. Compare its ID and content with the local output before marking it verified. The probe writes no personal records and needs no new daemon, queue, runtime dependencies or access keys in this repository.
 
 The [cockpit handoff](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/540) tracks the existing HEAR YE / HEAR YA interface.
+
+## The Conservative Voice email lineage
+
+[HEAR YA! HEAR YA!](email-intake/README.md) records Nathan Tabor’s account of the original email-to-template trigger and includes the Cloudflare Email Worker and Ubuntu Ear 1 intake for NUTSY.

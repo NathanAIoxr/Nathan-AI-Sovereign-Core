@@ -1,0 +1,15 @@
+[Unit]
+Description=NUTSY private email intake
+After=network.target
+
+[Service]
+DynamicUser=yes
+StateDirectory=nutsy-email-intake
+StateDirectoryMode=0700
+EnvironmentFile=/etc/nutsy-email-intake.env
+ExecStart=/usr/bin/python3 /opt/nutsy-email-intake/ear1.py
+Restart=on-failure
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target
