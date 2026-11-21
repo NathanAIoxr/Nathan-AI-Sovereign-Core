@@ -1,0 +1,67 @@
+{
+  "schema": "nathan-ai.academy-blueprints.build-execution.v1",
+  "project": "tabor-academy-blueprints",
+  "releaseSource": "c153322d9a47b302115c4bc95b764639649ef83b",
+  "cloudflareDeployment": "d4c119ad-6ec8-478f-a302-1b55b5fc69e7",
+  "planId": "4fbb61bf-1d33-45c1-87a5-92b14cd18589",
+  "claimTime": "2026-11-21T01:55:18.274Z",
+  "state": "drafts-generated",
+  "jobs": [
+    {
+      "task_key": "handoff-probe",
+      "id": "77ee3187-3bcf-4acf-a920-e0c781dd1828",
+      "status": "generated",
+      "code_sha256": "397b2e1da394b3c65d17b1055538ed9434ae6d8415fdb8e0e5eeb8f3645687e7",
+      "finished_at": "2026-11-21T01:55:18.274Z",
+      "provider": "deterministic",
+      "bytes": 289
+    },
+    {
+      "task_key": "release-reconciliation",
+      "id": "9869ef6b-2c3a-42ba-89e0-e089967f3a1b",
+      "status": "generated",
+      "code_sha256": "6bcd7806c9cabd529ce30ffe88bd07b49220af339a01f20884cebbc2c42591c9",
+      "finished_at": "2026-11-21T01:55:28.919Z",
+      "provider": "Workers AI",
+      "bytes": 3150
+    },
+    {
+      "task_key": "field-sync-fixtures",
+      "id": "8a8b3779-64cf-42e9-a7cf-1241c0b83019",
+      "status": "generated",
+      "code_sha256": "35e78569b95f2991775a71866075076af2fbb28e4cf6e96b9da75fc2f5cd5e1e",
+      "finished_at": "2026-11-21T01:55:43.251Z",
+      "provider": "Workers AI",
+      "bytes": 4194
+    },
+    {
+      "task_key": "curriculum-import-fixtures",
+      "id": "8f331720-7d2d-43ef-bc02-a4c94f35ebc8",
+      "status": "generated",
+      "code_sha256": "95c2c72d21bd066ccea7e804106397bc9e32774d5b033c0e0fe0024072a46c16",
+      "finished_at": "2026-11-21T01:55:55.304Z",
+      "provider": "Workers AI",
+      "bytes": 4839
+    },
+    {
+      "task_key": "release-publish-fixtures",
+      "id": "aa0da52a-58fc-4ba0-a182-72116b2f8fac",
+      "status": "generated",
+      "code_sha256": "84078849baab02bf9785575b9d766afeedea45896e8f74df5b87155327e8d912",
+      "finished_at": "2026-11-21T01:56:00.580Z",
+      "provider": "Workers AI",
+      "bytes": 896
+    },
+    {
+      "task_key": "lesson-quality-fixtures",
+      "id": "f5b2da8a-9c16-460a-9fb0-467df6e887fb",
+      "status": "generated",
+      "code_sha256": "a8bcf601a0014f4ebf919e38ec7b79f86ce7233c5101558123e10d6ffab70cd7",
+      "finished_at": "2026-11-21T01:56:19.972Z",
+      "provider": "Workers AI",
+      "bytes": 4924
+    }
+  ],
+  "githubInitialVerification": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/runs/44852923072",
+  "verifiedProductionLessons": 30
+}
