@@ -1,0 +1,14 @@
+name = "nathan-ai-resource-restoration"
+main = "src/index.mjs"
+compatibility_date = "2026-11-18"
+
+[[d1_databases]]
+binding = "CATALOG"
+database_name = "nathan-ai-cockpit-ledger"
+database_id = "ee93da4e-7d2d-4440-9dfc-ce4b6cdbdb3c"
+
+[triggers]
+crons = ["47 */6 * * *"]
+
+# Set RESTORE_READ_KEY as a Cloudflare Worker secret before private search.
+# Public routes expose summary statistics and already-public upstream repository references only.

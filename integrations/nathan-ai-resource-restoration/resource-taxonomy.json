@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "ownership_note": "Source records are not all Workers; do not auto-execute",
+  "source_origins": [
+    {
+      "db": "tabor-global-import-catalog",
+      "table_count": 8,
+      "counts": {
+        "global_atlas_components": 334,
+        "global_atlas_existing_fleet": 505,
+        "global_atlas_layers": 18,
+        "global_atlas_owner_resources": 525,
+        "global_atlas_public_repos": 205,
+        "global_atlas_sources": 13,
+        "imported_workers": 15,
+        "sovereign_concordance_receipts": 3
+      }
+    },
+    {
+      "db": "tabor-fleet-registry",
+      "table_count": 6,
+      "counts": {
+        "fleet_batch": 5,
+        "fleet_entry": 505,
+        "virtual_app_v1": 5,
+        "virtual_book_set_v1": 1000,
+        "virtual_supercomputer_slot_v1": 1000,
+        "virtual_technology_set_v1": 1000
+      }
+    },
+    {
+      "db": "nathan-ai-global-catalog",
+      "table_count": 5,
+      "counts": {
+        "capacity_policy": 5,
+        "catalog_batches": 23,
+        "catalog_events": 0,
+        "catalog_items": 1536,
+        "catalog_sources": 20
+      }
+    },
+    {
+      "db": "cloudflare-dispatch",
+      "namespace": "nathan-tabor-platforms",
+      "scripts": 1000,
+      "private_code_archive": "dispatch_script_snapshots"
+    }
+  ],
+  "status_semantics": {
+    "DISCOVERED_NOT_INSTALLED": "External repository recorded without install",
+    "REFERENCE_ONLY": "Descriptive or catalog source",
+    "INDEXED_ONLY": "Logical record or fleet reference; no deployment implied",
+    "DEPLOYED_SOURCE_ARCHIVED": "Existing owned dispatch script with private source snapshot",
+    "EXISTS_IN_ACCOUNT": "Name matched account Worker list during audit",
+    "HISTORIC_INVENTORY": "Past recorded resource; freshness not assumed"
+  },
+  "metadata_not_source_code": true,
+  "links_evidence": "Exact source identifiers, joins on original JSON, no fuzzy matching"
+}

@@ -1,0 +1,1854 @@
+{
+  "schema_version": 1,
+  "source_database": "tabor-global-import-catalog",
+  "source_table": "global_atlas_public_repos",
+  "records_count": 205,
+  "upstream_license_review_required": true,
+  "records": [
+    {
+      "repo": "honojs/hono",
+      "name": "hono",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/honojs/hono",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/workers-sdk",
+      "name": "workers-sdk",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/workers-sdk",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/agents",
+      "name": "agents",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/agents",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/awesome-agents",
+      "name": "awesome-agents",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/awesome-agents",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/templates",
+      "name": "templates",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/templates",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/workerd",
+      "name": "workerd",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/workerd",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/vibesdk",
+      "name": "vibesdk",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/vibesdk",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cloudflare/moltworker",
+      "name": "moltworker",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/cloudflare/moltworker",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "supermemoryai/supermemory",
+      "name": "supermemory",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/supermemoryai/supermemory",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "oomol-lab/open-connector",
+      "name": "open-connector",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/oomol-lab/open-connector",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "vikiboss/60s",
+      "name": "60s",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/vikiboss/60s",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "webstudio-is/webstudio",
+      "name": "webstudio",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/webstudio-is/webstudio",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "panva/jose",
+      "name": "jose",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/panva/jose",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "microfeed/microfeed",
+      "name": "microfeed",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/microfeed/microfeed",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "dreamhunter2333/cloudflare_temp_email",
+      "name": "cloudflare_temp_email",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/dreamhunter2333/cloudflare_temp_email",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "maillab/cloud-mail",
+      "name": "cloud-mail",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/maillab/cloud-mail",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "shuaiplus/nodewarden",
+      "name": "nodewarden",
+      "category": "Cloudflare Workers / edge apps",
+      "url": "https://github.com/shuaiplus/nodewarden",
+      "fit": "potential_direct",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "WasmEdge/WasmEdge",
+      "name": "WasmEdge",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/WasmEdge/WasmEdge",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "wasm3/wasm3",
+      "name": "wasm3",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/wasm3/wasm3",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "wasmi-labs/wasmi",
+      "name": "wasmi",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/wasmi-labs/wasmi",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "wasmerio/wasmer",
+      "name": "wasmer",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/wasmerio/wasmer",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "bytecodealliance/wasmtime",
+      "name": "wasmtime",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/bytecodealliance/wasmtime",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "wasmCloud/wasmCloud",
+      "name": "wasmCloud",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/wasmCloud/wasmCloud",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "fermyon/spin",
+      "name": "spin",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/fermyon/spin",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "emscripten-core/emscripten",
+      "name": "emscripten",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/emscripten-core/emscripten",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "AssemblyScript/assemblyscript",
+      "name": "assemblyscript",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/AssemblyScript/assemblyscript",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "tinygo-org/tinygo",
+      "name": "tinygo",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/tinygo-org/tinygo",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "pyodide/pyodide",
+      "name": "pyodide",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/pyodide/pyodide",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "eclipse-zenoh/zenoh",
+      "name": "zenoh",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/eclipse-zenoh/zenoh",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "partykit/partykit",
+      "name": "partykit",
+      "category": "Edge & WebAssembly runtimes",
+      "url": "https://github.com/partykit/partykit",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "google/adk-python",
+      "name": "adk-python",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/google/adk-python",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "google/adk-java",
+      "name": "adk-java",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/google/adk-java",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "google/adk-go",
+      "name": "adk-go",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/google/adk-go",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "microsoft/agent-framework",
+      "name": "agent-framework",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/microsoft/agent-framework",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "langchain-ai/langgraph",
+      "name": "langgraph",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "name": "crewAI",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "run-llama/llama_index",
+      "name": "llama_index",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/run-llama/llama_index",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "pydantic/pydantic-ai",
+      "name": "pydantic-ai",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "deepset-ai/haystack",
+      "name": "haystack",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/deepset-ai/haystack",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "agentscope-ai/agentscope",
+      "name": "agentscope",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/agentscope-ai/agentscope",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "agentscope-ai/agentscope-java",
+      "name": "agentscope-java",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/agentscope-ai/agentscope-java",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "strands-agents/sdk-python",
+      "name": "sdk-python",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/strands-agents/sdk-python",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "name": "smolagents",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/huggingface/smolagents",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "agno-agi/agno",
+      "name": "agno",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/agno-agi/agno",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "name": "mastra",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/mastra-ai/mastra",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "microsoft/autogen",
+      "name": "autogen",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/microsoft/autogen",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "microsoft/semantic-kernel",
+      "name": "semantic-kernel",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "HKUDS/nanobot",
+      "name": "nanobot",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/HKUDS/nanobot",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "name": "hermes-agent",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "bytedance/deer-flow",
+      "name": "deer-flow",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/bytedance/deer-flow",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "FoundationAgents/MetaGPT",
+      "name": "MetaGPT",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/FoundationAgents/MetaGPT",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "CopilotKit/CopilotKit",
+      "name": "CopilotKit",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/CopilotKit/CopilotKit",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "RightNow-AI/openfang",
+      "name": "openfang",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/RightNow-AI/openfang",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Aden-Hive/hive",
+      "name": "hive",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/Aden-Hive/hive",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Upsonic/Upsonic",
+      "name": "Upsonic",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/Upsonic/Upsonic",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "openai/openai-agents-python",
+      "name": "openai-agents-python",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/openai/openai-agents-python",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "google/adk-docs",
+      "name": "adk-docs",
+      "category": "AI agents & orchestration",
+      "url": "https://github.com/google/adk-docs",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "modelcontextprotocol/registry",
+      "name": "registry",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/modelcontextprotocol/registry",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "modelcontextprotocol/servers",
+      "name": "servers",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "modelcontextprotocol/python-sdk",
+      "name": "python-sdk",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "github/github-mcp-server",
+      "name": "github-mcp-server",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/github/github-mcp-server",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "name": "chrome-devtools-mcp",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "upstash/context7",
+      "name": "context7",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/upstash/context7",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "oraios/serena",
+      "name": "serena",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/oraios/serena",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "mksglu/context-mode",
+      "name": "context-mode",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/mksglu/context-mode",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "DeusData/codebase-memory-mcp",
+      "name": "codebase-memory-mcp",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "czlonkowski/n8n-mcp",
+      "name": "n8n-mcp",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ruvnet/ruflo",
+      "name": "ruflo",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/ruvnet/ruflo",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "activepieces/activepieces",
+      "name": "activepieces",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/activepieces/activepieces",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "google-gemini/gemini-cli",
+      "name": "gemini-cli",
+      "category": "MCP servers & integration",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "RasaHQ/rasa",
+      "name": "rasa",
+      "category": "Bots & messaging",
+      "url": "https://github.com/RasaHQ/rasa",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "yagop/node-telegram-bot-api",
+      "name": "node-telegram-bot-api",
+      "category": "Bots & messaging",
+      "url": "https://github.com/yagop/node-telegram-bot-api",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "telegraf/telegraf",
+      "name": "telegraf",
+      "category": "Bots & messaging",
+      "url": "https://github.com/telegraf/telegraf",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "botman/botman",
+      "name": "botman",
+      "category": "Bots & messaging",
+      "url": "https://github.com/botman/botman",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "aiogram/aiogram",
+      "name": "aiogram",
+      "category": "Bots & messaging",
+      "url": "https://github.com/aiogram/aiogram",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "irazasyed/telegram-bot-sdk",
+      "name": "telegram-bot-sdk",
+      "category": "Bots & messaging",
+      "url": "https://github.com/irazasyed/telegram-bot-sdk",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "microsoft/AdaptiveCards",
+      "name": "AdaptiveCards",
+      "category": "Bots & messaging",
+      "url": "https://github.com/microsoft/AdaptiveCards",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "microsoft/BotFramework-WebChat",
+      "name": "BotFramework-WebChat",
+      "category": "Bots & messaging",
+      "url": "https://github.com/microsoft/BotFramework-WebChat",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "nextcord/nextcord",
+      "name": "nextcord",
+      "category": "Bots & messaging",
+      "url": "https://github.com/nextcord/nextcord",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "rampatra/jbot",
+      "name": "jbot",
+      "category": "Bots & messaging",
+      "url": "https://github.com/rampatra/jbot",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "hexabot-ai/Hexabot",
+      "name": "Hexabot",
+      "category": "Bots & messaging",
+      "url": "https://github.com/hexabot-ai/Hexabot",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "mymmrac/telego",
+      "name": "telego",
+      "category": "Bots & messaging",
+      "url": "https://github.com/mymmrac/telego",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "hikari-py/hikari",
+      "name": "hikari",
+      "category": "Bots & messaging",
+      "url": "https://github.com/hikari-py/hikari",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "operable/cog",
+      "name": "cog",
+      "category": "Bots & messaging",
+      "url": "https://github.com/operable/cog",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "TwitchIO/TwitchIO",
+      "name": "TwitchIO",
+      "category": "Bots & messaging",
+      "url": "https://github.com/TwitchIO/TwitchIO",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "opsdroid/opsdroid",
+      "name": "opsdroid",
+      "category": "Bots & messaging",
+      "url": "https://github.com/opsdroid/opsdroid",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "shomali11/slacker",
+      "name": "slacker",
+      "category": "Bots & messaging",
+      "url": "https://github.com/shomali11/slacker",
+      "fit": "bridge_or_port",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "name": "n8n",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/n8n-io/n8n",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "apache/airflow",
+      "name": "airflow",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/apache/airflow",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "conductor-oss/conductor",
+      "name": "conductor",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/conductor-oss/conductor",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Budibase/budibase",
+      "name": "budibase",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/Budibase/budibase",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "dapr/dapr",
+      "name": "dapr",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/dapr/dapr",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "nocobase/nocobase",
+      "name": "nocobase",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/nocobase/nocobase",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "temporalio/temporal",
+      "name": "temporal",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/temporalio/temporal",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "PrefectHQ/prefect",
+      "name": "prefect",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/PrefectHQ/prefect",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "windmill-labs/windmill",
+      "name": "windmill",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/windmill-labs/windmill",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "argoproj/argo-workflows",
+      "name": "argo-workflows",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/argoproj/argo-workflows",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "flowable/flowable-engine",
+      "name": "flowable-engine",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/flowable/flowable-engine",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "hatchet-dev/hatchet",
+      "name": "hatchet",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/hatchet-dev/hatchet",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "inngest/inngest",
+      "name": "inngest",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/inngest/inngest",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "restatedev/restate",
+      "name": "restate",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/restatedev/restate",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "danielgerlag/workflow-core",
+      "name": "workflow-core",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/danielgerlag/workflow-core",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ergo-services/ergo",
+      "name": "ergo",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/ergo-services/ergo",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "iflytek/astron-agent",
+      "name": "astron-agent",
+      "category": "Workflow engines & durable jobs",
+      "url": "https://github.com/iflytek/astron-agent",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "drudge/n8n-nodes-puppeteer",
+      "name": "n8n-nodes-puppeteer",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/drudge/n8n-nodes-puppeteer",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "umanamente/n8n-nodes-globals",
+      "name": "n8n-nodes-globals",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/umanamente/n8n-nodes-globals",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "naskio/n8n-nodes-python",
+      "name": "n8n-nodes-python",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/naskio/n8n-nodes-python",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "minhlucvan/n8n-nodes-browserless",
+      "name": "n8n-nodes-browserless",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/minhlucvan/n8n-nodes-browserless",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "umanamente/n8n-nodes-imap",
+      "name": "n8n-nodes-imap",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/umanamente/n8n-nodes-imap",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "jreyesr/n8n-nodes-tesseractjs",
+      "name": "n8n-nodes-tesseractjs",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/jreyesr/n8n-nodes-tesseractjs",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "CodelyTV/n8n-nodes-twitch",
+      "name": "n8n-nodes-twitch",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/CodelyTV/n8n-nodes-twitch",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "swimmingkiim/n8n-nodes-crawl-and-scrape",
+      "name": "n8n-nodes-crawl-and-scrape",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/swimmingkiim/n8n-nodes-crawl-and-scrape",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "run-llama/n8n-llamacloud",
+      "name": "n8n-llamacloud",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/run-llama/n8n-llamacloud",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "restyler/awesome-n8n",
+      "name": "awesome-n8n",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/restyler/awesome-n8n",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Synaptiv-AI/awesome-n8n",
+      "name": "awesome-n8n",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/Synaptiv-AI/awesome-n8n",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "zengfr/n8n-workflow-all-templates",
+      "name": "n8n-workflow-all-templates",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/zengfr/n8n-workflow-all-templates",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "themookfactory/awesome-n8n-msp-nodes",
+      "name": "awesome-n8n-msp-nodes",
+      "category": "Automation and community nodes",
+      "url": "https://github.com/themookfactory/awesome-n8n-msp-nodes",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "SerenityOS/serenity",
+      "name": "serenity",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/SerenityOS/serenity",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cilium/cilium",
+      "name": "cilium",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/cilium/cilium",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "gvisor/gvisor",
+      "name": "gvisor",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/gvisor/gvisor",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "reactos/reactos",
+      "name": "reactos",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/reactos/reactos",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "redox-os/redox",
+      "name": "redox",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/redox-os/redox",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "RT-Thread/rt-thread",
+      "name": "rt-thread",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/RT-Thread/rt-thread",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "phil-opp/blog_os",
+      "name": "blog_os",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/phil-opp/blog_os",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "sysprog21/lkmpg",
+      "name": "lkmpg",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/sysprog21/lkmpg",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "rust-embedded/rust-raspberrypi-OS-tutorials",
+      "name": "rust-raspberrypi-OS-tutorials",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "seL4/seL4",
+      "name": "seL4",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/seL4/seL4",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "zephyrproject-rtos/zephyr",
+      "name": "zephyr",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/zephyrproject-rtos/zephyr",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "freebsd/freebsd-src",
+      "name": "freebsd-src",
+      "category": "Kernels & kernel-adjacent",
+      "url": "https://github.com/freebsd/freebsd-src",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "HeyPuter/puter",
+      "name": "puter",
+      "category": "Operating systems & system images",
+      "url": "https://github.com/HeyPuter/puter",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "bottlerocket-os/bottlerocket",
+      "name": "bottlerocket",
+      "category": "Operating systems & system images",
+      "url": "https://github.com/bottlerocket-os/bottlerocket",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ublue-os/bazzite",
+      "name": "bazzite",
+      "category": "Operating systems & system images",
+      "url": "https://github.com/ublue-os/bazzite",
+      "fit": "not_worker",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "nats-io/nats-server",
+      "name": "nats-server",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/nats-io/nats-server",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "hazelcast/hazelcast",
+      "name": "hazelcast",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/hazelcast/hazelcast",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "livebook-dev/livebook",
+      "name": "livebook",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/livebook-dev/livebook",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Eventual-Inc/Daft",
+      "name": "Daft",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/Eventual-Inc/Daft",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "asynkron/protoactor-go",
+      "name": "protoactor-go",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/asynkron/protoactor-go",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "chrislusf/gleam",
+      "name": "gleam",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/chrislusf/gleam",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "lakehq/sail",
+      "name": "sail",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/lakehq/sail",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "kuberay-project/kuberay",
+      "name": "kuberay",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/kuberay-project/kuberay",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "BOINC/boinc",
+      "name": "boinc",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/BOINC/boinc",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ray-project/ray",
+      "name": "ray",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/ray-project/ray",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "hpcaitech/ColossalAI",
+      "name": "ColossalAI",
+      "category": "Distributed compute & messaging",
+      "url": "https://github.com/hpcaitech/ColossalAI",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "meshery/meshery",
+      "name": "meshery",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/meshery/meshery",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "strimzi/strimzi-kafka-operator",
+      "name": "strimzi-kafka-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/strimzi/strimzi-kafka-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "CrunchyData/postgres-operator",
+      "name": "postgres-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/CrunchyData/postgres-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cyclops-ui/cyclops",
+      "name": "cyclops",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/cyclops-ui/cyclops",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "kubeflow/spark-operator",
+      "name": "spark-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/kubeflow/spark-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "nolar/kopf",
+      "name": "kopf",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/nolar/kopf",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "flant/shell-operator",
+      "name": "shell-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/flant/shell-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Altinity/clickhouse-operator",
+      "name": "clickhouse-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/Altinity/clickhouse-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "projectcapsule/capsule",
+      "name": "capsule",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/projectcapsule/capsule",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "operator-framework/operator-lifecycle-manager",
+      "name": "operator-lifecycle-manager",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/operator-framework/operator-lifecycle-manager",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-operator",
+      "name": "opentelemetry-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/open-telemetry/opentelemetry-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ansible/awx-operator",
+      "name": "awx-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/ansible/awx-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ongres/stackgres",
+      "name": "stackgres",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/ongres/stackgres",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "grafana/grafana-operator",
+      "name": "grafana-operator",
+      "category": "Kubernetes / operators / platform",
+      "url": "https://github.com/grafana/grafana-operator",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "PX4/PX4-Autopilot",
+      "name": "PX4-Autopilot",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/PX4/PX4-Autopilot",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "autowarefoundation/autoware",
+      "name": "autoware",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/autowarefoundation/autoware",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ros-navigation/navigation2",
+      "name": "navigation2",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/ros-navigation/navigation2",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "cyberbotics/webots",
+      "name": "webots",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/cyberbotics/webots",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "MichaelGrupp/evo",
+      "name": "evo",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/MichaelGrupp/evo",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "introlab/rtabmap",
+      "name": "rtabmap",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/introlab/rtabmap",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "eProsima/Fast-DDS",
+      "name": "Fast-DDS",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/eProsima/Fast-DDS",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "PRBonn/kiss-icp",
+      "name": "kiss-icp",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/PRBonn/kiss-icp",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "eclipse-iceoryx/iceoryx",
+      "name": "iceoryx",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/eclipse-iceoryx/iceoryx",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "koide3/glim",
+      "name": "glim",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/koide3/glim",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "autowarefoundation/autoware_universe",
+      "name": "autoware_universe",
+      "category": "Robotics / ROS / machine nodes",
+      "url": "https://github.com/autowarefoundation/autoware_universe",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "nomic-ai/gpt4all",
+      "name": "gpt4all",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/nomic-ai/gpt4all",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Lightning-AI/litgpt",
+      "name": "litgpt",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/Lightning-AI/litgpt",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "bentoml/OpenLLM",
+      "name": "OpenLLM",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/bentoml/OpenLLM",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "openvinotoolkit/openvino",
+      "name": "openvino",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/openvinotoolkit/openvino",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Tiiny-AI/PowerInfer",
+      "name": "PowerInfer",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/Tiiny-AI/PowerInfer",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "bentoml/BentoML",
+      "name": "BentoML",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/bentoml/BentoML",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ai-dynamo/dynamo",
+      "name": "dynamo",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/ai-dynamo/dynamo",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "InternLM/lmdeploy",
+      "name": "lmdeploy",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/InternLM/lmdeploy",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "tursodatabase/turso",
+      "name": "turso",
+      "category": "AI inference / serving / distributed ML",
+      "url": "https://github.com/tursodatabase/turso",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "apache/dolphinscheduler",
+      "name": "dolphinscheduler",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/apache/dolphinscheduler",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "skypilot-org/skypilot",
+      "name": "skypilot",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/skypilot-org/skypilot",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "agenda/agenda",
+      "name": "agenda",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/agenda/agenda",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "resque/resque",
+      "name": "resque",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/resque/resque",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "PowerJob/PowerJob",
+      "name": "PowerJob",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/PowerJob/PowerJob",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "quartznet/quartznet",
+      "name": "quartznet",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/quartznet/quartznet",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "dagucloud/dagu",
+      "name": "dagu",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/dagucloud/dagu",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "mesos/chronos",
+      "name": "chronos",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/mesos/chronos",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "bee-queue/bee-queue",
+      "name": "bee-queue",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/bee-queue/bee-queue",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "reugn/go-quartz",
+      "name": "go-quartz",
+      "category": "Schedulers / queues",
+      "url": "https://github.com/reugn/go-quartz",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "serverless/serverless",
+      "name": "serverless",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/serverless/serverless",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "serverless/examples",
+      "name": "examples",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/serverless/examples",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "aws/chalice",
+      "name": "chalice",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/aws/chalice",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "midwayjs/midway",
+      "name": "midway",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/midwayjs/midway",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "CodeGenieApp/serverless-express",
+      "name": "serverless-express",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/CodeGenieApp/serverless-express",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "middyjs/middy",
+      "name": "middy",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/middyjs/middy",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "zappa/Zappa",
+      "name": "Zappa",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/zappa/Zappa",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Serverless-Devs/Serverless-Devs",
+      "name": "Serverless-Devs",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/Serverless-Devs/Serverless-Devs",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "serverless-operations/serverless-step-functions",
+      "name": "serverless-step-functions",
+      "category": "Serverless frameworks",
+      "url": "https://github.com/serverless-operations/serverless-step-functions",
+      "fit": "runtime_specific",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "ATH-MaaS/ComfyUI-Copilot",
+      "name": "ComfyUI-Copilot",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/ATH-MaaS/ComfyUI-Copilot",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "name": "ComfyUI-SeedVR2_VideoUpscaler",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "1038lab/ComfyUI-RMBG",
+      "name": "ComfyUI-RMBG",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/1038lab/ComfyUI-RMBG",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Enemyx-net/VibeVoice-ComfyUI",
+      "name": "VibeVoice-ComfyUI",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/Enemyx-net/VibeVoice-ComfyUI",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "Acly/comfyui-inpaint-nodes",
+      "name": "comfyui-inpaint-nodes",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/Acly/comfyui-inpaint-nodes",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "christian-byrne/audio-separation-nodes-comfyui",
+      "name": "audio-separation-nodes-comfyui",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/christian-byrne/audio-separation-nodes-comfyui",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "wildminder/ComfyUI-DyPE",
+      "name": "ComfyUI-DyPE",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/wildminder/ComfyUI-DyPE",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "wildminder/ComfyUI-VibeVoice",
+      "name": "ComfyUI-VibeVoice",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/wildminder/ComfyUI-VibeVoice",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "repo": "TemryL/ComfyUI-IDM-VTON",
+      "name": "ComfyUI-IDM-VTON",
+      "category": "Visual AI / ComfyUI nodes",
+      "url": "https://github.com/TemryL/ComfyUI-IDM-VTON",
+      "fit": "external_compute",
+      "status": "discovered_not_installed",
+      "observed_at": "2026-11-18"
+    }
+  ]
+}

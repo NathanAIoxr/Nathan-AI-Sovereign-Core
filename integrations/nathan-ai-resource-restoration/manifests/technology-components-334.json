@@ -1,0 +1,2681 @@
+{
+  "schema_version": 1,
+  "source_database": "tabor-global-import-catalog",
+  "source_table": "global_atlas_components",
+  "records_count": 334,
+  "upstream_license_review_required": true,
+  "records": [
+    {
+      "id": "L00-C001",
+      "name": "subsea fiber",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C002",
+      "name": "terrestrial fiber",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C003",
+      "name": "IXP",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C004",
+      "name": "carrier hotel",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C005",
+      "name": "colocation facility",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C006",
+      "name": "network PoP",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C007",
+      "name": "satellite gateway",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C008",
+      "name": "electric grid",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C009",
+      "name": "landing station",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C010",
+      "name": "DE-CIX",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C011",
+      "name": "LINX",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C012",
+      "name": "Equinix",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L00-C013",
+      "name": "TeleGeography",
+      "layer": "L00",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C001",
+      "name": "UEFI",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C002",
+      "name": "coreboot",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C003",
+      "name": "TianoCore EDK II",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C004",
+      "name": "OpenBMC",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C005",
+      "name": "Redfish",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C006",
+      "name": "IPMI",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C007",
+      "name": "Intel Management Engine",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C008",
+      "name": "AMD Platform Security Processor",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C009",
+      "name": "Arm Trusted Firmware",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C010",
+      "name": "NVIDIA BlueField DPU",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C011",
+      "name": "SmartNIC",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C012",
+      "name": "PCIe",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C013",
+      "name": "SPI",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L01-C014",
+      "name": "TPM 2.0",
+      "layer": "L01",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C001",
+      "name": "Autonomous System",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C002",
+      "name": "BGP",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C003",
+      "name": "OSPF",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C004",
+      "name": "IS-IS",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C005",
+      "name": "RPKI",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C006",
+      "name": "Anycast",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C007",
+      "name": "IPv4",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C008",
+      "name": "IPv6",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C009",
+      "name": "TCP",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C010",
+      "name": "UDP",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C011",
+      "name": "QUIC",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C012",
+      "name": "HTTP/3",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C013",
+      "name": "RIPE RIS",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C014",
+      "name": "CAIDA AS Rank",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C015",
+      "name": "RFC 4271",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C016",
+      "name": "FRRouting",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L02-C017",
+      "name": "BIRD",
+      "layer": "L02",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C001",
+      "name": "IANA DNS root",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C002",
+      "name": "Root Server System",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C003",
+      "name": "recursive DNS",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C004",
+      "name": "BIND 9",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C005",
+      "name": "Unbound",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C006",
+      "name": "CoreDNS",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C007",
+      "name": "PowerDNS",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C008",
+      "name": "DNSSEC",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C009",
+      "name": "DoH",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C010",
+      "name": "DoT",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C011",
+      "name": "ACME",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C012",
+      "name": "Let's Encrypt",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C013",
+      "name": "Certificate Transparency",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C014",
+      "name": "OpenSSL",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C015",
+      "name": "step-ca",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C016",
+      "name": "SPIFFE",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C017",
+      "name": "SPIRE",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L03-C018",
+      "name": "mTLS",
+      "layer": "L03",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C001",
+      "name": "Linux kernel",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C002",
+      "name": "FreeBSD",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C003",
+      "name": "OpenBSD",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C004",
+      "name": "NetBSD",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C005",
+      "name": "Windows NT kernel",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C006",
+      "name": "macOS XNU",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C007",
+      "name": "seL4",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C008",
+      "name": "Zephyr",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C009",
+      "name": "RT-Thread",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C010",
+      "name": "Redox OS",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C011",
+      "name": "ReactOS",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C012",
+      "name": "Cilium eBPF",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L04-C013",
+      "name": "gVisor syscall sandbox",
+      "layer": "L04",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C001",
+      "name": "KVM",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C002",
+      "name": "QEMU",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C003",
+      "name": "Firecracker",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C004",
+      "name": "Cloud Hypervisor",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C005",
+      "name": "Kata Containers",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C006",
+      "name": "Docker",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C007",
+      "name": "containerd",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C008",
+      "name": "CRI-O",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C009",
+      "name": "runc",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C010",
+      "name": "Wasmtime",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C011",
+      "name": "Wasmer",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C012",
+      "name": "WasmEdge",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C013",
+      "name": "WASI",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C014",
+      "name": "V8",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C015",
+      "name": "workerd",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C016",
+      "name": "Deno",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C017",
+      "name": "Node.js",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C018",
+      "name": "Python",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C019",
+      "name": "IPython",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C020",
+      "name": "Jupyter Xeus",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C021",
+      "name": "IRkernel",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L05-C022",
+      "name": "IJulia",
+      "layer": "L05",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C001",
+      "name": "Cloudflare Workers",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C002",
+      "name": "Cloudflare Durable Objects",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C003",
+      "name": "Cloudflare Workers AI",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C004",
+      "name": "Cloudflare Workflows",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C005",
+      "name": "Cloudflare Queues",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C006",
+      "name": "Cloudflare Pages",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C007",
+      "name": "Fastly Compute",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C008",
+      "name": "Akamai EdgeWorkers",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C009",
+      "name": "AWS Lambda",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C010",
+      "name": "AWS Lambda@Edge",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C011",
+      "name": "Deno Deploy",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C012",
+      "name": "Vercel Edge Functions",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C013",
+      "name": "Azure Functions",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C014",
+      "name": "Google Cloud Run",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C015",
+      "name": "OpenFaaS",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C016",
+      "name": "Knative",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L06-C017",
+      "name": "Hono",
+      "layer": "L06",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C001",
+      "name": "Kubernetes",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C002",
+      "name": "kubelet",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C003",
+      "name": "KubeEdge",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C004",
+      "name": "KubeRay",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C005",
+      "name": "Ray",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C006",
+      "name": "Slurm",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C007",
+      "name": "Apache Spark",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C008",
+      "name": "Apache Flink",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C009",
+      "name": "Apache Airflow",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C010",
+      "name": "Temporal",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C011",
+      "name": "Prefect",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C012",
+      "name": "Argo Workflows",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C013",
+      "name": "GitHub Actions",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C014",
+      "name": "n8n",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C015",
+      "name": "Conductor",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C016",
+      "name": "Dapr",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C017",
+      "name": "Windmill",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C018",
+      "name": "Inngest",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C019",
+      "name": "Celery",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C020",
+      "name": "BullMQ",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C021",
+      "name": "Sidekiq",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L07-C022",
+      "name": "Quartz",
+      "layer": "L07",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C001",
+      "name": "etcd",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C002",
+      "name": "Consul",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C003",
+      "name": "ZooKeeper",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C004",
+      "name": "FoundationDB",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C005",
+      "name": "CockroachDB",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C006",
+      "name": "TiKV",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C007",
+      "name": "Cloudflare D1",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C008",
+      "name": "Cloudflare Workers KV",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C009",
+      "name": "Cloudflare R2",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C010",
+      "name": "PostgreSQL",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C011",
+      "name": "SQLite",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C012",
+      "name": "Redis",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C013",
+      "name": "RocksDB",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C014",
+      "name": "Milvus",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C015",
+      "name": "Qdrant",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C016",
+      "name": "Weaviate",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C017",
+      "name": "Neo4j",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C018",
+      "name": "Chroma",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C019",
+      "name": "Apache Cassandra",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C020",
+      "name": "Ceph",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C021",
+      "name": "Raft",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L08-C022",
+      "name": "Paxos",
+      "layer": "L08",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C001",
+      "name": "Apache Kafka",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C002",
+      "name": "Redpanda",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C003",
+      "name": "NATS",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C004",
+      "name": "RabbitMQ",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C005",
+      "name": "Redis Streams",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C006",
+      "name": "Cloudflare Queues",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C007",
+      "name": "Apache Pulsar",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C008",
+      "name": "Apache ActiveMQ",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C009",
+      "name": "Mosquitto",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C010",
+      "name": "MQTT",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C011",
+      "name": "AMQP",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C012",
+      "name": "gRPC",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C013",
+      "name": "NATS JetStream",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C014",
+      "name": "Apache RocketMQ",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C015",
+      "name": "Azure Service Bus",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C016",
+      "name": "AWS SQS",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L09-C017",
+      "name": "Google Pub/Sub",
+      "layer": "L09",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C001",
+      "name": "NVIDIA CUDA",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C002",
+      "name": "AMD ROCm",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C003",
+      "name": "Intel oneAPI",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C004",
+      "name": "Triton",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C005",
+      "name": "PyTorch",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C006",
+      "name": "TensorFlow",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C007",
+      "name": "ONNX Runtime",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C008",
+      "name": "OpenVINO",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C009",
+      "name": "vLLM",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C010",
+      "name": "llama.cpp",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C011",
+      "name": "Ollama",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C012",
+      "name": "Ray Serve",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C013",
+      "name": "TensorRT-LLM",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C014",
+      "name": "TGI",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C015",
+      "name": "LMDeploy",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C016",
+      "name": "ComfyUI",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C017",
+      "name": "OpenLLM",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C018",
+      "name": "BentoML",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L10-C019",
+      "name": "KubeRay",
+      "layer": "L10",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C001",
+      "name": "LangGraph",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C002",
+      "name": "LangChain",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C003",
+      "name": "CrewAI",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C004",
+      "name": "AutoGen",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C005",
+      "name": "PydanticAI",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C006",
+      "name": "Google ADK",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C007",
+      "name": "OpenAI Agents SDK",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C008",
+      "name": "Mastra",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C009",
+      "name": "Vercel AI SDK",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C010",
+      "name": "ElizaOS",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C011",
+      "name": "Rig",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C012",
+      "name": "LangChainGo",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C013",
+      "name": "Haystack",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C014",
+      "name": "AgentScope",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C015",
+      "name": "MCP Registry",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C016",
+      "name": "MCP Python SDK",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C017",
+      "name": "GitHub MCP Server",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C018",
+      "name": "Cloudflare Agents SDK",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C019",
+      "name": "OpenAPI",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C020",
+      "name": "GraphQL",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C021",
+      "name": "JSON-RPC",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L11-C022",
+      "name": "A2A Protocol",
+      "layer": "L11",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C001",
+      "name": "Googlebot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C002",
+      "name": "Bingbot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C003",
+      "name": "Applebot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C004",
+      "name": "YandexBot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C005",
+      "name": "DuckDuckBot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C006",
+      "name": "GPTBot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C007",
+      "name": "OAI-SearchBot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C008",
+      "name": "ClaudeBot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C009",
+      "name": "CCBot",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C010",
+      "name": "Playwright",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C011",
+      "name": "Puppeteer",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C012",
+      "name": "Selenium",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C013",
+      "name": "Browserless",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C014",
+      "name": "aiogram",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C015",
+      "name": "Telegraf",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C016",
+      "name": "Rasa",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C017",
+      "name": "Discord.py",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C018",
+      "name": "TwitchIO",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C019",
+      "name": "BotMan",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L12-C020",
+      "name": "Robot Framework",
+      "layer": "L12",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C001",
+      "name": "FreeRTOS",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C002",
+      "name": "Zephyr",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C003",
+      "name": "ThreadX",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C004",
+      "name": "RT-Thread",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C005",
+      "name": "Contiki-NG",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C006",
+      "name": "RIOT OS",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C007",
+      "name": "ESP-IDF",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C008",
+      "name": "MicroPython",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C009",
+      "name": "ROS 2",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C010",
+      "name": "ROS Navigation2",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C011",
+      "name": "Micro-ROS",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C012",
+      "name": "Fast DDS",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C013",
+      "name": "MQTT",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C014",
+      "name": "CoAP",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C015",
+      "name": "LoRaWAN",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C016",
+      "name": "Matter",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C017",
+      "name": "Thread",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C018",
+      "name": "BLE",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C019",
+      "name": "Zigbee",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C020",
+      "name": "OPC UA",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L13-C021",
+      "name": "CAN bus",
+      "layer": "L13",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C001",
+      "name": "IPFS Kubo",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C002",
+      "name": "libp2p",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C003",
+      "name": "Filecoin",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C004",
+      "name": "BitTorrent DHT",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C005",
+      "name": "Kademlia",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C006",
+      "name": "Bittensor",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C007",
+      "name": "Render Network",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C008",
+      "name": "Bitcoin Core",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C009",
+      "name": "Ethereum Geth",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C010",
+      "name": "Ethereum Reth",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C011",
+      "name": "Nethermind",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C012",
+      "name": "Solana",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C013",
+      "name": "Matrix",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C014",
+      "name": "ActivityPub",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C015",
+      "name": "AT Protocol",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C016",
+      "name": "Tor",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L14-C017",
+      "name": "Hyperledger Fabric",
+      "layer": "L14",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C001",
+      "name": "OpenTelemetry",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C002",
+      "name": "Prometheus",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C003",
+      "name": "Grafana",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C004",
+      "name": "Vector",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C005",
+      "name": "Falco",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C006",
+      "name": "Pixie",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C007",
+      "name": "Cilium",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C008",
+      "name": "Envoy",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C009",
+      "name": "NGINX",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C010",
+      "name": "Cloudflare WAF",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C011",
+      "name": "Cloudflare DDoS Protection",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C012",
+      "name": "Cloudflare Zero Trust",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C013",
+      "name": "Open Policy Agent",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C014",
+      "name": "Trivy",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C015",
+      "name": "Sigstore",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C016",
+      "name": "Cosign",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C017",
+      "name": "SBOM",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C018",
+      "name": "OSV vulnerability database",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C019",
+      "name": "eBPF",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L15-C020",
+      "name": "XDP",
+      "layer": "L15",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C001",
+      "name": "IANA",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C002",
+      "name": "NRO",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C003",
+      "name": "RIPE NCC",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C004",
+      "name": "ARIN",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C005",
+      "name": "APNIC",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C006",
+      "name": "LACNIC",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C007",
+      "name": "AFRINIC",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C008",
+      "name": "PeeringDB",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C009",
+      "name": "CAIDA",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C010",
+      "name": "RouteViews",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C011",
+      "name": "RIPE RIS",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C012",
+      "name": "Root-Servers.org",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C013",
+      "name": "Certificate Transparency",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C014",
+      "name": "MCP Registry",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C015",
+      "name": "CNCF Landscape",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C016",
+      "name": "Artifact Hub",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C017",
+      "name": "ROS Index",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C018",
+      "name": "Hugging Face",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C019",
+      "name": "GitHub Topics",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C020",
+      "name": "NPM Registry",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C021",
+      "name": "PyPI",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C022",
+      "name": "crates.io",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L16-C023",
+      "name": "Go packages",
+      "layer": "L16",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C001",
+      "name": "Cloudflare API",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C002",
+      "name": "GitHub REST API",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C003",
+      "name": "GitHub Actions",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C004",
+      "name": "OAuth 2.0",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C005",
+      "name": "OIDC",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C006",
+      "name": "MCP gateway",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C007",
+      "name": "Service bindings",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C008",
+      "name": "Webhooks",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C009",
+      "name": "REST APIs",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C010",
+      "name": "gRPC services",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C011",
+      "name": "Server-sent events",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C012",
+      "name": "WebSockets",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C013",
+      "name": "API Gateway",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C014",
+      "name": "OpenTelemetry OTLP",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C015",
+      "name": "ETL connectors",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C016",
+      "name": "Vectorize",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    },
+    {
+      "id": "L17-C017",
+      "name": "Cloudflare AI Gateway",
+      "layer": "L17",
+      "source_type": "curated_global_seed",
+      "status": "public_reference_only",
+      "observed_at": "2026-11-18"
+    }
+  ]
+}
