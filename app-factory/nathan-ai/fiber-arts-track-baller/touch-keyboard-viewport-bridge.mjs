@@ -1,7 +1,7 @@
 /** Opt-in one-way synchronization of simulated touch viewport frames into keyboard navigation.
  * Does not modify the pinch controller or claim calibrated yarn physics.
  */
-export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false } = {}) {
+export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false, snapshotPublishedFrame = false } = {}) {
   if (!keyboardController || typeof keyboardController.syncFrame !== 'function' || typeof keyboardController.getFrame !== 'function')
     throw new TypeError('keyboard controller with syncFrame/getFrame required');
   if (typeof onViewportFrame !== 'function') throw new TypeError('viewport callback required');
@@ -9,6 +9,7 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   if (typeof requireUnitQuaternion !== 'boolean') throw new TypeError('requireUnitQuaternion must be boolean');
   if (typeof rejectInvalidQuaternion !== 'boolean') throw new TypeError('rejectInvalidQuaternion must be boolean');
   if (typeof rejectInvalidZoom !== 'boolean') throw new TypeError('rejectInvalidZoom must be boolean');
+  if (typeof snapshotPublishedFrame !== 'boolean') throw new TypeError('snapshotPublishedFrame must be boolean');
   let active = true;
   let acceptedFrames = 0;
   let rejectedFrames = 0;
@@ -59,7 +60,11 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
             ? sameOrientation(previous[key], next[key])
             : Object.is(previous[key], next[key]))) return true;
       publishedFrames++;
-      onViewportFrame(next);
+      // Opt-in immutable snapshot keeps callbacks from mutating controller-owned state.
+      const published = snapshotPublishedFrame && next && typeof next === 'object'
+        ? Object.freeze(Object.fromEntries(Object.entries(next).map(([key, value]) =>
+            [key, Array.isArray(value) ? Object.freeze(value.slice()) : value]))) : next;
+      onViewportFrame(published);
       return true;
     },
     getMetrics() { return Object.freeze({ acceptedFrames, rejectedFrames, publishedFrames, active }); },
