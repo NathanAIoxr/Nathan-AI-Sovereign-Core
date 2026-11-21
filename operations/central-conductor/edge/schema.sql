@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS records (id TEXT PRIMARY KEY, sha256 TEXT NOT NULL, body TEXT NOT NULL, synced_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_records_synced ON records(synced_at);
+CREATE TABLE IF NOT EXISTS r2_objects (object_key TEXT PRIMARY KEY, sha256 TEXT NOT NULL, size_bytes INTEGER NOT NULL, indexed_at TEXT NOT NULL);
