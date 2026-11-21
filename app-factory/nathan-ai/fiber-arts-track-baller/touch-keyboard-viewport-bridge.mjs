@@ -16,7 +16,9 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
       const next = keyboardController.getFrame();
       if (suppressUnchanged && previous && next &&
           Object.keys(previous).length === Object.keys(next).length &&
-          Object.keys(previous).every(key => key === 'orientation' && Array.isArray(previous[key]) && Array.isArray(next[key])\n            ? previous[key].length === next[key].length && previous[key].every((value, index) => Object.is(value, next[key][index]))\n            : Object.is(previous[key], next[key]))) return true;
+          Object.keys(previous).every(key => key === 'orientation' && Array.isArray(previous[key]) && Array.isArray(next[key])
+            ? previous[key].length === next[key].length && previous[key].every((value, index) => Object.is(value, next[key][index]))
+            : Object.is(previous[key], next[key]))) return true;
       onViewportFrame(next);
       return true;
     },
