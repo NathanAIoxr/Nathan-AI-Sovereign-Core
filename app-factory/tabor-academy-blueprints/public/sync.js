@@ -4,10 +4,11 @@ let syncing;
 
 function database() {
   pendingDatabase ??= new Promise((resolve, reject) => {
-    const request = indexedDB.open(databaseName, 1);
+    const request = indexedDB.open(databaseName, 2);
     request.onupgradeneeded = () => {
-      request.result.createObjectStore("outbox", { keyPath: "id" });
-      request.result.createObjectStore("progress", { keyPath: "id" });
+      for (const name of ["outbox","progress","curriculum"]) {
+        if (!request.result.objectStoreNames.contains(name)) request.result.createObjectStore(name,{keyPath:"id"});
+      }
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
@@ -30,6 +31,13 @@ async function store(name, operation, mode = "readonly") {
 
 const all = name => store(name, collection => collection.getAll());
 const put = (name, item) => store(name, collection => collection.put(item), "readwrite");
+export async function readVerifiedCurriculum() {
+  return (await store("curriculum", collection => collection.get("verified")))?.snapshot;
+}
+export function saveVerifiedCurriculum(snapshot) {
+  return put("curriculum",{ id:"verified", snapshot });
+}
+
 const remove = (name, id) => store(name, collection => collection.delete(id), "readwrite");
 
 export async function saveObservation(fields) {

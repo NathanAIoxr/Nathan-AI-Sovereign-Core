@@ -25,7 +25,10 @@ const app = await build({ entryPoints: ["public/app.js"], bundle: true, write: f
   platform: "browser", legalComments: "inline", minify: true });
 assets["/app.js"] = [app.outputFiles[0].text, types[".js"]];
 const html = assets["/index.html"][0];
-const inlineData = assets["/exports/blueprints.json"][0].replaceAll("<", "\\u003c");
+const inlineData = JSON.stringify({
+  proof:JSON.parse(assets["/exports/blueprints-integrity.json"][0]),
+  rows:JSON.parse(assets["/exports/blueprints-v7.json"][0]),
+}).replaceAll("<", "\\u003c");
 const offline = html.replace(/<link[^>]+(?:stylesheet|preconnect|manifest)[^>]*>/gi, "")
   .replace('<script src="/app.js" type="module"></script>', "")
   .replace("</head>", "<style>" + assets["/phase2.css"][0] + "</style></head>")

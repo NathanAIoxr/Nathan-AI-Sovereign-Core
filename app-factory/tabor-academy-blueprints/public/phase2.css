@@ -73,3 +73,5 @@ dialog button, .tool-inner > button { border: 1px solid #aeb8a8; border-radius: 
   .print-current .card-signature { display: flex; align-items: center; justify-content: flex-end; gap: .06in; font-size: 7pt; }
   .print-current .card-signature img { width: .55in; height: .55in; }
 }
+
+#pronunciation-option[hidden] { display:none; }

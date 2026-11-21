@@ -1,4 +1,7 @@
-import { verifyRows, sha256 } from "../shared/merkle.js";
+import { lessonPreview } from "./social.js";
+import { stateCommand } from "./state.js";
+import { currentSnapshot, readSnapshot } from "./snapshot.js";
+import { lessonProjection } from "../shared/snapshot.js";
 import { rankedLessons } from "../public/explorers.js";
 import { recordGap } from "./closed_loop.js";
 import { classroom } from "./rooms.js";
@@ -9,10 +12,12 @@ export const domains = new Set(["Biology", "Mechanics", "Physics", "Nature", "En
 export const embeddingModel = "@cf/baai/bge-base-en-v1.5";
 
 const lessonRows = `
-  SELECT id, tier, domain, item_a_label, item_b_label, item_c_label, clue_prompt,
+  SELECT b.id, tier, domain, item_a_label, item_b_label, item_c_label, clue_prompt,
          core_parts, operations, traits_attributes, scale_medium, input_output,
          flow_direction, modification_exemption, blind_spot_note
-  FROM blueprint_lessons`;
+  FROM blueprint_lessons b LEFT JOIN blueprint_integrity i ON i.lesson_id=b.id
+  LEFT JOIN blueprint_lifecycle l ON l.lesson_id=b.id
+  WHERE COALESCE(i.state,1)=1 AND COALESCE(l.state,'verified')='verified' `;
 
 export function embedText(row) {
   return Object.entries(row).filter(([name, value]) => name !== "id" && value)
@@ -35,14 +40,15 @@ async function lessons(env, params, ctx) {
   }
   if (query?.length > 160) return error("Use a search of up to 160 characters.", 400);
   const statement = tier === null ? env.DB.prepare(`${lessonRows} ORDER BY id`)
-    : env.DB.prepare(`${lessonRows} WHERE tier = ? ORDER BY id`).bind(tier);
+    : env.DB.prepare(`${lessonRows} AND tier = ? ORDER BY id`).bind(tier);
   let results;
   let snapshotUsed = false;
   try { ({ results } = await statement.all()); }
   catch (failure) {
-    const snapshot = await env.CACHE?.get("blueprint-verified-snapshot-v1","json");
-    if (!Array.isArray(snapshot?.rows)) throw failure;
-    results = tier === null ? snapshot.rows : snapshot.rows.filter(row => row.tier === tier);
+    const snapshot = await readSnapshot(env.CACHE).catch(() => null);
+    if (!snapshot) throw failure;
+    const projected = snapshot.rows.map(lessonProjection);
+    results = tier === null ? projected : projected.filter(row => row.tier === tier);
     snapshotUsed = true;
   }
   const cacheSource = snapshotUsed ? { "X-Curriculum-Source": "kv-snapshot" } : {};
@@ -108,14 +114,11 @@ export default {
         if (pathname === "/api/propose" && method !== "POST") return error("Use POST.", 405, { Allow: "POST" });
         return await sightings(request, env, url);
       }
+      if (pathname === "/api/admin/blueprint-state") return await stateCommand(request,env);
       if (pathname === "/api/admin/review-sighting") return await reviewSighting(request, env);
-      if (pathname === "/api/integrity" && method === "GET") {
-        const {results} = await env.DB.prepare("SELECT * FROM blueprint_lessons_v7 WHERE state=1 ORDER BY id").all();
-        const expected = await env.DB.prepare(`SELECT count(*) AS n FROM blueprint_lessons b
-          LEFT JOIN blueprint_lifecycle l ON l.lesson_id=b.id WHERE COALESCE(l.state,'verified')='verified'`).first();
-        if (results.length !== expected.n) return error("Blueprint integrity coverage is incomplete.", 503);
-        return Response.json({ algorithm:"TaborAcademy:answers-nfc-json-sha256+sorted-merkle:v1",
-          rows:results.length, merkle_root:await verifyRows(results), verified_export_sha256:await sha256(JSON.stringify(results)) },
+      if ((pathname === "/api/integrity" || pathname === "/api/curriculum-snapshot") && method === "GET") {
+        const snapshot = await currentSnapshot(env.DB);
+        return Response.json(pathname === "/api/integrity" ? snapshot.proof : snapshot,
           { headers:{"Cache-Control":"no-store"} });
       }
       if (pathname === "/api/healthz" && method === "GET") {
@@ -153,7 +156,10 @@ export default {
           "X-Content-Type-Options": "nosniff" } });
       }
       if (pathname === "/api" || pathname.startsWith("/api/")) return error("API route not found.", 404);
-      if (env.ASSETS) return env.ASSETS.fetch(request);
+      if (env.ASSETS) {
+        const asset = await env.ASSETS.fetch(request);
+        return await lessonPreview(request,env,asset).catch(() => asset);
+      }
       return new Response(null, { status: 404 });
     } catch (failure) {
       console.error("Blueprint request failed", { route: pathname, error: String(failure) });

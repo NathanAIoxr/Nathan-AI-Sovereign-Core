@@ -15,5 +15,5 @@ await build({
   bundle: true, format: "esm", platform: "browser", minify: true,
 });
 writeFileSync(`${folder}/_routes.json`, JSON.stringify({
-  version: 1, include: ["/api", "/api/*"], exclude: [],
+  version: 1, include: ["/", "/api", "/api/*"], exclude: [],
 }));

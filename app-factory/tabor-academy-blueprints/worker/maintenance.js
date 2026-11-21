@@ -1,3 +1,4 @@
+import { currentSnapshot, publishSnapshot, readSnapshot } from "./snapshot.js";
 import { DurableObject } from "cloudflare:workers";
 import { embedText, embeddingModel } from "./index.js";
 import { auditPublishedRows, COLUMNS, mechanismText, reviewPhotos } from "./closed_loop.js";
@@ -14,8 +15,11 @@ async function hash(text) {
 async function librarySnapshot(env, reindex) {
   const { results: rows } = await env.DB.prepare(`SELECT ${COLUMNS.map(key => "b." + key).join(",")}
     FROM blueprint_lessons b LEFT JOIN blueprint_lifecycle s ON s.lesson_id=b.id
-    WHERE COALESCE(s.state,'verified')='verified' ORDER BY b.id`).all();
+    LEFT JOIN blueprint_integrity i ON i.lesson_id=b.id
+    WHERE COALESCE(s.state,'verified')='verified' AND COALESCE(i.state,1)=1 ORDER BY b.id`).all();
   await auditPublishedRows(env, rows);
+  const integrity = await currentSnapshot(env.DB);
+  const integrityKey = await publishSnapshot(env, integrity);
   const json = JSON.stringify(rows);
   const digest = await hash(json);
   const old = await env.CACHE.get(snapshotKey, "json");
@@ -38,7 +42,7 @@ async function librarySnapshot(env, reindex) {
     }
     await env.CACHE.put("academy-blueprint-index-offset", String(offset+batch.length<rows.length?offset+batch.length:0));
   }
-  return { key, rows: rows.length };
+  return { key, integrityKey, rows: rows.length };
 }
 
 async function check(env) {
@@ -49,8 +53,8 @@ async function check(env) {
   catch { /* record the binding results and preserve the previous snapshot */ }
   const tasks = {
     d1: () => env.DB.prepare("SELECT 1 AS ok FROM blueprint_lessons LIMIT 1").first(),
-    kv: () => env.CACHE.get(snapshotKey, "json"),
-    r2: () => storage ? env.VAULT.head(storage.key) : Promise.resolve(null),
+    kv: () => readSnapshot(env.CACHE),
+    r2: () => storage ? env.VAULT.head(storage.integrityKey) : Promise.resolve(null),
     vectorize: async () => {
       const { data } = await env.AI.run(embeddingModel, {text:["motor and generator reverse energy conversion"]});
       return (await env.VECTORIZE.query(data[0],{topK:3})).matches.length > 0;

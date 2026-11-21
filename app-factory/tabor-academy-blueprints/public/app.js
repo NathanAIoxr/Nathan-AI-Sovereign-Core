@@ -1,3 +1,4 @@
+import { offlineLessons, refreshCurriculum } from "./integrity-client.js";
 import { flows, glossary, mysteries, rankedLessons, scales } from "./explorers.js";
 
 import { blueprintCode, fieldQr, openField, openHunt, setupField } from "./field.js";
@@ -12,6 +13,10 @@ const answerColumns = [
 const byId = id => document.getElementById(id);
 const mode = byId("investigative-mode");
 const tier = byId("tier");
+const reverseLayers = byId("reverse-layers");
+const pronounce = byId("pronunciation-help");
+const supportsSpeech = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+byId("pronunciation-option").hidden = !supportsSpeech;
 const status = byId("lesson-status");
 const list = byId("lessons");
 const search = byId("blueprint-search");
@@ -70,12 +75,14 @@ function lessonCard(lesson) {
   const answers = element("dl", null, "answers");
   answers.id = `answers-${lesson.id}`;
   answers.hidden = !visible;
-  for (const [key, label] of visible ? answerColumns : []) {
+  const layers = reverseLayers.checked ? [...answerColumns].reverse() : answerColumns;
+  for (const [key, label] of visible ? layers : []) {
     const pair = element("div", null, "answer");
     pair.append(element("dt", label), element("dd", lesson[key]));
     answers.append(pair);
   }
   card.append(answers);
+  if (visible && reverseLayers.checked) card.prepend(answers);
   if (visible && diagrams.has(lesson.id)) {
     const figure = element("figure", null, "lesson-diagram");
     const image = element("img");
@@ -93,6 +100,15 @@ function lessonCard(lesson) {
   card.append(signature);
 
   const actions = element("div", null, "card-actions");
+  if (supportsSpeech && pronounce.checked) {
+    for (const label of labels) actions.append(button("Hear " + label, () => {
+      window.speechSynthesis.cancel();
+      const speech = new SpeechSynthesisUtterance(label);
+      speech.lang = document.documentElement.lang || "en-US";
+      speech.rate = 0.82;
+      window.speechSynthesis.speak(speech);
+    }));
+  }
   if (!globalThis.ACADEMY_OFFLINE) actions.append(button("Found Another Twin!", () => openField(lesson)));
   if (mode.checked) {
     const reveal = button(visible ? "Hide blueprint" : "Reveal blueprint", async () => {
@@ -144,13 +160,16 @@ async function getLessons(params, signal) {
   if (!globalThis.ACADEMY_OFFLINE) {
     try {
       const result = await fetch(`/api/lessons${params.size ? "?" + params : ""}`, { signal });
-      if (result.ok) return result.json();
+      if (result.ok) {
+        if (!params.size && navigator.onLine) void refreshCurriculum().catch(() => {});
+        return result.json();
+      }
       if (result.status < 500) throw new Error(`Lesson request failed (${result.status})`);
     } catch (error) {
       if (error.name === "AbortError") throw error;
     }
   }
-  const snapshot = globalThis.ACADEMY_OFFLINE ?? await (await fetch("/exports/blueprints.json", { signal })).json();
+  const snapshot = await offlineLessons(signal);
   const filter = params.get("tier");
   const rows = filter ? snapshot.filter(row => row.tier === filter) : snapshot;
   return params.has("q") ? rankedLessons(rows, params.get("q")) : rows;
@@ -205,6 +224,8 @@ byId("search-clear").addEventListener("click", () => {
   void loadLessons();
 });
 tier.addEventListener("change", loadLessons);
+reverseLayers.addEventListener("change",render);
+pronounce.addEventListener("change",render);
 mode.addEventListener("change", async () => {
   const investigative = mode.checked;
   if (room && !await updateRoom({ investigative }) && room) mode.checked = room.investigative;
