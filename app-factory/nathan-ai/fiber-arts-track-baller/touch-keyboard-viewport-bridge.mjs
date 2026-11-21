@@ -17,7 +17,11 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   return Object.freeze({
     onTouchFrame(frame) {
       if (!active) return false;
-      const previous = suppressUnchanged ? keyboardController.getFrame() : null;
+      // Snapshot before syncFrame: some controllers mutate and return the same frame object.
+      const current = suppressUnchanged ? keyboardController.getFrame() : null;
+      const previous = current && typeof current === 'object'
+        ? Object.fromEntries(Object.entries(current).map(([key, value]) =>
+            [key, Array.isArray(value) ? value.slice() : value])) : current;
       const accepted = keyboardController.syncFrame(frame);
       if (!accepted) return false;
       const next = keyboardController.getFrame();
