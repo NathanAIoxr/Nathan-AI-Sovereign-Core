@@ -1,7 +1,7 @@
 /** Opt-in one-way synchronization of simulated touch viewport frames into keyboard navigation.
  * Does not modify the pinch controller or claim calibrated yarn physics.
  */
-export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false, snapshotPublishedFrame = false } = {}) {
+export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false, snapshotPublishedFrame = false, rejectInvalidFrame = false } = {}) {
   if (!keyboardController || typeof keyboardController.syncFrame !== 'function' || typeof keyboardController.getFrame !== 'function')
     throw new TypeError('keyboard controller with syncFrame/getFrame required');
   if (typeof onViewportFrame !== 'function') throw new TypeError('viewport callback required');
@@ -10,6 +10,7 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   if (typeof rejectInvalidQuaternion !== 'boolean') throw new TypeError('rejectInvalidQuaternion must be boolean');
   if (typeof rejectInvalidZoom !== 'boolean') throw new TypeError('rejectInvalidZoom must be boolean');
   if (typeof snapshotPublishedFrame !== 'boolean') throw new TypeError('snapshotPublishedFrame must be boolean');
+  if (typeof rejectInvalidFrame !== 'boolean') throw new TypeError('rejectInvalidFrame must be boolean');
   let active = true;
   let acceptedFrames = 0;
   let rejectedFrames = 0;
@@ -32,6 +33,14 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   return Object.freeze({
     onTouchFrame(frame) {
       if (!active) return false;
+      // Opt-in structural ingress guard prevents malformed frames reaching controllers.
+      if (rejectInvalidFrame && (!frame || typeof frame !== 'object' || Array.isArray(frame) ||
+          !Array.isArray(frame.orientation) || frame.orientation.length !== 4 ||
+          !frame.orientation.every(v => typeof v === 'number' && Number.isFinite(v)) ||
+          typeof frame.zoom !== 'number' || !Number.isFinite(frame.zoom) || frame.zoom <= 0)) {
+        rejectedFrames++;
+        return false;
+      }
       // Optional zoom ingress guard: require a finite positive simulated viewport scale.
       if (rejectInvalidZoom && (!frame || typeof frame.zoom !== 'number' ||
           !Number.isFinite(frame.zoom) || frame.zoom <= 0)) {
