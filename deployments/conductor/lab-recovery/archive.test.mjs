@@ -53,6 +53,22 @@ test('an archive with a wrong readback digest stays in retry state', async () =>
   assert.equal(JSON.parse(row.receipt).error, 'readback_digest_mismatch');
 });
 
+test('the registered launch is verified and its lease is cleared', async t => {
+  const env = environment();
+  env.db.exec("UPDATE lab_recovery_jobs_v1 SET status='queued' WHERE id='mathematical-roots'");
+  const fetchMock = t.mock.method(globalThis, 'fetch', async (_, options) => {
+    assert.ok(options.signal instanceof AbortSignal);
+    return new Response('<title>THE MIDDLE C · 100 Mathematical Roots</title>');
+  });
+  await runRecovery(env);
+  await runRecovery(env);
+  const row = env.db.prepare("SELECT status,receipt,lease_owner FROM lab_recovery_jobs_v1 WHERE id='mathematical-roots'").get();
+  assert.equal(row.status, 'verified');
+  assert.equal(JSON.parse(row.receipt).http, 200);
+  assert.equal(row.lease_owner, null);
+  assert.equal(fetchMock.mock.callCount(), 1);
+});
+
 test('original routes and scheduled handlers stay reachable', async () => {
   let ran = false;
   const wrapped = withLabRecovery({ fetch: () => new Response('baseline'), scheduled: async () => { ran = true; } });

@@ -4,6 +4,8 @@ The complete 284-file recovery package is stored as the SHA-256-addressed object
 
 `schema.sql` creates and seeds `lab_recovery_jobs_v1` in the existing `tabor-autonomous-builds` D1 database, bound as `LAB_BUILDS`. The Worker uses the existing 15-minute trigger for private hash readback and existing launch checks. It only fetches the eight named release URLs. The existing Conductor's Independent App Builds rotation handles the remaining source and build rows. Private source remains in R2. The public endpoint omits private receipts and the object path.
 
+`public-source-manifest.csv` indexes all 250 GitHub source files in the recovery package by their exact public commit, path and Git blob hash. The live recovery page also links to the existing station directory. The full 533-row station snapshot and original indexes remain in the private archive.
+
 The Worker wrapper layers these routes and checks on the active Labs catalog wrapper without replacing existing Labs endpoints, binding, or cron. Keep the existing modules when packaging `entry.mjs`. The archive import route requires a temporary encrypted secret and accepts the exact published byte length and digest. The activation removes that secret after intake. The source archive is immutable under its digest key.
 
 ## App build and source jobs

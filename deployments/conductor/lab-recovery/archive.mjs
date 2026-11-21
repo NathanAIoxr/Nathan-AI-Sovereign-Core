@@ -9,6 +9,8 @@ export const archive = Object.freeze({
 
 const pages = 'https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/';
 const minds = 'nathan-ai/personal-intelligence/minds/';
+const stationDirectory = 'https://pub-a374b836528943e2917457f04363c2ff.r2.dev/index.html';
+const sourceManifest = 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/release/nathan-tabor-labs-recovery-20261120/deployments/conductor/lab-recovery/public-source-manifest.csv';
 export const targets = Object.freeze({
   'cero-uno-dos': [pages + minds + 'index.html', 'Cero/Uno/Dos Atlas'],
   'mind-of-minds': [pages + minds + 'mind-of-minds/index.html', 'Personal Intelligence Mind Registry'],
@@ -64,11 +66,17 @@ async function check(job, env) {
   }
   const target = targets[job.id];
   if (!target) throw Error('unregistered_launch');
-  const response = await fetch(target[0], { redirect: 'error', signal: AbortSignal.timeout(8000) });
-  if (!response.ok) throw Error(`http_${response.status}`);
-  const opening = await response.text();
-  if (!opening.includes(target[1])) throw Error('launch_identity_mismatch');
-  return { url: target[0], http: response.status, identity: target[1] };
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch(target[0], { redirect: 'error', signal: controller.signal });
+    if (!response.ok) throw Error(`http_${response.status}`);
+    const opening = await response.text();
+    if (!opening.includes(target[1])) throw Error('launch_identity_mismatch');
+    return { url: target[0], http: response.status, identity: target[1] };
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export async function runRecovery(env, source = 'scheduled') {
@@ -102,7 +110,9 @@ export async function runRecovery(env, source = 'scheduled') {
 const page = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nathan Tabor Labs · Source Recovery</title><style>body{font:17px/1.6 system-ui,sans-serif;color:#15293d;background:#f5f7f8;max-width:44rem;margin:auto;padding:2rem 1rem}a{color:#13577d}li{margin:.5rem 0}</style>
 <h1>Nathan Tabor Labs</h1><h2>Source Recovery</h2><ul><li><a href="/api/recovery">Archive and Conductor receipts</a></li>
-<li><a href="${archive.handoff}">GitHub Conductor handoff</a></li><li><a href="/play/labs">Player Edition</a></li><li><a href="/workbench">Workbench</a></li></ul></html>`;
+<li><a href="${sourceManifest}">GitHub source files and revisions</a></li><li><a href="${stationDirectory}">Independent App Stations</a></li>
+<li><a href="${archive.handoff}">GitHub Conductor handoff</a></li><li><a href="/play/labs">Player Edition</a></li><li><a href="/workbench">Workbench</a></li></ul>
+<h2>Independent releases</h2><ul>${Object.values(targets).map(([url, label]) => `<li><a href="${url}">${label.replaceAll('&', '&amp;')}</a></li>`).join('')}</ul></html>`;
 
 export async function recoveryRoute(request, env) {
   const path = new URL(request.url).pathname;
