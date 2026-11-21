@@ -1,0 +1,22 @@
+name = "tabor-academy-blueprints-search"
+main = "worker/lesson-service.js"
+account_id = "a70580bacdf96c946662b7b67dcb45b5"
+compatibility_date = "2026-11-20"
+workers_dev = false
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-academy-blueprints"
+database_id = "7a426090-8b0b-4f85-8a68-8b5c8e6fc478"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "tabor-academy-blueprints"
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "tabor_academy_blueprints"

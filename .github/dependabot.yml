@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /app-factory/tabor-academy-blueprints
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3

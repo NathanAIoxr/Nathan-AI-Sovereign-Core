@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curriculum Index | Tabor Academy</title>
+  <link rel="stylesheet" href="/curriculum/catalog.css">
+  <script type="module" src="/curriculum/catalog.js"></script>
+</head>
+<body>
+  <header>
+    <div class="layout">
+      <p>Tabor Academy</p>
+      <h1>Curriculum Index</h1>
+      <nav aria-label="Academy links">
+        <a href="/">Blueprint lessons</a>
+        <a href="https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/map/">Academy map</a>
+        <a href="/exports/academy-curriculum.json" download>Download index</a>
+      </nav>
+    </div>
+  </header>
+  <main class="layout">
+    <div class="controls">
+      <label for="query">Find by title, tier, or course</label>
+      <input id="query" type="search" maxlength="160" autocomplete="off">
+      <p id="count" role="status">Loading the curriculum…</p>
+    </div>
+    <section aria-labelledby="curriculum">
+      <h2 id="curriculum">Courses and practice</h2>
+      <div id="tracks"></div>
+    </section>
+    <section aria-labelledby="archive">
+      <h2 id="archive">Reference collections</h2>
+      <ul id="materials"></ul>
+    </section>
+  </main>
+</body>
+</html>
