@@ -1,0 +1,10 @@
+[Unit]
+Description=Schedule the ULCAS Node X heartbeat
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
