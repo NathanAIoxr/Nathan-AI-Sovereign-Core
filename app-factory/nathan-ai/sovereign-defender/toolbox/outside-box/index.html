@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Outside Box | Nathan AI</title>
+  <link rel="stylesheet" href="../../../appearance/shared.css" data-nathan-shared-appearance>
+  <link rel="stylesheet" href="style.css">
+  <script src="../../../appearance/engine.js" defer></script>
+  <script src="../../../appearance/app.js" defer></script>
+  <script src="../engine.js" defer></script>
+  <script src="engine.js" defer></script>
+  <script src="../../../../vault-backup.js" defer></script>
+  <script src="../../../../one/hall-of-mirrors/engine.js" defer></script>
+  <script src="bundle.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+
+  <main>
+    <a class="back" href="../">← Sovereign Defender Toolbox</a>
+    <header>
+      <p class="eyebrow">Nathan AI · Sovereign Defender</p>
+      <h1>Outside Box</h1>
+      <p>Review a suspicious event, decide how to contain it, and keep a receipt of what happened.</p>
+    </header>
+    <p class="status" id="status" role="status" aria-live="polite">Choose an evidence file or load the example case.</p>
+    <section aria-labelledby="intake-title">
+      <h2 id="intake-title">Evidence intake</h2>
+      <p>Import an Incident Ledger, Outside Box telemetry, or Cloudflare HTTP request logs with UTC timestamps. Each file is fingerprinted on your device. Save a case before closing this tab.</p>
+      <label for="evidence">Evidence files</label>
+      <input id="evidence" type="file" accept=".json,.jsonl,.ndjson,application/json" multiple>
+      <div class="buttons">
+        <button id="load-example" type="button">Load example case</button>
+        <button id="export" type="button" disabled>Download case JSON</button>
+        <button id="save-bundle" type="button" disabled>Save portable case ZIP</button>
+        <button id="clear" type="button" disabled>Clear case</button>
+      </div>
+      <label for="open-bundle">Reopen a portable case ZIP</label>
+      <input id="open-bundle" type="file" accept=".zip,application/zip">
+      <p class="subtle">The portable ZIP includes the original evidence. Keep it in a private location.</p>
+      <details><summary>Source fingerprints</summary><ul id="source-list"></ul></details>
+    </section>
+    <section aria-labelledby="review-title">
+      <h2 id="review-title">Incident review</h2>
+      <dl class="summary-grid">
+        <div><dt>Observed account or device</dt><dd id="principals">—</dd></div>
+        <div><dt>Observed ingress</dt><dd id="ingress">—</dd></div>
+        <div><dt>Affected assets</dt><dd id="assets">—</dd></div>
+        <div><dt>Human or group attribution</dt><dd id="attribution">—</dd></div>
+      </dl>
+      <p id="impact">Import evidence to see the timeline.</p>
+      <ol class="timeline" id="timeline"></ol>
+      <button id="show-more" type="button" hidden>Show more events</button>
+      <p id="unzoned-note" hidden>Ledger entries without a time zone appear after the UTC timeline, in their original order.</p>
+    </section>
+    <section aria-labelledby="decision-title">
+      <h2 id="decision-title">Intent and response</h2>
+      <label for="event">Supporting event</label>
+      <select id="event" disabled></select>
+      <p id="selected-observation" class="subtle"></p>
+      <button id="inspect" type="button" disabled>Inspect selected text · Hall of Mirrors</button>
+      <p id="inspection" class="subtle" role="status"></p>
+      <div class="form-grid">
+        <label>Possible intent or attack family<select id="family"></select></label>
+        <label>Confidence<select id="confidence">
+          <option value="unknown">Unknown</option><option value="possible">Possible</option><option value="probable">Probable</option>
+        </select></label>
+      </div>
+      <p id="guidance" class="subtle"></p>
+      <label>Supporting observation or response reason<textarea id="reason" rows="3" maxlength="750"></textarea></label>
+      <button id="review" type="button" disabled>Record intent assessment</button>
+      <div class="form-grid">
+        <label>Response<select id="action"></select></label>
+        <label>Protected asset<input id="asset" maxlength="250" autocomplete="off"></label>
+      </div>
+      <label class="check"><input id="authority" type="checkbox"> I own or am authorized to manage the affected system.</label>
+      <button id="decision" type="button" disabled>Record my decision</button>
+      <p class="subtle">Apply the selected response in your own management console, then record the result here.</p>
+      <ol id="decision-list" class="timeline"></ol>
+    </section>
+    <section aria-labelledby="verify-title">
+      <h2 id="verify-title">Verification</h2>
+      <div class="form-grid">
+        <label>Recorded decision<select id="decision-ref" disabled></select></label>
+        <label>Result<select id="outcome">
+          <option value="still-pending">Still pending</option>
+          <option value="verified-by-owner">Verified by owner</option>
+          <option value="unsuccessful">Unsuccessful</option>
+        </select></label>
+      </div>
+      <label>Verification observation or case reference<input id="verification" maxlength="750" autocomplete="off"></label>
+      <button id="verify" type="button" disabled>Record result</button>
+    </section>
+    <details class="playbook"><summary>A–Z defense playbook</summary><ol id="playbook" type="A"></ol></details>
+  </main>
+</body>
+</html>

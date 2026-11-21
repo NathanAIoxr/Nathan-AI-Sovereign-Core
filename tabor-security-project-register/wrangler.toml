@@ -1,0 +1,10 @@
+name = "tabor-security-project-register"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = true
+[observability.traces]
+enabled = true
