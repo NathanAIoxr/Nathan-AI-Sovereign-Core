@@ -13,6 +13,10 @@ import re
 
 ASSETS = Path(__file__).resolve().parent
 MAX_RECEIPT_BYTES = 2 * 1024 * 1024
+API_ROUTES = {
+    "/api/status": ("getTaborStatus", "Read local receipts for this server and configured providers"),
+    "/api/catalog": ("getTaborCatalog", "Read the source-linked Tabor system and fleet inventory"),
+}
 
 
 def number(value):
@@ -113,6 +117,23 @@ def capture(state):
 
 def handler(state, port):
     html = (ASSETS / "cockpit.html").read_bytes()
+    catalog = (ASSETS / "fleet-catalog.json").read_bytes()
+    openapi = json.dumps({
+        "openapi": "3.0.3",
+        "info": {"title": "Tabor Super 2X + Hypercomputer", "version": "1.0.0"},
+        "servers": [{"url": f"http://127.0.0.1:{port}"}],
+        "paths": {
+            path: {"get": {
+                "operationId": name,
+                "summary": summary,
+                "responses": {"200": {
+                    "description": "Read-only JSON",
+                    "content": {"application/json": {"schema": {"type": "object", "additionalProperties": True}}},
+                }},
+            }}
+            for path, (name, summary) in API_ROUTES.items()
+        },
+    }).encode("utf-8")
     css = re.search(rb"<style>(.*?)</style>", html, re.S)[1]
     js = re.search(rb"<script>(.*?)</script>", html, re.S)[1]
     def hash_source(data):
@@ -129,6 +150,10 @@ def handler(state, port):
                 mime, body = "text/html; charset=utf-8", html
             elif self.path == "/api/status":
                 mime, body = "application/json", json.dumps(capture(state)).encode("utf-8")
+            elif self.path == "/api/catalog":
+                mime, body = "application/json", catalog
+            elif self.path == "/openapi.json":
+                mime, body = "application/json", openapi
             else:
                 self.send_error(404)
                 return
