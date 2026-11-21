@@ -1,13 +1,14 @@
 /** Opt-in one-way synchronization of simulated touch viewport frames into keyboard navigation.
  * Does not modify the pinch controller or claim calibrated yarn physics.
  */
-export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false } = {}) {
+export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () => {}, { suppressUnchanged = false, requireUnitQuaternion = false, rejectInvalidQuaternion = false, rejectInvalidZoom = false } = {}) {
   if (!keyboardController || typeof keyboardController.syncFrame !== 'function' || typeof keyboardController.getFrame !== 'function')
     throw new TypeError('keyboard controller with syncFrame/getFrame required');
   if (typeof onViewportFrame !== 'function') throw new TypeError('viewport callback required');
   if (typeof suppressUnchanged !== 'boolean') throw new TypeError('suppressUnchanged must be boolean');
   if (typeof requireUnitQuaternion !== 'boolean') throw new TypeError('requireUnitQuaternion must be boolean');
   if (typeof rejectInvalidQuaternion !== 'boolean') throw new TypeError('rejectInvalidQuaternion must be boolean');
+  if (typeof rejectInvalidZoom !== 'boolean') throw new TypeError('rejectInvalidZoom must be boolean');
   let active = true;
   let acceptedFrames = 0;
   let rejectedFrames = 0;
@@ -30,6 +31,12 @@ export function bridgeTouchToKeyboard(keyboardController, onViewportFrame = () =
   return Object.freeze({
     onTouchFrame(frame) {
       if (!active) return false;
+      // Optional zoom ingress guard: require a finite positive simulated viewport scale.
+      if (rejectInvalidZoom && (!frame || typeof frame.zoom !== 'number' ||
+          !Number.isFinite(frame.zoom) || frame.zoom <= 0)) {
+        rejectedFrames++;
+        return false;
+      }
       // Optional ingress validation: reject malformed orientations before controller mutation.
       if (rejectInvalidQuaternion && (!frame || !Array.isArray(frame.orientation) ||
           frame.orientation.length !== 4 || !frame.orientation.every(v => typeof v === 'number' && Number.isFinite(v)) ||
