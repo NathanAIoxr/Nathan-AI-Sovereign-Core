@@ -4,10 +4,11 @@ Run the first receipt on NUTSY from this checkout. The hostname check confirms w
 
 ```sh
 python3 integrations/nutsy/federation.py --expect-host nathan-1 \
-  --filesystem /opt/conductor --output ~/.local/state/nutsy/federation.json
+  --filesystem /opt/conductor --ledger /opt/conductor/data/ledger.db \
+  --output ~/.local/state/nutsy/federation.json
 ```
 
-The receipt identifies the OS, kernel, CPU count, system memory, and the filesystem serving Conductor. It reads the existing Cloudflare endpoints with bounded HTTPS requests and records source integrity hashes. Exit 2 means an endpoint failed or the federation's manifest count differed from its assigned task count. The receipt still records which sources responded. Host measurements remain local.
+The receipt identifies the OS, kernel, CPU count, system memory, and the filesystem serving Conductor. It reads the existing Cloudflare endpoints with bounded HTTPS requests and records source integrity hashes. Exit 2 means an endpoint failed or the federation's manifest count differed from its assigned task count. The receipt still records which sources responded. Host measurements remain local. The optional `--ledger` flag uses the existing read-only WAL reconciler and includes local queue counts, the deterministic BUILD/CLEAR receipt, and the digest of the recovered source catalog. Use the actual ledger path configured on NUTSY if it differs. The final `receipt_sha256` covers the canonical JSON of all other receipt fields.
 
 | Existing layer | What the connection reports |
 |---|---|
