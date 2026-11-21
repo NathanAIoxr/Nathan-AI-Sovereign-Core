@@ -1,0 +1,45 @@
+{
+  "schema": "nutsy.project-catalog.v1",
+  "projects": {
+    "NUTSY the RESOLUTE RACCOON / HEAR YE / HEAR YA": {
+      "evidence": "Cockpit and existing Conductor contract documented in issue #540. Keep the original directive, readback, exceptions, approved GO and worker receipt distinct.",
+      "next": "Obtain the first approved D1 receipt and verify it by exact ID and value. Confirm active server-side validation before routing operational jobs."
+    },
+    "GitHub, Cloudflare and Ubuntu Conductor": {
+      "evidence": "Authenticated Ubuntu health responds. Existing operations include reviewable D1_WRITE, R2_UPLOAD and GIT_PUSH. Cloudflare Workers, KV, D1, R2 and Tunnels are separate components. SQLite WAL is the local staging design.",
+      "next": "Verify each live binding and queue consumer independently. Use GitHub for versioning and CI, Cloudflare for edge services and bounded workloads, and Ubuntu for local orchestration."
+    },
+    "DMSP + DIT and open-source enterprise replacement": {
+      "evidence": "Merged PR #356 and app-factory/nathan-ai/dmsp-dit document the portal and 28 department definitions. API validation passed. Customer operations and continuous endpoint monitoring need independent evidence.",
+      "next": "Close historical CI regressions where still reproducible. Inventory enterprise software replacements by function, migration test and rollback. Verify tenant scope before enrolling real endpoints."
+    },
+    "Sovereign Supercomputer, decentralized compute and SDI/SDDC": {
+      "evidence": "Merged PR #323 reports 65,536 FP64 operations across eight calls. Draft restoration PR #314 remains a separate CI and integration effort. A workload operation count is not a throughput benchmark.",
+      "next": "Measure operation rate, latency and failure recovery with fixed input and independently reproduced checksums. Track host CPU, HBM/memory, accelerator, interconnect, NIC and NVMe as separate resource models. Record device authorization and actual capacity before enrollment."
+    },
+    "Tabor Chips, Ethos TQC-Nano / SpiralTensorX, DS-RAM and Sovereign SSD": {
+      "evidence": "Draft PR #314 documents Tabor Chips and digital hardware restoration. Specifications and design references cover hybrid quantum-classical processing, software-defined accelerator interfaces, memory and storage. Physical measurements for these named modules are unverified.",
+      "next": "Locate exact source revisions. Verify simulator outputs against reference vectors and keep physical-device measurements separate from emulation and benchmarking targets."
+    },
+    "Low-power devices, GaN and Bluetooth IMU": {
+      "evidence": "Design inventory includes low-power CPU/GPU systems, GaN RF power conversion and Bluetooth IMU motion analysis.",
+      "next": "Recover implementations and establish separate verification for sensor replay, device calibration and physical power measurements."
+    },
+    "Sovereign Defender / Dehack / Deliver": {
+      "evidence": "Local defensive source is tracked in PRs #97, #111 and #320, including owner-local triage, integrity, recovery and inert exercises.",
+      "next": "Verify local file-integrity and backup restoration on explicitly enrolled systems using inert fixtures."
+    },
+    "BLACKJACK Wireless Module / UNCOMMS / Truthstream Network": {
+      "evidence": "Design references name Wi-Fi and offline mesh communications. A working end-to-end deployment has not been verified here.",
+      "next": "Recover exact source and verify delivery, integrity, disconnection and rejoin between owned, enrolled devices."
+    },
+    "ACT AI / Nathan AI / Groundskeeper AI": {
+      "evidence": "The existing listen-first design defines directive, readback, explicit GO and worker result. Individual worker ownership and runtime coverage remain to be verified.",
+      "next": "Bind readback and approval to the same request and scope. Check bounded, idempotent execution, durable receipts and independent readback per registered job."
+    },
+    "Personal Intelligence and preservation": {
+      "evidence": "Project sources span private records, GitHub and deployed services. The source record, derived digital representation and verification evidence have different lifecycles.",
+      "next": "Import private material under owner access using source references and checksums. Keep exact originals and revision history. Use CLEAR for a derived record or inactive allocation without deleting the preserved original."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "tabor.portable-fleet-catalog.v1",
+  "name": "Tabor Super 2X + Hypercomputer",
+  "evidence_date": "2026-11-21",
+  "anchors": {"build_binary": "10", "clear_binary": "0", "pi_design": "3.14", "phi_design": "1.618"},
+  "resources": [
+    {"id":"tabor-super2x-slots","name":"Tabor Super 2X computers","quantity":1000,"unit":"slots","state":"reserved in GitHub policy","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/nathan-ai-rocket-conductor/bitcoin-fleet-policy.json"},
+    {"id":"tabor-hyper-slots","name":"Tabor Hypercomputers","quantity":1000,"unit":"slots","state":"separate reservation pool","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/nathan-ai-rocket-conductor/bitcoin-fleet-policy.json"},
+    {"id":"durable-object-cohort","name":"Cloudflare Supercomputer Federation","quantity":1000,"unit":"logical task receipts","state":"verified at the previously observed endpoint","source":"https://tabor-supercomputer-federation.nathantaboract.workers.dev/v1/tasks"},
+    {"id":"fleet-hardware","name":"Fleet hardware enrollment","quantity":0,"unit":"hosts","state":"direct D1 count; zero heartbeats","source":"https://tabor-bridge.nathantaboract.workers.dev/rocket-conductor/api/status"},
+    {"id":"sovereign-fp64","name":"Sovereign 2X+ compute","quantity":311,"unit":"compute receipts","state":"observed D1 count","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/323"},
+    {"id":"sovereign-mesh","name":"Sovereign 2X+ mesh","quantity":272,"unit":"mesh receipts","state":"observed D1 count","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/323"},
+    {"id":"nutsy-control","name":"NUTSY / HEAR YE / HEAR YA / Conductor","quantity":null,"state":"local receipts and dispatch reference","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/541"},
+    {"id":"dmsp-dit","name":"DMSP + DIT","quantity":28,"unit":"departments","state":"observed D1 count","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/356"},
+    {"id":"hardware-tracks","name":"Tabor Chips","quantity":18,"unit":"engineering tracks","state":"source inventory","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/8d304bea94ab15fa73221a2af7a00d0830f16bac/integrations/nutsy/recovered-sources.json"},
+    {"id":"digital-models","name":"Digital CPU, memory, disk, networking and infrastructure","quantity":16,"unit":"model families","state":"source inventory","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/8d304bea94ab15fa73221a2af7a00d0830f16bac/integrations/nutsy/recovered-sources.json"},
+    {"id":"nvidia","name":"NVIDIA systems and accelerators","quantity":11,"unit":"comparison references","state":"cataloged","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/8d304bea94ab15fa73221a2af7a00d0830f16bac/integrations/nutsy/recovered-sources.json"},
+    {"id":"cloud-slayer","name":"Cloud Slayer / Hypercomputer / SOS","quantity":null,"state":"provider inventory and shared module views","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/395"},
+    {"id":"github-stations","name":"Tabor independent app stations","quantity":530,"unit":"pinned manifest paths","state":"source release","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/414"},
+    {"id":"master-registry","name":"Tabor Labs Master Registry","quantity":6056,"unit":"archive rows","state":"recovery inventory","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/528"},
+    {"id":"tech-index","name":"Tabor technology concordance","quantity":383,"unit":"technical records","state":"recovery inventory","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/528"},
+    {"id":"writing-index","name":"Tabor writing index","quantity":2761,"unit":"index entries","state":"recovery inventory","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/528"},
+    {"id":"cloud-services","name":"Cloudflare Workers, Durable Objects, D1, R2 and Tunnel","quantity":null,"state":"provider integration references","source":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/541"}
+  ]
+}
