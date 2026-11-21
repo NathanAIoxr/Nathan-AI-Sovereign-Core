@@ -4,28 +4,86 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#101c1e">
   <title>Nathan AI — Sudoku Master</title>
   <link rel="stylesheet" href="./sudoku.css">
 </head>
 <body>
-  <main>
-    <header><a href="./index.html">App station</a><h1>Sudoku Master</h1><p>Nathan AI · Nathan Tabor</p></header>
-    <section aria-label="Sudoku board">
-      <div class="toolbar">
-        <label for="level">Difficulty</label>
-        <select id="level"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select>
-        <button id="new" type="button">New puzzle</button>
+  <main class="workspace">
+    <header>
+      <a href="./index.html">App station</a>
+      <h1>Sudoku Master</h1>
+      <p>Nathan AI · Nathan Tabor</p>
+    </header>
+    <nav class="mode-nav" aria-label="Sudoku modes">
+      <button type="button" data-mode="play" aria-pressed="true">Play</button>
+      <button type="button" data-mode="trainer" aria-pressed="false">Sudoku 1012</button>
+      <button type="button" data-mode="breaker" aria-pressed="false">Sudoku Breaker</button>
+    </nav>
+    <section id="play-area" class="play-layout" aria-label="Sudoku board">
+      <div class="game">
+        <div id="classic-tools" class="toolbar">
+          <label for="level">Difficulty</label>
+          <select id="level"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select>
+          <button id="new" type="button">New puzzle</button>
+        </div>
+        <div id="lesson-tools" class="toolbar" hidden>
+          <label for="lesson">Technique</label>
+          <select id="lesson"></select>
+          <button id="restart" type="button">Restart lesson</button>
+        </div>
+        <div class="board-frame">
+          <div id="board" role="group" aria-label="Puzzle cells"></div>
+        </div>
+        <div id="numbers" role="group" aria-label="Number pad"></div>
+        <div id="ox-pad" role="group" aria-label="Candidate eliminations" hidden></div>
+        <div class="actions">
+          <button id="notes" type="button" aria-pressed="false">Notes</button>
+          <button id="erase" type="button">Erase</button>
+          <button id="hint" type="button">Hint</button>
+          <button id="check" type="button">Check</button>
+          <button id="solve" type="button">Solve</button>
+        </div>
       </div>
-      <div id="board" aria-label="Puzzle cells"></div>
-      <div id="numbers" aria-label="Number pad"></div>
-      <div class="actions">
-        <button id="notes" type="button" aria-pressed="false">Notes</button>
-        <button id="erase" type="button">Erase</button>
-        <button id="hint" type="button">Hint</button>
-        <button id="check" type="button">Check</button>
-        <button id="solve" type="button">Solve</button>
-      </div>
-      <p id="status" role="status" aria-live="polite"></p>
+      <aside class="tools" aria-label="Puzzle tools">
+        <section class="panel" id="lesson-panel" hidden>
+          <h2>Sudoku 1012</h2>
+          <p>The Past Master’s Path</p>
+          <h3 id="technique-title"></h3>
+          <p id="technique-rule"></p>
+          <p id="lesson-progress"></p>
+        </section>
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Intersection Radar</h2>
+            <button id="radar" type="button" aria-pressed="true" aria-label="Intersection Radar">On</button>
+          </div>
+          <p id="intersection"></p>
+          <label class="motion"><input id="motion" type="checkbox"> Still highlights</label>
+        </section>
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>OX NOT XO</h2>
+            <button id="ox" type="button" aria-pressed="false" aria-label="OX NOT XO">Off</button>
+          </div>
+          <p id="ox-help">See what fits. Cross out candidates you’ve ruled out.</p>
+        </section>
+        <section class="panel feedback" aria-label="Puzzle feedback">
+          <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <button id="apply" type="button" hidden>Apply this step</button>
+        </section>
+      </aside>
+    </section>
+    <section id="breaker-area" class="panel breaker" aria-labelledby="breaker-title" hidden>
+      <h2 id="breaker-title">Sudoku Breaker</h2>
+      <form id="breaker">
+        <label for="paste">Paste a puzzle</label>
+        <p id="paste-format">Paste 81 cells, nine 9-cell rows, or single cells separated by spaces or commas. Use 0 or a dot for blanks.</p>
+        <textarea id="paste" aria-describedby="paste-format" rows="7" maxlength="512" spellcheck="false" autocapitalize="off"></textarea>
+        <button type="submit">Validate puzzle</button>
+        <button id="play-import" type="button" hidden>Play this puzzle</button>
+        <p id="breaker-status" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
   <script type="module" src="./sudoku.mjs"></script>
