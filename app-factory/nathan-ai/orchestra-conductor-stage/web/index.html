@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171111">
+  <title>Orchestra Conductor Stage · Conductor Dick Tater</title>
+  <link rel="stylesheet" href="./stage.css">
+  <script src="./stage.mjs" type="module"></script>
+</head>
+<body>
+  <header class="top"><div class="wrap bar"><span>Orchestra Conductor Stage</span><span id="status" role="status">Ready for rehearsal</span></div></header>
+  <main class="wrap">
+    <section class="stage" aria-labelledby="conductor">
+      <canvas id="crosshair" aria-hidden="true"></canvas>
+      <div class="marquee">
+        <p>Get down get down get down</p>
+        <h1 id="conductor">Conductor<br><em>Dick Tater</em></h1>
+        <div class="transport">
+          <button type="button" id="play">Start rehearsal</button>
+          <button type="button" id="tap" disabled>TAP THAT <kbd>Space</kbd></button>
+        </div>
+      </div>
+    </section>
+    <div class="desk">
+      <section class="score" aria-labelledby="score-label">
+        <div class="panel-heading"><h2 id="score-label">Score</h2>
+          <span id="position">4/4 · Loop</span></div>
+        <ol id="beats" aria-label="Beat sequence">
+          <li>Stomp</li><li>Stomp</li><li>Clap</li><li>Rest</li>
+        </ol>
+        <fieldset>
+          <legend>Rehearsal</legend>
+          <label><input type="radio" name="score" value="stomp" checked> STOMP, STOMP, CLAP, REST</label>
+          <label><input type="radio" name="score" value="stille"> Stille Nacht · 6/8</label>
+        </fieldset>
+        <p id="feedback" role="status">Start rehearsal, then tap along.</p>
+      </section>
+      <section class="mix" aria-labelledby="mix-label">
+        <div class="panel-heading"><h2 id="mix-label">Tempo</h2><output id="tempo" for="bpm">96 BPM</output></div>
+        <label class="hidden" for="bpm">Beats per minute</label>
+        <input id="bpm" type="range" min="48" max="160" value="96">
+        <div class="range-labels" aria-hidden="true"><span>48</span><span>160</span></div>
+        <label class="mute"><input type="checkbox" id="mute"> Mute percussion</label>
+        <label class="file" for="track">Load your track<input id="track" type="file" accept="audio/*"></label>
+        <audio id="recording" controls hidden preload="metadata"></audio>
+        <p id="track-info" role="status"></p>
+      </section>
+    </div>
+    <footer><a href="https://tabor-standalone.nathantaboract.workers.dev/games/atlas-056/">Orchestra Conductor game</a>
+      <a href="https://tabor-train-operations.nathantaboract.workers.dev/conductors">Conductor archive</a>
+      <a href="https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/">Nathan AI Conductor</a></footer>
+  </main>
+</body>
+</html>
