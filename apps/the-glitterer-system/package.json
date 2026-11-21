@@ -1,0 +1,10 @@
+{
+  "name": "nathan-glitterer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "build": "node --check src/core.mjs"
+  },
+  "type": "module"
+}
